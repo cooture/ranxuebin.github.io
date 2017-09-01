@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>冉学斌的博客</title>
   
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://ranxb.cn/blog/"/>
+  <link href="http://ranxb.cn/"/>
   <updated>2017-08-31T16:00:39.000Z</updated>
-  <id>http://ranxb.cn/blog/</id>
+  <id>http://ranxb.cn/</id>
   
   <author>
     <name>Ran Xuebin</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://ranxb.cn/blog/2017/09/01/hello-world/"/>
-    <id>http://ranxb.cn/blog/2017/09/01/hello-world/</id>
+    <link href="http://ranxb.cn/2017/09/01/hello-world/"/>
+    <id>http://ranxb.cn/2017/09/01/hello-world/</id>
     <published>2017-08-31T16:00:39.000Z</published>
     <updated>2017-08-31T16:00:39.000Z</updated>
     
