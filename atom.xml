@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>冉学斌的博客</title>
   
-  <link href="/atom.xml" rel="self"/>
+  <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://ranxb.cn/blog/"/>
   <updated>2017-08-31T16:00:39.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://ranxb.cn/blog/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Ran Xuebin</name>
     
   </author>
   
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/09/01/hello-world/"/>
-    <id>http://yoursite.com/2017/09/01/hello-world/</id>
+    <link href="http://ranxb.cn/blog/2017/09/01/hello-world/"/>
+    <id>http://ranxb.cn/blog/2017/09/01/hello-world/</id>
     <published>2017-08-31T16:00:39.000Z</published>
     <updated>2017-08-31T16:00:39.000Z</updated>
     
