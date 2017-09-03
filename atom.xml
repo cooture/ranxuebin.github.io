@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>冉学斌的博客</title>
-  
+  <title>Ran Xuebin&#39;s Blog</title>
+  <subtitle>永远相信美好的事情即将发生</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
@@ -9,7 +9,7 @@
   <id>http://ranxb.cn/</id>
   
   <author>
-    <name>Ran Xuebin</name>
+    <name>冉学斌</name>
     
   </author>
   
