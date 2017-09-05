@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-09-03T15:31:17.000Z</updated>
+  <updated>2017-09-05T01:20:01.000Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近期的一些更新计划</title>
+    <link href="http://ranxb.cn/2017/09/05/%E8%BF%91%E6%9C%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9B%B4%E6%96%B0%E8%AE%A1%E5%88%92/"/>
+    <id>http://ranxb.cn/2017/09/05/近期的一些更新计划/</id>
+    <published>2017-09-05T01:17:45.000Z</published>
+    <updated>2017-09-05T01:20:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#近期的一些更新计划  </p>
+<blockquote>
+<p>刚接触Blog没多久所以想写的东西有点多，但是这玩意吧~他得用MarkDown语法写，挺别扭的，我还得学一学，所以先列一下自己最近想要写的一些东西（可能刚开始都是比较基础的，但是还是主要做给自己看，相当于笔记的东西吧，但是因为在公网上，还是认认真真写比较好）。</p>
+</blockquote>
+<p><strong>MarkDown的一些基本语法<br>Linux的一些命令操作（持续更新）<br>常用的默认网络端口号<br>Linux布置http环境<br>个人Blog——Hexo在GitHub上的配置</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      刚刚建了Blog的一些计划
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://ranxb.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="http://ranxb.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>第一篇文章</title>
