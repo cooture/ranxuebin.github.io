@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-09-05T01:20:01.000Z</updated>
+  <updated>2017-09-08T03:30:38.000Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -16,14 +16,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux的常用命令（持续更新）</title>
+    <link href="http://ranxb.cn/2017/09/08/Linux%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/</id>
+    <published>2017-09-08T03:16:06.000Z</published>
+    <updated>2017-09-08T03:30:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux的常用命令行"><a href="#Linux的常用命令行" class="headerlink" title="Linux的常用命令行"></a>Linux的常用命令行</h1><h2 id="基本入门操作"><a href="#基本入门操作" class="headerlink" title="基本入门操作"></a>基本入门操作</h2><pre><code>cd        --更换当前目录或文件夹
+rm        --删除文件（删除目录加  -r 控制符）
+mkdir        --创建文件夹
+rmdir        --删除文件夹（只能是空的）
+pwd        --显示当前目录
+cp        --复制文件
+ls        --显示当前目录下的文件
+mvdir        --移动文件夹（可用作重命名操作）
+</code></pre><h2 id="网络操作"><a href="#网络操作" class="headerlink" title="网络操作"></a>网络操作</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Linux的常用命令行&quot;&gt;&lt;a href=&quot;#Linux的常用命令行&quot; class=&quot;headerlink&quot; title=&quot;Linux的常用命令行&quot;&gt;&lt;/a&gt;Linux的常用命令行&lt;/h1&gt;&lt;h2 id=&quot;基本入门操作&quot;&gt;&lt;a href=&quot;#基本入门操作&quot; cla
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>近期的一些更新计划</title>
     <link href="http://ranxb.cn/2017/09/05/%E8%BF%91%E6%9C%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%9B%B4%E6%96%B0%E8%AE%A1%E5%88%92/"/>
     <id>http://ranxb.cn/2017/09/05/近期的一些更新计划/</id>
     <published>2017-09-05T01:17:45.000Z</published>
-    <updated>2017-09-05T01:20:01.000Z</updated>
+    <updated>2017-09-08T03:31:04.000Z</updated>
     
-    <content type="html"><![CDATA[<p>#近期的一些更新计划  </p>
-<blockquote>
+    <content type="html"><![CDATA[<h1 id="近期的一些更新计划"><a href="#近期的一些更新计划" class="headerlink" title="近期的一些更新计划"></a>近期的一些更新计划</h1><blockquote>
 <p>刚接触Blog没多久所以想写的东西有点多，但是这玩意吧~他得用MarkDown语法写，挺别扭的，我还得学一学，所以先列一下自己最近想要写的一些东西（可能刚开始都是比较基础的，但是还是主要做给自己看，相当于笔记的东西吧，但是因为在公网上，还是认认真真写比较好）。</p>
 </blockquote>
 <p><strong>MarkDown的一些基本语法<br>Linux的一些命令操作（持续更新）<br>常用的默认网络端口号<br>Linux布置http环境<br>个人Blog——Hexo在GitHub上的配置</strong></p>
@@ -47,9 +78,12 @@
     <link href="http://ranxb.cn/2017/09/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
     <id>http://ranxb.cn/2017/09/03/第一篇文章/</id>
     <published>2017-09-03T14:42:24.000Z</published>
-    <updated>2017-09-03T15:31:17.000Z</updated>
+    <updated>2017-09-08T03:34:51.000Z</updated>
     
-    <content type="html"><![CDATA[<p>我的<br>第一篇文章</p>
+    <content type="html"><![CDATA[<h1 id="这是第一篇文章～"><a href="#这是第一篇文章～" class="headerlink" title="这是第一篇文章～"></a>这是第一篇文章～</h1><blockquote>
+<p>我就试试看能不能成功。</p>
+</blockquote>
+<p>我的<br>第一篇文章</p>
 ]]></content>
     
     <summary type="html">
@@ -61,11 +95,11 @@
       <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
     
     
-      <category term="新手" scheme="http://ranxb.cn/tags/%E6%96%B0%E6%89%8B/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
       <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
+    
+      <category term="新手" scheme="http://ranxb.cn/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   
@@ -74,7 +108,7 @@
     <link href="http://ranxb.cn/2017/09/01/hello-world/"/>
     <id>http://ranxb.cn/2017/09/01/hello-world/</id>
     <published>2017-08-31T16:00:39.000Z</published>
-    <updated>2017-08-31T16:00:39.000Z</updated>
+    <updated>2017-09-08T03:32:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -93,6 +127,8 @@
     
     </summary>
     
+    
+      <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
     
   </entry>
   
