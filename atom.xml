@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-09-27T17:00:28.000Z</updated>
+  <updated>2017-09-27T17:03:02.000Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://ranxb.cn/2017/09/28/%E5%9C%A8Android%E4%B8%ADMenu%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://ranxb.cn/2017/09/28/在Android中Menu的使用/</id>
     <published>2017-09-27T16:58:26.000Z</published>
-    <updated>2017-09-27T17:00:28.000Z</updated>
+    <updated>2017-09-27T17:03:02.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="在Android中Menu的使用"><a href="#在Android中Menu的使用" class="headerlink" title="在Android中Menu的使用"></a>在Android中Menu的使用</h1><p>##Menu的分类</p>
-<ol>
+    <content type="html"><![CDATA[<h1 id="在Android中Menu的使用"><a href="#在Android中Menu的使用" class="headerlink" title="在Android中Menu的使用"></a>在Android中Menu的使用</h1><h2 id="Menu的分类"><a href="#Menu的分类" class="headerlink" title="Menu的分类"></a>Menu的分类</h2><ol>
 <li>选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单</li>
 <li>上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框</li>
 <li>弹出菜单，当用户点击某个 View 视图是弹出的菜单</li>
@@ -142,8 +141,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
     
     <summary type="html">
     
-      &lt;h1 id=&quot;在Android中Menu的使用&quot;&gt;&lt;a href=&quot;#在Android中Menu的使用&quot; class=&quot;headerlink&quot; title=&quot;在Android中Menu的使用&quot;&gt;&lt;/a&gt;在Android中Menu的使用&lt;/h1&gt;&lt;p&gt;##Menu的分类&lt;/p&gt;
-
+      &lt;h1 id=&quot;在Android中Menu的使用&quot;&gt;&lt;a href=&quot;#在Android中Menu的使用&quot; class=&quot;headerlink&quot; title=&quot;在Android中Menu的使用&quot;&gt;&lt;/a&gt;在Android中Menu的使用&lt;/h1&gt;&lt;h2 id=&quot;Menu的分类&quot;&gt;
     
     </summary>
     
@@ -236,9 +234,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
     
       <category term="新手" scheme="http://ranxb.cn/tags/%E6%96%B0%E6%89%8B/"/>
     

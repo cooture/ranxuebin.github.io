@@ -22,17 +22,17 @@
     
     
     <meta name="keywords" content="Android,入门">
-    <meta name="description" content="在Android中Menu的使用##Menu的分类  选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的">
+    <meta name="description" content="在Android中Menu的使用Menu的分类 选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的基本属">
 <meta name="keywords" content="Android,入门">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Android中Menu的使用">
 <meta property="og:url" content="http://ranxb.cn/2017/09/28/在Android中Menu的使用/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="在Android中Menu的使用##Menu的分类  选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的">
-<meta property="og:updated_time" content="2017-09-27T17:00:28.000Z">
+<meta property="og:description" content="在Android中Menu的使用Menu的分类 选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的基本属">
+<meta property="og:updated_time" content="2017-09-27T17:03:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Android中Menu的使用">
-<meta name="twitter:description" content="在Android中Menu的使用##Menu的分类  选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的">
+<meta name="twitter:description" content="在Android中Menu的使用Menu的分类 选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的基本属">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -167,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在Android中Menu的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">在Android中Menu的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前提准备"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">前提准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用XML定义Menu"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用XML定义Menu</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选项菜单的添加"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">选项菜单的添加</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加XML文件中的Menu"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">添加XML文件中的Menu</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在Java代码中动态定义Menu"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">在Java代码中动态定义Menu</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上下文菜单"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">上下文菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#子菜单"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">子菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加单击事件"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">添加单击事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上下文菜单-1"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">上下文菜单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PopMenu"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">PopMenu</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在Android中Menu的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">在Android中Menu的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Menu的分类"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Menu的分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前提准备"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">前提准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用XML定义Menu"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">使用XML定义Menu</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选项菜单的添加"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">选项菜单的添加</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加XML文件中的Menu"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">添加XML文件中的Menu</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在Java代码中动态定义Menu"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">在Java代码中动态定义Menu</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上下文菜单"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">上下文菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#子菜单"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">子菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加单击事件"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">添加单击事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上下文菜单-1"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">上下文菜单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PopMenu"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">PopMenu</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -192,8 +192,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="在Android中Menu的使用"><a href="#在Android中Menu的使用" class="headerlink" title="在Android中Menu的使用"></a>在Android中Menu的使用</h1><p>##Menu的分类</p>
-<ol>
+            <h1 id="在Android中Menu的使用"><a href="#在Android中Menu的使用" class="headerlink" title="在Android中Menu的使用"></a>在Android中Menu的使用</h1><h2 id="Menu的分类"><a href="#Menu的分类" class="headerlink" title="Menu的分类"></a>Menu的分类</h2><ol>
 <li>选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单</li>
 <li>上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框</li>
 <li>弹出菜单，当用户点击某个 View 视图是弹出的菜单</li>
@@ -315,7 +314,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-09-27T17:00:28.000Z" itemprop="dateUpdated">2017-09-28 01:00:28</time>
+    Last updated: <time datetime="2017-09-27T17:03:02.000Z" itemprop="dateUpdated">2017-09-28 01:03:02</time>
 </span><br>
 
 
