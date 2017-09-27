@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2017/09/28/在Android中Menu的使用/">
+    
+    
+    <title>在Android中Menu的使用 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,入门">
+    <meta name="description" content="在Android中Menu的使用##Menu的分类  选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的">
+<meta name="keywords" content="Android,入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Android中Menu的使用">
+<meta property="og:url" content="http://ranxb.cn/2017/09/28/在Android中Menu的使用/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="在Android中Menu的使用##Menu的分类  选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的">
+<meta property="og:updated_time" content="2017-09-27T17:00:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Android中Menu的使用">
+<meta name="twitter:description" content="在Android中Menu的使用##Menu的分类  选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单 上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框 弹出菜单，当用户点击某个 View 视图是弹出的菜单  前提准备 java创建了menu对象 使用XML方法定义Menu要在XML文件中正确填写并添加ID  使用XML定义Menu XML文件的">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">在Android中Menu的使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">在Android中Menu的使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-27T16:58:26.000Z" itemprop="datePublished" class="page-time">
+  2017-09-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在Android中Menu的使用"><span class="post-toc-number">1.</span> <span class="post-toc-text">在Android中Menu的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前提准备"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">前提准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用XML定义Menu"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用XML定义Menu</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选项菜单的添加"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">选项菜单的添加</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加XML文件中的Menu"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">添加XML文件中的Menu</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在Java代码中动态定义Menu"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">在Java代码中动态定义Menu</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上下文菜单"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">上下文菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#子菜单"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">子菜单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加单击事件"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">添加单击事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上下文菜单-1"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">上下文菜单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PopMenu"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">PopMenu</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-在Android中Menu的使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">在Android中Menu的使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-28 00:58:26" datetime="2017-09-27T16:58:26.000Z"  itemprop="datePublished">2017-09-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="在Android中Menu的使用"><a href="#在Android中Menu的使用" class="headerlink" title="在Android中Menu的使用"></a>在Android中Menu的使用</h1><p>##Menu的分类</p>
+<ol>
+<li>选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单</li>
+<li>上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框</li>
+<li>弹出菜单，当用户点击某个 View 视图是弹出的菜单</li>
+</ol>
+<h2 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h2><ol>
+<li>java创建了menu对象</li>
+<li>使用XML方法定义Menu要在XML文件中正确填写并添加ID</li>
+</ol>
+<h2 id="使用XML定义Menu"><a href="#使用XML定义Menu" class="headerlink" title="使用XML定义Menu"></a>使用XML定义Menu</h2><blockquote>
+<p>XML文件的基本属性  </p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;item
+        android:id=&quot;@+id/daxiao&quot;
+        android:title=&quot;设置字体大小&quot;
+        android:orderInCategory=&quot;3&quot;&gt;
+    &lt;/item&gt;
+    &lt;item
+        android:id=&quot;@+id/yanse&quot;
+        android:title=&quot;设置字体颜色&quot;
+        android:orderInCategory=&quot;2&quot;
+        &gt;
+    &lt;/item&gt;
+    &lt;item
+        android:id=&quot;@+id/shuxing&quot;
+        android:title=&quot;设置字体属性&quot;
+        android:orderInCategory=&quot;1&quot;&gt;
+
+    &lt;/item&gt;
+&lt;/menu&gt;
+
+                &lt;!--
+                    android:id=&quot;@+id/lalala_mune&quot;  设置id
+                    android:title=&quot;设置字体大小&quot;      设置title
+                    android:orderInCategory=&quot;3&quot;     显示顺序
+                --&gt;
+</code></pre><blockquote>
+<p>Menu 菜单的嵌套使用规则  </p>
+</blockquote>
+<ol>
+<li>Item 中可以嵌套 menu，但是不能嵌套 group</li>
+<li>Menu 中既可以嵌套 group，又可以嵌套 item。</li>
+<li>Group 中只能嵌套 item，不能嵌套 menu</li>
+</ol>
+<h2 id="选项菜单的添加"><a href="#选项菜单的添加" class="headerlink" title="选项菜单的添加"></a>选项菜单的添加</h2><h3 id="添加XML文件中的Menu"><a href="#添加XML文件中的Menu" class="headerlink" title="添加XML文件中的Menu"></a>添加XML文件中的Menu</h3><blockquote>
+<p>选项菜单需要重写在在java代码中重写onCreateOptionsMenu(Menu menu)方法  </p>
+</blockquote>
+<pre><code>public boolean onCreateOptionsMenu(Menu menu) {
+    /*第一步需要加载菜单选项*/
+    /*菜单填充器将菜单获取然后添加至active中*/
+    /*第一种比较麻烦的方法*/
+    /*MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.options_menu,menu);*/
+    /*第二种方法*/
+    getMenuInflater().inflate(R.menu.options_menu,menu);
+
+    return true;
+}
+</code></pre><h3 id="在Java代码中动态定义Menu"><a href="#在Java代码中动态定义Menu" class="headerlink" title="在Java代码中动态定义Menu"></a>在Java代码中动态定义Menu</h3><blockquote>
+<p>可以在java代码中的onCreateOptionsMenu(Menu menu)方法中使用menu.add()方法动态定义增加Menu</p>
+</blockquote>
+<pre><code>/*另外可以通过代码添加menu项*/
+//menu.add(group id,itmeid  自己设置);里面填menu的分组  group可以是itme的父标签
+menu.add(Menu.NONE,ITMEID,Menu.NONE,&quot;lalala我是后设置的&quot;);
+</code></pre><h2 id="上下文菜单"><a href="#上下文菜单" class="headerlink" title="上下文菜单"></a>上下文菜单</h2><blockquote>
+<p>定义后添加的方法与选项菜单类似<br>当用户长按 Activity 页面时，弹出的菜单我们称为上下文菜单。我们经常在 Windows 中用鼠<br>标右键单击弹出的菜单就是上下文菜单。</p>
+</blockquote>
+<ol>
+<li>覆盖 Activity 的 onCreateContextMenu()方法，调用 Menu 的 add 方法添加菜单项<br>MenuItem</li>
+<li>覆盖 onContextItemSelected()方法，响应菜单单击事件</li>
+<li>调用 registerForContextMenu()方法，为视图注册上下文菜单</li>
+</ol>
+<h2 id="子菜单"><a href="#子菜单" class="headerlink" title="子菜单"></a>子菜单</h2><blockquote>
+<p>定义后添加的方法与选项菜单类似<br>子菜单就是将相同功能的分组进行多级显示的一种菜单，比如，Windows 的“文件”菜单中就<br>有“新建”，“打开”，“关闭”等子菜单。创建子菜单的方法</p>
+</blockquote>
+<ol>
+<li>覆盖 Activity 的 onCreateOptionsMenu()方法，调用 Menu 的 addSubMenu()方法 添加子菜单项</li>
+<li>调用 SubMenu 的 add()饭饭，添加子菜单项</li>
+<li>覆盖 onCreateItemSelected()方法，响应菜单单击事件</li>
+</ol>
+<h2 id="添加单击事件"><a href="#添加单击事件" class="headerlink" title="添加单击事件"></a>添加单击事件</h2><blockquote>
+<p>以下为对于使用XML文件加载的选项菜单为例<br>选项菜单需要重写onOptionsItemSelected(MenuItem item)方法使其触发  </p>
+</blockquote>
+<pre><code> /**
+ * !!只针对选项菜单!!
+ * 当选项菜单被选中时调用的方法
+ * @param item  表示菜单项对象
+ * @return      false表示不进行处理
+ */
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    //对于使用XML文件加载的菜单
+    int itemid = item.getItemId();//获取触发的item的id
+    float a;
+    switch (itemid) {
+        case R.id.daxiao:
+            a =  ceshi.getTextSize();
+            Toast.makeText(MainActivity.this,&quot;&quot;+a,Toast.LENGTH_SHORT).show();
+            if (a==100) ceshi.setTextSize(TypedValue.COMPLEX_UNIT_PX,50);
+                else ceshi.setTextSize(TypedValue.COMPLEX_UNIT_PX,100);
+            break;
+        case R.id.yanse:
+            //随机生成颜色
+            int red = (int) (Math.random()*256);
+            int green = (int) (Math.random()*256);
+            int blue = (int) (Math.random()*256);
+            ceshi.setTextColor(Color.rgb(red,green,blue));
+            break;
+    }
+    return super.onOptionsItemSelected(item);
+}
+</code></pre><h3 id="上下文菜单-1"><a href="#上下文菜单-1" class="headerlink" title="上下文菜单"></a>上下文菜单</h3><p>上下文菜单:上下文菜单是和某一种控件绑定使用的，也就是说每个控件只有注册了上下文菜单，并且长 按时弹出的菜单就是上下文菜单，<br>上下文菜单加载菜单是通过重写 onCreateContextMenu()来完成的，<br>上下文菜单的 点击事件是通过抽重写 onContextItemSelected()方法来实现的</p>
+<h3 id="PopMenu"><a href="#PopMenu" class="headerlink" title="PopMenu"></a>PopMenu</h3><p>是通过创建 popMenu 的对象，再通过菜单加载器将其加载进来的， popMenu 的点击事件是通过 popMenu.setOnMenuItemClickListener()方法实现的。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-09-27T17:00:28.000Z" itemprop="dateUpdated">2017-09-28 01:00:28</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/&title=《在Android中Menu的使用》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/&title=《在Android中Menu的使用》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/09/28/在Android中Menu的使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在Android中Menu的使用》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/08/Linux的常用命令（持续更新）/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux的常用命令（持续更新）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/&title=《在Android中Menu的使用》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/&title=《在Android中Menu的使用》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/09/28/在Android中Menu的使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在Android中Menu的使用》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/09/28/在Android中Menu的使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aS24CMRAFwNz/0mQbCQHvtQFl7PIKITPjYtHqj39+4nX7sx59c//9/f7k8/0z37YwMDAuy7g9XQnjE5j8bBgYGOcwHkWwfE/+zfOds/diYGBgtK98nt4lT8bAwMBYYbRHbEMwBgYGxkoR2yZ2yc62VH5DLY6BgXFBRt51//7nj8w3MDAwLsW4lWslXOZJYX0qDAyMrRl5gKsfGj9nFnAxMDDOYXyiNTa7QlH869/p8GFgYPwzRttuy9O7nD0rbosMFwMD47KMdpA5a9bnsDwcv5hyYGBgbMRIhoWzNlneblsZnWJgYJzAWDnibNzYsot3YWBgbMpIWl2zaxl5epc0/l6EYwwMjAMYswRxtrMdTkQFMAYGxmGM9pJEUpq2Q9O83G3mnBgYGFdlrATEWXuuTQrr4SUGBsZ2jJXrWW3LbNZKG94ZwcDA2JQxS91mx8pHDtHzMTAwtmbkJWgSXlf2zEIwBgbGaYxZ2E2adCvpZhGIMTAwjmGsDBrbQLkyEB023TAwMC7OyAeH7cWv97bzoiIWAwNjU0Z75SIPo7MLHPXbMTAwNmXcyrVSiK7zitwWAwNjI0bbOGt/nF/FSEJ2lCBiYGBsypiFyKS8nIXy9gwYGBjnMPLAN2vSJcg2iGNgYGC0jLbQXd8T3ezAwMA4mJGEwpWxZXJR4w0BFwMD41KMpIhtBwYrSWTd/sPAwNiakf8sTwpnlyfaIIuBgXEA4xeFWbJQKRrgewAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
