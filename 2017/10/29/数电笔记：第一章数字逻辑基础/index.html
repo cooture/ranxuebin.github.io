@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/">
+    
+    
+    <title>数电笔记：第一章数字逻辑基础 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="笔记,数字电路">
+    <meta name="description" content="数电笔记2017-10-29第一章    数字逻辑基础 模拟信号电信号  二进制的转换按权展开 整数转换除2取余 纯小数转换乘2取整 十进制转R进制数的转换整数转换除R取余 纯小数转换乘R取整 二、八、十六进制数之间的转换三位二进制为一个八进制四位二进制为一个十六进制       例如：二进制转八进制从小数点向左或向右分别按三位一组转换为八进制，最后不满三位的用零补齐    带符号数的代码表示一个">
+<meta name="keywords" content="笔记,数字电路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数电笔记：第一章数字逻辑基础">
+<meta property="og:url" content="http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="数电笔记2017-10-29第一章    数字逻辑基础 模拟信号电信号  二进制的转换按权展开 整数转换除2取余 纯小数转换乘2取整 十进制转R进制数的转换整数转换除R取余 纯小数转换乘R取整 二、八、十六进制数之间的转换三位二进制为一个八进制四位二进制为一个十六进制       例如：二进制转八进制从小数点向左或向右分别按三位一组转换为八进制，最后不满三位的用零补齐    带符号数的代码表示一个">
+<meta property="og:updated_time" content="2017-10-29T16:09:03.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数电笔记：第一章数字逻辑基础">
+<meta name="twitter:description" content="数电笔记2017-10-29第一章    数字逻辑基础 模拟信号电信号  二进制的转换按权展开 整数转换除2取余 纯小数转换乘2取整 十进制转R进制数的转换整数转换除R取余 纯小数转换乘R取整 二、八、十六进制数之间的转换三位二进制为一个八进制四位二进制为一个十六进制       例如：二进制转八进制从小数点向左或向右分别按三位一组转换为八进制，最后不满三位的用零补齐    带符号数的代码表示一个">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数电笔记：第一章数字逻辑基础</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数电笔记：第一章数字逻辑基础</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-29T15:05:21.000Z" itemprop="datePublished" class="page-time">
+  2017-10-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数电笔记2017-10-29"><span class="post-toc-number">1.</span> <span class="post-toc-text">数电笔记2017-10-29</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一章-数字逻辑基础"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">第一章    数字逻辑基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二进制的转换"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">二进制的转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#整数转换"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">整数转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#纯小数转换"><span class="post-toc-number">1.1.1.2.</span> <span class="post-toc-text">纯小数转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#十进制转R进制数的转换"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">十进制转R进制数的转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#整数转换-1"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">整数转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#纯小数转换-1"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">纯小数转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、八、十六进制数之间的转换"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">二、八、十六进制数之间的转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#带符号数的代码表示"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">带符号数的代码表示</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#原码"><span class="post-toc-number">1.1.4.1.</span> <span class="post-toc-text">原码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#反码"><span class="post-toc-number">1.1.4.2.</span> <span class="post-toc-text">反码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#补码"><span class="post-toc-number">1.1.4.3.</span> <span class="post-toc-text">补码</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算机中的运算"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">计算机中的运算</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#码制和字符的代码表示"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">码制和字符的代码表示</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-数电笔记：第一章数字逻辑基础"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数电笔记：第一章数字逻辑基础</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-29 23:05:21" datetime="2017-10-29T15:05:21.000Z"  itemprop="datePublished">2017-10-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="数电笔记2017-10-29"><a href="#数电笔记2017-10-29" class="headerlink" title="数电笔记2017-10-29"></a>数电笔记2017-10-29</h1><h2 id="第一章-数字逻辑基础"><a href="#第一章-数字逻辑基础" class="headerlink" title="第一章    数字逻辑基础"></a>第一章    数字逻辑基础</h2><blockquote>
+<p>模拟信号<br>电信号</p>
+</blockquote>
+<h3 id="二进制的转换"><a href="#二进制的转换" class="headerlink" title="二进制的转换"></a>二进制的转换</h3><pre><code>按权展开
+</code></pre><h4 id="整数转换"><a href="#整数转换" class="headerlink" title="整数转换"></a>整数转换</h4><p><strong><em>除2取余</em></strong></p>
+<h4 id="纯小数转换"><a href="#纯小数转换" class="headerlink" title="纯小数转换"></a>纯小数转换</h4><p><strong><em>乘2取整</em></strong></p>
+<h3 id="十进制转R进制数的转换"><a href="#十进制转R进制数的转换" class="headerlink" title="十进制转R进制数的转换"></a>十进制转R进制数的转换</h3><h4 id="整数转换-1"><a href="#整数转换-1" class="headerlink" title="整数转换"></a>整数转换</h4><p><strong><em>除R取余</em></strong></p>
+<h4 id="纯小数转换-1"><a href="#纯小数转换-1" class="headerlink" title="纯小数转换"></a>纯小数转换</h4><p><strong><em>乘R取整</em></strong></p>
+<h3 id="二、八、十六进制数之间的转换"><a href="#二、八、十六进制数之间的转换" class="headerlink" title="二、八、十六进制数之间的转换"></a>二、八、十六进制数之间的转换</h3><p><strong><em>三位二进制为一个八进制</em></strong><br><strong><em>四位二进制为一个十六进制</em></strong>  </p>
+<blockquote>
+<p>   例如：二进制转八进制从小数点向左或向右分别按三位一组转换为八进制，最后不满三位的用零补齐  </p>
+</blockquote>
+<h3 id="带符号数的代码表示"><a href="#带符号数的代码表示" class="headerlink" title="带符号数的代码表示"></a>带符号数的代码表示</h3><p>一个带符号的数由两部分组成：一部分表示数的符号；另一部分表示数的数值。<br>在计算机中习惯用0表示正数、1用来表示负数。  </p>
+<blockquote>
+<pre><code>为了在计算机中防止电路过于复杂，使乘法变成加法运算，人们提出了3种机器数的表示形式，称为：原码、补码、反码。
+</code></pre></blockquote>
+<h4 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h4><blockquote>
+<p>   原码又称为“符号–数值表示”<br>特点：  </p>
+<ol>
+<li>当N为正数时，N的原码与N的区别仅为最高位增加一位用0表示的符号位，对本身数值并无影响。</li>
+<li>当N为负数时，N的原码与N的区别是在最高位增加一位用1表示的符号位。</li>
+<li>在原码表示中，有两种零，即为正负零。0.000和1.000</li>
+</ol>
+</blockquote>
+<h4 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h4><blockquote>
+<p>   反码又被称为“对1的补数”。<br>对于负数，反码的数值是将原码数值按位求反，即原码的某位为1，反码相应为0.<br>对于正数反码与原码相同</p>
+</blockquote>
+<h4 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h4><h3 id="计算机中的运算"><a href="#计算机中的运算" class="headerlink" title="计算机中的运算"></a>计算机中的运算</h3><h2 id="码制和字符的代码表示"><a href="#码制和字符的代码表示" class="headerlink" title="码制和字符的代码表示"></a>码制和字符的代码表示</h2><ol>
+<li>8421码</li>
+<li>余3码</li>
+<li>2421码</li>
+<li>余3循环码</li>
+</ol>
+<blockquote>
+<p>可靠性编码  </p>
+<ol>
+<li>格雷码（循环码）  </li>
+<li>奇偶校验码</li>
+</ol>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-10-29T16:09:03.595Z" itemprop="dateUpdated">2017-10-30 00:09:03</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/&title=《数电笔记：第一章数字逻辑基础》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/&title=《数电笔记：第一章数字逻辑基础》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数电笔记：第一章数字逻辑基础》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/26/Fragment的应用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Fragment的应用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/&title=《数电笔记：第一章数字逻辑基础》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/&title=《数电笔记：第一章数字逻辑基础》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数电笔记：第一章数字逻辑基础》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3awU7DMBAEUP7/p0HiipzOeG2o0MupSoObZySvNeuPj/j6/L5+3vl5Px9h9e3qyfy36gsPDw9v69VXV85b/e0zYDLC8zvj4eHh3ebli3WyQOe868UDDw8P7095yUKclJPnfS8eHh7ef+K12+sc2U4lHh4e3jvwkuEmcUOOTEhXshY8PDy8mNe2r97h88X+Hh4eHt6gq94u00kTaxJJ1O+Jh4eHd4G3d3wqb/O3UUI7clQw8PDw8I7y2tbXXuw7WfqT+8vPeHh4eBd4Z0tF3ZqKwcn94p3x8PDwBrx8KzxZmidloL1TzAEeHh7eFi+PD/baUcn0tdORb/3x8PDwfoe3F6q2peX5hfJoOP8WDw8P7yxvr8mUhws5aXO7PIkk8PDw8I7ykiAgP3rVHiaoK1ubuODh4eFt8ZLDT20ueuowVr7FX/4z8PDw8K7x2kBhsvS3W+oJHg8PD+8eLz/8lAcELWBvol9sxPHw8PCu8fJQYBLv5iHsXiyCh4eH95u8tnHVhhRtm62Na5d/hYeHh3eN1y6+mwdGtw4BJDFEEePi4eHhHeJNCkP+TDIRe/eXn/Hw8PCu8fZaTZPDqWdLTlT38PDw8A7x2ihhsvQnm+lJrJxs6PHw8PBO8fLCMHkyORDQhhHRZh0PDw/vAi8ZNP+Z/OfbaKOob202jIeHh1fy2jBiEjEkY7akF0/i4eHhXeO1zft2cd8rRW1JW4YReHh4eId4n+U1odazPt644+Hh4d3gTUKKPITN2/zttCatOzw8PLwbvLYYPC/oe1FCe4SrmG48PDy8a7w2jJiEtm0JacMIPDw8vPfk7UUY7bY4Lz9LCx4eHt6f8vLooT0EkEcP+Qh4eHh4t3ntst7GB215yLfsL7bgeHh4eBd4bQNssrGeHBdIpnUTiYeHh5fyvgCSf/k+W+A8VwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-10-25T16:37:44.099Z</updated>
+  <updated>2017-10-29T16:09:03.595Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数电笔记：第一章数字逻辑基础</title>
+    <link href="http://ranxb.cn/2017/10/29/%E6%95%B0%E7%94%B5%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/"/>
+    <id>http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/</id>
+    <published>2017-10-29T15:05:21.000Z</published>
+    <updated>2017-10-29T16:09:03.595Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数电笔记2017-10-29"><a href="#数电笔记2017-10-29" class="headerlink" title="数电笔记2017-10-29"></a>数电笔记2017-10-29</h1><h2 id="第一章-数字逻辑基础"><a href="#第一章-数字逻辑基础" class="headerlink" title="第一章    数字逻辑基础"></a>第一章    数字逻辑基础</h2><blockquote>
+<p>模拟信号<br>电信号</p>
+</blockquote>
+<h3 id="二进制的转换"><a href="#二进制的转换" class="headerlink" title="二进制的转换"></a>二进制的转换</h3><pre><code>按权展开
+</code></pre><h4 id="整数转换"><a href="#整数转换" class="headerlink" title="整数转换"></a>整数转换</h4><p><strong><em>除2取余</em></strong></p>
+<h4 id="纯小数转换"><a href="#纯小数转换" class="headerlink" title="纯小数转换"></a>纯小数转换</h4><p><strong><em>乘2取整</em></strong></p>
+<h3 id="十进制转R进制数的转换"><a href="#十进制转R进制数的转换" class="headerlink" title="十进制转R进制数的转换"></a>十进制转R进制数的转换</h3><h4 id="整数转换-1"><a href="#整数转换-1" class="headerlink" title="整数转换"></a>整数转换</h4><p><strong><em>除R取余</em></strong></p>
+<h4 id="纯小数转换-1"><a href="#纯小数转换-1" class="headerlink" title="纯小数转换"></a>纯小数转换</h4><p><strong><em>乘R取整</em></strong></p>
+<h3 id="二、八、十六进制数之间的转换"><a href="#二、八、十六进制数之间的转换" class="headerlink" title="二、八、十六进制数之间的转换"></a>二、八、十六进制数之间的转换</h3><p><strong><em>三位二进制为一个八进制</em></strong><br><strong><em>四位二进制为一个十六进制</em></strong>  </p>
+<blockquote>
+<p>   例如：二进制转八进制从小数点向左或向右分别按三位一组转换为八进制，最后不满三位的用零补齐  </p>
+</blockquote>
+<h3 id="带符号数的代码表示"><a href="#带符号数的代码表示" class="headerlink" title="带符号数的代码表示"></a>带符号数的代码表示</h3><p>一个带符号的数由两部分组成：一部分表示数的符号；另一部分表示数的数值。<br>在计算机中习惯用0表示正数、1用来表示负数。  </p>
+<blockquote>
+<pre><code>为了在计算机中防止电路过于复杂，使乘法变成加法运算，人们提出了3种机器数的表示形式，称为：原码、补码、反码。
+</code></pre></blockquote>
+<h4 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h4><blockquote>
+<p>   原码又称为“符号–数值表示”<br>特点：  </p>
+<ol>
+<li>当N为正数时，N的原码与N的区别仅为最高位增加一位用0表示的符号位，对本身数值并无影响。</li>
+<li>当N为负数时，N的原码与N的区别是在最高位增加一位用1表示的符号位。</li>
+<li>在原码表示中，有两种零，即为正负零。0.000和1.000</li>
+</ol>
+</blockquote>
+<h4 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h4><blockquote>
+<p>   反码又被称为“对1的补数”。<br>对于负数，反码的数值是将原码数值按位求反，即原码的某位为1，反码相应为0.<br>对于正数反码与原码相同</p>
+</blockquote>
+<h4 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h4><h3 id="计算机中的运算"><a href="#计算机中的运算" class="headerlink" title="计算机中的运算"></a>计算机中的运算</h3><h2 id="码制和字符的代码表示"><a href="#码制和字符的代码表示" class="headerlink" title="码制和字符的代码表示"></a>码制和字符的代码表示</h2><ol>
+<li>8421码</li>
+<li>余3码</li>
+<li>2421码</li>
+<li>余3循环码</li>
+</ol>
+<blockquote>
+<p>可靠性编码  </p>
+<ol>
+<li>格雷码（循环码）  </li>
+<li>奇偶校验码</li>
+</ol>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数电笔记2017-10-29&quot;&gt;&lt;a href=&quot;#数电笔记2017-10-29&quot; class=&quot;headerlink&quot; title=&quot;数电笔记2017-10-29&quot;&gt;&lt;/a&gt;数电笔记2017-10-29&lt;/h1&gt;&lt;h2 id=&quot;第一章-数字逻辑基础&quot;&gt;&lt;a hr
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://ranxb.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Fragment的应用</title>
