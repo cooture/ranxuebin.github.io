@@ -12,28 +12,27 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://ranxb.cn/2017/11/03/成都的流水账/">
+    <link rel="canonical" href="http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/">
     
     
-    <title>成都的流水账 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <title>汇编语言中寄存器ESP和EBP的理解 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="成都的流水账 我文笔也不好，今天在图书馆心情复杂也不知道干点啥，我就记一记流水账吧。  那我就开始了～等等～脑婆叫我去吃饭！">
+    <meta name="keywords" content="汇编,寄存器">
+    <meta name="description" content="汇编语言中寄存器ESP和EBP的理解    学校在做信息活动月，有个活动是对xp系统中的一个应用程序进行反汇编，了解他的运行机制，但是在中间有一部分对寄存器的概念有点生疏，所以在网上看到一个好的材料，所以码一下  一直对寄存器ESP和EBP的概念总是有些混淆，查看定义ESP是栈顶指针，EBP是存取堆栈指针。还是不能很透彻理解。之后借于一段汇编代码，总算是对两者有个比较清晰的理解。下面是按调用约定_">
+<meta name="keywords" content="汇编,寄存器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="成都的流水账">
-<meta property="og:url" content="http://ranxb.cn/2017/11/03/成都的流水账/index.html">
+<meta property="og:title" content="汇编语言中寄存器ESP和EBP的理解">
+<meta property="og:url" content="http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="成都的流水账 我文笔也不好，今天在图书馆心情复杂也不知道干点啥，我就记一记流水账吧。  那我就开始了～等等～脑婆叫我去吃饭！">
-<meta property="og:image" content="http://ranxb.cn/2017/11/03/成都的流水账/UNADJUSTEDNONRAW_thumb_4.jpg">
-<meta property="og:updated_time" content="2017-11-03T10:03:42.908Z">
+<meta property="og:description" content="汇编语言中寄存器ESP和EBP的理解    学校在做信息活动月，有个活动是对xp系统中的一个应用程序进行反汇编，了解他的运行机制，但是在中间有一部分对寄存器的概念有点生疏，所以在网上看到一个好的材料，所以码一下  一直对寄存器ESP和EBP的概念总是有些混淆，查看定义ESP是栈顶指针，EBP是存取堆栈指针。还是不能很透彻理解。之后借于一段汇编代码，总算是对两者有个比较清晰的理解。下面是按调用约定_">
+<meta property="og:updated_time" content="2017-11-04T04:32:54.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="成都的流水账">
-<meta name="twitter:description" content="成都的流水账 我文笔也不好，今天在图书馆心情复杂也不知道干点啥，我就记一记流水账吧。  那我就开始了～等等～脑婆叫我去吃饭！">
-<meta name="twitter:image" content="http://ranxb.cn/2017/11/03/成都的流水账/UNADJUSTEDNONRAW_thumb_4.jpg">
+<meta name="twitter:title" content="汇编语言中寄存器ESP和EBP的理解">
+<meta name="twitter:description" content="汇编语言中寄存器ESP和EBP的理解    学校在做信息活动月，有个活动是对xp系统中的一个应用程序进行反汇编，了解他的运行机制，但是在中间有一部分对寄存器的概念有点生疏，所以在网上看到一个好的材料，所以码一下  一直对寄存器ESP和EBP的概念总是有些混淆，查看定义ESP是栈顶指针，EBP是存取堆栈指针。还是不能很透彻理解。之后借于一段汇编代码，总算是对两者有个比较清晰的理解。下面是按调用约定_">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -121,7 +120,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">成都的流水账</div>
+        <div class="flex-col header-title ellipsis">汇编语言中寄存器ESP和EBP的理解</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -143,13 +142,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">成都的流水账</h1>
+        <h1 class="title">汇编语言中寄存器ESP和EBP的理解</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-11-03T09:57:01.000Z" itemprop="datePublished" class="page-time">
-  2017-11-03
+                <time datetime="2017-11-04T04:31:45.000Z" itemprop="datePublished" class="page-time">
+  2017-11-04
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
 
             
         </h5>
@@ -166,19 +167,21 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#成都的流水账"><span class="post-toc-number">1.</span> <span class="post-toc-text">成都的流水账</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编语言中寄存器ESP和EBP的理解"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编语言中寄存器ESP和EBP的理解</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-成都的流水账"
+<article id="post-汇编语言中寄存器ESP和EBP的理解"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">成都的流水账</h1>
+        <h1 class="post-card-title">汇编语言中寄存器ESP和EBP的理解</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-11-03 17:57:01" datetime="2017-11-03T09:57:01.000Z"  itemprop="datePublished">2017-11-03</time>
+            <time class="post-time" title="2017-11-04 12:31:45" datetime="2017-11-04T04:31:45.000Z"  itemprop="datePublished">2017-11-04</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
 
 
             
@@ -189,24 +192,37 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="成都的流水账"><a href="#成都的流水账" class="headerlink" title="成都的流水账"></a>成都的流水账</h1><blockquote>
-<p>我文笔也不好，今天在图书馆心情复杂也不知道干点啥，我就记一记流水账吧。</p>
+            <h1 id="汇编语言中寄存器ESP和EBP的理解"><a href="#汇编语言中寄存器ESP和EBP的理解" class="headerlink" title="汇编语言中寄存器ESP和EBP的理解"></a>汇编语言中寄存器ESP和EBP的理解</h1><blockquote>
+<p>   学校在做信息活动月，有个活动是对xp系统中的一个应用程序进行反汇编，了解他的运行机制，但是在中间有一部分对寄存器的概念有点生疏，所以在网上看到一个好的材料，所以码一下</p>
 </blockquote>
-<p>那我就开始了～<br>等等～脑婆叫我去吃饭！</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="UNADJUSTEDNONRAW_thumb_4.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p>一直对寄存器ESP和EBP的概念总是有些混淆，查看定义ESP是栈顶指针，EBP是存取堆栈指针。还是不能很透彻理解。之后借于一段汇编代码，总算是对两者有个比较清晰的理解。<br>下面是按调用约定__stdcall 调用函数test(int p1,int p2)的汇编代码</p>
+<pre><code>;假设执行函数前堆栈指针ESP为NN
+push   p2    ;参数2入栈, ESP -= 4h , ESP = NN - 4h
+push   p1    ;参数1入栈, ESP -= 4h , ESP = NN - 8h
+call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch  
+;//进入函数内
+</code></pre><p>看完汇编后,再看EBP和ESP的定义,哦,豁然开朗,<br>原来ESP就是一直指向栈顶的指针,而EBP只是存取某时刻的栈顶指针,以方便对栈的操作,如获取函数参数、局部变量等。</p>
+<pre><code>{
+        push   ebp                        ;保护先前EBP指针， EBP入栈， ESP-=4h, ESP = NN - 10h
+        mov    ebp, esp                   ;设置EBP指针指向栈顶 NN-10h
+        mov    eax, dword ptr  [ebp+0ch]  ;ebp+0ch为NN-4h,即参数2的位置
+        mov    ebx, dword ptr  [ebp+08h]  ;ebp+08h为NN-8h,即参数1的位置
+        sub    esp, 8                     ;局部变量所占空间ESP-=8, ESP = NN-18h
+        ...
+        add    esp, 8                     ;释放局部变量, ESP+=8, ESP = NN-10h
+        pop    ebp                        ;出栈,恢复EBP, ESP+=4, ESP = NN-0Ch
+        ret    8                          ;ret返回,弹出返回地址,ESP+=4, ESP=NN-08h,
+                                            后面加操作数8为平衡堆栈,ESP+=8,ESP=NN, 恢复进入函数前的堆栈.
+}
+</code></pre><p>转自：<a href="http://blog.csdn.net/zsjum/article/details/6117043" target="_blank" rel="external">通过一段汇编，加深对寄存器ESP和EBP的理解</a></p>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-11-03T10:03:42.908Z" itemprop="dateUpdated">2017-11-03 18:03:42</time>
+    Last updated: <time datetime="2017-11-04T04:32:54.642Z" itemprop="dateUpdated">2017-11-04 12:32:54</time>
 </span><br>
 
 
@@ -231,6 +247,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/寄存器/">寄存器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -239,7 +257,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/11/03/成都的流水账/&title=《成都的流水账》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/&title=《汇编语言中寄存器ESP和EBP的理解》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -249,22 +267,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/11/03/成都的流水账/&title=《成都的流水账》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/&title=《汇编语言中寄存器ESP和EBP的理解》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/11/03/成都的流水账/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《成都的流水账》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/11/03/成都的流水账/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编语言中寄存器ESP和EBP的理解》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/11/03/成都的流水账/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -284,21 +302,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2017/11/04/汇编语言中寄存器ESP和EBP的理解/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">汇编语言中寄存器ESP和EBP的理解</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/10/29/数电笔记：第一章数字逻辑基础/" id="post-next" class="post-nav-link">
+      <a href="/2017/11/03/成都的流水账/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">数电笔记：第一章数字逻辑基础</h4>
+        <h4 class="title">成都的流水账</h4>
       </a>
     </div>
   
@@ -392,7 +403,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/11/03/成都的流水账/&title=《成都的流水账》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/&title=《汇编语言中寄存器ESP和EBP的理解》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -402,22 +413,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/11/03/成都的流水账/&title=《成都的流水账》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/&title=《汇编语言中寄存器ESP和EBP的理解》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/11/03/成都的流水账/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《成都的流水账》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/11/03/成都的流水账/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编语言中寄存器ESP和EBP的理解》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/11/03/成都的流水账/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -428,7 +439,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3awW7rMAwEwP7/T6fAOxVo4+5STvEijU6Go9iaHBiK1MdHPB7/xtfrr3e+3/8+Z3bn5oGBgfG2jMfleDYn4SXXyczrtWFgYJzDWAmyyZ3rMJqDn97HwMDAKB89W/p1yMbAwMDIGUkw/SWNi4M4BgYGRruJXSnPrXx6814cAwPjDRkry3r19cv7GxgYGP8941GOJEVLNq5JwC1WhYGBsTVjpdSVtDnz0NnOjDJcDAyMLRjJl2cLzQN30vL8JdxjYGAcw5glbTmvPcBa/A1gYGAcwFgvxCdLzGtlNQkDA+MARttWTBa6nj7mPAwMjL0Zs8J9no8lz8yfn3+KgYGxKyNJ/laSwjzty7evGBgYpzGSAlwe+NoW5nq4x8DA2JWRfCEJl9czZ8fCilVhYGAcw2hfXJfAykUXDVEMDIxjGG0imL8+mZkzflgnBgbG1oz2+FeyBW0LarPzXUUsx8DA2JTRNhrvah60q8LAwDiN8YqCWhKs27Ty6dsxMDA2ZbQvawPlbLvbNjIxMDBOY6wc8/rLUyHFPwYGBsabM2ZfbgN0G5RnoRwDA2NXxqMcK8cyZqE2CusYGBhbM/KRlNjaUlry/OTHwsDAOIGRF7ySINgml7e1JTAwMA5gzA5StBFvpdmJgYGBMWtG5mFx9rTi6BgGBgbG6NjEytPqYx8YGBgHMNpNbLLoWegcHgHBwMDYmtFuHVe2o3elmDf0NzAwMN6D8QnYox3zNtdywQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwklEQVR42u3bMW7DMAwF0N7/0inQqUVi4ZOUXA/PU5Eosp4Gk6bYr6/4ev1cV5//vt4/v5rhfcz7yPUM2y48PDy81tKvrvVy14w1oPrt+u5Xs+Hh4eGd462DweWPg5tFi4i3I18zHh4e3hN41eQ7R64T63w9eHh4eM/kram9dLkalvDw8PCewMsf3ElhIilnVMvBx2steHh4eLU6QDlR/t+/D57v4eHh4Q1O1avpb/5Ynzz0C6vFw8PDO8DLj+rzZqzk+OpEEbnwxoCHh4c34E2OnXpNAJOGrfzA7E/cw8PDw9vKS97ck+an6hbkhdrJARseHh7eCV4+RV5CTYJNr1EgP1rDw8PDu4eXB4bqGdMktORBorBneHh4eAd41QVNCrh5ebf8roCHh4d3gNcrsCaT5gWIZM5Jio+Hh4d3Jy9Pu3eVKnoliUKTAR4eHt6YN3/t7xVYJ0XbQsMWHh4e3mFe78b5E3jenpXUafHw8PDu5EU/iJPgfEH5EVq5xIyHh4d3gJenxb00eu+3vaIGHh4e3l5e77hrV0jID96a4/Hw8PAO8CYNBPPHd76VmxsL8PDw8Aa8/Gb5t9Uwk7cdRL0Pvb3Ew8PDq43f9o9Pd6baedMYHh4e3l5eHgaqI3sFhfyhH43Ew8PDO8CrNg0kCXEeDJJg0yt2fBiPh4eHt4lXLR9Mwsm5BoJt53t4eHh4LV5eSsgP7HsljN6WFeIPHh4eXotXfaxX8XnrQC9EjaoveHh4eC3eq3j1SqjVdtJqoCqn1Hh4eHgD3q4lJltQqCgHc1Znw8PDw9vLy4PBueP/XvIdFT7w8PDwjvGqt88T4kmM6o3Bw8PDew6v1zSQJ8HJr6oz4OHh4T2B10use+0FOWxDSo2Hh4dX5FWLEb2W03wjqiHncgweHh7eAd6ukuskGCSLywPVhvM9PDw8vM/jvwEVHLtg1LXNOAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

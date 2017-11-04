@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-11-03T10:03:42.908Z</updated>
+  <updated>2017-11-04T04:32:54.642Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>汇编语言中寄存器ESP和EBP的理解</title>
+    <link href="http://ranxb.cn/2017/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%AF%84%E5%AD%98%E5%99%A8ESP%E5%92%8CEBP%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/</id>
+    <published>2017-11-04T04:31:45.000Z</published>
+    <updated>2017-11-04T04:32:54.642Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="汇编语言中寄存器ESP和EBP的理解"><a href="#汇编语言中寄存器ESP和EBP的理解" class="headerlink" title="汇编语言中寄存器ESP和EBP的理解"></a>汇编语言中寄存器ESP和EBP的理解</h1><blockquote>
+<p>   学校在做信息活动月，有个活动是对xp系统中的一个应用程序进行反汇编，了解他的运行机制，但是在中间有一部分对寄存器的概念有点生疏，所以在网上看到一个好的材料，所以码一下</p>
+</blockquote>
+<p>一直对寄存器ESP和EBP的概念总是有些混淆，查看定义ESP是栈顶指针，EBP是存取堆栈指针。还是不能很透彻理解。之后借于一段汇编代码，总算是对两者有个比较清晰的理解。<br>下面是按调用约定__stdcall 调用函数test(int p1,int p2)的汇编代码</p>
+<pre><code>;假设执行函数前堆栈指针ESP为NN
+push   p2    ;参数2入栈, ESP -= 4h , ESP = NN - 4h
+push   p1    ;参数1入栈, ESP -= 4h , ESP = NN - 8h
+call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch  
+;//进入函数内
+</code></pre><p>看完汇编后,再看EBP和ESP的定义,哦,豁然开朗,<br>原来ESP就是一直指向栈顶的指针,而EBP只是存取某时刻的栈顶指针,以方便对栈的操作,如获取函数参数、局部变量等。</p>
+<pre><code>{
+        push   ebp                        ;保护先前EBP指针， EBP入栈， ESP-=4h, ESP = NN - 10h
+        mov    ebp, esp                   ;设置EBP指针指向栈顶 NN-10h
+        mov    eax, dword ptr  [ebp+0ch]  ;ebp+0ch为NN-4h,即参数2的位置
+        mov    ebx, dword ptr  [ebp+08h]  ;ebp+08h为NN-8h,即参数1的位置
+        sub    esp, 8                     ;局部变量所占空间ESP-=8, ESP = NN-18h
+        ...
+        add    esp, 8                     ;释放局部变量, ESP+=8, ESP = NN-10h
+        pop    ebp                        ;出栈,恢复EBP, ESP+=4, ESP = NN-0Ch
+        ret    8                          ;ret返回,弹出返回地址,ESP+=4, ESP=NN-08h,
+                                            后面加操作数8为平衡堆栈,ESP+=8,ESP=NN, 恢复进入函数前的堆栈.
+}
+</code></pre><p>转自：<a href="http://blog.csdn.net/zsjum/article/details/6117043" target="_blank" rel="external">通过一段汇编，加深对寄存器ESP和EBP的理解</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;汇编语言中寄存器ESP和EBP的理解&quot;&gt;&lt;a href=&quot;#汇编语言中寄存器ESP和EBP的理解&quot; class=&quot;headerlink&quot; title=&quot;汇编语言中寄存器ESP和EBP的理解&quot;&gt;&lt;/a&gt;汇编语言中寄存器ESP和EBP的理解&lt;/h1&gt;&lt;blockquo
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://ranxb.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="汇编" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96/"/>
+    
+      <category term="寄存器" scheme="http://ranxb.cn/tags/%E5%AF%84%E5%AD%98%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>成都的流水账</title>
