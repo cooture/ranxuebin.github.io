@@ -69,7 +69,7 @@
     <link href="http://ranxb.cn/2017/12/28/%E6%B1%87%E7%BC%96%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%8C%85%E5%90%AB%E5%A4%9A%E4%B8%AA%E7%9F%AD%E7%9A%84%E7%A8%8B%E5%BA%8F/"/>
     <id>http://ranxb.cn/2017/12/28/汇编第六章：包含多个短的程序/</id>
     <published>2017-12-28T12:07:59.000Z</published>
-    <updated>2017-12-28T18:17:22.296Z</updated>
+    <updated>2017-12-28T18:21:14.005Z</updated>
     
     <content type="html"><![CDATA[<h1 id="汇编第六章：包含多个短的程序"><a href="#汇编第六章：包含多个短的程序" class="headerlink" title="汇编第六章：包含多个短的程序"></a>汇编第六章：包含多个短的程序</h1><blockquote>
 <p>dw  == define word  </p>
@@ -137,12 +137,12 @@ start end
     
     </summary>
     
-      <category term="数字电路" scheme="http://ranxb.cn/categories/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
     
     
       <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
@@ -410,11 +410,11 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
       <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -635,9 +635,9 @@ public boolean onOptionsItemSelected(MenuItem item) {
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -667,9 +667,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
     
   </entry>
   
