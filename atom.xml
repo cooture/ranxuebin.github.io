@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-12-28T19:12:36.919Z</updated>
+  <updated>2017-12-28T19:24:00.317Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>汇编第八章：数据处理的两个基本问题</title>
+    <link href="http://ranxb.cn/2017/12/29/%E6%B1%87%E7%BC%96%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/"/>
+    <id>http://ranxb.cn/2017/12/29/汇编第八章：数据处理的两个基本问题/</id>
+    <published>2017-12-28T19:23:25.000Z</published>
+    <updated>2017-12-28T19:24:00.317Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="汇编第八章：数据处理的两个基本问题"><a href="#汇编第八章：数据处理的两个基本问题" class="headerlink" title="汇编第八章：数据处理的两个基本问题"></a>汇编第八章：数据处理的两个基本问题</h1><blockquote>
+<p>章前言说的是对前面所有的内容是有总结性的，这里主要探讨两个问题：  </p>
+<ol>
+<li>处理的数据在什么地方？  </li>
+<li>处理的数据有多长？</li>
+</ol>
+</blockquote>
+<p>定义两个符号<strong>reg</strong>和<strong>sreg</strong><br><strong>reg</strong>代表寄存器，包括：ax,bx,cx,dx,ah,al,bh,bl,ch,cl,dh,dl,sp,bp,si,di<br><strong>sreg</strong>代表段寄存器，包括：ds,ss,cs,es</p>
+<h2 id="bx、si、di、bp的使用规则"><a href="#bx、si、di、bp的使用规则" class="headerlink" title="bx、si、di、bp的使用规则"></a>bx、si、di、bp的使用规则</h2><blockquote>
+<p>三个规则，一会总结，字比较多，等会打。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;汇编第八章：数据处理的两个基本问题&quot;&gt;&lt;a href=&quot;#汇编第八章：数据处理的两个基本问题&quot; class=&quot;headerlink&quot; title=&quot;汇编第八章：数据处理的两个基本问题&quot;&gt;&lt;/a&gt;汇编第八章：数据处理的两个基本问题&lt;/h1&gt;&lt;blockquote&gt;
+
+    
+    </summary>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>汇编第七章：更灵活的定位内存地址的方式</title>
