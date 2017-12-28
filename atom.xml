@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-12-28T12:10:49.152Z</updated>
+  <updated>2017-12-28T19:12:36.919Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>汇编第七章：更灵活的定位内存地址的方式</title>
+    <link href="http://ranxb.cn/2017/12/29/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E6%9B%B4%E7%81%B5%E6%B4%BB%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
+    <id>http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/</id>
+    <published>2017-12-28T18:46:40.000Z</published>
+    <updated>2017-12-28T19:12:36.919Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="汇编第七章：更灵活的定位内存地址的方式"><a href="#汇编第七章：更灵活的定位内存地址的方式" class="headerlink" title="汇编第七章：更灵活的定位内存地址的方式"></a>汇编第七章：更灵活的定位内存地址的方式</h1><h2 id="and、or指令"><a href="#and、or指令" class="headerlink" title="and、or指令"></a>and、or指令</h2><p><strong>and</strong> 按位与 </p>
+<pre><code>mov al,01100011B
+and al,00111011B
+</code></pre><p>结果为<strong><em>al = 00100011B</em></strong>    </p>
+<p><strong>or</strong> 按位和  </p>
+<pre><code>mov al,01100011B
+or al,00111011B
+</code></pre><p>结果为<strong><em>al = 01111011B</em></strong>  </p>
+<h2 id="关于ASCII码"><a href="#关于ASCII码" class="headerlink" title="关于ASCII码"></a>关于ASCII码</h2><pre><code>data segment
+    db &apos;unIX&apos;
+data ends
+</code></pre><p>相当于</p>
+<pre><code>data segment
+    db 75H,6EH,49H,58H
+data ends
+</code></pre><p>一个字母一个字节  </p>
+<ol>
+<li><strong>小写字母ASCII码比大写字母大</strong>  </li>
+<li><strong>将’a’的ASCII码减20H就可以变成大写字母’A’</strong>  </li>
+<li><strong>将’A’的ASCII码加20H就可以变成小写字母’a’</strong>  </li>
+<li><strong>当ASCII码大于61H的时候是小写字母</strong>  </li>
+<li><strong>ASCII码的二进制形式第五位为1时是小写字母，0时大写字母</strong>  </li>
+</ol>
+<blockquote>
+<p>根据上面第五条可以进行大小写转换！  </p>
+</blockquote>
+<pre><code>and al,11101111B
+</code></pre><p>可以把字母变成大写  </p>
+<pre><code>or al,00010000B
+</code></pre><p>可以把字母变成小写  </p>
+<h2 id="bx-idata"><a href="#bx-idata" class="headerlink" title="[bx+idata]"></a>[bx+idata]</h2><p><strong><em>[bx+idata]表示一个内存单元,他的偏移地址是(bx)+idata(bx的值加上idata)</em></strong>  </p>
+<blockquote>
+<p>mov ax,[bx+200] == ax = ((dx)*16 + (bx) + 200)  </p>
+</blockquote>
+<p>该指令也可以写成</p>
+<pre><code>mov ax,[200+bx]
+mov ax,200[bx]
+mov ax,[bx].200
+</code></pre><p>因此，[bx+idata]的方式为高级语言实现数组提供了便利机制  </p>
+<pre><code>C语言：a[i],b[i]
+汇编语言：0[bx],5[bx]([bx+0],[bx+5])
+</code></pre><h2 id="SI和DI"><a href="#SI和DI" class="headerlink" title="SI和DI"></a>SI和DI</h2><p><strong>SI和DI是8086中和bx相似的寄存器</strong>，但是不能像bx一样分成两个八位寄存器来使用<br>因此我们可以更灵活的使用：<strong><em>[bx+si]</em></strong>类似的方式表示一个内存一个内存单元<br>例如：</p>
+<pre><code>mov ax,[bx+si]
+</code></pre><p>意为(ax) = (dx*16) + (bx) + (si)<br>也可以写成</p>
+<pre><code>mov ax,[bx][si]
+</code></pre><h2 id="不同的寻址方式的灵活应用"><a href="#不同的寻址方式的灵活应用" class="headerlink" title="不同的寻址方式的灵活应用"></a>不同的寻址方式的灵活应用</h2><ol>
+<li>[idata]用一个常量来表示地址，可用于直接定位一个内存</li>
+<li>[bx]用一个变量来表示一个内存，可用于间接定位一个内存单元</li>
+<li>[bx+idata]用一个变量和一个常量来表示内存地址，可在一个起始地址的基础上用变量简介定位一个内存，例如数组。</li>
+<li>[bx+si]用两个变量表示一个内存地址</li>
+<li>[bx+si+idata]用两个变量和一个常量表示一个内存地址</li>
+</ol>
+<h2 id="一道大题问题7-9（先复习，回头再写）"><a href="#一道大题问题7-9（先复习，回头再写）" class="headerlink" title="一道大题问题7.9（先复习，回头再写）"></a>一道大题问题7.9（先复习，回头再写）</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;汇编第七章：更灵活的定位内存地址的方式&quot;&gt;&lt;a href=&quot;#汇编第七章：更灵活的定位内存地址的方式&quot; class=&quot;headerlink&quot; title=&quot;汇编第七章：更灵活的定位内存地址的方式&quot;&gt;&lt;/a&gt;汇编第七章：更灵活的定位内存地址的方式&lt;/h1&gt;&lt;h2 i
+    
+    </summary>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>现代第二章</title>
