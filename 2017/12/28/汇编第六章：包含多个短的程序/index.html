@@ -21,17 +21,18 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="冉学斌的博客">
+    <meta name="keywords" content="笔记,数字电路">
+    <meta name="description" content="汇编第六章：包含多个短的程序 dw  == define word    一个dw：16位两字节   start…end start如果程序入口不是我们想要执行的指令可以使用start指令指明程序入口所在   assume cs:code code segment         .         .         .         dw 0123h,1456h;数据         .">
+<meta name="keywords" content="笔记,数字电路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编第六章：包含多个短的程序">
 <meta property="og:url" content="http://ranxb.cn/2017/12/28/汇编第六章：包含多个短的程序/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="冉学斌的博客">
-<meta property="og:updated_time" content="2017-12-28T12:07:59.422Z">
+<meta property="og:description" content="汇编第六章：包含多个短的程序 dw  == define word    一个dw：16位两字节   start…end start如果程序入口不是我们想要执行的指令可以使用start指令指明程序入口所在   assume cs:code code segment         .         .         .         dw 0123h,1456h;数据         .">
+<meta property="og:updated_time" content="2017-12-28T18:17:22.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编第六章：包含多个短的程序">
-<meta name="twitter:description" content="冉学斌的博客">
+<meta name="twitter:description" content="汇编第六章：包含多个短的程序 dw  == define word    一个dw：16位两字节   start…end start如果程序入口不是我们想要执行的指令可以使用start指令指明程序入口所在   assume cs:code code segment         .         .         .         dw 0123h,1456h;数据         .">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -149,6 +150,8 @@
 </time>
 
 
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
             
         </h5>
     </div>
@@ -161,6 +164,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编第六章：包含多个短的程序"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编第六章：包含多个短的程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#start…end-start"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">start…end start</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-汇编第六章：包含多个短的程序"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -170,6 +180,8 @@
             <time class="post-time" title="2017-12-28 20:07:59" datetime="2017-12-28T12:07:59.000Z"  itemprop="datePublished">2017-12-28</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
 
 
             
@@ -180,14 +192,71 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h1 id="汇编第六章：包含多个短的程序"><a href="#汇编第六章：包含多个短的程序" class="headerlink" title="汇编第六章：包含多个短的程序"></a>汇编第六章：包含多个短的程序</h1><blockquote>
+<p>dw  == define word  </p>
+</blockquote>
+<p>一个dw：<strong>16位两字节</strong>  </p>
+<h2 id="start…end-start"><a href="#start…end-start" class="headerlink" title="start…end start"></a>start…end start</h2><p>如果程序入口不是我们想要执行的指令可以使用start指令指明程序入口所在  </p>
+<pre><code>assume cs:code
+code segment
+        .
+        .
+        .
+        dw 0123h,1456h;数据
+        .
+        .
+        .
+start:
+        .
+        .
+        .
+        mov ax,0;代码
+        .
+        .
+        .
+        mov ax,4c00H
+        int 21H
+code ends
+end start
+</code></pre><p><strong>一个段的容量不能大于64kb</strong><br>因此可以考虑使用多个段来存放数据、代码、和栈。<br><strong>stack</strong> == 栈  </p>
+<blockquote>
+<p>8086不允许将一个数值直接送入段寄存器，例如“mov ds,data”。data也会被编译器处理为表示一个段地址的数值  </p>
+</blockquote>
+<p>data、satck、code也仅仅是命名而已，就跟标号一样，需要用assume将他们和cpu联系起来<br>因此程序有以下模板  </p>
+<pre><code>assume cs:code,ss:stack,ds:data
+
+data segment
+    dw ..........
+data ends
+
+stack segment
+    dw 0,0,0,0,0,0.....
+stack ends
+
+code segment
+
+    start:
+        mov ax,data                ;数据段空间
+        mov ds,ax
+        mov bx,0
+
+        mov ax,stack            ;栈空间
+        mov ss,ax
+        mov sp,0
+        .
+        .
+        .
+code ends
+
+start end 
+</code></pre>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-28T12:07:59.422Z" itemprop="dateUpdated">2017-12-28 20:07:59</time>
+    最后更新时间：<time datetime="2017-12-28T18:17:22.296Z" itemprop="dateUpdated">2017-12-29 02:17:22</time>
 </span><br>
 
 
@@ -212,6 +281,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
 
             
 <div class="page-share-wrap">

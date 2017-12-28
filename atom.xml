@@ -69,12 +69,80 @@
     <link href="http://ranxb.cn/2017/12/28/%E6%B1%87%E7%BC%96%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%8C%85%E5%90%AB%E5%A4%9A%E4%B8%AA%E7%9F%AD%E7%9A%84%E7%A8%8B%E5%BA%8F/"/>
     <id>http://ranxb.cn/2017/12/28/汇编第六章：包含多个短的程序/</id>
     <published>2017-12-28T12:07:59.000Z</published>
-    <updated>2017-12-28T12:07:59.422Z</updated>
+    <updated>2017-12-28T18:17:22.296Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="汇编第六章：包含多个短的程序"><a href="#汇编第六章：包含多个短的程序" class="headerlink" title="汇编第六章：包含多个短的程序"></a>汇编第六章：包含多个短的程序</h1><blockquote>
+<p>dw  == define word  </p>
+</blockquote>
+<p>一个dw：<strong>16位两字节</strong>  </p>
+<h2 id="start…end-start"><a href="#start…end-start" class="headerlink" title="start…end start"></a>start…end start</h2><p>如果程序入口不是我们想要执行的指令可以使用start指令指明程序入口所在  </p>
+<pre><code>assume cs:code
+code segment
+        .
+        .
+        .
+        dw 0123h,1456h;数据
+        .
+        .
+        .
+start:
+        .
+        .
+        .
+        mov ax,0;代码
+        .
+        .
+        .
+        mov ax,4c00H
+        int 21H
+code ends
+end start
+</code></pre><p><strong>一个段的容量不能大于64kb</strong><br>因此可以考虑使用多个段来存放数据、代码、和栈。<br><strong>stack</strong> == 栈  </p>
+<blockquote>
+<p>8086不允许将一个数值直接送入段寄存器，例如“mov ds,data”。data也会被编译器处理为表示一个段地址的数值  </p>
+</blockquote>
+<p>data、satck、code也仅仅是命名而已，就跟标号一样，需要用assume将他们和cpu联系起来<br>因此程序有以下模板  </p>
+<pre><code>assume cs:code,ss:stack,ds:data
+
+data segment
+    dw ..........
+data ends
+
+stack segment
+    dw 0,0,0,0,0,0.....
+stack ends
+
+code segment
+
+    start:
+        mov ax,data                ;数据段空间
+        mov ds,ax
+        mov bx,0
+
+        mov ax,stack            ;栈空间
+        mov ss,ax
+        mov sp,0
+        .
+        .
+        .
+code ends
+
+start end 
+</code></pre>]]></content>
     
     <summary type="html">
     
+      &lt;h1 id=&quot;汇编第六章：包含多个短的程序&quot;&gt;&lt;a href=&quot;#汇编第六章：包含多个短的程序&quot; class=&quot;headerlink&quot; title=&quot;汇编第六章：包含多个短的程序&quot;&gt;&lt;/a&gt;汇编第六章：包含多个短的程序&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;dw  == de
+    
     </summary>
     
+      <category term="数字电路" scheme="http://ranxb.cn/categories/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   
@@ -342,11 +410,11 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
       <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
-    
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -567,9 +635,9 @@ public boolean onOptionsItemSelected(MenuItem item) {
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
   </entry>
   
@@ -599,9 +667,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
