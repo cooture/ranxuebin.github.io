@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-12-28T19:24:00.317Z</updated>
+  <updated>2017-12-29T11:23:11.326Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ranxb.cn/2017/12/29/%E6%B1%87%E7%BC%96%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/"/>
     <id>http://ranxb.cn/2017/12/29/汇编第八章：数据处理的两个基本问题/</id>
     <published>2017-12-28T19:23:25.000Z</published>
-    <updated>2017-12-28T19:24:00.317Z</updated>
+    <updated>2017-12-29T11:23:11.326Z</updated>
     
     <content type="html"><![CDATA[<h1 id="汇编第八章：数据处理的两个基本问题"><a href="#汇编第八章：数据处理的两个基本问题" class="headerlink" title="汇编第八章：数据处理的两个基本问题"></a>汇编第八章：数据处理的两个基本问题</h1><blockquote>
 <p>章前言说的是对前面所有的内容是有总结性的，这里主要探讨两个问题：  </p>
@@ -33,6 +33,56 @@
 <h2 id="bx、si、di、bp的使用规则"><a href="#bx、si、di、bp的使用规则" class="headerlink" title="bx、si、di、bp的使用规则"></a>bx、si、di、bp的使用规则</h2><blockquote>
 <p>三个规则，一会总结，字比较多，等会打。</p>
 </blockquote>
+<ol>
+<li><p>只有这四个寄存器可以用在[…]中进行寻址  </p>
+<pre><code>mov ax,[bx]
+mov ax,[bx+si]
+</code></pre><p>以下的是错误的</p>
+<pre><code>mov ax,[cx]
+mov ax,[ax]
+</code></pre></li>
+<li><p>这四个可以单独出现，但是组合的情况只有四种可以使用：bx和si、bx和di、bp和si、bp和di。  </p>
+<pre><code>mov ax,[bx+si]
+mov ax,[bx+di]
+mov ax,[bp+si]
+mov ax,[bp+di+idata]
+</code></pre><p>以下的是错误的</p>
+<pre><code>mov ax.[bx+dp]
+mov ax,[si+di]
+</code></pre></li>
+<li><p>只要使用[…]中bp寄存器时，若没有显式的给出段寄存器，则默认为段地址在ss中</p>
+<pre><code>mov ax,[bp]             ;(ax) = ((ss)*16+(bp))
+</code></pre></li>
+</ol>
+<h2 id="机器指令处理的数据在什么地方"><a href="#机器指令处理的数据在什么地方" class="headerlink" title="机器指令处理的数据在什么地方"></a>机器指令处理的数据在什么地方</h2><p>机器指令都是经过处理过的数据：1、读取。2、存入。3、运行  </p>
+<p>所有处理的数据可以在三个地方：CPU内部、内存、端口（后面说先不用管）<br>例如：</p>
+<pre><code>mov bx,[0]                ;内存
+mov bx,ax                ;CPU内部ax寄存器
+mov bx,1                ;CPU内部指令缓冲器
+</code></pre><h2 id="汇编语言中数据位置的表达"><a href="#汇编语言中数据位置的表达" class="headerlink" title="汇编语言中数据位置的表达"></a>汇编语言中数据位置的表达</h2><p>汇编语言用3个概念来表达数据的位置：  </p>
+<ol>
+<li><p>立即数[idata]<br>例如：</p>
+<p> mov ax,1<br> add bx,2000H<br> or bx,00010000B<br> mov al,’a’</p>
+</li>
+</ol>
+<p>以上   </p>
+<ol>
+<li><p>寄存器<br>例如</p>
+<p> mov ax,bx<br> push ds<br>以上  </p>
+</li>
+<li><p>段地址和偏移地址<br>例如</p>
+<p> mov ax,[bx]            ;段地址默认在ds中</p>
+</li>
+</ol>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p><strong>五种寻址方式：</strong>  </p>
+<ol>
+<li>[idata] <strong>直接寻址</strong>  </li>
+<li>[bx] <strong>寄存器间接寻址</strong>  </li>
+<li>[bx+idata] <strong>寄存器相对寻址</strong>  </li>
+<li>[bx+si] <strong>基址变址寻址</strong>  </li>
+<li>[bx+si+idata] <strong>相对基址变址寻址</strong></li>
+</ol>
+<p>总结：<strong>有两个寄存器就是基址变址，只要有idata就是相对（只有idata是直接寻址，只有一个寄存器是寄存器间接寻址）</strong></p>
 ]]></content>
     
     <summary type="html">
