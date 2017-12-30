@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/">
+    
+    
+    <title>汇编第九章：转移指令的原理 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="笔记,汇编语言">
+    <meta name="description" content="汇编第九章：转移指令的原理 概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。表现为可以修改IP或者同时修改CS和IP的指令。  以下讨论8086转移行为的分类第一类：只修改IP的转移行为叫做段内转移    根据转一指令对IP的修改范围不同，段内转移可分为。     短转移：IP的修改范围为-128 ～ 127. 近转移：IP的修改范围为-32768 ～ 32767.  第二类：同时修">
+<meta name="keywords" content="笔记,汇编语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编第九章：转移指令的原理">
+<meta property="og:url" content="http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="汇编第九章：转移指令的原理 概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。表现为可以修改IP或者同时修改CS和IP的指令。  以下讨论8086转移行为的分类第一类：只修改IP的转移行为叫做段内转移    根据转一指令对IP的修改范围不同，段内转移可分为。     短转移：IP的修改范围为-128 ～ 127. 近转移：IP的修改范围为-32768 ～ 32767.  第二类：同时修">
+<meta property="og:updated_time" content="2017-12-30T13:30:04.582Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编第九章：转移指令的原理">
+<meta name="twitter:description" content="汇编第九章：转移指令的原理 概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。表现为可以修改IP或者同时修改CS和IP的指令。  以下讨论8086转移行为的分类第一类：只修改IP的转移行为叫做段内转移    根据转一指令对IP的修改范围不同，段内转移可分为。     短转移：IP的修改范围为-128 ～ 127. 近转移：IP的修改范围为-32768 ～ 32767.  第二类：同时修">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">汇编第九章：转移指令的原理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">汇编第九章：转移指令的原理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-30T09:41:24.000Z" itemprop="datePublished" class="page-time">
+  2017-12-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编第九章：转移指令的原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编第九章：转移指令的原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#offset"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">offset</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jmp"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">jmp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#依据位移进行转移的jmp指令"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">依据位移进行转移的jmp指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移的目的地址在指令中的jmp指令"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">转移的目的地址在指令中的jmp指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移地址在寄存器中的jmp指令"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">转移地址在寄存器中的jmp指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移地址在内存中的jmp指令"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">转移地址在内存中的jmp指令</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jcxz指令"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">jcxz指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#loop指令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">loop指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#根据位移进行转移的意义"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">根据位移进行转移的意义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译器对转移位移超界的检测"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">编译器对转移位移超界的检测</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-汇编第九章：转移指令的原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">汇编第九章：转移指令的原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-30 17:41:24" datetime="2017-12-30T09:41:24.000Z"  itemprop="datePublished">2017-12-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="汇编第九章：转移指令的原理"><a href="#汇编第九章：转移指令的原理" class="headerlink" title="汇编第九章：转移指令的原理"></a>汇编第九章：转移指令的原理</h1><blockquote>
+<p>概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。<br>表现为可以修改IP或者同时修改CS和IP的指令。</p>
+</blockquote>
+<p>以下讨论8086<br><strong><em>转移行为的分类</em></strong><br><strong>第一类：只修改IP的转移行为叫做段内转移</strong>  </p>
+<blockquote>
+<p>根据转一指令对IP的修改范围不同，段内转移可分为。  </p>
+</blockquote>
+<ol>
+<li>短转移：IP的修改范围为-128 ～ 127.</li>
+<li>近转移：IP的修改范围为-32768 ～ 32767.</li>
+</ol>
+<p><strong>第二类：同时修改CS和IP的转移行为叫段间转移</strong>   </p>
+<p><strong><em>转一指令的分类</em></strong> </p>
+<ol>
+<li>无条件转移指令，例如jmp  </li>
+<li>条件转移指令  </li>
+<li>循环指令，例如loop  </li>
+<li>过程  </li>
+<li>中断  </li>
+</ol>
+<p>本章主要通过深入学习无条件转移指令jmp来理解CPU执行转移指令的基本原理  </p>
+<h2 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h2><p><strong>功能是取得标号地址的偏移地址</strong></p>
+<pre><code>code segment
+start:
+    mov ax,offset start        ;相当于mov ax,0
+s:
+    mov ax,offset s            ;相当于mov ax,3                                    
+</code></pre><h2 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h2><p>jmp为无条件跳转指令，可以只修改IP，也可以同时修改CS和IP。<br>jmp指令要给出两种信息：  </p>
+<ol>
+<li>转移的目的地址  </li>
+<li>转移的距离（段间转移、段内转移、段内近转移）</li>
+</ol>
+<h3 id="依据位移进行转移的jmp指令"><a href="#依据位移进行转移的jmp指令" class="headerlink" title="依据位移进行转移的jmp指令"></a>依据位移进行转移的jmp指令</h3><p>NO.1</p>
+<pre><code>jmp short 标号（转到标号处执行指令）
+</code></pre><p>这种格式实现的事段内短转移，他对IP的修改范围是-128 ～ 127，转移指令结束后，CS:IP应该指向标号指令。  </p>
+<p>根据机器码可得出<strong>CPU执行jmp指令时机器码中并不需要转移的目的地址</strong>  </p>
+<blockquote>
+<p>CPU执行指令的过程  </p>
+<ol>
+<li>从CS:IP执行内存单元读取指令，读取的指令进入指令缓冲器;  </li>
+<li>(IP) = (IP) + 读取的长度，从而指向下一个指令;  </li>
+<li>执行指令。转到(1)，重复.</li>
+</ol>
+</blockquote>
+<p>由此可得，执行jmp并不需要目的地址，而是需要<strong>位移地址</strong><br>short的位移量存储空间占一个字节，8个二进制位，首位为符号位，用补码表示，因此可表示的位移量为-128 ～ 127。<br>同理，near的位移量储存空间占两个字节，16个二进制位，首位为符号位，用补码表示，因此可表示的位移量为-32768 ～ 32767。</p>
+<p>由上引入近转移</p>
+<pre><code>jmp near ptr 标号（段内近转移）
+</code></pre><h3 id="转移的目的地址在指令中的jmp指令"><a href="#转移的目的地址在指令中的jmp指令" class="headerlink" title="转移的目的地址在指令中的jmp指令"></a>转移的目的地址在指令中的jmp指令</h3><p>前面讲的是段内转移，因此jmp只需要位移地址即可进行对IP的修改。</p>
+<pre><code>jmp far ptr 标号
+</code></pre><p>以上实现的是段间转移，又称远转移。可以让(CS) = 标号所在的段地址;(IP) = 标号所在的偏移地址。</p>
+<h3 id="转移地址在寄存器中的jmp指令"><a href="#转移地址在寄存器中的jmp指令" class="headerlink" title="转移地址在寄存器中的jmp指令"></a>转移地址在寄存器中的jmp指令</h3><pre><code>jmp 16位reg
+</code></pre><p>功能：(IP) = (16位reg)<br>用寄存器中的值修改IP。</p>
+<h3 id="转移地址在内存中的jmp指令"><a href="#转移地址在内存中的jmp指令" class="headerlink" title="转移地址在内存中的jmp指令"></a>转移地址在内存中的jmp指令</h3><blockquote>
+<p>两种格式  </p>
+</blockquote>
+<p><strong>段内转移</strong></p>
+<pre><code>jmp word ptr 内存单元地址 ;(段内转移)
+</code></pre><p>从内存单元地址处开始存放着一个字，是转移的目的的偏移地址。<br>例如：</p>
+<pre><code>mov ax,0123H
+mov ds:[0],ax
+jmp word ptr ds:[0]
+</code></pre><p>执行后(IP) = 0123H </p>
+<p><strong>段间转移</strong></p>
+<pre><code>jmp dword ptr 内存单元地址  ;(段间转移)
+</code></pre><p>从内存单元地址处开始存放着两个字节，是转移的目的的段地址和偏移地址，<strong>高地址是段地址</strong>，<strong>低地址是偏移地址</strong><br>(CS) = 内存单元地址+2<br>(IP) = 内存单元地址<br>比如一下指令：  </p>
+<pre><code>mov ax,0123H
+mov ds:[0],ax
+mov ax,4567H
+mov ds:[2],ax
+jmp dword ptr ds:[0]
+</code></pre><p>执行完后(CS) = 4567H,(IP) = 0123H。 </p>
+<h2 id="jcxz指令"><a href="#jcxz指令" class="headerlink" title="jcxz指令"></a>jcxz指令</h2><p>jcxz是有条件转移指令，<strong>所有的有条件转移指令都是短转移指令</strong>，对应的机器码中包含的是转移位移，不是目的地址。对IP的修改范围都是-128 ~ 127。</p>
+<p><strong>jcxz == jmp when cx is zero</strong><br>当cx为零时，执行转移指令，若不为零，则不转移<br>使用格式：</p>
+<pre><code>jcxz 标号
+</code></pre><h2 id="loop指令"><a href="#loop指令" class="headerlink" title="loop指令"></a>loop指令</h2><p>loop指令位循环指令，所有的循环指令都是短转移。<br><strong>详见第五章</strong></p>
+<h2 id="根据位移进行转移的意义"><a href="#根据位移进行转移的意义" class="headerlink" title="根据位移进行转移的意义"></a>根据位移进行转移的意义</h2><pre><code>jmp short x
+jmp near ptr x
+jcxz x
+loop
+</code></pre><p>以上都是根据转移的位移量进行转移的，这样有利于程序在内存中的浮动装配，意思就是把这段程序装在内存中的任意一段空间内都可以执行，不会因为转移的地址不同而导致程序不能执行。</p>
+<h2 id="编译器对转移位移超界的检测"><a href="#编译器对转移位移超界的检测" class="headerlink" title="编译器对转移位移超界的检测"></a>编译器对转移位移超界的检测</h2><p><strong>jmp超界编译器会报错</strong>，别的没其他知识点</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-30T13:30:04.582Z" itemprop="dateUpdated">2017-12-30 21:30:04</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编语言/">汇编语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/&title=《汇编第九章：转移指令的原理》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/&title=《汇编第九章：转移指令的原理》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编第九章：转移指令的原理》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/29/汇编第八章：数据处理的两个基本问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">汇编第八章：数据处理的两个基本问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/&title=《汇编第九章：转移指令的原理》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/&title=《汇编第九章：转移指令的原理》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编第九章：转移指令的原理》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3aQW4bMQwF0Nz/0i3Qberx/6SUGsXzKhgHot4sJJrk11f8+fXnk3z7/T9fPfn+ef72eQ+rDx4eHt5o65uQrwK/WqGN/rzam53g4eHhXeO1m0uC5ZdKvnK+Zzw8PLxP4M0O6PxJkojj4eHh/R+8WaGhvSrw8PDwPo2Xp8VJqWJ2oOcrX6m14OHh4V3oIn3O3xf7e3h4eHiLrnre4pod07PUvNgtHh4e3gXerMk0G65Kns9Gvt6siYeHh3eUl5dT24LsBj/LkP8SCw8PD+8Cr/3B35Z62yM+eX1tIRgPDw/vLC9pViVp8apYMGqwRYMFeHh4eBd4bRLcNqKSFdoxhWFSjoeHh3eUlwdog+UJev6621QbDw8P7zZvFiwvWOQFhXbNovqLh4eHt+ZtGldJuaEtarTJdH1J4OHh4S147bjV/gpJ2JtyMB4eHt7P8PJF8/R69graskV0MeDh4eEd5Z0KMGuh7QcOitIwHh4e3jVeflW0pYH2OklIz007PDw8vBu8WYHg1NY3VecoLh4eHt4F3qyR344IbNLufLTrZRQ8PDy8C7yctGnqr4qwQbmkni/Dw8PDW/DyTeQB2lJC21rL18TDw8M7y8uT3f3I1GbUoKW+nIzAw8PDW/OSNlL7439WAt4PLkRlXDw8PLw1Ly8c5LD8yM6vlrbagIeHh/czvA0maYw9p9ptcp9cSHh4eHg3eLNRgPxJfqy3V1QdEQ8PD+8Qb3OIJ6+jfX2zVLv4xYCHh4e35s0ml9pi7mYWrE27Dwxm4eHh4QW89jLYH+X75lY9eoWHh4d3gdfWMJIn+ehAfiHVtRY8PDy8f8rLyxD7y2CGx8PDw/tk3qy1314qSVH4zXM8PDy8a7y26bVJvvOGVh59OECAh4eHN+JtGmDJkd22+U+NIODh4eFd4P0GtAG7YIEA0Q4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

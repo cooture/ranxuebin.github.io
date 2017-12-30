@@ -29,7 +29,7 @@
 <meta property="og:url" content="http://ranxb.cn/2017/12/29/汇编第八章：数据处理的两个基本问题/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="汇编第八章：数据处理的两个基本问题 章前言说的是对前面所有的内容是有总结性的，这里主要探讨两个问题：    处理的数据在什么地方？   处理的数据有多长？   定义两个符号reg和sregreg代表寄存器，包括：ax,bx,cx,dx,ah,al,bh,bl,ch,cl,dh,dl,sp,bp,si,disreg代表段寄存器，包括：ds,ss,cs,es bx、si、di、bp的使用规则 三个规则">
-<meta property="og:updated_time" content="2017-12-29T11:23:11.326Z">
+<meta property="og:updated_time" content="2017-12-30T09:40:34.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编第八章：数据处理的两个基本问题">
 <meta name="twitter:description" content="汇编第八章：数据处理的两个基本问题 章前言说的是对前面所有的内容是有总结性的，这里主要探讨两个问题：    处理的数据在什么地方？   处理的数据有多长？   定义两个符号reg和sregreg代表寄存器，包括：ax,bx,cx,dx,ah,al,bh,bl,ch,cl,dh,dl,sp,bp,si,disreg代表段寄存器，包括：ds,ss,cs,es bx、si、di、bp的使用规则 三个规则">
@@ -126,7 +126,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -167,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编第八章：数据处理的两个基本问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编第八章：数据处理的两个基本问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bx、si、di、bp的使用规则"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">bx、si、di、bp的使用规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#机器指令处理的数据在什么地方"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">机器指令处理的数据在什么地方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#汇编语言中数据位置的表达"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">汇编语言中数据位置的表达</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寻址方式"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">寻址方式</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编第八章：数据处理的两个基本问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编第八章：数据处理的两个基本问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bx、si、di、bp的使用规则"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">bx、si、di、bp的使用规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#机器指令处理的数据在什么地方"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">机器指令处理的数据在什么地方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#汇编语言中数据位置的表达"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">汇编语言中数据位置的表达</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寻址方式"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">寻址方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指令要处理的数据有多长"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">指令要处理的数据有多长</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寻址的综合应用"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">寻址的综合应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#div"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">div</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#dd"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">dd</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#dup"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">dup</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -253,14 +253,74 @@ mov bx,1                ;CPU内部指令缓冲器
 <li>[bx+si+idata] <strong>相对基址变址寻址</strong></li>
 </ol>
 <p>总结：<strong>有两个寄存器就是基址变址，只要有idata就是相对（只有idata是直接寻址，只有一个寄存器是寄存器间接寻址）</strong></p>
+<h2 id="指令要处理的数据有多长"><a href="#指令要处理的数据有多长" class="headerlink" title="指令要处理的数据有多长"></a>指令要处理的数据有多长</h2><ol>
+<li>通过寄存器名可以致命处理的数据长度</li>
+<li><p>在没有寄存器的情况下，用操作符“X ptr”指明要操作的长度，X可以是byte或者是word。<br>例如</p>
+<pre><code>mov word prt ds:[0],1
+inc word prt [bx]
 
+mov byte ptr ds:[0],1
+add byte ptr [bx],2
+</code></pre><h2 id="寻址的综合应用"><a href="#寻址的综合应用" class="headerlink" title="寻址的综合应用"></a>寻址的综合应用</h2><blockquote>
+<p>主要就是类c语言的数组的操作，看看书看就行了。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="div"><a href="#div" class="headerlink" title="div"></a><strong>div</strong></h2><blockquote>
+<p>两种div方式！(被除数是除号之前的。)</p>
+</blockquote>
+<ol>
+<li>16位寄存器除以8位寄存器：16位做被除数放在AX里面。商在AL里，余数在AH里</li>
+<li>32位寄存器除以16位寄存器：高16位放在DX，低16位放在AX里，共32位做被除数。商在AX里，余数在DX里。  </li>
+</ol>
+<p><strong>商都放在低位寄存器中，余数放在高位，除数放在一个内存单元或者reg中</strong><br>例如：</p>
+<pre><code>16位/8位：
+    div byte ptr ds:[0]        
+    ;(al) = (ax)/((ds)*16+0)
+    ;(ah) = (ax)mod((ds)*16+0)
+
+32位/8位：
+    div word ptr ds:[0]        
+    ;(ax) = [(dx)*10000H + (ax)] / ((ds)*16+0)
+    ;(dx) = [(dx)*10000H + (ax)] mod ((ds)*16+0)
+</code></pre><p>实际应用，例如100001/100,100001 = 186A1H</p>
+<pre><code>mov dx,1H
+mov ax,86A1H
+mov bx,100
+div bx
+;商在AX里，余数在DX里
+</code></pre><h2 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h2><blockquote>
+<p>dd（define double）,用于定义双精度字节，一个双精度占2个字，4个字节。</p>
+</blockquote>
+<pre><code>data segment
+    db 1
+    dw 1
+    dd 1
+data ends
+</code></pre><p>上面这段：  </p>
+<pre><code>1. 第一个数据是01H，在data:[0]处  
+2. 第二个数据是0001H，在data:[1] - data:[2]处  
+3. 第三个数据是00000001H，在data:[3] - data:[6]处  
+</code></pre><h2 id="dup"><a href="#dup" class="headerlink" title="dup"></a>dup</h2><p>和dd一样都是一个操作符，它是和db、dw、dd等数据定义伪指令配合使用的，用来进行数据的重复，比如：</p>
+<pre><code>db 3 dup (0)
+</code></pre><p>定义了3个字节，他们的值都是0，相当于</p>
+<pre><code>db 0,0,0
+</code></pre><p>又例如：</p>
+<pre><code>db 3 dup (0,1,2)
+</code></pre><p>定义了9个字节，分别是0,1,2,0,1,2,0,1,2,相当于</p>
+<pre><code>db 0,1,2,0,1,2,0,1,2
+</code></pre><p><strong>使用规范如下</strong></p>
+<pre><code>db 重复次数 dup (内容)        ;(重复的字节型数据)
+dw 重复次数 dup (内容)        ;(重复的字型数据)
+dd 重复次数 dup (内容)        ;(重复的双精度字型数据)
+</code></pre>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-12-29T11:23:11.326Z" itemprop="dateUpdated">2017-12-29 19:23:11</time>
+    最后更新时间：<time datetime="2017-12-30T09:40:34.461Z" itemprop="dateUpdated">2017-12-30 17:40:34</time>
 </span><br>
 
 
@@ -340,7 +400,14 @@ mov bx,1                ;CPU内部指令缓冲器
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/30/汇编第九章：转移指令的原理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">汇编第九章：转移指令的原理</h4>
+      </a>
+    </div>
   
 
   
@@ -419,7 +486,7 @@ mov bx,1                ;CPU内部指令缓冲器
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">

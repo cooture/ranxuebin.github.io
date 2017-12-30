@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2017-12-29T11:23:11.326Z</updated>
+  <updated>2017-12-30T13:30:04.582Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -16,11 +16,117 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>汇编第九章：转移指令的原理</title>
+    <link href="http://ranxb.cn/2017/12/30/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4%E7%9A%84%E5%8E%9F%E7%90%86/"/>
+    <id>http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/</id>
+    <published>2017-12-30T09:41:24.000Z</published>
+    <updated>2017-12-30T13:30:04.582Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="汇编第九章：转移指令的原理"><a href="#汇编第九章：转移指令的原理" class="headerlink" title="汇编第九章：转移指令的原理"></a>汇编第九章：转移指令的原理</h1><blockquote>
+<p>概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。<br>表现为可以修改IP或者同时修改CS和IP的指令。</p>
+</blockquote>
+<p>以下讨论8086<br><strong><em>转移行为的分类</em></strong><br><strong>第一类：只修改IP的转移行为叫做段内转移</strong>  </p>
+<blockquote>
+<p>根据转一指令对IP的修改范围不同，段内转移可分为。  </p>
+</blockquote>
+<ol>
+<li>短转移：IP的修改范围为-128 ～ 127.</li>
+<li>近转移：IP的修改范围为-32768 ～ 32767.</li>
+</ol>
+<p><strong>第二类：同时修改CS和IP的转移行为叫段间转移</strong>   </p>
+<p><strong><em>转一指令的分类</em></strong> </p>
+<ol>
+<li>无条件转移指令，例如jmp  </li>
+<li>条件转移指令  </li>
+<li>循环指令，例如loop  </li>
+<li>过程  </li>
+<li>中断  </li>
+</ol>
+<p>本章主要通过深入学习无条件转移指令jmp来理解CPU执行转移指令的基本原理  </p>
+<h2 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h2><p><strong>功能是取得标号地址的偏移地址</strong></p>
+<pre><code>code segment
+start:
+    mov ax,offset start        ;相当于mov ax,0
+s:
+    mov ax,offset s            ;相当于mov ax,3                                    
+</code></pre><h2 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h2><p>jmp为无条件跳转指令，可以只修改IP，也可以同时修改CS和IP。<br>jmp指令要给出两种信息：  </p>
+<ol>
+<li>转移的目的地址  </li>
+<li>转移的距离（段间转移、段内转移、段内近转移）</li>
+</ol>
+<h3 id="依据位移进行转移的jmp指令"><a href="#依据位移进行转移的jmp指令" class="headerlink" title="依据位移进行转移的jmp指令"></a>依据位移进行转移的jmp指令</h3><p>NO.1</p>
+<pre><code>jmp short 标号（转到标号处执行指令）
+</code></pre><p>这种格式实现的事段内短转移，他对IP的修改范围是-128 ～ 127，转移指令结束后，CS:IP应该指向标号指令。  </p>
+<p>根据机器码可得出<strong>CPU执行jmp指令时机器码中并不需要转移的目的地址</strong>  </p>
+<blockquote>
+<p>CPU执行指令的过程  </p>
+<ol>
+<li>从CS:IP执行内存单元读取指令，读取的指令进入指令缓冲器;  </li>
+<li>(IP) = (IP) + 读取的长度，从而指向下一个指令;  </li>
+<li>执行指令。转到(1)，重复.</li>
+</ol>
+</blockquote>
+<p>由此可得，执行jmp并不需要目的地址，而是需要<strong>位移地址</strong><br>short的位移量存储空间占一个字节，8个二进制位，首位为符号位，用补码表示，因此可表示的位移量为-128 ～ 127。<br>同理，near的位移量储存空间占两个字节，16个二进制位，首位为符号位，用补码表示，因此可表示的位移量为-32768 ～ 32767。</p>
+<p>由上引入近转移</p>
+<pre><code>jmp near ptr 标号（段内近转移）
+</code></pre><h3 id="转移的目的地址在指令中的jmp指令"><a href="#转移的目的地址在指令中的jmp指令" class="headerlink" title="转移的目的地址在指令中的jmp指令"></a>转移的目的地址在指令中的jmp指令</h3><p>前面讲的是段内转移，因此jmp只需要位移地址即可进行对IP的修改。</p>
+<pre><code>jmp far ptr 标号
+</code></pre><p>以上实现的是段间转移，又称远转移。可以让(CS) = 标号所在的段地址;(IP) = 标号所在的偏移地址。</p>
+<h3 id="转移地址在寄存器中的jmp指令"><a href="#转移地址在寄存器中的jmp指令" class="headerlink" title="转移地址在寄存器中的jmp指令"></a>转移地址在寄存器中的jmp指令</h3><pre><code>jmp 16位reg
+</code></pre><p>功能：(IP) = (16位reg)<br>用寄存器中的值修改IP。</p>
+<h3 id="转移地址在内存中的jmp指令"><a href="#转移地址在内存中的jmp指令" class="headerlink" title="转移地址在内存中的jmp指令"></a>转移地址在内存中的jmp指令</h3><blockquote>
+<p>两种格式  </p>
+</blockquote>
+<p><strong>段内转移</strong></p>
+<pre><code>jmp word ptr 内存单元地址 ;(段内转移)
+</code></pre><p>从内存单元地址处开始存放着一个字，是转移的目的的偏移地址。<br>例如：</p>
+<pre><code>mov ax,0123H
+mov ds:[0],ax
+jmp word ptr ds:[0]
+</code></pre><p>执行后(IP) = 0123H </p>
+<p><strong>段间转移</strong></p>
+<pre><code>jmp dword ptr 内存单元地址  ;(段间转移)
+</code></pre><p>从内存单元地址处开始存放着两个字节，是转移的目的的段地址和偏移地址，<strong>高地址是段地址</strong>，<strong>低地址是偏移地址</strong><br>(CS) = 内存单元地址+2<br>(IP) = 内存单元地址<br>比如一下指令：  </p>
+<pre><code>mov ax,0123H
+mov ds:[0],ax
+mov ax,4567H
+mov ds:[2],ax
+jmp dword ptr ds:[0]
+</code></pre><p>执行完后(CS) = 4567H,(IP) = 0123H。 </p>
+<h2 id="jcxz指令"><a href="#jcxz指令" class="headerlink" title="jcxz指令"></a>jcxz指令</h2><p>jcxz是有条件转移指令，<strong>所有的有条件转移指令都是短转移指令</strong>，对应的机器码中包含的是转移位移，不是目的地址。对IP的修改范围都是-128 ~ 127。</p>
+<p><strong>jcxz == jmp when cx is zero</strong><br>当cx为零时，执行转移指令，若不为零，则不转移<br>使用格式：</p>
+<pre><code>jcxz 标号
+</code></pre><h2 id="loop指令"><a href="#loop指令" class="headerlink" title="loop指令"></a>loop指令</h2><p>loop指令位循环指令，所有的循环指令都是短转移。<br><strong>详见第五章</strong></p>
+<h2 id="根据位移进行转移的意义"><a href="#根据位移进行转移的意义" class="headerlink" title="根据位移进行转移的意义"></a>根据位移进行转移的意义</h2><pre><code>jmp short x
+jmp near ptr x
+jcxz x
+loop
+</code></pre><p>以上都是根据转移的位移量进行转移的，这样有利于程序在内存中的浮动装配，意思就是把这段程序装在内存中的任意一段空间内都可以执行，不会因为转移的地址不同而导致程序不能执行。</p>
+<h2 id="编译器对转移位移超界的检测"><a href="#编译器对转移位移超界的检测" class="headerlink" title="编译器对转移位移超界的检测"></a>编译器对转移位移超界的检测</h2><p><strong>jmp超界编译器会报错</strong>，别的没其他知识点</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;汇编第九章：转移指令的原理&quot;&gt;&lt;a href=&quot;#汇编第九章：转移指令的原理&quot; class=&quot;headerlink&quot; title=&quot;汇编第九章：转移指令的原理&quot;&gt;&lt;/a&gt;汇编第九章：转移指令的原理&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;概括地讲，转移指令就是可以
+    
+    </summary>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>汇编第八章：数据处理的两个基本问题</title>
     <link href="http://ranxb.cn/2017/12/29/%E6%B1%87%E7%BC%96%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/"/>
     <id>http://ranxb.cn/2017/12/29/汇编第八章：数据处理的两个基本问题/</id>
     <published>2017-12-28T19:23:25.000Z</published>
-    <updated>2017-12-29T11:23:11.326Z</updated>
+    <updated>2017-12-30T09:40:34.461Z</updated>
     
     <content type="html"><![CDATA[<h1 id="汇编第八章：数据处理的两个基本问题"><a href="#汇编第八章：数据处理的两个基本问题" class="headerlink" title="汇编第八章：数据处理的两个基本问题"></a>汇编第八章：数据处理的两个基本问题</h1><blockquote>
 <p>章前言说的是对前面所有的内容是有总结性的，这里主要探讨两个问题：  </p>
@@ -83,7 +189,67 @@ mov bx,1                ;CPU内部指令缓冲器
 <li>[bx+si+idata] <strong>相对基址变址寻址</strong></li>
 </ol>
 <p>总结：<strong>有两个寄存器就是基址变址，只要有idata就是相对（只有idata是直接寻址，只有一个寄存器是寄存器间接寻址）</strong></p>
-]]></content>
+<h2 id="指令要处理的数据有多长"><a href="#指令要处理的数据有多长" class="headerlink" title="指令要处理的数据有多长"></a>指令要处理的数据有多长</h2><ol>
+<li>通过寄存器名可以致命处理的数据长度</li>
+<li><p>在没有寄存器的情况下，用操作符“X ptr”指明要操作的长度，X可以是byte或者是word。<br>例如</p>
+<pre><code>mov word prt ds:[0],1
+inc word prt [bx]
+
+mov byte ptr ds:[0],1
+add byte ptr [bx],2
+</code></pre><h2 id="寻址的综合应用"><a href="#寻址的综合应用" class="headerlink" title="寻址的综合应用"></a>寻址的综合应用</h2><blockquote>
+<p>主要就是类c语言的数组的操作，看看书看就行了。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="div"><a href="#div" class="headerlink" title="div"></a><strong>div</strong></h2><blockquote>
+<p>两种div方式！(被除数是除号之前的。)</p>
+</blockquote>
+<ol>
+<li>16位寄存器除以8位寄存器：16位做被除数放在AX里面。商在AL里，余数在AH里</li>
+<li>32位寄存器除以16位寄存器：高16位放在DX，低16位放在AX里，共32位做被除数。商在AX里，余数在DX里。  </li>
+</ol>
+<p><strong>商都放在低位寄存器中，余数放在高位，除数放在一个内存单元或者reg中</strong><br>例如：</p>
+<pre><code>16位/8位：
+    div byte ptr ds:[0]        
+    ;(al) = (ax)/((ds)*16+0)
+    ;(ah) = (ax)mod((ds)*16+0)
+
+32位/8位：
+    div word ptr ds:[0]        
+    ;(ax) = [(dx)*10000H + (ax)] / ((ds)*16+0)
+    ;(dx) = [(dx)*10000H + (ax)] mod ((ds)*16+0)
+</code></pre><p>实际应用，例如100001/100,100001 = 186A1H</p>
+<pre><code>mov dx,1H
+mov ax,86A1H
+mov bx,100
+div bx
+;商在AX里，余数在DX里
+</code></pre><h2 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h2><blockquote>
+<p>dd（define double）,用于定义双精度字节，一个双精度占2个字，4个字节。</p>
+</blockquote>
+<pre><code>data segment
+    db 1
+    dw 1
+    dd 1
+data ends
+</code></pre><p>上面这段：  </p>
+<pre><code>1. 第一个数据是01H，在data:[0]处  
+2. 第二个数据是0001H，在data:[1] - data:[2]处  
+3. 第三个数据是00000001H，在data:[3] - data:[6]处  
+</code></pre><h2 id="dup"><a href="#dup" class="headerlink" title="dup"></a>dup</h2><p>和dd一样都是一个操作符，它是和db、dw、dd等数据定义伪指令配合使用的，用来进行数据的重复，比如：</p>
+<pre><code>db 3 dup (0)
+</code></pre><p>定义了3个字节，他们的值都是0，相当于</p>
+<pre><code>db 0,0,0
+</code></pre><p>又例如：</p>
+<pre><code>db 3 dup (0,1,2)
+</code></pre><p>定义了9个字节，分别是0,1,2,0,1,2,0,1,2,相当于</p>
+<pre><code>db 0,1,2,0,1,2,0,1,2
+</code></pre><p><strong>使用规范如下</strong></p>
+<pre><code>db 重复次数 dup (内容)        ;(重复的字节型数据)
+dw 重复次数 dup (内容)        ;(重复的字型数据)
+dd 重复次数 dup (内容)        ;(重复的双精度字型数据)
+</code></pre>]]></content>
     
     <summary type="html">
     
@@ -576,11 +742,11 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
       <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
-    
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -801,9 +967,9 @@ public boolean onOptionsItemSelected(MenuItem item) {
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
   </entry>
   
@@ -833,9 +999,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -887,9 +1053,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
       <category term="新手" scheme="http://ranxb.cn/tags/%E6%96%B0%E6%89%8B/"/>
     
