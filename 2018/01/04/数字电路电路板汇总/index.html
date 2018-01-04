@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2018/01/04/数字电路电路板汇总/">
+    
+    
+    <title>数字电路电路板汇总 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数字电路,笔记">
+    <meta name="description" content="数字电路电路板汇总变量译码器74138三输入、八输出。s1为一，s2和s3为零即可正常工作。根据二进制输入输出十进制的特定端口。两个同时使用的时候，低位s1接1，s2接高位s1作为输入的第四端口。如图">
+<meta name="keywords" content="数字电路,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路电路板汇总">
+<meta property="og:url" content="http://ranxb.cn/2018/01/04/数字电路电路板汇总/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="数字电路电路板汇总变量译码器74138三输入、八输出。s1为一，s2和s3为零即可正常工作。根据二进制输入输出十进制的特定端口。两个同时使用的时候，低位s1接1，s2接高位s1作为输入的第四端口。如图">
+<meta property="og:image" content="http://ranxb.cn/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/a.png">
+<meta property="og:image" content="http://ranxb.cn/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/b.png">
+<meta property="og:image" content="http://ranxb.cn/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/c.png">
+<meta property="og:image" content="http://ranxb.cn/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/d.png">
+<meta property="og:image" content="http://ranxb.cn/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/e.png">
+<meta property="og:image" content="http://ranxb.cn/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/f.png">
+<meta property="og:updated_time" content="2018-01-04T04:00:32.445Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数字电路电路板汇总">
+<meta name="twitter:description" content="数字电路电路板汇总变量译码器74138三输入、八输出。s1为一，s2和s3为零即可正常工作。根据二进制输入输出十进制的特定端口。两个同时使用的时候，低位s1接1，s2接高位s1作为输入的第四端口。如图">
+<meta name="twitter:image" content="http://ranxb.cn/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/a.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数字电路电路板汇总</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数字电路电路板汇总</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-04T03:22:16.000Z" itemprop="datePublished" class="page-time">
+  2018-01-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数字电路电路板汇总"><span class="post-toc-number">1.</span> <span class="post-toc-text">数字电路电路板汇总</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量译码器74138"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">变量译码器74138</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7448显示译码器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">7448显示译码器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TS547显示器"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">TS547显示器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据选择器74LS153"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">数据选择器74LS153</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-数字电路电路板汇总"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数字电路电路板汇总</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-04 11:22:16" datetime="2018-01-04T03:22:16.000Z"  itemprop="datePublished">2018-01-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="数字电路电路板汇总"><a href="#数字电路电路板汇总" class="headerlink" title="数字电路电路板汇总"></a>数字电路电路板汇总</h1><h2 id="变量译码器74138"><a href="#变量译码器74138" class="headerlink" title="变量译码器74138"></a>变量译码器74138</h2><p>三输入、八输出。<br>s1为一，s2和s3为零即可正常工作。<br>根据二进制输入输出十进制的特定端口。<br>两个同时使用的时候，低位s1接1，s2接高位s1作为输入的第四端口。如图<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="7448显示译码器"><a href="#7448显示译码器" class="headerlink" title="7448显示译码器"></a>7448显示译码器</h2><h2 id="TS547显示器"><a href="#TS547显示器" class="headerlink" title="TS547显示器"></a>TS547显示器</h2><h2 id="数据选择器74LS153"><a href="#数据选择器74LS153" class="headerlink" title="数据选择器74LS153"></a>数据选择器74LS153</h2><p>针脚如图所示<br><img src="/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/b.png" alt=""><br>真值表如图所示<br><img src="/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/c.png" alt=""><br>做题时会给多个输入端，此时想A0A1当成两个输入端，再从D端口中根据选择器的输出表达式连接相应第三段口即可，例如：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/d.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/e.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/Users/mac/Documents/blog/source/_posts/数字电路电路板汇总/f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-01-04T04:00:32.445Z" itemprop="dateUpdated">2018-01-04 12:00:32</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/&title=《数字电路电路板汇总》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/&title=《数字电路电路板汇总》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/04/数字电路电路板汇总/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路电路板汇总》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/30/汇编第九章：转移指令的原理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">汇编第九章：转移指令的原理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/&title=《数字电路电路板汇总》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/&title=《数字电路电路板汇总》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/04/数字电路电路板汇总/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路电路板汇总》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/04/数字电路电路板汇总/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aQW7DMAwEwPz/0y7QU4HC7i7loo08OhlK4mh0IERSr1c8js9x/fx1Jpn//nz229sGBgbG2zKOy3G93HYLkplr3ikVAwPjAYw8yF4H1na5yUzyZgwMDIw2BN8VjjEwMDBmAff6+Hj9tllyi4GBgZEnsfmnsyCb/y8GBsbTGHc1Bn7j+Q/6GxgYGP+Mcdw0ZslwEnajf8fAwNiakZf4Z8E3SWhnye0rz5IxMDC2YOQnrjxlbS9YRAW12dZjYGC8OSMPl3ngy4+P6/uNgYHxBEZbuWoDZZu+3nV4xcDA2JXRhtHkwDfbgraBioGBsTcjL83nC80XlIf+IonFwMDYlJEvd+U4uN48OJ3HwMDYmpEvKwp8yzOzII6BgfEExnpRrA24RW6dby4GBsamjFlwzPH5dsxanhgYGE9gtAEuZ6xcuWgPphgYGHszZull255sL3jVF8IwMDAexsgXtB5SZ43M0ywcAwNjU8asJdlSk/S1BQ9bmBgYGG/LyMv9s+NdW9S7oayGgYGxNSNpLq4cEFe+/wMJAwNja0Z7RMth60lsfbsNAwNjO8ZRjtlli5USW31nBAMDYztGG+za5mXLnhX4MDAwnsBYb0m2CXAyM0xfMTAwtmbMGpnt26J8Or54gYGBgdGW+NtmZ5sY/0rAxcDA2I7RFrzaBHWpuIaBgfEAxspFrtl78ndGGAwMjK0ZbWOgvaKx3mzIG6sYGBjbMT4Aty6TYfDFr4gAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
