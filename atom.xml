@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-04T06:02:39.955Z</updated>
+  <updated>2018-01-04T11:25:38.584Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ranxb.cn/2018/01/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%94%B5%E8%B7%AF%E6%9D%BF%E6%B1%87%E6%80%BB/"/>
     <id>http://ranxb.cn/2018/01/04/数字电路电路板汇总/</id>
     <published>2018-01-04T03:22:16.000Z</published>
-    <updated>2018-01-04T06:02:39.955Z</updated>
+    <updated>2018-01-04T11:25:38.584Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数字电路电路板汇总"><a href="#数字电路电路板汇总" class="headerlink" title="数字电路电路板汇总"></a>数字电路电路板汇总</h1><h2 id="变量译码器74138"><a href="#变量译码器74138" class="headerlink" title="变量译码器74138"></a>变量译码器74138</h2><p>三输入、八输出。<br>s1为一，s2和s3为零即可正常工作。<br>根据二进制输入输出十进制的特定端口。<br>两个同时使用的时候，低位s1接1，s2接高位s1作为输入的第四端口。如图<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -48,6 +48,11 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>  </p>
+<h2 id="多位数值比较器7485"><a href="#多位数值比较器7485" class="headerlink" title="多位数值比较器7485"></a>多位数值比较器7485</h2><p>下图为数值比较器7485的单位针脚图<br><img src="g.png" alt=""><br>下图为用多个数值比较器7485的多位数值比较器的基本原理<br><img src="h.png" alt="">  </p>
+<h2 id="奇偶校验器74LS280"><a href="#奇偶校验器74LS280" class="headerlink" title="奇偶校验器74LS280"></a>奇偶校验器74LS280</h2><p>四位二进制奇偶校验的真值表<br><img src="i.png" alt=""><br>奇偶校验位逻辑表达式<br><img src="j.png" alt=""></p>
+<p>74LS280奇偶校验/发生器<br><img src="k.png" alt="">  </p>
+<p>实际应用如下    </p>
+<p><img src="l.png" alt="">  </p>
 ]]></content>
     
     <summary type="html">
