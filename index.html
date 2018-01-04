@@ -186,7 +186,18 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
+        汇编语言第十二。。章：内外中断和int指令
+不再过多说中断是什么了，就是可以随时控制CPU停止当前的指令干其他的事的意思，下面内中断程序的步骤：  
+
+将程序写入0:200开始的空间内，同时把字符什么的也要定义进去。  
+设置中断向量表，前面是ip，后面是cs。注意高低位。  
+
+
+单步中断的操作
+取得中断类型码
+标志寄存器入栈
+标志寄存器TF和IF置零，防止在中断程序中在中断。  
+CS内...
     
 
         <a href="/2018/01/05/汇编语言第十二。。章：内外中断和int指令/" class="post-more waves-effect waves-button">
