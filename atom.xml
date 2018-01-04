@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-04T12:43:10.915Z</updated>
+  <updated>2018-01-04T14:53:13.378Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ranxb.cn/2018/01/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E9%9B%86%E6%88%90%E5%8F%8C%E7%A8%B3%E6%80%81%E8%A7%A6%E5%8F%91%E5%99%A8/"/>
     <id>http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/</id>
     <published>2018-01-04T11:31:33.000Z</published>
-    <updated>2018-01-04T12:43:10.915Z</updated>
+    <updated>2018-01-04T14:53:13.378Z</updated>
     
     <content type="html"><![CDATA[<h1 id="集成双稳态触发器"><a href="#集成双稳态触发器" class="headerlink" title="集成双稳态触发器"></a>集成双稳态触发器</h1><blockquote>
 <p>主要内容有  </p>
@@ -83,7 +83,47 @@
             </figure>
 <p><strong>主从RS触发器动作特点</strong>：<br>主从RS触发器的动作分两步完成。<br>先在CP=1期间，主触发器接收输入驱动RS信号进行主触发器的状态修改，但从触发器不动作。<br>第二步，在CP=0时刻，从触发器按照此时主触发器的状态进行动作。</p>
 <p>主从RS触发器解决了空翻问题，但在CP=1期间，RS仍存在约束条件。<br><strong>RS = 0 (约束条件）</strong><br>特征表如下：<br><img src="h.png" alt=""></p>
-<h2 id="时钟D触发器及其分析"><a href="#时钟D触发器及其分析" class="headerlink" title="时钟D触发器及其分析"></a>时钟D触发器及其分析</h2>]]></content>
+<h2 id="时钟D触发器及其分析"><a href="#时钟D触发器及其分析" class="headerlink" title="时钟D触发器及其分析"></a>时钟D触发器及其分析</h2><h3 id="电路结构与工作原理"><a href="#电路结构与工作原理" class="headerlink" title="电路结构与工作原理"></a>电路结构与工作原理</h3><p>为了适用于单端输入信号的场合，在有些集成电路中也把同步RS触发器作成下图的结构形式 通常把这种电路叫D型触发器(或D型锁存器)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="i.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="逻辑功能及其描述方法"><a href="#逻辑功能及其描述方法" class="headerlink" title="逻辑功能及其描述方法"></a>逻辑功能及其描述方法</h3><h4 id="功能真值表和激励表"><a href="#功能真值表和激励表" class="headerlink" title="功能真值表和激励表"></a>功能真值表和激励表</h4><p>RS触发器演变而来，它克服了RS触发器在 S=R=1时，次态不定的功能不完善缺点。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="j.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="D触发器的空翻"><a href="#D触发器的空翻" class="headerlink" title="D触发器的空翻"></a>D触发器的空翻</h4><p>D触发器依然存在“空翻”现象，实际广泛使用的集成D触 发器采用了维持阻塞结构，称为<strong>维持阻塞D触发器。</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="k.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>维持阻塞D触发器状态变化产升在时钟脉冲的上升沿，其次态决定于该时刻前瞬间输入信号D。</strong></p>
+<h2 id="时钟JK触发器及其分析"><a href="#时钟JK触发器及其分析" class="headerlink" title="时钟JK触发器及其分析"></a>时钟JK触发器及其分析</h2><p>为了消除时钟控制RS 触发器输入信号的约束条件，又使触发器有两个输入端，可在时钟控制RS触发器中增加两条交叉反馈线，并将输入端S改为J，R改为K。<br><img src="l.png" alt=""></p>
+<h3 id="逻辑功能及其描述方法-1"><a href="#逻辑功能及其描述方法-1" class="headerlink" title="逻辑功能及其描述方法"></a>逻辑功能及其描述方法</h3><p>功能真值表和激励表<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="m.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>特征方程：<br>  Qn+1 = J 非Q + 非k Q</p>
+<h3 id="主从集成JK触发器"><a href="#主从集成JK触发器" class="headerlink" title="主从集成JK触发器"></a>主从集成JK触发器</h3><p>和RS触发差不多</p>
+<h2 id="时钟T触发器及其分析"><a href="#时钟T触发器及其分析" class="headerlink" title="时钟T触发器及其分析"></a>时钟T触发器及其分析</h2><p>T触发器可看成是JK触发器在J=K条件下的特例<br>T触发器的逻辑功能可概括为：T=0时触发器保持原状太不变；T=1时触发器翻转。  </p>
+<p><img src="n.png" alt=""></p>
+<h2 id="特征方程总结"><a href="#特征方程总结" class="headerlink" title="特征方程总结"></a>特征方程总结</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="o.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+]]></content>
     
     <summary type="html">
     
@@ -1196,9 +1236,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
     
       <category term="新手" scheme="http://ranxb.cn/tags/%E6%96%B0%E6%89%8B/"/>
     
