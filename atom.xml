@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-04T11:25:38.584Z</updated>
+  <updated>2018-01-04T12:43:10.915Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数字电路第五章：集成双稳态触发器</title>
+    <link href="http://ranxb.cn/2018/01/04/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E9%9B%86%E6%88%90%E5%8F%8C%E7%A8%B3%E6%80%81%E8%A7%A6%E5%8F%91%E5%99%A8/"/>
+    <id>http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/</id>
+    <published>2018-01-04T11:31:33.000Z</published>
+    <updated>2018-01-04T12:43:10.915Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="集成双稳态触发器"><a href="#集成双稳态触发器" class="headerlink" title="集成双稳态触发器"></a>集成双稳态触发器</h1><blockquote>
+<p>主要内容有  </p>
+<ol>
+<li>触发器的特点及分类  </li>
+<li>基本的RS触发器  </li>
+<li>事中控制的RS触发器，D触发器，JK触发器，T触发器的电路结构、逻辑功能及其描述方法。  </li>
+<li>触发器的性能参数。  </li>
+</ol>
+</blockquote>
+<h2 id="触发器的基本特点及分类"><a href="#触发器的基本特点及分类" class="headerlink" title="触发器的基本特点及分类"></a>触发器的基本特点及分类</h2><h3 id="输入量和输出量的设置"><a href="#输入量和输出量的设置" class="headerlink" title="输入量和输出量的设置"></a>输入量和输出量的设置</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p>s0和R0代表初始状态预置输入量，X1和X2是正常工作的时候的输入量，Q为输出量，要求有两个相反的所以叫Q和非Q。<br>钟控式的再加一个CP为时钟控制输入量。  </p>
+<h3 id="触发器输出与约束方程的一般表达式"><a href="#触发器输出与约束方程的一般表达式" class="headerlink" title="触发器输出与约束方程的一般表达式"></a>触发器输出与约束方程的一般表达式</h3><p><strong>设触发器输出次态的取值记作Qn+1，现态取值记Qn</strong><br>触发器正常时要求R0 = S0 = 1！。  </p>
+<h3 id="触发器的分类"><a href="#触发器的分类" class="headerlink" title="触发器的分类"></a>触发器的分类</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="b.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="基本RS双稳态触发器及其分析"><a href="#基本RS双稳态触发器及其分析" class="headerlink" title="基本RS双稳态触发器及其分析"></a>基本RS双稳态触发器及其分析</h2><blockquote>
+<p>本RS触发器是各种触发器电路中结构形式最简单的一种。同时，它又是复杂电路结构触发器的一个基本组成都分。</p>
+</blockquote>
+<h3 id="RS型（set-reset）的电路结构和基本原理"><a href="#RS型（set-reset）的电路结构和基本原理" class="headerlink" title="RS型（set reset）的电路结构和基本原理"></a>RS型（set reset）的电路结构和基本原理</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="c.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>习惯上将电路画成图5-4(b)的对称形式。<br>Q和Q称为输出端，并且定义Q=1、Q=0为触发器的1状态， Q=0、Q=1为触发器的0状态。<br><strong>S为置位端或置1输入端，R成为复位端或置0输入端。</strong><br>(1)当S=1，R=0时，Q=1,非Q=0。<br>(2)当S=0，R=1时，Q=0,非Q=1。<br>(3)当S=R=0时，电路维持原来状态不变。<br>(4)当S=R=1时，Q = 非Q= 0，既不是定义的1状态， 也不是定义的0状态。<br>真值表如下<br><img src="d.png" alt=""><br>输入信号在S或R为1的全部作用时间里， 都能直接改变输出端Q和Q的状态，这就是基本RS触发器的工作特点。<br>这个缘故，<strong>也把S(非S)叫做直接置位端; 把R(非R)叫做直接复位端</strong></p>
+<h2 id="时钟RS触发器及其分析"><a href="#时钟RS触发器及其分析" class="headerlink" title="时钟RS触发器及其分析"></a>时钟RS触发器及其分析</h2><p>触发器翻转的状态仍由输入控制端的电平情况决定，但翻转的时刻应由统一的脉冲信号来进行控制，这类控制信号称为<strong>时钟脉冲</strong>，CP (Clock Pulse)表示。<br>这类触发器成为<strong>同步触发器</strong></p>
+<h3 id="时钟RS触发器结构与工作特性"><a href="#时钟RS触发器结构与工作特性" class="headerlink" title="时钟RS触发器结构与工作特性"></a>时钟RS触发器结构与工作特性</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="e.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>真值表如下（即为只有CP为一时即触发）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>一般在使用同步触发器时，有时还需要在cp信号来之前将触发器预置成指定状态，所以可能会出现专门的异步置位输入端S和异步复位输入端R，使触发器置于指定状态。</p>
+<h4 id="空翻现象"><a href="#空翻现象" class="headerlink" title="空翻现象"></a>空翻现象</h4><p>如果CP=1的期间内输入信号多次发生变化，则触发器的状态也会发生多次翻转，这就降低了电路的抗干扰能力，也叫“空翻”现象。</p>
+<h3 id="主从触发器"><a href="#主从触发器" class="headerlink" title="主从触发器"></a>主从触发器</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="g.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>主从RS触发器动作特点</strong>：<br>主从RS触发器的动作分两步完成。<br>先在CP=1期间，主触发器接收输入驱动RS信号进行主触发器的状态修改，但从触发器不动作。<br>第二步，在CP=0时刻，从触发器按照此时主触发器的状态进行动作。</p>
+<p>主从RS触发器解决了空翻问题，但在CP=1期间，RS仍存在约束条件。<br><strong>RS = 0 (约束条件）</strong><br>特征表如下：<br><img src="h.png" alt=""></p>
+<h2 id="时钟D触发器及其分析"><a href="#时钟D触发器及其分析" class="headerlink" title="时钟D触发器及其分析"></a>时钟D触发器及其分析</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;集成双稳态触发器&quot;&gt;&lt;a href=&quot;#集成双稳态触发器&quot; class=&quot;headerlink&quot; title=&quot;集成双稳态触发器&quot;&gt;&lt;/a&gt;集成双稳态触发器&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;主要内容有  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;触发器的特点及分类  &lt;
+    
+    </summary>
+    
+      <category term="数字电路" scheme="http://ranxb.cn/categories/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+    
+      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>数字电路电路板汇总</title>
@@ -1108,9 +1196,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
       <category term="新手" scheme="http://ranxb.cn/tags/%E6%96%B0%E6%89%8B/"/>
     

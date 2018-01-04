@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/">
+    
+    
+    <title>数字电路第五章：集成双稳态触发器 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数字电路,笔记">
+    <meta name="description" content="集成双稳态触发器 主要内容有    触发器的特点及分类   基本的RS触发器   事中控制的RS触发器，D触发器，JK触发器，T触发器的电路结构、逻辑功能及其描述方法。   触发器的性能参数。     触发器的基本特点及分类输入量和输出量的设置">
+<meta name="keywords" content="数字电路,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路第五章：集成双稳态触发器">
+<meta property="og:url" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="集成双稳态触发器 主要内容有    触发器的特点及分类   基本的RS触发器   事中控制的RS触发器，D触发器，JK触发器，T触发器的电路结构、逻辑功能及其描述方法。   触发器的性能参数。     触发器的基本特点及分类输入量和输出量的设置">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/a.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/b.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/c.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/d.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/e.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/f.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/g.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/h.png">
+<meta property="og:updated_time" content="2018-01-04T12:43:10.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数字电路第五章：集成双稳态触发器">
+<meta name="twitter:description" content="集成双稳态触发器 主要内容有    触发器的特点及分类   基本的RS触发器   事中控制的RS触发器，D触发器，JK触发器，T触发器的电路结构、逻辑功能及其描述方法。   触发器的性能参数。     触发器的基本特点及分类输入量和输出量的设置">
+<meta name="twitter:image" content="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/a.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数字电路第五章：集成双稳态触发器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数字电路第五章：集成双稳态触发器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-04T11:31:33.000Z" itemprop="datePublished" class="page-time">
+  2018-01-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#集成双稳态触发器"><span class="post-toc-number">1.</span> <span class="post-toc-text">集成双稳态触发器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#触发器的基本特点及分类"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">触发器的基本特点及分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入量和输出量的设置"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">输入量和输出量的设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#触发器输出与约束方程的一般表达式"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">触发器输出与约束方程的一般表达式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#触发器的分类"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">触发器的分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本RS双稳态触发器及其分析"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">基本RS双稳态触发器及其分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RS型（set-reset）的电路结构和基本原理"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">RS型（set reset）的电路结构和基本原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时钟RS触发器及其分析"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">时钟RS触发器及其分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时钟RS触发器结构与工作特性"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">时钟RS触发器结构与工作特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#空翻现象"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">空翻现象</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主从触发器"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">主从触发器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时钟D触发器及其分析"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">时钟D触发器及其分析</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-数字电路第五章：集成双稳态触发器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数字电路第五章：集成双稳态触发器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-04 19:31:33" datetime="2018-01-04T11:31:33.000Z"  itemprop="datePublished">2018-01-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="集成双稳态触发器"><a href="#集成双稳态触发器" class="headerlink" title="集成双稳态触发器"></a>集成双稳态触发器</h1><blockquote>
+<p>主要内容有  </p>
+<ol>
+<li>触发器的特点及分类  </li>
+<li>基本的RS触发器  </li>
+<li>事中控制的RS触发器，D触发器，JK触发器，T触发器的电路结构、逻辑功能及其描述方法。  </li>
+<li>触发器的性能参数。  </li>
+</ol>
+</blockquote>
+<h2 id="触发器的基本特点及分类"><a href="#触发器的基本特点及分类" class="headerlink" title="触发器的基本特点及分类"></a>触发器的基本特点及分类</h2><h3 id="输入量和输出量的设置"><a href="#输入量和输出量的设置" class="headerlink" title="输入量和输出量的设置"></a>输入量和输出量的设置</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p>s0和R0代表初始状态预置输入量，X1和X2是正常工作的时候的输入量，Q为输出量，要求有两个相反的所以叫Q和非Q。<br>钟控式的再加一个CP为时钟控制输入量。  </p>
+<h3 id="触发器输出与约束方程的一般表达式"><a href="#触发器输出与约束方程的一般表达式" class="headerlink" title="触发器输出与约束方程的一般表达式"></a>触发器输出与约束方程的一般表达式</h3><p><strong>设触发器输出次态的取值记作Qn+1，现态取值记Qn</strong><br>触发器正常时要求R0 = S0 = 1！。  </p>
+<h3 id="触发器的分类"><a href="#触发器的分类" class="headerlink" title="触发器的分类"></a>触发器的分类</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="b.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="基本RS双稳态触发器及其分析"><a href="#基本RS双稳态触发器及其分析" class="headerlink" title="基本RS双稳态触发器及其分析"></a>基本RS双稳态触发器及其分析</h2><blockquote>
+<p>本RS触发器是各种触发器电路中结构形式最简单的一种。同时，它又是复杂电路结构触发器的一个基本组成都分。</p>
+</blockquote>
+<h3 id="RS型（set-reset）的电路结构和基本原理"><a href="#RS型（set-reset）的电路结构和基本原理" class="headerlink" title="RS型（set reset）的电路结构和基本原理"></a>RS型（set reset）的电路结构和基本原理</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="c.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>习惯上将电路画成图5-4(b)的对称形式。<br>Q和Q称为输出端，并且定义Q=1、Q=0为触发器的1状态， Q=0、Q=1为触发器的0状态。<br><strong>S为置位端或置1输入端，R成为复位端或置0输入端。</strong><br>(1)当S=1，R=0时，Q=1,非Q=0。<br>(2)当S=0，R=1时，Q=0,非Q=1。<br>(3)当S=R=0时，电路维持原来状态不变。<br>(4)当S=R=1时，Q = 非Q= 0，既不是定义的1状态， 也不是定义的0状态。<br>真值表如下<br><img src="d.png" alt=""><br>输入信号在S或R为1的全部作用时间里， 都能直接改变输出端Q和Q的状态，这就是基本RS触发器的工作特点。<br>这个缘故，<strong>也把S(非S)叫做直接置位端; 把R(非R)叫做直接复位端</strong></p>
+<h2 id="时钟RS触发器及其分析"><a href="#时钟RS触发器及其分析" class="headerlink" title="时钟RS触发器及其分析"></a>时钟RS触发器及其分析</h2><p>触发器翻转的状态仍由输入控制端的电平情况决定，但翻转的时刻应由统一的脉冲信号来进行控制，这类控制信号称为<strong>时钟脉冲</strong>，CP (Clock Pulse)表示。<br>这类触发器成为<strong>同步触发器</strong></p>
+<h3 id="时钟RS触发器结构与工作特性"><a href="#时钟RS触发器结构与工作特性" class="headerlink" title="时钟RS触发器结构与工作特性"></a>时钟RS触发器结构与工作特性</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="e.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>真值表如下（即为只有CP为一时即触发）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>一般在使用同步触发器时，有时还需要在cp信号来之前将触发器预置成指定状态，所以可能会出现专门的异步置位输入端S和异步复位输入端R，使触发器置于指定状态。</p>
+<h4 id="空翻现象"><a href="#空翻现象" class="headerlink" title="空翻现象"></a>空翻现象</h4><p>如果CP=1的期间内输入信号多次发生变化，则触发器的状态也会发生多次翻转，这就降低了电路的抗干扰能力，也叫“空翻”现象。</p>
+<h3 id="主从触发器"><a href="#主从触发器" class="headerlink" title="主从触发器"></a>主从触发器</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="g.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>主从RS触发器动作特点</strong>：<br>主从RS触发器的动作分两步完成。<br>先在CP=1期间，主触发器接收输入驱动RS信号进行主触发器的状态修改，但从触发器不动作。<br>第二步，在CP=0时刻，从触发器按照此时主触发器的状态进行动作。</p>
+<p>主从RS触发器解决了空翻问题，但在CP=1期间，RS仍存在约束条件。<br><strong>RS = 0 (约束条件）</strong><br>特征表如下：<br><img src="h.png" alt=""></p>
+<h2 id="时钟D触发器及其分析"><a href="#时钟D触发器及其分析" class="headerlink" title="时钟D触发器及其分析"></a>时钟D触发器及其分析</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-01-04T12:43:10.915Z" itemprop="dateUpdated">2018-01-04 20:43:10</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/&title=《数字电路第五章：集成双稳态触发器》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/&title=《数字电路第五章：集成双稳态触发器》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路第五章：集成双稳态触发器》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/04/数字电路电路板汇总/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数字电路电路板汇总</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/&title=《数字电路第五章：集成双稳态触发器》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/&title=《数字电路第五章：集成双稳态触发器》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路第五章：集成双稳态触发器》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3awW7rMAwEwP7/T6fXAqmdJSkGPoxPDy+NwvFBFJb6+YmfV+v5+933dd4/ff/Fq28dfvDw8PCOln5fVl76VYn3RSerXdWMh4eHt83Ll65+N/nLXquI6sHDw8N7AC/ajoNmkDSSySvAw8PDew4vOQrnW3k1ScDDw8N7Di+PYqvI5AVVG8xK1oKHh4cX86rFPeHfK/M9PDw8vIULARN8L+rNm8E/1eLh4eEt8Kqxwj04ORDn6/SOy3h4eHjf4SVb8GRbT7b75CUmryPKqvHw8PAGvOolgOqAv3fVIKc2R194eHh4A1510XkYkWz3Vcyo4+Hh4eEVf7E3qp+UlVyoyl9T+bYCHh4e3piXHIuTC0+T6LY6WqtWgoeHh/dNXrX0fNM/9bvRp3h4eHhHeb3lqphkoDVfEw8PD+87vB7p1XrKdxkORSR4eHh4G7y8PeRBcF7WqQHYhzEYHh4e3iFesmVPmkE+4srDjvIBGg8PD+8or9xD4raRv6Bjg67qnTI8PDy8Fq+QUhQP3xNAlXRZIR4eHt4aL49o85F/9dLA/NPLMAIPDw9vgdcLZ3vXCwon/dYVrsu+h4eHh7fAS2KFakiRt4T8RRcGdXh4eHgLvF5I2tv08wtY+eE+amN4eHh4C7yNGCK/mjD5n1F7wMPDwxvwqltwHtFWj8tJPQf6Hh4eHt5RXn4I7kUSkwaQHJ0/dDw8PDy8BV41VqgOvfJXmQ/hPiDx8PDwjvJexacXy47i18EFAjw8PLwNXm/pPK6dtIfJ8RoPDw9vm1ddujc2qway1RD52GQPDw8PL+bdb6/VQX5C7Y3HmlkLHh4e3mN4ZwOCnPSlxoCHh4e3duashhfVoHZy6MfDw8Pb400ChTxo2BhifUDi4eHhLfB6S/RK3LiCcODBw8PDS3m/CMC7YE0nmXkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
