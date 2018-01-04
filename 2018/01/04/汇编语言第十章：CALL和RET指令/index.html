@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/">
+    
+    
+    <title>汇编语言第十章：CALL和RET指令 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="笔记,汇编语言">
+    <meta name="description" content="汇编语言第十章：CALL和RET指令 都是修改ip的，重点不多，会用就行，随便写写。  ret和retfret进行近转移，只修改IPretf进行远转移，修改IP和CS   ret指令的操作出栈操作    (IP) = ((ss)*16+sp)   (sp) = (sp)+2相当于pop IP  retf指令的操作先出ip，再出cs    (IP) = ((ss)*16+sp)   (sp) = (">
+<meta name="keywords" content="笔记,汇编语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编语言第十章：CALL和RET指令">
+<meta property="og:url" content="http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="汇编语言第十章：CALL和RET指令 都是修改ip的，重点不多，会用就行，随便写写。  ret和retfret进行近转移，只修改IPretf进行远转移，修改IP和CS   ret指令的操作出栈操作    (IP) = ((ss)*16+sp)   (sp) = (sp)+2相当于pop IP  retf指令的操作先出ip，再出cs    (IP) = ((ss)*16+sp)   (sp) = (">
+<meta property="og:updated_time" content="2018-01-04T16:27:28.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编语言第十章：CALL和RET指令">
+<meta name="twitter:description" content="汇编语言第十章：CALL和RET指令 都是修改ip的，重点不多，会用就行，随便写写。  ret和retfret进行近转移，只修改IPretf进行远转移，修改IP和CS   ret指令的操作出栈操作    (IP) = ((ss)*16+sp)   (sp) = (sp)+2相当于pop IP  retf指令的操作先出ip，再出cs    (IP) = ((ss)*16+sp)   (sp) = (">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">汇编语言第十章：CALL和RET指令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">汇编语言第十章：CALL和RET指令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-04T15:33:06.000Z" itemprop="datePublished" class="page-time">
+  2018-01-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编语言第十章：CALL和RET指令"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编语言第十章：CALL和RET指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ret和retf"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">ret和retf</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ret指令的操作"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">ret指令的操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#retf指令的操作"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">retf指令的操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CALL指令"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">CALL指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#根据位移进行转移的CALL指令"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">根据位移进行转移的CALL指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#根据目的地址转移的CALL指令"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">根据目的地址转移的CALL指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#地址在寄存器中的CALL指令"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">地址在寄存器中的CALL指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移地址在内存中的CALL指令"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">转移地址在内存中的CALL指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CALL-WORD-PRT-地址"><span class="post-toc-number">1.2.4.1.</span> <span class="post-toc-text">CALL WORD PRT 地址</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CALL-DWOERD-PRT-地址"><span class="post-toc-number">1.2.4.2.</span> <span class="post-toc-text">CALL DWOERD PRT 地址</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RET和CALL的配合使用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RET和CALL的配合使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MUL指令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">MUL指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8位的"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">8位的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#16位的"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">16位的</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-汇编语言第十章：CALL和RET指令"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">汇编语言第十章：CALL和RET指令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-04 23:33:06" datetime="2018-01-04T15:33:06.000Z"  itemprop="datePublished">2018-01-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="汇编语言第十章：CALL和RET指令"><a href="#汇编语言第十章：CALL和RET指令" class="headerlink" title="汇编语言第十章：CALL和RET指令"></a>汇编语言第十章：CALL和RET指令</h1><blockquote>
+<p>都是修改ip的，重点不多，会用就行，随便写写。</p>
+</blockquote>
+<h2 id="ret和retf"><a href="#ret和retf" class="headerlink" title="ret和retf"></a>ret和retf</h2><p><strong>ret进行近转移，只修改IP</strong><br><strong>retf进行远转移，修改IP和CS</strong>  </p>
+<h3 id="ret指令的操作"><a href="#ret指令的操作" class="headerlink" title="ret指令的操作"></a>ret指令的操作</h3><p><strong>出栈操作</strong>  </p>
+<ol>
+<li>(IP) = ((ss)*16+sp)  </li>
+<li>(sp) = (sp)+2<br>相当于pop IP</li>
+</ol>
+<h3 id="retf指令的操作"><a href="#retf指令的操作" class="headerlink" title="retf指令的操作"></a>retf指令的操作</h3><p><strong>先出ip，再出cs</strong>  </p>
+<ol>
+<li>(IP) = ((ss)*16+sp)  </li>
+<li>(sp) = (sp)+2  </li>
+<li>(CS) = ((ss)*16+sp)  </li>
+<li>(sp) = (sp)+2<br>相当于pop ip；pop cs</li>
+</ol>
+<h2 id="CALL指令"><a href="#CALL指令" class="headerlink" title="CALL指令"></a>CALL指令</h2><blockquote>
+<p>两步操作  </p>
+<ol>
+<li>IP或CS和IP压入栈  </li>
+<li>转移</li>
+</ol>
+</blockquote>
+<p>(CALL的转移位移是16位的，也就是短转移，不支持近转移)</p>
+<h3 id="根据位移进行转移的CALL指令"><a href="#根据位移进行转移的CALL指令" class="headerlink" title="根据位移进行转移的CALL指令"></a>根据位移进行转移的CALL指令</h3><p><strong>先压栈，在转移</strong>  </p>
+<ol>
+<li>(sp) = (sp)-2  </li>
+<li>((ss)*16+sp) = ip  </li>
+<li>ip转移  </li>
+</ol>
+<p>格式：CALL 标号  </p>
+<h3 id="根据目的地址转移的CALL指令"><a href="#根据目的地址转移的CALL指令" class="headerlink" title="根据目的地址转移的CALL指令"></a>根据目的地址转移的CALL指令</h3><p>格式： </p>
+<pre><code>call far prt 标号
+</code></pre><p>实现的是段间转移<br>执行此命令时进行如下操作：  </p>
+<ol>
+<li>push CS</li>
+<li>push IP</li>
+<li>CS：IP转移</li>
+</ol>
+<h3 id="地址在寄存器中的CALL指令"><a href="#地址在寄存器中的CALL指令" class="headerlink" title="地址在寄存器中的CALL指令"></a>地址在寄存器中的CALL指令</h3><p>格式： call 16位的reg<br>例如： call ax<br>相当于：<br>push ip<br>jmp ax</p>
+<h3 id="转移地址在内存中的CALL指令"><a href="#转移地址在内存中的CALL指令" class="headerlink" title="转移地址在内存中的CALL指令"></a>转移地址在内存中的CALL指令</h3><h4 id="CALL-WORD-PRT-地址"><a href="#CALL-WORD-PRT-地址" class="headerlink" title="CALL WORD PRT 地址"></a>CALL WORD PRT 地址</h4><p>两个字节16位，只转移IP</p>
+<h4 id="CALL-DWOERD-PRT-地址"><a href="#CALL-DWOERD-PRT-地址" class="headerlink" title="CALL DWOERD PRT 地址"></a>CALL DWOERD PRT 地址</h4><p>四个字节32位，转移CS和IP</p>
+<h2 id="RET和CALL的配合使用"><a href="#RET和CALL的配合使用" class="headerlink" title="RET和CALL的配合使用"></a>RET和CALL的配合使用</h2><p>当正常函数用，没什么区别<br>要先push 前面用到的寄存器的值<br>前面CALL，后面RET</p>
+<h2 id="MUL指令"><a href="#MUL指令" class="headerlink" title="MUL指令"></a>MUL指令</h2><p>乘法指令，和除法指令类似，只是要不都是8位的，要不都是16位的。  </p>
+<h3 id="8位的"><a href="#8位的" class="headerlink" title="8位的"></a>8位的</h3><p>AL放一个，然后MUL一个8位的内存单元，结果放在AX里面<br>如100*10:  </p>
+<pre><code>mov al,100
+mov bl,10
+mul bl
+</code></pre><p>最后结果在AX里<br>或者mul一个内存单元，还是例如：</p>
+<pre><code>mov al,100
+mov ds:[0],10
+mul byte ptr ds:[0]
+</code></pre><h3 id="16位的"><a href="#16位的" class="headerlink" title="16位的"></a>16位的</h3><p>AX放一个，然后MUL一个16位寄存器或者内存单元，结果高位在DX里，低位在AX里。<br>例如1000*10：</p>
+<pre><code>mov ax,1000
+mov bx,10
+mul bx
+</code></pre><p>结果换成16进制，高位在DX里，低位在AX里。</p>
+<p><strong>除法在第八章</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-01-04T16:27:28.652Z" itemprop="dateUpdated">2018-01-05 00:27:28</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编语言/">汇编语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/&title=《汇编语言第十章：CALL和RET指令》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/&title=《汇编语言第十章：CALL和RET指令》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编语言第十章：CALL和RET指令》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/05/汇编语言第十一章：标志寄存器/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">汇编语言第十一章：标志寄存器</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/04/数字电路第五章：集成双稳态触发器/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数字电路第五章：集成双稳态触发器</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/&title=《汇编语言第十章：CALL和RET指令》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/&title=《汇编语言第十章：CALL和RET指令》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编语言第十章：CALL和RET指令》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwUlEQVR42u3awU7jUAwFUP7/pxlpNAukUcO99nvQxcmqoiHtCVJsrv3xER+ff4+vr78ez+c//+T55/9/7seNAw8PD2/01V8d7Vc5+1ubc/Dw8PBu89pi8HzR5HeTIvTqNuUFCQ8PD+93ecm7n+WRdMLJ98HDw8N7Z17+Og8g8rKEh4eH9z685J//JMZ9/uDk3eSzrmQteHh4eJM+tnhM/+7r6/M9PDw8vNFUvR1rtSsCz+3y/sDDw8O7wdssObWxwoydl4TiPwY8PDy8NW82pD9VDPKbmEfGL6+Jh4eHd5Q3Ww6YITejspaKh4eHd4+XBwHtg75tiDfDsKLu4eHh4Y14z4/d5N026k3udBsZf/O3wsPDwzvKmy025YFCHjecvfV4eHh4P8Nrm+CkYCSP+zzUaAdveHh4eLd57Xjp+fw2Gp5dOWrl8fDw8C7wNu3v7Ea0Z+aN+DerA3h4eHhHebNB1L5Nz4dq7XIDHh4e3m1eGwq0i1ZJWzwbsEUrDnh4eHjXePm6QBvsto/7qI7FMQceHh7eWd4mApi1uflaQH7Tv0mp8fDw8I7yNhdq688+qJ2tf+Hh4eGd5bXLAXns2y5IzQLi4dIVHh4e3oiXN69tkciR+VpVjv93Dh4eHt5lXltIcvA+UGjHbNMSiYeHh5d2s7OR/GYxKylCeYg8TKnx8PDwRry2Rc5j1lm7XKTOSfuOh4eHd5nXBgRt8DpbMkjefXkOHh4e3gXe7Ji14PvA92ykgoeHhzfjfZZH2xznkW670BCVLjw8PLwLvP3DNx9NzYZYbds9rIF4eHh45dVm4659EDALjtubgoeHh3ePtx9ltU123li35+Dh4eG9D2/20G8f9HmZiSJgPDw8vDfjnYoe2jFY8X3w8PDwrvHyMOLUSsH+lj239Xh4eHj3eJsB2Kxs7IvKZkkLDw8Pb8H7Ay4N5ClAiWHYAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
