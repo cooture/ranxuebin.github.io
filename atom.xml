@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-04T17:09:50.068Z</updated>
+  <updated>2018-01-05T16:56:52.785Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -16,11 +16,153 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数字电路第六章：同步时序逻辑电路</title>
+    <link href="http://ranxb.cn/2018/01/06/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/"/>
+    <id>http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路/</id>
+    <published>2018-01-05T16:55:39.000Z</published>
+    <updated>2018-01-05T16:56:52.785Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数字电路第六章：同步时序逻辑电路"><a href="#数字电路第六章：同步时序逻辑电路" class="headerlink" title="数字电路第六章：同步时序逻辑电路"></a>数字电路第六章：同步时序逻辑电路</h1><blockquote>
+<p>讲同步时序逻辑电路的工作原理、分析方法和设计方法。<br>逻辑电路分为：组合逻辑电路和时序逻辑电路。<br>组合逻辑电路是指典礼在任何时刻所产生的输出仅取决于该时刻电路的输入。<br>时序逻辑电路按其工作方式不同分为：同步时序逻辑电路、异步时序逻辑电路。<br>本章介绍同步时序逻辑电路的分析与设计。    </p>
+</blockquote>
+<h2 id="同步时序逻辑电路的模型和描述方法"><a href="#同步时序逻辑电路的模型和描述方法" class="headerlink" title="同步时序逻辑电路的模型和描述方法"></a>同步时序逻辑电路的模型和描述方法</h2><h3 id="同步时序逻辑电路的结构模型"><a href="#同步时序逻辑电路的结构模型" class="headerlink" title="同步时序逻辑电路的结构模型"></a>同步时序逻辑电路的结构模型</h3><p>同步时序逻辑电路是一种与时序有关的电路，一般说来，是由组合电路和存储电路两部分组成，并形成反馈电路。<br><img src="a.png" alt=""><br><strong>组合逻辑电路的输出</strong>  </p>
+<ol>
+<li>向外输出 Z </li>
+<li>内部输出 Q </li>
+</ol>
+<p><strong>组合逻辑电路的输入</strong>  </p>
+<ol>
+<li>外部输入：整个时序电路的输入 X  </li>
+<li>内部输入：存储电路的内部输出 Y  </li>
+</ol>
+<p><strong>函数的意义</strong><br>Zi称为输出函数<br>Yj称为驱动方程<br>Mealy型电路：Z的输出既和存储电路的输出有关有和当前状态的输入x有关。<br>Moore型电路：Z的输出只和存储电路的输出有关。<br><strong>采用时钟控制的触发器构成存储电路</strong><br>存储时序电路中的二进制信息被定义为电路的状态，触发器的状态就称为时序电路的状态。<br><strong>向量函数</strong><br><img src="b.png" alt=""><br>时钟信号不能间隔过短，要状态状态稳定后再一个信号再来。  </p>
+<h3 id="同步时序逻辑电路的描述方法"><a href="#同步时序逻辑电路的描述方法" class="headerlink" title="同步时序逻辑电路的描述方法"></a>同步时序逻辑电路的描述方法</h3><p>为了形象的表示时序逻辑电路的全过程性，把电路在一系列的时钟信号作用下状态转换的全过程找出来，则电路的逻辑功能就一目了然了。<br>描述时序电路状态的转换全部过程的方法：  </p>
+<ol>
+<li>状态方程  </li>
+<li>状态转换表（状态转换真值表）  </li>
+<li>状态转换图（简称状态图）  </li>
+<li>时序图（波形图）  </li>
+</ol>
+<h4 id="状态方程"><a href="#状态方程" class="headerlink" title="状态方程"></a>状态方程</h4><p>输出方程：表示输出与输入和现态的关系<br>驱动方程：表示现态向次态转换所需的条件<br>状态方程：表示在给定的输入下将使现态转向状态  </p>
+<h4 id="状态转换表"><a href="#状态转换表" class="headerlink" title="状态转换表"></a>状态转换表</h4><p>由现态Q、次态Qn+1和输出Z组成。<br>例：<br><img src="c.png" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="d.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="e.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="状态转换图"><a href="#状态转换图" class="headerlink" title="状态转换图"></a>状态转换图</h4><p>在状态转换图中以圆圈表示电路的各个状态，以箭头表示状态转换的方向。 同时，还在箭头旁注明了状态转换前的输入变量取 值和输出值。通常将输入变量取值写在斜线以上，将输出值写在斜线以下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  </p>
+<h4 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h4><p>将状态转换表的内容画成时间波形图。在时钟脉冲序列作用下，电路状态、输出状态随时间变化的波形图叫做时序图。而且便于用实验观察的方法检查时序电路的逻辑功能。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="g.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="同步时序逻辑电路的分析方法"><a href="#同步时序逻辑电路的分析方法" class="headerlink" title="同步时序逻辑电路的分析方法"></a>同步时序逻辑电路的分析方法</h2><p>根据给定的逻辑电路图，找出他的状态方程、输出方程、状态图和时序图。用这些方法来描述电路的工作全过程及输入输出关系。</p>
+<h3 id="时序逻辑电路的分析步骤"><a href="#时序逻辑电路的分析步骤" class="headerlink" title="时序逻辑电路的分析步骤"></a>时序逻辑电路的分析步骤</h3><p>找出给定时序电路的逻辑功能即找出在输入信号和时钟信号作用下，电路的次态和输出。一般步骤如下：  </p>
+<ol>
+<li>根据给定的逻辑电路图，写出每个触发器的驱动方程（控制方程）。  </li>
+<li>把得到的驱动方程带入相应的触发器的特性方程，得出每个触发器的状态方程，从而写出这些状态方程的方程组。并写出输出方程。  </li>
+<li>建立状态转换真值表  </li>
+<li>做出状态图和时序波形图。  </li>
+<li>总结功能。  </li>
+</ol>
+<h3 id="同步时序电路分析的例子"><a href="#同步时序电路分析的例子" class="headerlink" title="同步时序电路分析的例子"></a>同步时序电路分析的例子</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="h.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="i.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="j.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="k.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ol>
+<li>找每个触发器的输入端，写方程，=1的框框是环和。  </li>
+<li>把写好的方程带入触发器的特征方程例，写出次态的状态方程，在找输出端写出输出方程。  </li>
+<li>列表，横纵分别有触发器现态和输入值，结果是触发器次态和输出值。  </li>
+<li>画圈圈，把触发器的变化过程用圈圈画出来，箭头写上输入值和输出值。  </li>
+<li>总结。  </li>
+</ol>
+<p><strong>注意</strong>，Moore型的因为次态和输入无关，所以只列输出的表的顺序即可，Mealy型的因为和输入有关所以要建和输入有关的表，注意没有排列到的状态要单独加上，类似于：<br><img src="l.png" alt=""><br>整个例如Moore型的例题：<br><img src="m.png" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="n.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="同步时序逻辑电路的设计"><a href="#同步时序逻辑电路的设计" class="headerlink" title="同步时序逻辑电路的设计"></a>同步时序逻辑电路的设计</h2><h3 id="设计同步时序逻辑电路的过程"><a href="#设计同步时序逻辑电路的过程" class="headerlink" title="设计同步时序逻辑电路的过程"></a>设计同步时序逻辑电路的过程</h3><ol>
+<li>根据实际要求进行逻辑抽象，得出电路的原始状态转换图和转换表。  </li>
+<li>状态化简，求最简状态化简表。  </li>
+<li>状态编码。第一步. 确定触发器的数目n 第二步. 给每个电路状态分配一组二进制代码，称为状态编码。  </li>
+<li>选定触发器类型，求出电路的状态方程。根据状态转换图(或状态转换表)和选定的状态编码、触发器的类型，就可写出电路的状态方程、驱动方程和输出方程。  </li>
+<li>根据方程式画出逻辑电路图。  </li>
+<li>检查自启动，解决办法：一、通过预置数。二、修改逻辑设计。  </li>
+</ol>
+<p>整体步骤如图所示：<br><img src="o.png" alt=""></p>
+<h3 id="建立原始状态转换图和转换表"><a href="#建立原始状态转换图和转换表" class="headerlink" title="建立原始状态转换图和转换表"></a>建立原始状态转换图和转换表</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="p.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="原始状态状态化简"><a href="#原始状态状态化简" class="headerlink" title="原始状态状态化简"></a>原始状态状态化简</h3><p>消除</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数字电路第六章：同步时序逻辑电路&quot;&gt;&lt;a href=&quot;#数字电路第六章：同步时序逻辑电路&quot; class=&quot;headerlink&quot; title=&quot;数字电路第六章：同步时序逻辑电路&quot;&gt;&lt;/a&gt;数字电路第六章：同步时序逻辑电路&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;讲
+    
+    </summary>
+    
+      <category term="数字电路" scheme="http://ranxb.cn/categories/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+    
+      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>汇编语言第十二。。章：内外中断和int指令</title>
     <link href="http://ranxb.cn/2018/01/05/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%8C%E3%80%82%E3%80%82%E7%AB%A0%EF%BC%9A%E5%86%85%E5%A4%96%E4%B8%AD%E6%96%AD%E5%92%8Cint%E6%8C%87%E4%BB%A4/"/>
     <id>http://ranxb.cn/2018/01/05/汇编语言第十二。。章：内外中断和int指令/</id>
     <published>2018-01-04T16:33:03.000Z</published>
-    <updated>2018-01-04T17:09:50.068Z</updated>
+    <updated>2018-01-05T16:54:54.210Z</updated>
     
     <content type="html"><![CDATA[<h1 id="汇编语言第十二。。章：内外中断和int指令"><a href="#汇编语言第十二。。章：内外中断和int指令" class="headerlink" title="汇编语言第十二。。章：内外中断和int指令"></a>汇编语言第十二。。章：内外中断和int指令</h1><blockquote>
 <p>不再过多说中断是什么了，就是可以随时控制CPU停止当前的指令干其他的事的意思，下面内中断程序的步骤：  </p>
@@ -48,8 +190,45 @@
 pop cs
 popf
 </code></pre><p>目的是回到执行中断处理程序之前的执行点继续执行程序。</p>
-<h2 id="编写0号中断程序"><a href="#编写0号中断程序" class="headerlink" title="编写0号中断程序"></a>编写0号中断程序</h2><p>明天写，自己写程序费劲</p>
-<h2 id="中断的特殊情况"><a href="#中断的特殊情况" class="headerlink" title="中断的特殊情况"></a>中断的特殊情况</h2><p>设置栈的操作不会响应中断，因为中断会进行栈操作，需要设置正确的栈顶，所以设置sp的指令应当紧接着设置ss的指令</p>
+<h2 id="编写0号中断程序"><a href="#编写0号中断程序" class="headerlink" title="编写0号中断程序"></a>编写0号中断程序</h2><pre><code>assume cs:code ss:satck ds:data
+code segment
+start:    mov ax,cs
+            mov ds,ax
+            mov si,offset do0    ;ds:si指向do0中断程序部分
+            mov ax,0
+            mov es,ax
+            mov di,200h
+            mov cx offset do0end - do0
+            cld
+            rep movsb
+            mov ax,0            ;安装中断程序
+            mov es,ax
+            mov word ptr es:[0],200h
+            mov word ptr es:[0+2],0
+
+            mov ax,4c00h
+            int 21h
+
+do0:        jmp short do0start
+            db &quot;overflow!&quot;
+
+do0start:
+            mov ax,cs
+            mov ds,ax
+            mov si,202h            ;ds:si指向字符串
+            mov ax,0b800h
+            mov es,ax
+            mov di,12*160+36*2    ;es:di指向显存空间
+            mov cx,9
+        s:    mov al,[si]
+            mov es:[di],al
+            inc si
+            add di,2
+            loop s
+
+            mov ax,4c00h
+            int 21h
+</code></pre><h2 id="中断的特殊情况"><a href="#中断的特殊情况" class="headerlink" title="中断的特殊情况"></a>中断的特殊情况</h2><p>设置栈的操作不会响应中断，因为中断会进行栈操作，需要设置正确的栈顶，所以设置sp的指令应当紧接着设置ss的指令</p>
 <h2 id="int指令"><a href="#int指令" class="headerlink" title="int指令"></a>int指令</h2><p>格式：int n，n为中断类型码<br>int指令的最终功能和call类似，都是调用一段程序。<br>中断处理程序简称为中断例程  </p>
 <h2 id="编写供应用程序调用的中断例程"><a href="#编写供应用程序调用的中断例程" class="headerlink" title="编写供应用程序调用的中断例程"></a>编写供应用程序调用的中断例程</h2><p>明天再写详细的</p>
 <h2 id="BIOS和DOS多提供的中断例程的安装过程"><a href="#BIOS和DOS多提供的中断例程的安装过程" class="headerlink" title="BIOS和DOS多提供的中断例程的安装过程"></a>BIOS和DOS多提供的中断例程的安装过程</h2><ol>
@@ -1431,36 +1610,6 @@ mvdir        --移动文件夹（可用作重命名操作）
     
     
       <category term="随笔" scheme="http://ranxb.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一篇文章</title>
-    <link href="http://ranxb.cn/2017/09/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>http://ranxb.cn/2017/09/03/第一篇文章/</id>
-    <published>2017-09-03T14:42:24.000Z</published>
-    <updated>2017-09-08T03:34:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="这是第一篇文章～"><a href="#这是第一篇文章～" class="headerlink" title="这是第一篇文章～"></a>这是第一篇文章～</h1><blockquote>
-<p>我就试试看能不能成功。</p>
-</blockquote>
-<p>我的<br>第一篇文章</p>
-]]></content>
-    
-    <summary type="html">
-    
-      这里写内容简介
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
-    
-    
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
-      <category term="hexo" scheme="http://ranxb.cn/tags/hexo/"/>
-    
-      <category term="新手" scheme="http://ranxb.cn/tags/%E6%96%B0%E6%89%8B/"/>
     
   </entry>
   

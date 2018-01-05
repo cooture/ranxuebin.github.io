@@ -29,7 +29,7 @@
 <meta property="og:url" content="http://ranxb.cn/2018/01/05/汇编语言第十二。。章：内外中断和int指令/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="汇编语言第十二。。章：内外中断和int指令 不再过多说中断是什么了，就是可以随时控制CPU停止当前的指令干其他的事的意思，下面内中断程序的步骤：    将程序写入0:200开始的空间内，同时把字符什么的也要定义进去。   设置中断向量表，前面是ip，后面是cs。注意高低位。     单步中断的操作 取得中断类型码 标志寄存器入栈 标志寄存器TF和IF置零，防止在中断程序中在中断。   CS内容入栈">
-<meta property="og:updated_time" content="2018-01-04T17:09:50.068Z">
+<meta property="og:updated_time" content="2018-01-05T16:54:54.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编语言第十二。。章：内外中断和int指令">
 <meta name="twitter:description" content="汇编语言第十二。。章：内外中断和int指令 不再过多说中断是什么了，就是可以随时控制CPU停止当前的指令干其他的事的意思，下面内中断程序的步骤：    将程序写入0:200开始的空间内，同时把字符什么的也要定义进去。   设置中断向量表，前面是ip，后面是cs。注意高低位。     单步中断的操作 取得中断类型码 标志寄存器入栈 标志寄存器TF和IF置零，防止在中断程序中在中断。   CS内容入栈">
@@ -218,8 +218,45 @@
 pop cs
 popf
 </code></pre><p>目的是回到执行中断处理程序之前的执行点继续执行程序。</p>
-<h2 id="编写0号中断程序"><a href="#编写0号中断程序" class="headerlink" title="编写0号中断程序"></a>编写0号中断程序</h2><p>明天写，自己写程序费劲</p>
-<h2 id="中断的特殊情况"><a href="#中断的特殊情况" class="headerlink" title="中断的特殊情况"></a>中断的特殊情况</h2><p>设置栈的操作不会响应中断，因为中断会进行栈操作，需要设置正确的栈顶，所以设置sp的指令应当紧接着设置ss的指令</p>
+<h2 id="编写0号中断程序"><a href="#编写0号中断程序" class="headerlink" title="编写0号中断程序"></a>编写0号中断程序</h2><pre><code>assume cs:code ss:satck ds:data
+code segment
+start:    mov ax,cs
+            mov ds,ax
+            mov si,offset do0    ;ds:si指向do0中断程序部分
+            mov ax,0
+            mov es,ax
+            mov di,200h
+            mov cx offset do0end - do0
+            cld
+            rep movsb
+            mov ax,0            ;安装中断程序
+            mov es,ax
+            mov word ptr es:[0],200h
+            mov word ptr es:[0+2],0
+
+            mov ax,4c00h
+            int 21h
+
+do0:        jmp short do0start
+            db &quot;overflow!&quot;
+
+do0start:
+            mov ax,cs
+            mov ds,ax
+            mov si,202h            ;ds:si指向字符串
+            mov ax,0b800h
+            mov es,ax
+            mov di,12*160+36*2    ;es:di指向显存空间
+            mov cx,9
+        s:    mov al,[si]
+            mov es:[di],al
+            inc si
+            add di,2
+            loop s
+
+            mov ax,4c00h
+            int 21h
+</code></pre><h2 id="中断的特殊情况"><a href="#中断的特殊情况" class="headerlink" title="中断的特殊情况"></a>中断的特殊情况</h2><p>设置栈的操作不会响应中断，因为中断会进行栈操作，需要设置正确的栈顶，所以设置sp的指令应当紧接着设置ss的指令</p>
 <h2 id="int指令"><a href="#int指令" class="headerlink" title="int指令"></a>int指令</h2><p>格式：int n，n为中断类型码<br>int指令的最终功能和call类似，都是调用一段程序。<br>中断处理程序简称为中断例程  </p>
 <h2 id="编写供应用程序调用的中断例程"><a href="#编写供应用程序调用的中断例程" class="headerlink" title="编写供应用程序调用的中断例程"></a>编写供应用程序调用的中断例程</h2><p>明天再写详细的</p>
 <h2 id="BIOS和DOS多提供的中断例程的安装过程"><a href="#BIOS和DOS多提供的中断例程的安装过程" class="headerlink" title="BIOS和DOS多提供的中断例程的安装过程"></a>BIOS和DOS多提供的中断例程的安装过程</h2><ol>
@@ -236,7 +273,7 @@ popf
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-01-04T17:09:50.068Z" itemprop="dateUpdated">2018-01-05 01:09:50</time>
+    Last updated: <time datetime="2018-01-05T16:54:54.210Z" itemprop="dateUpdated">2018-01-06 00:54:54</time>
 </span><br>
 
 
@@ -316,7 +353,14 @@ popf
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/06/数字电路第六章：同步时序逻辑电路/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">数字电路第六章：同步时序逻辑电路</h4>
+      </a>
+    </div>
   
 
   
