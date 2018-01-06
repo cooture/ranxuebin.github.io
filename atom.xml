@@ -1473,11 +1473,11 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
       <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -1698,9 +1698,9 @@ public boolean onOptionsItemSelected(MenuItem item) {
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -1730,9 +1730,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
     
   </entry>
   
