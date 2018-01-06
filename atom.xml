@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-05T16:56:52.785Z</updated>
+  <updated>2018-01-06T08:23:13.442Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -16,18 +16,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>数字电路第六章：同步时序逻辑电路</title>
-    <link href="http://ranxb.cn/2018/01/06/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF/"/>
-    <id>http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路/</id>
+    <title>数字电路第六章：同步时序逻辑电路——上（状态编码之前）</title>
+    <link href="http://ranxb.cn/2018/01/06/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E2%80%94%E2%80%94%E4%B8%8A%EF%BC%88%E7%8A%B6%E6%80%81%E7%BC%96%E7%A0%81%E4%B9%8B%E5%89%8D%EF%BC%89/"/>
+    <id>http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/</id>
     <published>2018-01-05T16:55:39.000Z</published>
-    <updated>2018-01-05T16:56:52.785Z</updated>
+    <updated>2018-01-06T08:23:13.442Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="数字电路第六章：同步时序逻辑电路"><a href="#数字电路第六章：同步时序逻辑电路" class="headerlink" title="数字电路第六章：同步时序逻辑电路"></a>数字电路第六章：同步时序逻辑电路</h1><blockquote>
+    <content type="html"><![CDATA[<h1 id="数字电路第六章：同步时序逻辑电路——上（状态编码之前）"><a href="#数字电路第六章：同步时序逻辑电路——上（状态编码之前）" class="headerlink" title="数字电路第六章：同步时序逻辑电路——上（状态编码之前）"></a>数字电路第六章：同步时序逻辑电路——上（状态编码之前）</h1><blockquote>
 <p>讲同步时序逻辑电路的工作原理、分析方法和设计方法。<br>逻辑电路分为：组合逻辑电路和时序逻辑电路。<br>组合逻辑电路是指典礼在任何时刻所产生的输出仅取决于该时刻电路的输入。<br>时序逻辑电路按其工作方式不同分为：同步时序逻辑电路、异步时序逻辑电路。<br>本章介绍同步时序逻辑电路的分析与设计。    </p>
 </blockquote>
 <h2 id="同步时序逻辑电路的模型和描述方法"><a href="#同步时序逻辑电路的模型和描述方法" class="headerlink" title="同步时序逻辑电路的模型和描述方法"></a>同步时序逻辑电路的模型和描述方法</h2><h3 id="同步时序逻辑电路的结构模型"><a href="#同步时序逻辑电路的结构模型" class="headerlink" title="同步时序逻辑电路的结构模型"></a>同步时序逻辑电路的结构模型</h3><p>同步时序逻辑电路是一种与时序有关的电路，一般说来，是由组合电路和存储电路两部分组成，并形成反馈电路。<br><img src="a.png" alt=""><br><strong>组合逻辑电路的输出</strong>  </p>
 <ol>
-<li>向外输出 Z </li>
+<li>向外输出 Z   </li>
 <li>内部输出 Q </li>
 </ol>
 <p><strong>组合逻辑电路的输入</strong>  </p>
@@ -123,7 +123,7 @@
                 <div class="image-caption"></div>
             </figure></p>
 <h2 id="同步时序逻辑电路的设计"><a href="#同步时序逻辑电路的设计" class="headerlink" title="同步时序逻辑电路的设计"></a>同步时序逻辑电路的设计</h2><h3 id="设计同步时序逻辑电路的过程"><a href="#设计同步时序逻辑电路的过程" class="headerlink" title="设计同步时序逻辑电路的过程"></a>设计同步时序逻辑电路的过程</h3><ol>
-<li>根据实际要求进行逻辑抽象，得出电路的原始状态转换图和转换表。  </li>
+<li>根据实际要求进行逻辑抽象，得出电路的原始状态转换图和转换表。   </li>
 <li>状态化简，求最简状态化简表。  </li>
 <li>状态编码。第一步. 确定触发器的数目n 第二步. 给每个电路状态分配一组二进制代码，称为状态编码。  </li>
 <li>选定触发器类型，求出电路的状态方程。根据状态转换图(或状态转换表)和选定的状态编码、触发器的类型，就可写出电路的状态方程、驱动方程和输出方程。  </li>
@@ -138,13 +138,34 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h3 id="原始状态状态化简"><a href="#原始状态状态化简" class="headerlink" title="原始状态状态化简"></a>原始状态状态化简</h3><p>消除</p>
+<h3 id="完全确定原始状态表化简"><a href="#完全确定原始状态表化简" class="headerlink" title="完全确定原始状态表化简"></a>完全确定原始状态表化简</h3><p>状态表化简的原则（若状态表中的任意两个状态Si和Sj，同时满足下列两个条件，则他们可以合并成一个状态）：  </p>
+<ol>
+<li>在所有可能的现输入下，两个（或多个）状态相应的现输出分别相同。</li>
+<li>在所有可能的现输入下，次态分别为下列情况之一：<br> a. 两个次态完全相同<br> b. 两个次态为状态对循环的一个状态对<br> c. 两个次态为其现态本身或交错<br> d. 两个次态的某一后序状态可以合并  </li>
+</ol>
+<p>上述的第一个条件是状态合并的必要条件，该条件不满足就无需再考虑第二个条件。  </p>
+<p>根据状态表化简的原则，利用下列判别方法造出状态表中全部的出状态并对进行分类合并。 </p>
+<ol>
+<li>等效状态和等效类<br><strong>等效状态</strong>—满足上述合并条件的两个状态如Si和Sj称为等效状态，或称等效状态对，记为{Si, Sj}。<br><strong>等效状态的传递性</strong>——若状态Si和Sj等效,状态Sj和Sm等效，则状态Si必和Sm等效,称为等效状态的传递性，记为{Si,Sj}{Sj,Sm}→{Si,Sm}   </li>
+</ol>
+<p><strong>等效类</strong>——彼此等效状态的集合。<br><strong>最大等效类</strong>——若一个等效类不包含在任何其它等效类之中，则称它为最大等效类。这里说的最大，并不是指包含的状态最多，而是指他的<strong>独立性</strong>！。  </p>
+<p>显然，状态表的化简的根本任务在于从原始状态表中找出最大等效类，并用一个状态代替。例如：<br><img src="q.png" alt="">  </p>
+<ol>
+<li>用隐含表法化简<br>隐含表是一个斜边为阶梯型的直角三角形网络。及横向和纵向格数相同，格数为原始状态表的状态数减一。<br>然后顺序比较，往表格里填东西。依次比较，若两个状态不是等效对就画X，如果两个状态是等效对则画√，若不确定的则写出下一组状态对，如表：<br><img src="r.png" alt=""><br>例如CF对完全相同则画✅，又例如AD输出Z都不一样则画叉。还有比如AB两个，输出一样，但是X=0时的次态不同，则无法确定则将CF写入，X=1时因为是两个交换对所以是满足的条件，不用将其写入。最后列出下表：<br><img src="s.png" alt=""><br>根据等效关系的传递性，对等效状态对 {A,B}、{A,E}、{B,E}构成等效类{A,B,E}。 等效状态对{C,F}也是等效类。由于等效类 {A,B,E}和{C,F}互不包含在对方的等效类中， 所以，等效类{A,B,E}和{C,F}都是最大等效类。而状态G和D不和任何其它状态等效，因此,它们本身也是一个最大等效类,分别记作{G}和{D}。因此最大等效集合<code>{A,B,E}，{C,F}，{D}，{G}</code>  </li>
+</ol>
+<p>建立最简状态表。最大等效类集合必须覆盖原始状态表的全部状态。原始状态表中每一个状态只能属于一个最大等效类。这样，每个最大等效类可用一个状态代替。即:<code>a={ABE} b={CF} c={D} d={G}</code>由此可得最简状态表：<br><img src="t.png" alt=""></p>
+<h3 id="不完全确定状态表的化简"><a href="#不完全确定状态表的化简" class="headerlink" title="不完全确定状态表的化简"></a>不完全确定状态表的化简</h3><p>这种电路的 状态表包含着不确定的次态或输出，所以，是一种不完全确定电路。并不是任何输出序列都是有效的。不完全确定状态表的化简是基于相容状态的，再利用任意项可使状态表 化的更简。<br><strong>相容状态</strong>——再不完全确定表中，假设S1和S2为初始状态，如果对于所有的有效输入序列从状态S1和S2除法他们相应的输出序列（除不确定的那些之外）是完全相同的，那么状态S1和S2是相容的，或者说S1和S2是相容对，记作（S1，S2）<br><strong>相容状态的条件</strong>——在所有可能输入条件下，两个状态对应的输出相同，或者其中一个（或两个）输出为任意值；并且它们的次态相同、交错、循环、相容，或者其中一个（或两个）为任意状态，那么这两个状态是相容的。<br><strong>相容类</strong>——由彼此相容的状态构成的集合，处于同一相容类 中的所有状态之间都是两两相容的。<br><strong>非传递性</strong>——状态等效具有传递性，而<strong>状态相容不具有传递性</strong>。 因此，若要求(S1, S2，S3)相容，则必须(S1,S2)， (S2,S3)，(S1,S3)都是相容对。也就是说，相容类中所有状态之间都分别是两两相容的。<br><strong>最大相容类</strong>——若一个相容类不是任何其他相容类的子集，则该相容类称为最大相容类。<br>例题：<br><img src="u.png" alt=""><br>表中由于部分状态的次态和输出无法确定，所以是不完全确定状态表。  </p>
+<ol>
+<li>做隐含表并比较，如图<br><img src="v.png" alt=""><br>2.在相容状态对中找最大相容类<br><img src="w.png" alt="">  </li>
+<li>确定原始状态表的最小闭合覆盖集  </li>
+<li><strong>选择一个</strong>同时满足<em>覆盖、闭合和最小</em>三个条件的<strong>相容类集合</strong>，将每个相容类用一个新状态来代替，以得到一个新的状态表。  </li>
+</ol>
+<p><strong>覆盖</strong>——指相容类集合中包含了原始状态表的全部状态。即原始状态表中任何一个状态至少包含在相容类集合中的一个相容类(包括最大相容类)中，而不能遗漏。<br><strong>闭合</strong>——指一个相容类集合中,任一相容类的所有隐含条件都必须属于该集合中某一个相容类(包括最大相容类)。<br><strong>最小</strong>——是指满足覆盖和闭合的相容类数目最少。不完全状态表的简化，就是寻找一个最小闭合覆盖<br>为了反应闭合和覆盖这两个性质，建立闭合覆盖表：<br><img src="x.png" alt=""><br>在表的左边自上而下列出所选相容类，表的中间覆盖部分自左到右列出全部状态，表的右边闭合部分列出各相容类在输入各种取值组合下的次态组合。必须指出，这里所说的相容类包括最大相容类和它们的子类。<br>找到了覆盖闭合最小之后，就可以画出最简状态表：<br><img src="y.png" alt=""></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;数字电路第六章：同步时序逻辑电路&quot;&gt;&lt;a href=&quot;#数字电路第六章：同步时序逻辑电路&quot; class=&quot;headerlink&quot; title=&quot;数字电路第六章：同步时序逻辑电路&quot;&gt;&lt;/a&gt;数字电路第六章：同步时序逻辑电路&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;讲
+      &lt;h1 id=&quot;数字电路第六章：同步时序逻辑电路——上（状态编码之前）&quot;&gt;&lt;a href=&quot;#数字电路第六章：同步时序逻辑电路——上（状态编码之前）&quot; class=&quot;headerlink&quot; title=&quot;数字电路第六章：同步时序逻辑电路——上（状态编码之前）&quot;&gt;&lt;/a&gt;数字电路第
     
     </summary>
     
@@ -1324,11 +1345,11 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
       <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
-    
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -1549,9 +1570,9 @@ public boolean onOptionsItemSelected(MenuItem item) {
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
-    
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
+    
+      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
   </entry>
   
@@ -1581,9 +1602,9 @@ mvdir        --移动文件夹（可用作重命名操作）
       <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
