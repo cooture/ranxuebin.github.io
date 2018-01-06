@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/">
+    
+    
+    <title>数字电路第六章：同步时序逻辑电路——下 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数字电路,笔记">
+    <meta name="description" content="数字电路第六章：同步时序逻辑电路——下状态编码 在求得最简状态码之后，需要对状态表中用字母或数字表示的状态用一组二进制代码来代替，称之为状态编码（也叫状态赋值或状态分配）  状态编码的任务 确定状态编码的长度，即二进制代码的位数或者是触发器的个数。   确定二进制编码的分配方案。    状态编码的长度确定每个触发器可以代表一位二进制数，n个触发器可以代表n位二进制数，组成2n个二进制代码。 所需状">
+<meta name="keywords" content="数字电路,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路第六章：同步时序逻辑电路——下">
+<meta property="og:url" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="数字电路第六章：同步时序逻辑电路——下状态编码 在求得最简状态码之后，需要对状态表中用字母或数字表示的状态用一组二进制代码来代替，称之为状态编码（也叫状态赋值或状态分配）  状态编码的任务 确定状态编码的长度，即二进制代码的位数或者是触发器的个数。   确定二进制编码的分配方案。    状态编码的长度确定每个触发器可以代表一位二进制数，n个触发器可以代表n位二进制数，组成2n个二进制代码。 所需状">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/a.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/b.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/c.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/d.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/e.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/f.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/g.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/h.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/i.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/j.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/k.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/l.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/m.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/n.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/o.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/p.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/q.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/r.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/s.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/t.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/u.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/v.png">
+<meta property="og:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/w.png">
+<meta property="og:updated_time" content="2018-01-06T13:47:29.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数字电路第六章：同步时序逻辑电路——下">
+<meta name="twitter:description" content="数字电路第六章：同步时序逻辑电路——下状态编码 在求得最简状态码之后，需要对状态表中用字母或数字表示的状态用一组二进制代码来代替，称之为状态编码（也叫状态赋值或状态分配）  状态编码的任务 确定状态编码的长度，即二进制代码的位数或者是触发器的个数。   确定二进制编码的分配方案。    状态编码的长度确定每个触发器可以代表一位二进制数，n个触发器可以代表n位二进制数，组成2n个二进制代码。 所需状">
+<meta name="twitter:image" content="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/a.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数字电路第六章：同步时序逻辑电路——下</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数字电路第六章：同步时序逻辑电路——下</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-06T08:29:26.000Z" itemprop="datePublished" class="page-time">
+  2018-01-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数字电路第六章：同步时序逻辑电路——下"><span class="post-toc-number">1.</span> <span class="post-toc-text">数字电路第六章：同步时序逻辑电路——下</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#状态编码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">状态编码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#状态编码的任务"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">状态编码的任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#状态编码的长度确定"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">状态编码的长度确定</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#确定二进制编码分配方案"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">确定二进制编码分配方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分配的基本原则"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">分配的基本原则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#同步时序逻辑电路设计举例"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">同步时序逻辑电路设计举例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题一"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">例题一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题二"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">例题二</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用集成时序逻辑电路及应用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">常用集成时序逻辑电路及应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计数器"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">计数器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集成计数器"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">集成计数器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#同步集成计数器74LS191"><span class="post-toc-number">1.3.1.1.1.</span> <span class="post-toc-text">同步集成计数器74LS191</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#异步集成计数器74LS290"><span class="post-toc-number">1.3.1.1.2.</span> <span class="post-toc-text">异步集成计数器74LS290</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#环形计数器"><span class="post-toc-number">1.3.1.1.3.</span> <span class="post-toc-text">环形计数器</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-数字电路第六章：同步时序逻辑电路——下"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数字电路第六章：同步时序逻辑电路——下</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-06 16:29:26" datetime="2018-01-06T08:29:26.000Z"  itemprop="datePublished">2018-01-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="数字电路第六章：同步时序逻辑电路——下"><a href="#数字电路第六章：同步时序逻辑电路——下" class="headerlink" title="数字电路第六章：同步时序逻辑电路——下"></a>数字电路第六章：同步时序逻辑电路——下</h1><h2 id="状态编码"><a href="#状态编码" class="headerlink" title="状态编码"></a>状态编码</h2><blockquote>
+<p>在求得最简状态码之后，需要对状态表中用字母或数字表示的状态用一组二进制代码来代替，称之为状态编码（也叫状态赋值或状态分配）</p>
+</blockquote>
+<h3 id="状态编码的任务"><a href="#状态编码的任务" class="headerlink" title="状态编码的任务"></a>状态编码的任务</h3><ol>
+<li>确定状态编码的长度，即二进制代码的位数或者是触发器的个数。  </li>
+<li>确定二进制编码的分配方案。  </li>
+</ol>
+<h3 id="状态编码的长度确定"><a href="#状态编码的长度确定" class="headerlink" title="状态编码的长度确定"></a>状态编码的长度确定</h3><p>每个触发器可以代表一位二进制数，n个触发器可以代表n位二进制数，组成2<sup>n</sup>个二进制代码。</p>
+<p>所需状态数M和触发器个数n之间应满足以下关系:  2<sup>n-1</sup> &lt; M ≤ 2<sup>n</sup>  </p>
+<h3 id="确定二进制编码分配方案"><a href="#确定二进制编码分配方案" class="headerlink" title="确定二进制编码分配方案"></a>确定二进制编码分配方案</h3><p>因为编码和状态配合的方式很多，徐阿哟选择最佳的编码方式。<br>若当N=4, n=2时，就有24种状态分配方案。随着状 态数目的增加，状态分配方案的总数将急剧增加。<strong>状态编码解决的主要问题是确定一组使次态函数(或驱动方程)和输出函数尽可能简单、可靠的 状态编码,称之为最佳编码。</strong></p>
+<h3 id="分配的基本原则"><a href="#分配的基本原则" class="headerlink" title="分配的基本原则"></a>分配的基本原则</h3><ul>
+<li>在状态表中同一输入下的相同次态所对应的现态，尽可能分配相邻编码。通常称为“<strong>次态相同，现态编码相邻</strong>”。</li>
+<li>在状态表中，同一现态，相邻输入下的不同次态，应尽可能分配相邻编码。通常称为“<strong>同一现态，次态编码相邻</strong>”。</li>
+<li>在状态表中某些输出完全相同的现态。那么尽可能给现态分配相邻的编码，通常称“<strong>输出相同，现态编码相邻</strong>”。</li>
+<li>在状态表中，<strong>出现次数最多的状态通常给予逻辑0的编码</strong>。  </li>
+</ul>
+<p><strong>注意</strong>：一般情况下，应优先考虑原则(1)，因为原则 (1)最重要！例：<br><img src="a.png" alt=""><br>结果如下：<br><img src="b.png" alt="">  </p>
+<h2 id="同步时序逻辑电路设计举例"><a href="#同步时序逻辑电路设计举例" class="headerlink" title="同步时序逻辑电路设计举例"></a>同步时序逻辑电路设计举例</h2><h3 id="例题一"><a href="#例题一" class="headerlink" title="例题一"></a>例题一</h3><p>例题：试设计一个序列数据检测器，该电路用来检测输入的串行二进制序列，当输入连续出现110时，检测器输出为1，其他情况下输出为0。</p>
+<ol>
+<li>进行逻辑抽象画出状态转换图和状态转换表<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="c.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="d.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  </li>
+<li>进行状态化简，因为全部确定，建立最简等效类<br><img src="e.png" alt=""></li>
+<li>状态编码，状态可用两个二进制编码表示，S0出现的最多设为00，S1=01，S2=11<br><img src="f.png" alt=""></li>
+<li>根据状态表求出状态方程，驱动方程和输出方程，画出Z的卡诺图，Q2n+1和Q1n+1的卡诺图<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="g.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+并根据卡诺图的化简结果写出输出方程，状态方程，并带入触发器的特征方程写出驱动方程。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="h.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  </li>
+<li>经过对比特征方程的标准形式，写出j和k，并画出逻辑电路图。<br><img src="i.png" alt=""></li>
+<li>判断自启动，当电路处于无关状态时，是否可以通过时钟脉冲的作用下进入有效状态。</li>
+</ol>
+<h3 id="例题二"><a href="#例题二" class="headerlink" title="例题二"></a>例题二</h3><p>例题：试设计一个同步七进制计数器，要求按二进制加计数规律变化。</p>
+<p>确定状态转换情况，注意看题是七进制，因此111位无效情况。<br><img src="j.png" alt=""><br>确定编码状态<br><img src="k.png" alt=""><br>因为是Moore型电路，跟输入无关，所以卡诺图这么画<br><img src="l.png" alt=""><br>通过卡诺图写出状态方程，经验来看Moore型电路都用D触发器<br><img src="m.png" alt=""><br>写出驱动方程，画出电路图<br><img src="n.png" alt=""><br>最后检查一下自启动<br><img src="o.png" alt="">  </p>
+<h2 id="常用集成时序逻辑电路及应用"><a href="#常用集成时序逻辑电路及应用" class="headerlink" title="常用集成时序逻辑电路及应用"></a>常用集成时序逻辑电路及应用</h2><blockquote>
+<p>寄存器好像不考，直接计数器了。</p>
+</blockquote>
+<h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><p>一种对输入脉冲信号进行计数的时序逻辑部件。<br>可以分为：  </p>
+<ul>
+<li>二进制计数器和非二进制计数器</li>
+<li>加计数器、减计数器和可逆计数器</li>
+<li>同步计数器和异步计数器</li>
+</ul>
+<h4 id="集成计数器"><a href="#集成计数器" class="headerlink" title="集成计数器"></a>集成计数器</h4><h5 id="同步集成计数器74LS191"><a href="#同步集成计数器74LS191" class="headerlink" title="同步集成计数器74LS191"></a>同步集成计数器74LS191</h5><p><strong>74LS191</strong><br><img src="p.png" alt=""><br>功能及其真值表<br><img src="q.png" alt=""></p>
+<h5 id="异步集成计数器74LS290"><a href="#异步集成计数器74LS290" class="headerlink" title="异步集成计数器74LS290"></a>异步集成计数器74LS290</h5><p><strong>74LS290重点！</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="r.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>中规模集成电路74LS290是典型的异步BCD码十进制计数器。<br>逻辑电路如下<br><img src="s.png" alt=""><br><strong>功能分析</strong> </p>
+<ul>
+<li>若在CPa端输入时钟脉冲，则Qa输出信号是CPa的脉冲二分频  </li>
+<li>FB,FC,FD三个触发器构成的逻辑电路是一个异步五进制计数器，其CPB为计数脉冲输入端，QD为输出端。即QD的输出信号是CPB脉冲的五分频。  </li>
+<li>若将CPB与QA相连，同时以CPA为输入计数脉冲端。QD的输出为十进制计数器(或十分频器)。<br>因此，又将这个电路称为二、五、十进制异步计数器。<br><strong>真值表</strong><br><img src="t.png" alt=""><br><strong>真值表的分析</strong>  </li>
+<li>直接复位输入端R01和R02：当R01=R02=1，且S91,S92中有“0”时，可使各触发器清为零。  </li>
+<li>置“9”输入端S91和S92：其状态QDQCQBQA = 1001,这就是置“9”功能。  </li>
+<li>在置“9”输入端S91,S92和复位输入端R01,R02中均有“0”电平时，74LS290可实现计数功能。  </li>
+</ul>
+<p><strong>任意进制计数器的构造方法</strong><br>例：用74LS290和适当的门电路构成64进制计数器，采用5421BCD码计数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="u.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<ul>
+<li>Cb和Qa接时，Ca输入时钟信号，输出顺序为dcba，计数方式为8421</li>
+<li>Ca和Qd接时，Cb接时钟信号，输出顺序为adcb，计数方式为5421</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="v.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h5 id="环形计数器"><a href="#环形计数器" class="headerlink" title="环形计数器"></a>环形计数器</h5><p>环形计数器是将移位寄存器的最后一级输出 反馈到第一级串行输入端SR，特点是构成的 计数器模数M和所用触发器个数n相等。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="w.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-01-06T13:47:29.410Z" itemprop="dateUpdated">2018-01-06 21:47:29</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/&title=《数字电路第六章：同步时序逻辑电路——下》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/&title=《数字电路第六章：同步时序逻辑电路——下》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路第六章：同步时序逻辑电路——下》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数字电路第六章：同步时序逻辑电路——上（状态编码之前）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/&title=《数字电路第六章：同步时序逻辑电路——下》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/&title=《数字电路第六章：同步时序逻辑电路——下》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路第六章：同步时序逻辑电路——下》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNUlEQVR42u3awVLjMBAEUP7/p7PX3VpsujWmiMTziSIJ1htXMdG0Pj7i6/XXdfWb9vdX72lf/f+dj13Y2NjYm7Bft9faEvNi3d/r/v35q5+sEBsbG/s49tWi28Xdt5MckKyhfQDY2NjY2G3zyHcE922yfQDY2NjY2O2IZ9Jskk/9cAPDxsbG3oT9VHOaDImSe/3ALA0bGxv77dmTDcO7/fwt+TY2Njb2G7Nfg+u+2YzaRrBNmiiwsbGxT2K3TSIZ+rSLXhtLrZUeGxsb+1R22xLaeKDF5EOlZ5slNjY29o7sdig/iXXn8cAkNvhnPdjY2NgHsduv+E8VZRLitqX5YiuCjY2NvTm7qMo4DKhbS1nEYpCEjY2NfSj7qfaTH/SZBwDttgcbGxv7VPZkO5HfONnSrDXXtnzY2NjYJ7HX2kA+EmrHVW2EcF+s4ignNjY29hHs5ANtBDsZPD0bMGNjY2OfzW5H7ZNR1GRQlW9mog0PNjY29hHspKmsjYfa4dEkZqg3MNjY2NgHsduv73PwPCRYiwGKKRo2Njb2Vuy8tayN4/PCtfdqr8t8GxsbG/sIdjvuX+yQ5dInQ65iqISNjY29OXsSnU7C3TwMyH+u5//Y2NjYB7GTDcPkOObkeM3aCKkoBDY2NvZB7Pz/fLuZycPdpyLntijY2NjYZ7PzsLbdhDww6I8P8dQNDBsbG3sT9uTPTULZtdnOJKjAxsbGPpv9VACQlyaJZvNmlpT78qQSNjY29ubs9sBlvrVoR/ntWKp9AHXWjY2Njb0J+9n2Mw8e1oqeF+6THRg2Njb25ux2QLPWwNaC27xd5dEyNjY29nns5Iv+GqkdPCUPoH0Yl6vCxsbGPoh9v6xJOSZtbC3Wzf8yNjY29knsSbCaxLRJWfO4dxJIF+eJsLGxsbdit0P89qBM3pDW4oHkU6MSYGNjY2/Czhf97KalHf23Q6uPtcVhY2Njb8teawxrI6HksM58a/FFIbCxsbF/JbsdGE2C3rZlLp5UwsbGxv5l7EnzaO+StMC1gzvY2NjYp7LXwtokxK0XdPvO5C5RSICNjY19ELu9/SQYmBcoaXijTBsbGxt7J/Yf2yerz+Vqgi4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
