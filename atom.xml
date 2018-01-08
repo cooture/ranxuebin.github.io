@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-08T10:09:30.875Z</updated>
+  <updated>2018-01-08T13:43:25.627Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -20,9 +20,12 @@
     <link href="http://ranxb.cn/2018/01/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>http://ranxb.cn/2018/01/08/数字电路：基础知识/</id>
     <published>2018-01-08T10:08:34.000Z</published>
-    <updated>2018-01-08T10:09:30.875Z</updated>
+    <updated>2018-01-08T13:43:25.627Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="数字电路：基础知识"><a href="#数字电路：基础知识" class="headerlink" title="数字电路：基础知识"></a>数字电路：基础知识</h1><h2 id="各个码"><a href="#各个码" class="headerlink" title="各个码"></a>各个码</h2><h3 id="反码、补码"><a href="#反码、补码" class="headerlink" title="反码、补码"></a>反码、补码</h3><ul>
+    <content type="html"><![CDATA[<h1 id="数字电路：基础知识"><a href="#数字电路：基础知识" class="headerlink" title="数字电路：基础知识"></a>数字电路：基础知识</h1><blockquote>
+<p>你可以理解为第五章之前的内容</p>
+</blockquote>
+<h2 id="各个码"><a href="#各个码" class="headerlink" title="各个码"></a>各个码</h2><h3 id="反码、补码"><a href="#反码、补码" class="headerlink" title="反码、补码"></a>反码、补码</h3><ul>
 <li>反码：大于零的不变，小于零的除符号位全取反</li>
 <li>补码：大于零的和原码一样，小于零的在最低位加1</li>
 <li>运算：补码和补码都可以进行直接运算，两个直接相加，最高位溢出的话直接丢掉。反码运算的话需要把溢出位加到最后一位上。</li>
@@ -41,13 +44,75 @@
 <li>ASCII码：<strong>小写字母在大写字母后面</strong>，<strong>大于61H的是小写</strong>，将’a’的ASCII码<strong>减20H就可以变成大写</strong>字母’A’，将’A’的ASCII码<strong>加20H就可以变成小写</strong>字母’a’，ASCII码的<strong>二进制形式第五位为1时是小写字母</strong>，0时大写字母</li>
 </ul>
 <h2 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h2><ul>
-<li>各个门的符号</li>
+<li>各个门的符号，与门（中间一个&amp;），或门（中间一个&gt;=1），非门（中间一个1后面加圈圈），异或（环和，中间=1），同或（环积，异或后面加圈圈）</li>
+<li>最大项（各个项加起来）、最小项（各个项乘起来）</li>
+<li>代数规律，两积可交换，乘零得零，分配律</li>
+<li>卡诺图，2<sup>n</sup>种的可以画圈圈，出来的圈圈是最小项的形式。</li>
+<li>三态门：高电平、低电平、高阻态</li>
 </ul>
+<h2 id="组合逻辑电路"><a href="#组合逻辑电路" class="headerlink" title="组合逻辑电路"></a>组合逻辑电路</h2><ul>
+<li>做题方法：写出真值表需求逻辑表达式，用卡诺图化简，化简完成之后电路表达。</li>
+<li>竞争与冒险判别方法：各种情况的代入，只留一种变量不变，若出现如f = a + 非a的情况，存在竞争，竞争的结果是冒险。卡诺图法，有相切的部分有竞争</li>
+<li>消除竞争的方法：添加冗余项，把相切的地方添加至电路。滤波法选通法（这俩没用）</li>
+</ul>
+<h2 id="优先编码器-74148"><a href="#优先编码器-74148" class="headerlink" title="优先编码器 74148"></a>优先编码器 74148</h2><p>允许同时输入两个以上编码信号，在同时存在两个或两个以上输入信号时，优先编码器只按优先级高的输入信号编码，优先级低的则不起作用。</p>
+<blockquote>
+<p>74148是一个8线-3线优先编码器，8线指的输入、3线是输出。特点是端口都是非。</p>
+</blockquote>
+<ul>
+<li>非I<sub>0</sub>~非I<sub>7</sub>是输入信号。  </li>
+<li>非I<sub>e</sub>是输入端，若为1则禁止编码。输出均为1，若为0则正常工作  </li>
+<li>非O<sub>e</sub>使能输出端，低电频工作表示“电路工作，但无编码输入”  </li>
+<li>非G<sub>e</sub>为片优先编码输出端，低电频工作表示“电路工作，且有编码输入”  </li>
+</ul>
+<p>IOG均为扩展时所用。   </p>
+<ul>
+<li>由于输出带非门，所以输出的是二进制反码</li>
+<li>由于输入带非门，所以输入0为有效</li>
+</ul>
+<p>扩展时例图为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="译码器-74138"><a href="#译码器-74138" class="headerlink" title="译码器 74138"></a>译码器 74138</h3><p>和74148差不离，输出是反码，输入是原码，3-8输出译码器。  S1是原码，S23是反码</p>
+<ul>
+<li>S1要输入高电频，S23口要输入低电频才可以正常工作，否则都为1。正常工作示意图：<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="b.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+可以把它当成最小项，做一些需要最小项的题  </li>
+<li>两个的扩展，可以把低位的s2或3接到高位的s1上，这样就可以控制一个工作一个不工作，其他的都接地，如图<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="c.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ul>
+<h3 id="数据选择器"><a href="#数据选择器" class="headerlink" title="数据选择器"></a>数据选择器</h3><blockquote>
+<p>只有非S是反码，是控制端，0正常工作，两个选择端，四个数据输入端。</p>
+</blockquote>
+<p>直接看题<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="d.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;数字电路：基础知识&quot;&gt;&lt;a href=&quot;#数字电路：基础知识&quot; class=&quot;headerlink&quot; title=&quot;数字电路：基础知识&quot;&gt;&lt;/a&gt;数字电路：基础知识&lt;/h1&gt;&lt;h2 id=&quot;各个码&quot;&gt;&lt;a href=&quot;#各个码&quot; class=&quot;headerlink
+      &lt;h1 id=&quot;数字电路：基础知识&quot;&gt;&lt;a href=&quot;#数字电路：基础知识&quot; class=&quot;headerlink&quot; title=&quot;数字电路：基础知识&quot;&gt;&lt;/a&gt;数字电路：基础知识&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;你可以理解为第五章之前的内容&lt;/p&gt;
+&lt;/blockquo
     
     </summary>
     
