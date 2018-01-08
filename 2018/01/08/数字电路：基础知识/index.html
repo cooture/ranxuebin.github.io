@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2018/01/08/数字电路：基础知识/">
+    
+    
+    <title>数字电路：基础知识 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数字电路,笔记">
+    <meta name="description" content="数字电路：基础知识各个码反码、补码 反码：大于零的不变，小于零的除符号位全取反 补码：大于零的和原码一样，小于零的在最低位加1 运算：补码和补码都可以进行直接运算，两个直接相加，最高位溢出的话直接丢掉。反码运算的话需要把溢出位加到最后一位上。  十进制的补数 对十的补数：符号位是0(+)和9(-),两种方法,一是加后符号位后每个数值对十取反，就是用9减，然后最低位加一；二是几位就用10的几次方减原">
+<meta name="keywords" content="数字电路,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路：基础知识">
+<meta property="og:url" content="http://ranxb.cn/2018/01/08/数字电路：基础知识/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="数字电路：基础知识各个码反码、补码 反码：大于零的不变，小于零的除符号位全取反 补码：大于零的和原码一样，小于零的在最低位加1 运算：补码和补码都可以进行直接运算，两个直接相加，最高位溢出的话直接丢掉。反码运算的话需要把溢出位加到最后一位上。  十进制的补数 对十的补数：符号位是0(+)和9(-),两种方法,一是加后符号位后每个数值对十取反，就是用9减，然后最低位加一；二是几位就用10的几次方减原">
+<meta property="og:updated_time" content="2018-01-08T10:09:30.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数字电路：基础知识">
+<meta name="twitter:description" content="数字电路：基础知识各个码反码、补码 反码：大于零的不变，小于零的除符号位全取反 补码：大于零的和原码一样，小于零的在最低位加1 运算：补码和补码都可以进行直接运算，两个直接相加，最高位溢出的话直接丢掉。反码运算的话需要把溢出位加到最后一位上。  十进制的补数 对十的补数：符号位是0(+)和9(-),两种方法,一是加后符号位后每个数值对十取反，就是用9减，然后最低位加一；二是几位就用10的几次方减原">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数字电路：基础知识</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数字电路：基础知识</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-08T10:08:34.000Z" itemprop="datePublished" class="page-time">
+  2018-01-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数字电路：基础知识"><span class="post-toc-number">1.</span> <span class="post-toc-text">数字电路：基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#各个码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">各个码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反码、补码"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">反码、补码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#十进制的补数"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">十进制的补数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#码制和字符代码"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">码制和字符代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逻辑函数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">逻辑函数</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-数字电路：基础知识"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数字电路：基础知识</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-08 18:08:34" datetime="2018-01-08T10:08:34.000Z"  itemprop="datePublished">2018-01-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="数字电路：基础知识"><a href="#数字电路：基础知识" class="headerlink" title="数字电路：基础知识"></a>数字电路：基础知识</h1><h2 id="各个码"><a href="#各个码" class="headerlink" title="各个码"></a>各个码</h2><h3 id="反码、补码"><a href="#反码、补码" class="headerlink" title="反码、补码"></a>反码、补码</h3><ul>
+<li>反码：大于零的不变，小于零的除符号位全取反</li>
+<li>补码：大于零的和原码一样，小于零的在最低位加1</li>
+<li>运算：补码和补码都可以进行直接运算，两个直接相加，最高位溢出的话直接丢掉。反码运算的话需要把溢出位加到最后一位上。</li>
+</ul>
+<h3 id="十进制的补数"><a href="#十进制的补数" class="headerlink" title="十进制的补数"></a>十进制的补数</h3><ul>
+<li>对十的补数：符号位是0(+)和9(-),两种方法,一是加后符号位后每个数值对十取反，就是用9减，然后最低位加一；二是几位就用10的几次方减原来那个数。<br><code>[5493] = 05493  [-3250] = 96750  [-0.3267] = 9.6733</code></li>
+<li>对9的补数：类似，符号位是0和8，数字位用9减。末尾不加一<br><code>[8954] = 08954   [-3250] = 95639 [-25.639] = 974.360</code>  </li>
+<li>运算：对十的补码运算溢出要丢掉，对九的补码运算溢出要加到最低位</li>
+</ul>
+<h3 id="码制和字符代码"><a href="#码制和字符代码" class="headerlink" title="码制和字符代码"></a>码制和字符代码</h3><ul>
+<li>恒权代码：8421bcd、5421bcd、2421bcd、5211bcd</li>
+<li>循环码：只有一位和周边俩不同的码</li>
+<li>余三码：在8421的基础上加三个开始往后数</li>
+<li>余三循环码：在循环码的基础上加三开始往后数</li>
+<li>奇偶校验码：1的个数为奇偶数，在汇编中PF中当1的个数为偶数的时候标志为1</li>
+<li>ASCII码：<strong>小写字母在大写字母后面</strong>，<strong>大于61H的是小写</strong>，将’a’的ASCII码<strong>减20H就可以变成大写</strong>字母’A’，将’A’的ASCII码<strong>加20H就可以变成小写</strong>字母’a’，ASCII码的<strong>二进制形式第五位为1时是小写字母</strong>，0时大写字母</li>
+</ul>
+<h2 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h2><ul>
+<li>各个门的符号</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-01-08T10:09:30.875Z" itemprop="dateUpdated">2018-01-08 18:09:30</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/08/数字电路：基础知识/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/08/数字电路：基础知识/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/08/数字电路：基础知识/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路：基础知识》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/08/数字电路：基础知识/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/08/数字电路：基础知识/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/06/数字电路第六章：同步时序逻辑电路——下/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数字电路第六章：同步时序逻辑电路——下</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/08/数字电路：基础知识/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/08/数字电路：基础知识/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/08/数字电路：基础知识/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路：基础知识》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/08/数字电路：基础知识/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/08/数字电路：基础知识/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3a0W7CMAwFUP7/p9nrpNH22i6Tmpw8IejSHpA82/HrFa/3r5V8evTO30/P/+rmhYGB8VjG+3Sd3yB5uISagw+pGBgYGzCOItj51sk+R59Ww/TFvTAwMDBOH6IXpnMYBgYGRi/gVkvc6heEgYGB0Qud1R5XEliT1PDmWhwDA+OBjLzr/v+vv3K+gYGB8SjGu7jmhWh+FFp4KgwMjKUZeYCrJo7JIUGhQE12wMDAWJQxKTLzJC+/Pgd/+B0wMDAWZVRbWpPbT9p5USDGwMDYhlENoJMiNk8By003DAyMhRi9sYl5Q39yMPnhjhgYGEszquViL+HLjwFuOInFwMBYjjEZt8rDbn4A0CykMTAwlmbk203GLPLd8h2ik1gMDIwlGEnaV23c58E3D6wXwRoDA2MzRp7qFSJ6Ma0sJ5cYGBhLM3pHAr1rqu9Xv1wMDIy1GdX0rtpiS4JyIaTO81wMDIxHMeZFbLVA7RW6UTqIgYGxKCNJEKsFZ286ojpmcXElBgbGcoy8WX9v8pcUw4U2HAYGxgaM3vBEFVkNynljDgMDYzdGfgDQ2+Eu3kXAxcDAWILxLq4JIy9Wk+Ty8HfAwMBYjjFpkFVHynrFLQYGBkavWTYZME1GXZsNOwwMjA0Yhap3MGAx/z9wkediYGBg5FMbrXJ3lMNiYGBgxMH360MVR1diYGBswMgPA6ppXD6W0Wv8YWBg7MCYlI69AYv8ADUJ0BgYGEszfgDXcwPxpoQdHgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
