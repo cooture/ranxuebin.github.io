@@ -12,27 +12,27 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://ranxb.cn/2017/09/03/第一篇文章/">
+    <link rel="canonical" href="http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/">
     
     
-    <title>第一篇文章 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <title>数字电路：基础知识 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="入门,hexo,新手">
-    <meta name="description" content="这里写内容简介">
-<meta name="keywords" content="入门,hexo,新手">
+    <meta name="keywords" content="数字电路,笔记">
+    <meta name="description" content="数字电路进阶（第六章以后）时序逻辑电路的应用 比如寄存器、锁存器、移位寄存器、计数器。。。  寄存器什么都没有。重点就是74ls290，看第六章的具体内容。    74LS290 环形计数器是将移位型寄存器最后一级反馈到第一级的输入端，特点是构成寄存器的模数和所用触发器的个数相同，只能利用四个状态，比较浪费。利用的是74LS194   扭环形计数器是将最后一级的反变量反馈到第一级，不能自启动需要置">
+<meta name="keywords" content="数字电路,笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章">
-<meta property="og:url" content="http://ranxb.cn/2017/09/03/第一篇文章/index.html">
+<meta property="og:title" content="数字电路：基础知识">
+<meta property="og:url" content="http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="这里写内容简介">
-<meta property="og:updated_time" content="2017-09-08T03:34:51.000Z">
+<meta property="og:description" content="数字电路进阶（第六章以后）时序逻辑电路的应用 比如寄存器、锁存器、移位寄存器、计数器。。。  寄存器什么都没有。重点就是74ls290，看第六章的具体内容。    74LS290 环形计数器是将移位型寄存器最后一级反馈到第一级的输入端，特点是构成寄存器的模数和所用触发器的个数相同，只能利用四个状态，比较浪费。利用的是74LS194   扭环形计数器是将最后一级的反变量反馈到第一级，不能自启动需要置">
+<meta property="og:updated_time" content="2018-01-08T14:05:15.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇文章">
-<meta name="twitter:description" content="这里写内容简介">
+<meta name="twitter:title" content="数字电路：基础知识">
+<meta name="twitter:description" content="数字电路进阶（第六章以后）时序逻辑电路的应用 比如寄存器、锁存器、移位寄存器、计数器。。。  寄存器什么都没有。重点就是74ls290，看第六章的具体内容。    74LS290 环形计数器是将移位型寄存器最后一级反馈到第一级的输入端，特点是构成寄存器的模数和所用触发器的个数相同，只能利用四个状态，比较浪费。利用的是74LS194   扭环形计数器是将最后一级的反变量反馈到第一级，不能自启动需要置">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -120,7 +120,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">第一篇文章</div>
+        <div class="flex-col header-title ellipsis">数字电路：基础知识</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,15 +142,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">第一篇文章</h1>
+        <h1 class="title">数字电路：基础知识</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-09-03T14:42:24.000Z" itemprop="datePublished" class="page-time">
-  2017-09-03
+                <time datetime="2018-01-08T13:46:16.000Z" itemprop="datePublished" class="page-time">
+  2018-01-08
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hexo/">hexo</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
 
             
         </h5>
@@ -167,20 +167,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这是第一篇文章～"><span class="post-toc-number">1.</span> <span class="post-toc-text">这是第一篇文章～</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数字电路进阶（第六章以后）"><span class="post-toc-number">1.</span> <span class="post-toc-text">数字电路进阶（第六章以后）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时序逻辑电路的应用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">时序逻辑电路的应用</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
-<article id="post-第一篇文章"
+<article id="post-数字电路进阶（第六章以后）"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">第一篇文章</h1>
+        <h1 class="post-card-title">数字电路：基础知识</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-09-03 22:42:24" datetime="2017-09-03T14:42:24.000Z"  itemprop="datePublished">2017-09-03</time>
+            <time class="post-time" title="2018-01-08 21:46:16" datetime="2018-01-08T13:46:16.000Z"  itemprop="datePublished">2018-01-08</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hexo/">hexo</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
 
 
 
@@ -192,10 +192,15 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="这是第一篇文章～"><a href="#这是第一篇文章～" class="headerlink" title="这是第一篇文章～"></a>这是第一篇文章～</h1><blockquote>
-<p>我就试试看能不能成功。</p>
+            <h1 id="数字电路进阶（第六章以后）"><a href="#数字电路进阶（第六章以后）" class="headerlink" title="数字电路进阶（第六章以后）"></a>数字电路进阶（第六章以后）</h1><h2 id="时序逻辑电路的应用"><a href="#时序逻辑电路的应用" class="headerlink" title="时序逻辑电路的应用"></a>时序逻辑电路的应用</h2><blockquote>
+<p>比如寄存器、锁存器、移位寄存器、计数器。。。</p>
 </blockquote>
-<p>我的<br>第一篇文章</p>
+<p>寄存器什么都没有。<br>重点就是74ls290，看第六章的具体内容。  </p>
+<ul>
+<li><a href="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/#异步集成计数器74LS290">74LS290</a></li>
+<li>环形计数器是将移位型寄存器最后一级反馈到第一级的输入端，特点是构成寄存器的模数和所用触发器的个数相同，只能利用四个状态，比较浪费。利用的是74LS194  </li>
+<li>扭环形计数器是将最后一级的反变量反馈到第一级，不能自启动需要置零可以利用所有状态。</li>
+</ul>
 
         </div>
 
@@ -203,7 +208,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-09-08T03:34:51.000Z" itemprop="dateUpdated">2017-09-08 11:34:51</time>
+    Last updated: <time datetime="2018-01-08T14:05:15.566Z" itemprop="dateUpdated">2018-01-08 22:05:15</time>
 </span><br>
 
 
@@ -228,7 +233,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
 
 
             
@@ -238,7 +243,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/09/03/第一篇文章/&title=《第一篇文章》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -248,22 +253,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/09/03/第一篇文章/&title=《第一篇文章》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/09/03/第一篇文章/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第一篇文章》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/09/03/第一篇文章/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路：基础知识》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/09/03/第一篇文章/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -283,21 +288,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2017/09/05/近期的一些更新计划/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">近期的一些更新计划</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/09/01/hello-world/" id="post-next" class="post-nav-link">
+      <a href="/2018/01/08/数字电路：基础知识/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">数字电路：基础知识</h4>
       </a>
     </div>
   
@@ -391,7 +389,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/09/03/第一篇文章/&title=《第一篇文章》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -401,22 +399,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/09/03/第一篇文章/&title=《第一篇文章》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/&title=《数字电路：基础知识》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/09/03/第一篇文章/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第一篇文章》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/09/03/第一篇文章/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路：基础知识》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/09/03/第一篇文章/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -427,7 +425,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3ay27CQAwFUP7/p6nULSW9tgNSnJMVakkyZxZm/Hg84uv5eyV/Ob5e7339/Prk0y4MDIzLMnovzmHVt1TvwsDAuA/jOMgeh8Ik+Pa2I38jBgYGRu8g2FsoBgYGxjzgJsE3+W9v+zAwMO7MyNPLalFssgUfycUxMDAuyKg2Br75+YP9DQwMjIswJonofCOSMly0KgwMjNWMfJAiOeQdU3utgsJbMDAwljKS8n0+QtFbbo5/u9EYGBirGb08sVqynwxt9NoGGBgY+xj56EMSUqtDYL0Qj4GBcU9GNRROUt9qqI2OlRgYGEsZowAXB98kVc7LeX+sBwMD4waMyQGxt6D8OBiVAjEwMFYzeg+atC0nLcxo2AIDA2MdozowcdaL83ZmFKYxMDBuwKgmqAmvHPWLz4ySWAwMjBWMfJyiCu7d21sPBgbGHRh54aw3KJaHy9EPAAYGxlJG79CWtxiTRDcfuXhMqnoYGBiXZeSHsEmgrAbofBMxMDDuwKiW73spax5GT8i/MTAwljLmR8DqN3ttg7ckDAyM1YxqiKw2D3rb1CvVYWBgbGU8i1ev0D8ZNSvMjGBgYCxlVKvu1eRzgp+nxBgYGJsYvXJbtW2ZlOqSlLjZHsDAwFjByI9rSThO0uDqL8A/38fAwMAoJpl5I2HSIsXAwMDIS2lJipsE8bzENjoaYmBgXJaRhLnqyMVk0eURMQwMjNWMXgLZY0yC8gm9DgwMjOsxfgCosmC+KGVfGgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3awW4qMQwFUP7/p/ukrio9Qe+1E8rizAoBnclJpdjYfjzi6+v7evb+z0///2byaXL/Z985cOHh4eGNlv7sypf1eonJ1rzelGfv/LIFeHh4eNd47QNeH9z5PdtTvd5KPDw8vD/lJcd0kgoni07uj4eHh/f5vASQH/d5go6Hh4f3mbykGJEc9G0pdrZxV2oteHh4eDGvbYB9wuuL/T08PDy8RVc9OXDzoYFZgXi1Wjw8PLwLvP2y8kGrTTK9KU/g4eHhneXlDaq2KNAe6Hl7rCgB4+Hh4V3gRQ2ksiiQBIy28JqHhF/uiYeHh7fmteNTZ4u8s+cW4QQPDw/vAi9JkfMjPh8jmH0zCWBFVMHDw8Nb8FpqW4qdDU61gOiv8PDw8Na8WUMrf0DSxEqKILN74uHh4d3gnSoT5C2o2fttUw0PDw/vNi9vLM2aXrNAko8XPE49DA8PDy/mnXrAbFphVjjOQwseHh7eWd4skW2T41mTrE2mH6fydDw8PLzyF3oRT9ZBJX/i8N+Ah4eHd43XDgTcS8TbsFGMDuDh4eEd4rXl1GRBScqbh4398AEeHh7ee3ht42oWPJIyRDL8eqAkgYeHh7fg7Yuws2GCNlTkwQMPDw/vBm+zrKQYcTYktD8A8PDw8M7y2vZ8W2hoC76nBrCK3B8PDw9vxNsMQp1qaLVri1JqPDw8vAu8NgnOF9qmzgcYeHh4eG/hbVpf7XbM2ldtCRgPDw/vnbx9wz45uDetrHqb8PDw8C7w8qtNfJOFboq5+eACHh4e3g3erAXVFmRnyz0QGPDw8PCu8fajVHnrKw8ebTECDw8P79N4bT7eBpj9bwI8PDy8z+T9Vbo8C1p4eHh493j7pldLmm3c6/vg4eHhvYe3b4Bt0uKE97h94eHh4aXXP54bnHGmPpXOAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

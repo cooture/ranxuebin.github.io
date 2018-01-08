@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-08T13:43:25.627Z</updated>
+  <updated>2018-01-08T14:05:15.566Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数字电路：基础知识</title>
+    <link href="http://ranxb.cn/2018/01/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E8%BF%9B%E9%98%B6%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%E4%BB%A5%E5%90%8E%EF%BC%89/"/>
+    <id>http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/</id>
+    <published>2018-01-08T13:46:16.000Z</published>
+    <updated>2018-01-08T14:05:15.566Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数字电路进阶（第六章以后）"><a href="#数字电路进阶（第六章以后）" class="headerlink" title="数字电路进阶（第六章以后）"></a>数字电路进阶（第六章以后）</h1><h2 id="时序逻辑电路的应用"><a href="#时序逻辑电路的应用" class="headerlink" title="时序逻辑电路的应用"></a>时序逻辑电路的应用</h2><blockquote>
+<p>比如寄存器、锁存器、移位寄存器、计数器。。。</p>
+</blockquote>
+<p>寄存器什么都没有。<br>重点就是74ls290，看第六章的具体内容。  </p>
+<ul>
+<li><a href="http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/#异步集成计数器74LS290">74LS290</a></li>
+<li>环形计数器是将移位型寄存器最后一级反馈到第一级的输入端，特点是构成寄存器的模数和所用触发器的个数相同，只能利用四个状态，比较浪费。利用的是74LS194  </li>
+<li>扭环形计数器是将最后一级的反变量反馈到第一级，不能自启动需要置零可以利用所有状态。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数字电路进阶（第六章以后）&quot;&gt;&lt;a href=&quot;#数字电路进阶（第六章以后）&quot; class=&quot;headerlink&quot; title=&quot;数字电路进阶（第六章以后）&quot;&gt;&lt;/a&gt;数字电路进阶（第六章以后）&lt;/h1&gt;&lt;h2 id=&quot;时序逻辑电路的应用&quot;&gt;&lt;a href=&quot;#
+    
+    </summary>
+    
+      <category term="数字电路" scheme="http://ranxb.cn/categories/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+    
+      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>数字电路：基础知识</title>
@@ -1583,11 +1616,11 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
     
     
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
       <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
       <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
+    
+      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -1672,145 +1705,6 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="随笔" scheme="http://ranxb.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="成都" scheme="http://ranxb.cn/tags/%E6%88%90%E9%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Android中Menu的使用</title>
-    <link href="http://ranxb.cn/2017/09/28/%E5%9C%A8Android%E4%B8%ADMenu%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://ranxb.cn/2017/09/28/在Android中Menu的使用/</id>
-    <published>2017-09-27T16:58:26.000Z</published>
-    <updated>2017-09-27T17:05:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="在Android中Menu的使用"><a href="#在Android中Menu的使用" class="headerlink" title="在Android中Menu的使用"></a>在Android中Menu的使用</h1><h2 id="Menu的分类"><a href="#Menu的分类" class="headerlink" title="Menu的分类"></a>Menu的分类</h2><ol>
-<li>选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单</li>
-<li>上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框</li>
-<li>弹出菜单，当用户点击某个 View 视图是弹出的菜单</li>
-</ol>
-<h2 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h2><ol>
-<li>java创建了menu对象</li>
-<li>使用XML方法定义Menu要在XML文件中正确填写并添加ID</li>
-</ol>
-<h2 id="使用XML定义Menu"><a href="#使用XML定义Menu" class="headerlink" title="使用XML定义Menu"></a>使用XML定义Menu</h2><blockquote>
-<p>XML文件的基本属性  </p>
-</blockquote>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-    &lt;item
-        android:id=&quot;@+id/daxiao&quot;
-        android:title=&quot;设置字体大小&quot;
-        android:orderInCategory=&quot;3&quot;&gt;
-    &lt;/item&gt;
-    &lt;item
-        android:id=&quot;@+id/yanse&quot;
-        android:title=&quot;设置字体颜色&quot;
-        android:orderInCategory=&quot;2&quot;
-        &gt;
-    &lt;/item&gt;
-    &lt;item
-        android:id=&quot;@+id/shuxing&quot;
-        android:title=&quot;设置字体属性&quot;
-        android:orderInCategory=&quot;1&quot;&gt;
-
-    &lt;/item&gt;
-&lt;/menu&gt;
-
-                &lt;!--
-                    android:id=&quot;@+id/lalala_mune&quot;  设置id
-                    android:title=&quot;设置字体大小&quot;      设置title
-                    android:orderInCategory=&quot;3&quot;     显示顺序
-                --&gt;
-</code></pre><blockquote>
-<p>Menu 菜单的嵌套使用规则  </p>
-</blockquote>
-<ol>
-<li>Item 中可以嵌套 menu，但是不能嵌套 group</li>
-<li>Menu 中既可以嵌套 group，又可以嵌套 item。</li>
-<li>Group 中只能嵌套 item，不能嵌套 menu</li>
-</ol>
-<h2 id="选项菜单的添加"><a href="#选项菜单的添加" class="headerlink" title="选项菜单的添加"></a>选项菜单的添加</h2><h3 id="添加XML文件中的Menu"><a href="#添加XML文件中的Menu" class="headerlink" title="添加XML文件中的Menu"></a>添加XML文件中的Menu</h3><blockquote>
-<p>选项菜单需要重写在在java代码中重写onCreateOptionsMenu(Menu menu)方法  </p>
-</blockquote>
-<pre><code>public boolean onCreateOptionsMenu(Menu menu) {
-    /*第一步需要加载菜单选项*/
-    /*菜单填充器将菜单获取然后添加至active中*/
-    /*第一种比较麻烦的方法*/
-    /*MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.options_menu,menu);*/
-    /*第二种方法*/
-    getMenuInflater().inflate(R.menu.options_menu,menu);
-
-    return true;
-}
-</code></pre><h3 id="在Java代码中动态定义Menu"><a href="#在Java代码中动态定义Menu" class="headerlink" title="在Java代码中动态定义Menu"></a>在Java代码中动态定义Menu</h3><blockquote>
-<p>可以在java代码中的onCreateOptionsMenu(Menu menu)方法中使用menu.add()方法动态定义增加Menu</p>
-</blockquote>
-<pre><code>/*另外可以通过代码添加menu项*/
-//menu.add(group id,itmeid  自己设置);里面填menu的分组  group可以是itme的父标签
-menu.add(Menu.NONE,ITMEID,Menu.NONE,&quot;lalala我是后设置的&quot;);
-</code></pre><h2 id="上下文菜单"><a href="#上下文菜单" class="headerlink" title="上下文菜单"></a>上下文菜单</h2><blockquote>
-<p>定义后添加的方法与选项菜单类似<br>当用户长按 Activity 页面时，弹出的菜单我们称为上下文菜单。我们经常在 Windows 中用鼠<br>标右键单击弹出的菜单就是上下文菜单。</p>
-</blockquote>
-<ol>
-<li>覆盖 Activity 的 onCreateContextMenu()方法，调用 Menu 的 add 方法添加菜单项<br>MenuItem</li>
-<li>覆盖 onContextItemSelected()方法，响应菜单单击事件</li>
-<li>调用 registerForContextMenu()方法，为视图注册上下文菜单</li>
-</ol>
-<h2 id="子菜单"><a href="#子菜单" class="headerlink" title="子菜单"></a>子菜单</h2><blockquote>
-<p>定义后添加的方法与选项菜单类似<br>子菜单就是将相同功能的分组进行多级显示的一种菜单，比如，Windows 的“文件”菜单中就<br>有“新建”，“打开”，“关闭”等子菜单。创建子菜单的方法</p>
-</blockquote>
-<ol>
-<li>覆盖 Activity 的 onCreateOptionsMenu()方法，调用 Menu 的 addSubMenu()方法 添加子菜单项</li>
-<li>调用 SubMenu 的 add()饭饭，添加子菜单项</li>
-<li>覆盖 onCreateItemSelected()方法，响应菜单单击事件</li>
-</ol>
-<h2 id="添加单击事件"><a href="#添加单击事件" class="headerlink" title="添加单击事件"></a>添加单击事件</h2><h3 id="选项菜单"><a href="#选项菜单" class="headerlink" title="选项菜单"></a>选项菜单</h3><blockquote>
-<p>以下为对于使用XML文件加载的选项菜单为例<br>选项菜单需要重写onOptionsItemSelected(MenuItem item)方法使其触发  </p>
-</blockquote>
-<pre><code> /**
- * !!只针对选项菜单!!
- * 当选项菜单被选中时调用的方法
- * @param item  表示菜单项对象
- * @return      false表示不进行处理
- */
-@Override
-public boolean onOptionsItemSelected(MenuItem item) {
-    //对于使用XML文件加载的菜单
-    int itemid = item.getItemId();//获取触发的item的id
-    float a;
-    switch (itemid) {
-        case R.id.daxiao:
-            a =  ceshi.getTextSize();
-            Toast.makeText(MainActivity.this,&quot;&quot;+a,Toast.LENGTH_SHORT).show();
-            if (a==100) ceshi.setTextSize(TypedValue.COMPLEX_UNIT_PX,50);
-                else ceshi.setTextSize(TypedValue.COMPLEX_UNIT_PX,100);
-            break;
-        case R.id.yanse:
-            //随机生成颜色
-            int red = (int) (Math.random()*256);
-            int green = (int) (Math.random()*256);
-            int blue = (int) (Math.random()*256);
-            ceshi.setTextColor(Color.rgb(red,green,blue));
-            break;
-    }
-    return super.onOptionsItemSelected(item);
-}
-</code></pre><h3 id="上下文菜单-1"><a href="#上下文菜单-1" class="headerlink" title="上下文菜单"></a>上下文菜单</h3><p>上下文菜单:上下文菜单是和某一种控件绑定使用的，也就是说每个控件只有注册了上下文菜单，并且长 按时弹出的菜单就是上下文菜单，<br>上下文菜单加载菜单是通过重写 onCreateContextMenu()来完成的，<br>上下文菜单的 点击事件是通过抽重写 onContextItemSelected()方法来实现的</p>
-<h3 id="PopMenu"><a href="#PopMenu" class="headerlink" title="PopMenu"></a>PopMenu</h3><p>是通过创建 popMenu 的对象，再通过菜单加载器将其加载进来的， popMenu 的点击事件是通过 popMenu.setOnMenuItemClickListener()方法实现的。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;在Android中Menu的使用&quot;&gt;&lt;a href=&quot;#在Android中Menu的使用&quot; class=&quot;headerlink&quot; title=&quot;在Android中Menu的使用&quot;&gt;&lt;/a&gt;在Android中Menu的使用&lt;/h1&gt;&lt;h2 id=&quot;Menu的分类&quot;&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
-    
-    
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
-      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
     
   </entry>
   
