@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-08T14:05:15.566Z</updated>
+  <updated>2018-01-09T15:21:05.093Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -16,11 +16,206 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>数字电路：基础知识</title>
+    <title>汇编语言：基础知识（第五章以前）</title>
+    <link href="http://ranxb.cn/2018/01/09/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E7%AC%AC%E4%BA%94%E7%AB%A0%E4%BB%A5%E5%89%8D%EF%BC%89/"/>
+    <id>http://ranxb.cn/2018/01/09/汇编语言：基础知识（第五章以前）/</id>
+    <published>2018-01-09T07:22:19.000Z</published>
+    <updated>2018-01-09T15:21:05.093Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="汇编语言：基础知识（第五章以前）"><a href="#汇编语言：基础知识（第五章以前）" class="headerlink" title="汇编语言：基础知识（第五章以前）"></a>汇编语言：基础知识（第五章以前）</h1><h2 id="基基础"><a href="#基基础" class="headerlink" title="基基础"></a>基基础</h2><ul>
+<li>数据总线：传数据用的，8线一次传1b，8086有16线</li>
+<li>地址总线：最高可以寻到的地址，8086是20线，4线一个16进制位。</li>
+<li>一个地址是一个内存单元就是1b，2个十六进制位。</li>
+<li>要知道给定一个段地址之后的地址寻址范围。</li>
+<li>inc</li>
+<li>dec</li>
+</ul>
+<h2 id="寄存器的总结"><a href="#寄存器的总结" class="headerlink" title="寄存器的总结"></a>寄存器的总结</h2><h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p>段寄存器就是存放段地址的</p>
+<ul>
+<li>CS</li>
+<li>DS</li>
+<li>SS</li>
+<li>ES</li>
+</ul>
+<p><strong>段地址不支持直接将数据送入</strong>  </p>
+<ul>
+<li>SS：SP永远指向栈顶元素  </li>
+</ul>
+<p><strong>在自己写程序的过程中要注意的问题！</strong></p>
+<ul>
+<li>assume写全</li>
+<li>最后int 21h</li>
+<li>数据不能以字母开头</li>
+<li>使用es存放目标空间的段地址</li>
+<li>正式的程序开始时写<code>start</code>，最后写<code>end start</code></li>
+</ul>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><h3 id="多种寻址方式"><a href="#多种寻址方式" class="headerlink" title="多种寻址方式"></a>多种寻址方式</h3><ul>
+<li>寄存器直接寻址</li>
+<li>寄存器相对寻址（寄存器+idata）</li>
+<li>基址变址寻址（寄存器+寄存器）</li>
+<li>相对基址变址寻址（寄存器+寄存器+idata）</li>
+</ul>
+<h3 id="转大小写的单循环例子"><a href="#转大小写的单循环例子" class="headerlink" title="转大小写的单循环例子"></a>转大小写的单循环例子</h3><pre><code>assume cs:code,ds:data,ss:strack
+strack segment
+ dw 8 dup(0)
+strack ends
+data segment
+ db &apos;1. display      &apos;
+ db &apos;2. dsjk         &apos;
+ db &apos;3. dasdasdasd   &apos;
+data ends
+code segment
+start:
+    mov ax,data
+    mov ds,ax
+    mov ax,strack
+    mov ss,ax
+    mov sp,10h
+    mov di,0
+    mov cx,4h
+l:
+    mov al,[di+3]
+    and al,11011111b
+    mov [di+3],al
+    mov al,[di+10h+3]
+    and al,11011111b
+    mov [di+10h+3],al
+    mov al,[di+32+3]
+    and al,11011111b
+    mov [di+32+3],al
+    inc di
+    loop l
+
+mov ax,4c00h
+int 21h
+
+
+code ends
+end start
+</code></pre><p>结果<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="转大小写的双循环例子"><a href="#转大小写的双循环例子" class="headerlink" title="转大小写的双循环例子"></a>转大小写的双循环例子</h3><blockquote>
+<p>注意bx和si的同时使用，di和si不能同时使用</p>
+</blockquote>
+<pre><code>assume cs:code,ds:data,ss:strack
+strack segment
+ dw 8 dup(0)
+strack ends
+data segment
+ db &apos;1. display      &apos;
+ db &apos;2. dsjk         &apos;
+ db &apos;3. dasdasdasd   &apos;
+data ends
+code segment
+start:
+mov ax,data
+mov ds,ax
+mov ax,strack
+mov ss,ax
+mov sp,10h
+mov di,0
+mov cx,4
+mov si,0
+l:
+push cx
+mov cx,3
+l0:
+mov al,[si+di+3]
+and al,11011111b
+mov [di+3],al
+inc di
+loop l0
+mov di,0
+add si,16
+pop cx
+loop l
+mov ax,4c00h
+int 21h
+code ends
+end start
+</code></pre><p>结果<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="b.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="指令的转移"><a href="#指令的转移" class="headerlink" title="指令的转移"></a>指令的转移</h2><h3 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h3><ul>
+<li><code>jmp short 标号</code>  -128~127</li>
+<li><code>jmp near ptr 标号</code>        -32768~32767</li>
+<li><code>jmp far ptr 标号</code></li>
+<li><code>jmp 16位reg</code>  IP = reg</li>
+<li><code>jmp word ptr 地址</code>        段内转移：jmp word ptr ds:[0]，设置IP</li>
+<li><code>jmp dword ptr 地址</code>    段间转移，先赋值IP</li>
+</ul>
+<h3 id="jcxz"><a href="#jcxz" class="headerlink" title="jcxz"></a>jcxz</h3><p>当cx为0时跳转，范围-128～127</p>
+<h3 id="ret和retf"><a href="#ret和retf" class="headerlink" title="ret和retf"></a>ret和retf</h3><p>都是先对IP进行操作</p>
+<pre><code>pop ip
+pop cs
+</code></pre><h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><ul>
+<li>call 标号</li>
+<li>call far ptr 标号  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">push cs</div><div class="line">push ip</div></pre></td></tr></table></figure>
+<ul>
+<li>call word ptr 地址</li>
+<li>call dword ptr 地址</li>
+</ul>
+<h3 id="mul乘法"><a href="#mul乘法" class="headerlink" title="mul乘法"></a>mul乘法</h3><ul>
+<li>双8位，一个放al，结果ax</li>
+<li>双16位，一个放ax，结果高位dx低位ax</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mov al,1</div><div class="line">mov bl,2</div><div class="line">mul bl</div></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mov al,1</div><div class="line">mov byte ptr ds:[0],2</div><div class="line">mul byte ptr ds:[0]</div></pre></td></tr></table></figure></p>
+<h3 id="div除法"><a href="#div除法" class="headerlink" title="div除法"></a>div除法</h3><blockquote>
+<p>低位是商高位是余数</p>
+</blockquote>
+<ul>
+<li>16位除以8位，前面的数放在ax里</li>
+<li>32位除以16位，高位dx，低位ax</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div byte ptr ds:[0];默认被除数是ax</div></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mov bx,10</div><div class="line">div bx；默认被除数高位是dx，低位时ax</div></pre></td></tr></table></figure></p>
+<h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><p>流程：</p>
+<ul>
+<li>取得中断码</li>
+<li>pushf</li>
+<li>设置标志寄存器</li>
+<li>CS和IP入栈</li>
+<li>设置IP，设置CS</li>
+</ul>
+<h3 id="中断向量表"><a href="#中断向量表" class="headerlink" title="中断向量表"></a>中断向量表</h3><p>四个字节一个中断地址<br>前两个是IP<br>后两个是CS</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
+<p>这里进行模拟loop的安装，位置7ch。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;汇编语言：基础知识（第五章以前）&quot;&gt;&lt;a href=&quot;#汇编语言：基础知识（第五章以前）&quot; class=&quot;headerlink&quot; title=&quot;汇编语言：基础知识（第五章以前）&quot;&gt;&lt;/a&gt;汇编语言：基础知识（第五章以前）&lt;/h1&gt;&lt;h2 id=&quot;基基础&quot;&gt;&lt;a h
+    
+    </summary>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数字电路进阶（第六章以后）</title>
     <link href="http://ranxb.cn/2018/01/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E8%BF%9B%E9%98%B6%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%E4%BB%A5%E5%90%8E%EF%BC%89/"/>
     <id>http://ranxb.cn/2018/01/08/数字电路进阶（第六章以后）/</id>
     <published>2018-01-08T13:46:16.000Z</published>
-    <updated>2018-01-08T14:05:15.566Z</updated>
+    <updated>2018-01-09T12:03:26.885Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数字电路进阶（第六章以后）"><a href="#数字电路进阶（第六章以后）" class="headerlink" title="数字电路进阶（第六章以后）"></a>数字电路进阶（第六章以后）</h1><h2 id="时序逻辑电路的应用"><a href="#时序逻辑电路的应用" class="headerlink" title="时序逻辑电路的应用"></a>时序逻辑电路的应用</h2><blockquote>
 <p>比如寄存器、锁存器、移位寄存器、计数器。。。</p>
@@ -53,7 +248,7 @@
     <link href="http://ranxb.cn/2018/01/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>http://ranxb.cn/2018/01/08/数字电路：基础知识/</id>
     <published>2018-01-08T10:08:34.000Z</published>
-    <updated>2018-01-08T13:43:25.627Z</updated>
+    <updated>2018-01-09T12:04:02.295Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数字电路：基础知识"><a href="#数字电路：基础知识" class="headerlink" title="数字电路：基础知识"></a>数字电路：基础知识</h1><blockquote>
 <p>你可以理解为第五章之前的内容</p>
@@ -74,7 +269,7 @@
 <li>余三码：在8421的基础上加三个开始往后数</li>
 <li>余三循环码：在循环码的基础上加三开始往后数</li>
 <li>奇偶校验码：1的个数为奇偶数，在汇编中PF中当1的个数为偶数的时候标志为1</li>
-<li>ASCII码：<strong>小写字母在大写字母后面</strong>，<strong>大于61H的是小写</strong>，将’a’的ASCII码<strong>减20H就可以变成大写</strong>字母’A’，将’A’的ASCII码<strong>加20H就可以变成小写</strong>字母’a’，ASCII码的<strong>二进制形式第五位为1时是小写字母</strong>，0时大写字母</li>
+<li>ASCII码：<strong>小写字母在大写字母后面</strong>，<strong>大于61H的是小写</strong>，将’a’的ASCII码<strong>减20H就可以变成大写</strong>字母’A’，将’A’的ASCII码<strong>加20H就可以变成小写</strong>字母’a’，ASCII码的<strong>二进制形式第六位为1时是小写字母</strong>，0时大写字母</li>
 </ul>
 <h2 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h2><ul>
 <li>各个门的符号，与门（中间一个&amp;），或门（中间一个&gt;=1），非门（中间一个1后面加圈圈），异或（环和，中间=1），同或（环积，异或后面加圈圈）</li>
@@ -1146,7 +1341,7 @@ dd 重复次数 dup (内容)        ;(重复的双精度字型数据)
     <link href="http://ranxb.cn/2017/12/29/%E6%B1%87%E7%BC%96%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E6%9B%B4%E7%81%B5%E6%B4%BB%E7%9A%84%E5%AE%9A%E4%BD%8D%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E5%BC%8F/"/>
     <id>http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/</id>
     <published>2017-12-28T18:46:40.000Z</published>
-    <updated>2017-12-28T19:12:36.919Z</updated>
+    <updated>2018-01-09T12:05:30.076Z</updated>
     
     <content type="html"><![CDATA[<h1 id="汇编第七章：更灵活的定位内存地址的方式"><a href="#汇编第七章：更灵活的定位内存地址的方式" class="headerlink" title="汇编第七章：更灵活的定位内存地址的方式"></a>汇编第七章：更灵活的定位内存地址的方式</h1><h2 id="and、or指令"><a href="#and、or指令" class="headerlink" title="and、or指令"></a>and、or指令</h2><p><strong>and</strong> 按位与 </p>
 <pre><code>mov al,01100011B
@@ -1169,14 +1364,14 @@ data ends
 <li><strong>将’a’的ASCII码减20H就可以变成大写字母’A’</strong>  </li>
 <li><strong>将’A’的ASCII码加20H就可以变成小写字母’a’</strong>  </li>
 <li><strong>当ASCII码大于61H的时候是小写字母</strong>  </li>
-<li><strong>ASCII码的二进制形式第五位为1时是小写字母，0时大写字母</strong>  </li>
+<li><strong>ASCII码的二进制形式第六位为1时是小写字母，0时大写字母</strong>  </li>
 </ol>
 <blockquote>
 <p>根据上面第五条可以进行大小写转换！  </p>
 </blockquote>
-<pre><code>and al,11101111B
+<pre><code>and al,11011111B
 </code></pre><p>可以把字母变成大写  </p>
-<pre><code>or al,00010000B
+<pre><code>or al,00100000B
 </code></pre><p>可以把字母变成小写  </p>
 <h2 id="bx-idata"><a href="#bx-idata" class="headerlink" title="[bx+idata]"></a>[bx+idata]</h2><p><strong><em>[bx+idata]表示一个内存单元,他的偏移地址是(bx)+idata(bx的值加上idata)</em></strong>  </p>
 <blockquote>
@@ -1621,90 +1816,6 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
     
       <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我勒个去成都！！！————写在前面</title>
-    <link href="http://ranxb.cn/2017/09/29/%E6%88%91%E5%8B%92%E4%B8%AA%E5%8E%BB%E6%88%90%E9%83%BD%EF%BC%81%EF%BC%81%EF%BC%81%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/"/>
-    <id>http://ranxb.cn/2017/09/29/我勒个去成都！！！————写在前面/</id>
-    <published>2017-09-28T16:37:22.000Z</published>
-    <updated>2017-09-28T16:38:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="我勒个去成都！！！————写在前面"><a href="#我勒个去成都！！！————写在前面" class="headerlink" title="我勒个去成都！！！————写在前面"></a>我勒个去成都！！！————写在前面</h1><h2 id="提前的准备"><a href="#提前的准备" class="headerlink" title="提前的准备"></a>提前的准备</h2><blockquote>
-<p>一共两个背包一个小提箱；<br>箱子里主要放衣服杂物不常用的东西；<br>背包里面电脑相机卫生纸日常用的还有。。零食？   </p>
-</blockquote>
-<ol>
-<li>身份证</li>
-<li>学生证</li>
-<li>手机</li>
-<li>充电宝</li>
-<li>流量</li>
-<li>银行卡</li>
-<li>各种充电器</li>
-<li>电脑可以选择性的带一个🐒</li>
-<li>相机（不带脚架）</li>
-<li>各种衣服</li>
-<li>伞！！！！！！！</li>
-</ol>
-<h3 id="衣物"><a href="#衣物" class="headerlink" title="衣物"></a>衣物</h3><blockquote>
-<p>看天气预报大多是阴天和雨天？？难道是因为比较潮？？  </p>
-</blockquote>
-<p>30号到成都当晚阴天18度，然后1号到4号之间持续有雨有点蛋疼，56两天继续阴天，7号早上多云但是晚上走的时候继续下雨，8号早上到兰州6、7度，有点冷。。。<br>综合来看的话。。。。不需要太薄的衣服。。。日常衬衫+薄外套<br>全部大概准备三套左右差不多～别穿的太少  </p>
-<h3 id="带上伞！！！"><a href="#带上伞！！！" class="headerlink" title="带上伞！！！"></a><strong>带上伞！！！</strong></h3><h2 id="交通"><a href="#交通" class="headerlink" title="交通"></a>交通</h2><h3 id="市区交通"><a href="#市区交通" class="headerlink" title="市区交通"></a>市区交通</h3><p><strong>出租车</strong><br>成都出租车白天(6-23点)起步价8元(速腾2.0和1.4T为9元),包2 公里,后1.9元/公里，10公里到60公里2.85元/公里。<br>夜间(23-6点)起 步价9元(速腾2.0和1.4T为10元),包2公里,后2.2元/公里，10公里到 60公里3.3元/公里。<br>打车后记径索要计秳収票。由亍公交车票价格不便宜，人多时比较合算。</p>
-<p><strong>公交车🚌</strong><br>成都市公交网络四通八达，可以到达任何事被近郊的旅游景区、景点。<br>市内公交车分普通车和高档车两种，市区内的车次基本以两元为主以两元为主。</p>
-<p><strong>地铁🚇</strong><br>一共两条线，均为分段收费，起步价两元，全程五元。  </p>
-<p><strong>火三轮？？</strong><br>我也不知道是干啥的，可以去瞅瞅。起步大概是2～5元。  </p>
-<h3 id="其他景区交通"><a href="#其他景区交通" class="headerlink" title="其他景区交通"></a>其他景区交通</h3><blockquote>
-<p><strong>成都机场-峨眉山 収车时间:14:00，票价36元</strong><br><strong>成都机场-宜宾 収车时间:14:00，票价95元</strong><br><strong>成都机场-乐山 収车时间:14:00、15:50，票价46元。</strong></p>
-</blockquote>
-<p><strong>新南门车站(成都市旅游集散中心)</strong><br>位于新南路，成都新南门大桥边。可乘6、28、49、55路到达。<br>发往地区:成都周边，以及川内知名的旅游景区。</p>
-<pre><code>TIPS:(我在百度攻略上看的）
-什邡、绵竹两个地震遗址专线车已开通，票价98元，
-费用包括:去去回程车票、餐费、保险、导游、地震遗址安全维护费。
-路线为成都—幸汉—什邡—蓥华—绵竹—汉旺—绵竹—德阳—成都。
-上午8:00发车， 晚上6时过卲可返回成都。
-</code></pre><h2 id="游览地点汇总"><a href="#游览地点汇总" class="headerlink" title="游览地点汇总"></a>游览地点汇总</h2><h3 id="宽窄巷子"><a href="#宽窄巷子" class="headerlink" title="宽窄巷子"></a>宽窄巷子</h3><p>宽巷子的闲生活，窄巷子的慢生活，井巷子的新生活成为了成都的“上海新天地”触摸历史痕迹，体味成都原滋原味的休闲生活方式，</p>
-<blockquote>
-<p>门票/开放时间: 全天开放无门票<br>地址: 青羊区同仁路以东长顺街以西<br>交通: 公交车“长顺上街”站下车地铁2号线“人民公园”站下车。</p>
-</blockquote>
-<pre><code>宽窄巷子旅游最佳时间:
-1、清晨: 人很少，拍风景和拍人像都很不错。  
-2、下午: 特别是出太阳的下午，来宽窄巷子会很  
-挤，很多人在茶馆喝茶，打牌，掏耳朵。这是宽窄  
-巷子最成都的一个表现。来一杯盖碗茶，晒一下午  
-的太阳。这时候，就不那么适合拍照啦~
-3、晚上: 宽窄巷子里有一些酒吧，经常会举办各种各样的party,  
-价格和品质都不菲。当然，环保一点的办法是，  
-吃过晚饭之后到宽窄巷子散步，很惬意。很悠闲。  
-4、如果周末来，在井巷子还能看到创意集市哦~
-</code></pre><h3 id="武侯祠"><a href="#武侯祠" class="headerlink" title="武侯祠"></a>武侯祠</h3><p>我也不知道干啥的我就瞎转吧，是个历史遗迹啥的，就不废话了～  </p>
-<blockquote>
-<p>门票:60元，学生半价。<br>开放时间:夏 7:30-21:00冬 8:00-18:30<br>地址:武侯区武侯祠多街231号<br>交通:公交车在“武侯祠”站下车</p>
-</blockquote>
-<h3 id="锦里"><a href="#锦里" class="headerlink" title="锦里"></a>锦里</h3><p>这名字吉利，可以多转转。<br>400米长的老街上，传统小吃，饮食，客栈遍巷。感觉能玩两三天，我感觉旅店可以定在这附近。  </p>
-<blockquote>
-<p>全天开放无门票<br>地址:武侯区武侯祠多街231号<br>交通:同武侯祠</p>
-</blockquote>
-<h3 id="杜甫草堂"><a href="#杜甫草堂" class="headerlink" title="杜甫草堂"></a>杜甫草堂</h3><h3 id="春熙路"><a href="#春熙路" class="headerlink" title="春熙路"></a><strong>春熙路</strong></h3><h3 id="文殊院"><a href="#文殊院" class="headerlink" title="文殊院"></a>文殊院</h3><h3 id="望江楼"><a href="#望江楼" class="headerlink" title="望江楼"></a>望江楼</h3><h3 id="大熊猫基地"><a href="#大熊猫基地" class="headerlink" title="大熊猫基地"></a>大熊猫基地</h3><h3 id="稻城"><a href="#稻城" class="headerlink" title="稻城"></a>稻城</h3><h3 id="都江堰"><a href="#都江堰" class="headerlink" title="都江堰"></a>都江堰</h3><h3 id="青城山"><a href="#青城山" class="headerlink" title="青城山"></a>青城山</h3><h2 id="好吃的！！！"><a href="#好吃的！！！" class="headerlink" title="好吃的！！！"></a>好吃的！！！</h2><blockquote>
-<p><strong>田姗平给的清单全吃一遍！！！</strong></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;我勒个去成都！！！————写在前面&quot;&gt;&lt;a href=&quot;#我勒个去成都！！！————写在前面&quot; class=&quot;headerlink&quot; title=&quot;我勒个去成都！！！————写在前面&quot;&gt;&lt;/a&gt;我勒个去成都！！！————写在前面&lt;/h1&gt;&lt;h2 id=&quot;提前的准备
-    
-    </summary>
-    
-      <category term="成都游记" scheme="http://ranxb.cn/categories/%E6%88%90%E9%83%BD%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-      <category term="游记" scheme="http://ranxb.cn/tags/%E6%B8%B8%E8%AE%B0/"/>
-    
-      <category term="随笔" scheme="http://ranxb.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="成都" scheme="http://ranxb.cn/tags/%E6%88%90%E9%83%BD/"/>
     
   </entry>
   
