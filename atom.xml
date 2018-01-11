@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-09T15:21:05.093Z</updated>
+  <updated>2018-01-11T01:18:14.323Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,134 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据结构知识框架</title>
+    <link href="http://ranxb.cn/2018/01/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/"/>
+    <id>http://ranxb.cn/2018/01/11/数据结构知识框架/</id>
+    <published>2018-01-11T01:16:54.000Z</published>
+    <updated>2018-01-11T01:18:14.323Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数据结构知识框架"><a href="#数据结构知识框架" class="headerlink" title="数据结构知识框架"></a>数据结构知识框架</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>第一方面：基本概念<br>1、数据结构研究方面（研究内容）<br>主要体现三个方面：</p>
+<ul>
+<li>数据的逻辑关系</li>
+<li>储存关系</li>
+<li>运算关系</li>
+<li>还讨论算法的效率问题，分类问题等。 </li>
+</ul>
+<p>2、数据结构的逻辑结构<br><strong>逻辑关系</strong>：自然状态下数据元素之间的一种联系（关联方式或邻接关系，从逻辑上观察数据，与计算机无关）。<br><strong>逻辑结构</strong>：对数据元素之间关系的描述B=(k，r)其中，k：数据元素的有穷集合（有限元素构成），r：k上关系的有穷集合，其中每个关系r都是从k到k的关系。<br><strong>逻辑结构的分类</strong>：线性结构和非线性结构（树形结构、图形结构（网状结构））。<br><strong>关于集合类型</strong>：元素之间除同属一个集合外别无其他类型<br>3、数据结构的<strong>存储结构</strong><br><strong>存储关系</strong>：逻辑结构在计算机存储器中实现，它依赖于计算机。具体说数据在存储器中的关联方式，也成物理结构，物理关系等。 </p>
+<ul>
+<li>顺序结构  </li>
+<li>链接结构  </li>
+<li>索引结构  </li>
+<li>散列（hash）结构 </li>
+</ul>
+<p>4、数据结构评价标准<br>主要标准： </p>
+<ul>
+<li>作为问题的参数的函数来计算<strong>存储需要量</strong>  </li>
+<li>作为问题的参数的函数来计算<strong>时间效率</strong>  </li>
+<li>还需要考虑其他因素  </li>
+</ul>
+<h2 id="第二章：算法（只有一个层面）"><a href="#第二章：算法（只有一个层面）" class="headerlink" title="第二章：算法（只有一个层面）"></a>第二章：算法（只有一个层面）</h2><p>1、算法的评价标准<br>好算法要达到以下目标：  </p>
+<ul>
+<li>正确性（满足具体问题的要求）  </li>
+<li>易读性（交流与他人阅读，其次是机器执行）  </li>
+<li>高效性（效率与存储量的需求，达到所需的时空性能）  </li>
+<li>健壮性（适应环境变化，有非法输入时，能做出相应的处理或反映）  </li>
+</ul>
+<p>2、算法的描述方法  </p>
+<ul>
+<li>计算机程序设计语言  </li>
+<li>自然语言  </li>
+<li>PDL语言（伪码语言、可运行于“抽象计算机”，虚拟机）  </li>
+<li>流程图  </li>
+</ul>
+<h2 id="第三章：线性表（只有第三个要求）"><a href="#第三章：线性表（只有第三个要求）" class="headerlink" title="第三章：线性表（只有第三个要求）"></a>第三章：线性表（只有第三个要求）</h2><p>1、<strong>线性表</strong>：一个线性表是n≥0个数据元素a1，a2，……，an的有限序列，序列中除第一个最后一个以外，每个元素都是有且仅有一个直接前驱和直接后继。<br>2、<strong>链表</strong>：通过指针联系起来的结点的整体（集合）。<br>3、<strong>静态链表</strong>：以整形变量的值作为存储连接指针值（即地址）联系起来的结点的整体。（指针本质整形值）<br>4、<strong>表头结点</strong>：增加一个附加结点，放置于链表的最前面，也称表头结点。作用和目的（简化算法）。<br>5、<strong>存储密度</strong>：结点数据本身所占的存储量和整个结点结构所占的存储量之比。<br>存储密度 = （结点数据本身所占的存储量）/（结点结构所占的存储总量）  </p>
+<p>    基于链表的插入删除  </p>
+<h2 id="第四章：栈和队列（只有第三层）"><a href="#第四章：栈和队列（只有第三层）" class="headerlink" title="第四章：栈和队列（只有第三层）"></a>第四章：栈和队列（只有第三层）</h2><p>1、<strong>栈</strong>：栈在计算机具体应用中，是一个特定的存储区，一端固定，一端浮动。<br>栈是一个下限为常数，上限可变化的（或者反之），也成为堆栈或堆阵。可变化一端为栈顶，不可变化一端为栈底<br>2、<strong>栈与线性表的异同</strong>：栈的插入、删除至能在一端进行，不能在任意点，栈是受限的线性表。<br>3、<strong>队列</strong>：队列是一个上限和下限只能增加和不能减少的向量（或反之），队首：取出元素的一端。队尾：加入元素的一端。<br>4、<strong>队列与线性表的异同</strong>：受限的线性表，删除和插入操作只能在特定位置。<br>5、<strong>假溢出（待定）</strong>：多栈共存时，有点栈已满，有的还没有满。存储区还没有满,但队列或栈却发生了溢出,我们把这种现象称为”假溢出”。  </p>
+<p>    循环队列的出入队  </p>
+<h2 id="第五章：串（只有第一层面）"><a href="#第五章：串（只有第一层面）" class="headerlink" title="第五章：串（只有第一层面）"></a>第五章：串（只有第一层面）</h2><p>1、<strong>串</strong>：一个由零个或多个字符组成的有穷序列称为串，简记A=a1a2……an。<br>2、<strong>串的模式匹配</strong>：假设有两个串P和S：<br>P=p1p2……pm    S=s1s2……sn 其中（0＜m＜n）通常m&lt;&lt;n<br>在S中找出一个与P相同的子串，即串的定位。<br>通常把S称为目标，把P称为模式，把从目标S中查找模式P的过程称为串的模式匹配。  </p>
+<h2 id="第六章：数组和广义表（二）"><a href="#第六章：数组和广义表（二）" class="headerlink" title="第六章：数组和广义表（二）"></a>第六章：数组和广义表（二）</h2><p>1、<strong>数组</strong>：一位数组是个向量，他的每个元素是该结构中不可分割的最小单位；n(n&gt;1)维数组是个向量，他的每个元素是n-1维数组，且具有相同的下限和上限。<br>2、<strong>稀疏数组</strong>：在一个数组中和某一元素比较而言，不相同的元素很少时，我们称此数组为稀疏数组。<br>3、<strong>稀疏矩阵</strong>：是稀疏数组的典例。与稀疏矩阵的差别：元素分布是否有规律。<br>4、<strong>广义表</strong>：广义表是零个或多个原子（他是所要描述的某种数据类型的对象，是一个确定的概念）或子表所构成的有限序列，简称表。</p>
+<p>    稀疏矩阵的两个存储方法：三元组、十字链表</p>
+<h2 id="第七章：树形结构（二、三）"><a href="#第七章：树形结构（二、三）" class="headerlink" title="第七章：树形结构（二、三）"></a>第七章：树形结构（二、三）</h2><p>1、<strong>树</strong>：是满足以下性质的有限个结点组成的非空集合  </p>
+<ul>
+<li>T中有且只有一个称为根的结点。  </li>
+<li>除根节点以外，其余节点分为m(m&gt;0)个不相交的集合T1，T2……Tm，其中每个Ti都是数，而却都称为T的子树。  </li>
+</ul>
+<p>2、<strong>二叉树</strong>：二叉树T是满足如下性质的结点的有限集合： </p>
+<ul>
+<li>T是空集；  </li>
+<li>或者它包含一个根节点且其余结点分为两个不相交的集合，并分别被称为左子树和右子树，且左右子树都为二叉树。  </li>
+</ul>
+<p>3、<strong>遍历</strong>：对于给定数据结构，系统的访问该结构中的每个结点，且每个结点仅被访问一次的操作过程成为遍历。（会改字）<br>4、<strong>二叉树的遍历规则</strong>：  </p>
+<ul>
+<li>层次遍历  </li>
+<li>深度策略：先根遍历、中根遍历、后根遍历。 </li>
+</ul>
+<p>5、<strong>二叉排序树</strong>：二叉排序树或空二叉树，或者是满足以下要求的二叉树。</p>
+<ul>
+<li>若是它的左子树非空，或者左子树上所有结点的值均小于等于根节点的值。  </li>
+<li>若它右子树非空，则右子树上所有结点的值均大于等于根节点的值。  </li>
+<li>且左右子树都为二叉排序树。  </li>
+</ul>
+<p>6、<strong>线索</strong>：将二叉树的空指针利用起来，用于表示某线性关系下前驱或后即的，这种指针称为线索。<br>7、<strong>线索树</strong>：带线索的二叉树简称为线索树。  </p>
+<p>8、<strong>霍夫曼树（最优二叉树）</strong>：按霍夫曼算法构造具有最小加权路径长度的二叉树。<br>9、<strong>线索化</strong>  </p>
+<p>    树、森林、二叉树相互转换<br>    二叉树的前中后遍历的方法（）<br>    二叉树加线索<br>    霍夫曼树的构造和编码<br>    二叉排序树的构造  </p>
+<p>    遍历方法，两个运用一个处理  </p>
+<h2 id="第八章：图结构（二）"><a href="#第八章：图结构（二）" class="headerlink" title="第八章：图结构（二）"></a>第八章：图结构（二）</h2><p>1、<strong>图</strong>：由n(n≥1)个结点v1，v2，……，vn构成的数据G称为图。若结点集V=｛v1、v2……vn｝上定义的称为后继的关系E是非自反的，可表示为G=（V，E），其中V为顶点集，E为边集。<br>2、<strong>图的遍历</strong>：给出图G和其中的任意一个定点v0，从v0出发系统的访问G中所有的定点，且每个顶点（反）被访问一次，这一过程称为图的遍历。<br>3、<strong>图的遍历规律</strong>：广度优先遍历，深度优先遍历。<br>4、<strong>最小生成树</strong>：一个有 n 个结点的连通图的生成树是原图的极小连通子图，且包含原图中的所有 n 个结点，并且有保持图连通的最少的边和权重。<br>5、<strong>AOV网</strong>：若有向图G中，顶点表示活动或任务，有向边表示活动或任务之间的优先关系，则此有向图称为顶点表示活动网络（AOV网）。<br>6、<strong>AOE网</strong>：若在带权的有有向图中的顶点表示事件，有向边表示活动，权表示活动持续的时间，则此有向图称为边表示活动的网络(AOE网)。<br>7、<strong>拓扑排序</strong>：对于有向图G=(V,E)，V中的顶点的线性序列(Vi1,Vi2,……,Vin)，称作一个拓扑序列，若此结点序列满足如下条件；在G中从顶点u到顶点v有一条路径，则在序列中u必在v之前。寻找拓扑序列的有效手段就是进行拓扑排序。<br>8、<strong>关键路径</strong>：任务计划作业图上的需要时间最长的路径（可有多条），它决定完成总任务的时间。  </p>
+<p>    图的邻接表和邻接矩阵的存储方法<br>    图的深度和广度遍历的方法<br>    prime和krisst算法  </p>
+<h2 id="第九章：排序（二、三）"><a href="#第九章：排序（二、三）" class="headerlink" title="第九章：排序（二、三）"></a>第九章：排序（二、三）</h2><p>1、<strong>排序</strong>：设含有n个记录的集合为R=｛r1，r2，……，rn｝，其对应的关键字集合为k=｛k1，k2，……，kn｝，给定关系α，按照关系α针对关键字集合k对R进行运算，是的R有如下序列：<br>（rα1，rα2，……，rαn）<br>我们将这个操作过程称为排序。<br>2、<strong>排序分类</strong>：分为外部排序和内部排序。<br>内部排序包括  </p>
+<ul>
+<li>插入排序  </li>
+<li>交换排序  </li>
+<li>选择排序  </li>
+<li>合并排序  </li>
+<li>枚举排序  </li>
+<li>分配排序  </li>
+</ul>
+<p>3、<strong>排序稳定性</strong>：在排序关系下，假设排序前ri在rj之前，排序之后领先关系不变，则称此排序过程方法是稳定的，否则是不稳定的。<br>4、<strong>堆</strong>：设L是长度n的表，其数据元素满足：<br>L(i)≤L(2i)且L(i)≤L(2i+1), 1≤i≤[n/2] 或反之。<br>则称L是一个堆。  </p>
+<p>    直接插入<br>    快速排序<br>    二路归并<br>    基数<br>    堆的构造  </p>
+<p>    二分插入排序  </p>
+<h2 id="第十章：数据检索（二、三）"><a href="#第十章：数据检索（二、三）" class="headerlink" title="第十章：数据检索（二、三）"></a>第十章：数据检索（二、三）</h2><p>1、<strong>检索</strong>：在给定数据结构中查找满足某种条件的数据元素（或节点，记录）的过程。<br>2、<strong>检索分类</strong>：  </p>
+<ul>
+<li>基于关键字的检索；  </li>
+<li>基于属性的检索；  </li>
+</ul>
+<p>3、<strong>平均检索长度</strong>：衡量检索算法的主要标准是检索过程中对关键字（或属性）要执行的平均运算次数。<br>4、<strong>AVI树</strong>：  </p>
+<ul>
+<li>一颗空二叉树是AVL树；  </li>
+<li>若T是一颗非空二叉树，其访问任何结点的左右子树的相差高度不超过1，则T是AVL树。  </li>
+</ul>
+<p>5、<strong>碰撞</strong>：依据散列函数H计算出地址，若发现此地址已经被别的结点占用，即有两个不同的关键字映射到了同一地址空间的现象。<br>6、<strong>散列表</strong>：是一种存储方法也是一种常见的检索方法，是按关键字编址的一种技术。用散列法组织存储的表。<br>7、<strong>同义词</strong>：发生碰撞的两个关键字；<br>8、<strong>堆集现象</strong>：在散列表中插入一个新结点y时，当然它不是先前已经插入的某个节点x的同义词，但可能会出现H（y），已经被x的同义词占用的情况，这是只能将y也链接在x的同义链中，也就是说出现了y与x的同义链结成一个的情况，把连个同义词子表结合在一起的现象称为堆集现象。  </p>
+<p>    AVL的构造<br>    二分检索  </p>
+<h2 id="十二章，文件"><a href="#十二章，文件" class="headerlink" title="十二章，文件"></a>十二章，文件</h2><p>1、    <strong>文件</strong>：为了进行存取控制、检索和修改而组织在一起的数据记录集合。<br>2、    <strong>文件逻辑组成分类</strong>：（广义）两种：  </p>
+<ul>
+<li>字符流文件：有序的字符流序列，文件基本单位为字节或字。  </li>
+<li>记录文件：数据记录的集合文件基本单位为记录。</li>
+</ul>
+<p>3、    <strong>文件物理组成分类</strong>：<br>从存储结构来看，文件的组织仅有三种：（说大的就行了）  </p>
+<ul>
+<li>顺序机构：按照数据到达的时间先后次序进行组织。按该方式组织的文件称顺序文件。  </li>
+<li>计算寻址结构：按照散列方式组织文件。该方式组织的文件称散列文件。  </li>
+<li>带索引的结构：组织数据时需要带一个索引表。称为索引文件，主要是利用树形结构组织索引。 </li>
+</ul>
+<p>4、    <strong>动态存储结构</strong>：是指文件创建初始装入记录时所生成的索引结构，在系统运行过程中索引结构本身能够发生改变。<br>5、    <strong>静态存储结构</strong>：指索引结构在文件创建，初始装入记录生成，一旦生成就固定下来，在系统运行过程中索引结构并不发生变化，只有当文件重组时菜允许改变索引结构。<br>6、    <strong>B+，B-树的本质</strong>：平衡的多分树。<br>7、    <strong>B+，B-树的作用</strong>：组织动态索引结构。<br>8、    <strong>ISAM文件的本质</strong>：索引顺序存取。（静态索引结构）<br>9、    <strong>VSAM文件的本质</strong>：虚拟存储存取。（动态索引结构）<br>10、    <strong>外排基本方法</strong>：归并排序。  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数据结构知识框架&quot;&gt;&lt;a href=&quot;#数据结构知识框架&quot; class=&quot;headerlink&quot; title=&quot;数据结构知识框架&quot;&gt;&lt;/a&gt;数据结构知识框架&lt;/h1&gt;&lt;h2 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://ranxb.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="数据结构" scheme="http://ranxb.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>汇编语言：基础知识（第五章以前）</title>
@@ -1761,61 +1889,6 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
     
       <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Fragment的应用</title>
-    <link href="http://ranxb.cn/2017/10/26/Fragment%E7%9A%84%E5%BA%94%E7%94%A8/"/>
-    <id>http://ranxb.cn/2017/10/26/Fragment的应用/</id>
-    <published>2017-10-25T16:33:22.000Z</published>
-    <updated>2017-10-25T16:37:44.099Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Fragment的应用"><a href="#Fragment的应用" class="headerlink" title="Fragment的应用"></a>Fragment的应用</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
-<li>新建一个类，并继承Fragment（android.support.v4.app)</li>
-<li>为这个类创建一个布局文件作为fragment</li>
-<li>重写onCreatView()方法要求其返回一个view</li>
-</ol>
-<h2 id="静态加载"><a href="#静态加载" class="headerlink" title="静态加载"></a>静态加载</h2><ol>
-<li>建一个active以用来展示静态加载demo</li>
-<li>注意：新建的xml文件中需要添加xml布局文件的ID</li>
-<li>xml文件中添加一个fragment，其中添加    android:name=”刚刚建的fragment的包名”</li>
-<li>预览种可能无法显示fragment，需要添加    tools:layout=”@layout/fragment_test”</li>
-<li>在主active中添加按钮并跳转到xml文件定义的fragment_demo中        startActivity(new Intent(this,DemoFragmentActivity.class));</li>
-</ol>
-<h2 id="动态加载"><a href="#动态加载" class="headerlink" title="动态加载"></a>动态加载</h2><ol>
-<li>在刚才的那个xml文件中新建一个framelayout标签（容器布局）以用来存放fragment，并添加ID</li>
-<li>添加一个button用来触发动态加载并创建事件addfragment（）；</li>
-<li>创建一个fragment管理器        FragmentManager fragmentManager = getSupportFragmentManager();    (如果主类使用继承的是activity的话则获取方法为getFragmentManager();)</li>
-<li>创建一个FragmentTransaction开启事务，并用刚才的管理器获取到FragmentTransaction对象        FragmentTransaction transaction = fragmentManager.beginTransaction();</li>
-<li>新建一个刚才的fragment类</li>
-<li>通过fragmentTransaction事务添加fragment        transaction.add(添加到的容器的ID，添加的fragment对象)；</li>
-<li>提交事务方可加载fragment        transition.commit();</li>
-</ol>
-<p><strong>动态加载的典型代码</strong>  </p>
-<pre><code>public void addFragment(View view){
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    FragmentTransaction transaction = fragmentManager.beginTransaction();
-    FragmentDemo fragmentDemo = new FragmentDemo();
-    transaction.add(R.id.framelayout，fragmentDemo)；
-    transition.commit();
-}
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Fragment的应用&quot;&gt;&lt;a href=&quot;#Fragment的应用&quot; class=&quot;headerlink&quot; title=&quot;Fragment的应用&quot;&gt;&lt;/a&gt;Fragment的应用&lt;/h1&gt;&lt;h2 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;head
-    
-    </summary>
-    
-      <category term="Android" scheme="http://ranxb.cn/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://ranxb.cn/tags/Android/"/>
-    
-      <category term="Fragment" scheme="http://ranxb.cn/tags/Fragment/"/>
-    
-      <category term="入门" scheme="http://ranxb.cn/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
