@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-11T01:18:14.323Z</updated>
+  <updated>2018-01-11T13:22:55.958Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ranxb.cn/2018/01/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/"/>
     <id>http://ranxb.cn/2018/01/11/数据结构知识框架/</id>
     <published>2018-01-11T01:16:54.000Z</published>
-    <updated>2018-01-11T01:18:14.323Z</updated>
+    <updated>2018-01-11T13:22:55.958Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数据结构知识框架"><a href="#数据结构知识框架" class="headerlink" title="数据结构知识框架"></a>数据结构知识框架</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>第一方面：基本概念<br>1、数据结构研究方面（研究内容）<br>主要体现三个方面：</p>
 <ul>
@@ -57,12 +57,47 @@
 <li>流程图  </li>
 </ul>
 <h2 id="第三章：线性表（只有第三个要求）"><a href="#第三章：线性表（只有第三个要求）" class="headerlink" title="第三章：线性表（只有第三个要求）"></a>第三章：线性表（只有第三个要求）</h2><p>1、<strong>线性表</strong>：一个线性表是n≥0个数据元素a1，a2，……，an的有限序列，序列中除第一个最后一个以外，每个元素都是有且仅有一个直接前驱和直接后继。<br>2、<strong>链表</strong>：通过指针联系起来的结点的整体（集合）。<br>3、<strong>静态链表</strong>：以整形变量的值作为存储连接指针值（即地址）联系起来的结点的整体。（指针本质整形值）<br>4、<strong>表头结点</strong>：增加一个附加结点，放置于链表的最前面，也称表头结点。作用和目的（简化算法）。<br>5、<strong>存储密度</strong>：结点数据本身所占的存储量和整个结点结构所占的存储量之比。<br>存储密度 = （结点数据本身所占的存储量）/（结点结构所占的存储总量）  </p>
-<p>    基于链表的插入删除  </p>
-<h2 id="第四章：栈和队列（只有第三层）"><a href="#第四章：栈和队列（只有第三层）" class="headerlink" title="第四章：栈和队列（只有第三层）"></a>第四章：栈和队列（只有第三层）</h2><p>1、<strong>栈</strong>：栈在计算机具体应用中，是一个特定的存储区，一端固定，一端浮动。<br>栈是一个下限为常数，上限可变化的（或者反之），也成为堆栈或堆阵。可变化一端为栈顶，不可变化一端为栈底<br>2、<strong>栈与线性表的异同</strong>：栈的插入、删除至能在一端进行，不能在任意点，栈是受限的线性表。<br>3、<strong>队列</strong>：队列是一个上限和下限只能增加和不能减少的向量（或反之），队首：取出元素的一端。队尾：加入元素的一端。<br>4、<strong>队列与线性表的异同</strong>：受限的线性表，删除和插入操作只能在特定位置。<br>5、<strong>假溢出（待定）</strong>：多栈共存时，有点栈已满，有的还没有满。存储区还没有满,但队列或栈却发生了溢出,我们把这种现象称为”假溢出”。  </p>
-<p>    循环队列的出入队  </p>
-<h2 id="第五章：串（只有第一层面）"><a href="#第五章：串（只有第一层面）" class="headerlink" title="第五章：串（只有第一层面）"></a>第五章：串（只有第一层面）</h2><p>1、<strong>串</strong>：一个由零个或多个字符组成的有穷序列称为串，简记A=a1a2……an。<br>2、<strong>串的模式匹配</strong>：假设有两个串P和S：<br>P=p1p2……pm    S=s1s2……sn 其中（0＜m＜n）通常m&lt;&lt;n<br>在S中找出一个与P相同的子串，即串的定位。<br>通常把S称为目标，把P称为模式，把从目标S中查找模式P的过程称为串的模式匹配。  </p>
+<pre><code>基于链表的插入删除 
+</code></pre><h2 id="第四章：栈和队列（只有第三层）"><a href="#第四章：栈和队列（只有第三层）" class="headerlink" title="第四章：栈和队列（只有第三层）"></a>第四章：栈和队列（只有第三层）</h2><p>1、<strong>栈</strong>：栈在计算机具体应用中，是一个特定的存储区，一端固定，一端浮动。<br>栈是一个下限为常数，上限可变化的（或者反之），也成为堆栈或堆阵。可变化一端为栈顶，不可变化一端为栈底<br>2、<strong>栈与线性表的异同</strong>：栈的插入、删除至能在一端进行，不能在任意点，栈是受限的线性表。<br>3、<strong>队列</strong>：队列是一个上限和下限只能增加和不能减少的向量（或反之），队首：取出元素的一端。队尾：加入元素的一端。<br>4、<strong>队列与线性表的异同</strong>：受限的线性表，删除和插入操作只能在特定位置。<br>5、<strong>假溢出（待定）</strong>：多栈共存时，有点栈已满，有的还没有满。存储区还没有满,但队列或栈却发生了溢出,我们把这种现象称为”假溢出”。  </p>
+<blockquote>
+<p>第三层次：循环队列的出入队。</p>
+</blockquote>
+<pre><code>循环队列的出入队 (注意！队首指向队头元素的前一个地址，队尾指向队屁股最后一个元素)
+入队： 
+PROC REDUI(VAR CQ: ARRAY[M..N]OF DATATYPE;FRONT,REAR,X:INTERG) 
+BEGIN 
+    REAR&lt;-REAR+1
+    IF REAR=N+1
+        THEN REAR&lt;-M
+    IF REAR=FRONT
+        THEN PRINT&quot;CQ FULL&quot;&quot;
+        ELSE CQ[REAR]&lt;-X
+END
+出队：
+PROC CHUDUI(VAR CQ:ARRAY[M...N]OF DATATYPE;FRONT,REAR,X:INTEGER)
+BEGIN
+    IF    FRONT=REAR
+        THEN    PRINT&quot;CQ EMPTY&quot;
+        ELSE    IF    FRONT = N
+                    THEN FRONT = M
+                    ELSE FRONT &lt;- FRONT+1
+                X &lt;- CQ[FRONT]
+</code></pre><h2 id="第五章：串（只有第一层面）"><a href="#第五章：串（只有第一层面）" class="headerlink" title="第五章：串（只有第一层面）"></a>第五章：串（只有第一层面）</h2><p>1、<strong>串</strong>：一个由零个或多个字符组成的有穷序列称为串，简记A=a1a2……an。<br>2、<strong>串的模式匹配</strong>：假设有两个串P和S：<br>P=p1p2……pm    S=s1s2……sn 其中（0＜m＜n）通常m&lt;&lt;n<br>在S中找出一个与P相同的子串，即串的定位。<br>通常把S称为目标，把P称为模式，把从目标S中查找模式P的过程称为串的模式匹配。  </p>
 <h2 id="第六章：数组和广义表（二）"><a href="#第六章：数组和广义表（二）" class="headerlink" title="第六章：数组和广义表（二）"></a>第六章：数组和广义表（二）</h2><p>1、<strong>数组</strong>：一位数组是个向量，他的每个元素是该结构中不可分割的最小单位；n(n&gt;1)维数组是个向量，他的每个元素是n-1维数组，且具有相同的下限和上限。<br>2、<strong>稀疏数组</strong>：在一个数组中和某一元素比较而言，不相同的元素很少时，我们称此数组为稀疏数组。<br>3、<strong>稀疏矩阵</strong>：是稀疏数组的典例。与稀疏矩阵的差别：元素分布是否有规律。<br>4、<strong>广义表</strong>：广义表是零个或多个原子（他是所要描述的某种数据类型的对象，是一个确定的概念）或子表所构成的有限序列，简称表。</p>
-<p>    稀疏矩阵的两个存储方法：三元组、十字链表</p>
+<blockquote>
+<p>第二层次<br>稀疏矩阵的两个存储方法：三元组（顺序存储）、十字链表</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p>三元组的缺陷</p>
+<ul>
+<li>不利于矩阵元素的变化：非零到零的删除、零到非零的添加</li>
+</ul>
 <h2 id="第七章：树形结构（二、三）"><a href="#第七章：树形结构（二、三）" class="headerlink" title="第七章：树形结构（二、三）"></a>第七章：树形结构（二、三）</h2><p>1、<strong>树</strong>：是满足以下性质的有限个结点组成的非空集合  </p>
 <ul>
 <li>T中有且只有一个称为根的结点。  </li>
@@ -70,12 +105,12 @@
 </ul>
 <p>2、<strong>二叉树</strong>：二叉树T是满足如下性质的结点的有限集合： </p>
 <ul>
-<li>T是空集；  </li>
+<li>T是空集。 </li>
 <li>或者它包含一个根节点且其余结点分为两个不相交的集合，并分别被称为左子树和右子树，且左右子树都为二叉树。  </li>
 </ul>
 <p>3、<strong>遍历</strong>：对于给定数据结构，系统的访问该结构中的每个结点，且每个结点仅被访问一次的操作过程成为遍历。（会改字）<br>4、<strong>二叉树的遍历规则</strong>：  </p>
 <ul>
-<li>层次遍历  </li>
+<li>层次遍历：从上到下从左到右，布拉布拉布拉～</li>
 <li>深度策略：先根遍历、中根遍历、后根遍历。 </li>
 </ul>
 <p>5、<strong>二叉排序树</strong>：二叉排序树或空二叉树，或者是满足以下要求的二叉树。</p>
@@ -85,11 +120,119 @@
 <li>且左右子树都为二叉排序树。  </li>
 </ul>
 <p>6、<strong>线索</strong>：将二叉树的空指针利用起来，用于表示某线性关系下前驱或后即的，这种指针称为线索。<br>7、<strong>线索树</strong>：带线索的二叉树简称为线索树。  </p>
-<p>8、<strong>霍夫曼树（最优二叉树）</strong>：按霍夫曼算法构造具有最小加权路径长度的二叉树。<br>9、<strong>线索化</strong>  </p>
-<p>    树、森林、二叉树相互转换<br>    二叉树的前中后遍历的方法（）<br>    二叉树加线索<br>    霍夫曼树的构造和编码<br>    二叉排序树的构造  </p>
-<p>    遍历方法，两个运用一个处理  </p>
+<p>8、<strong>霍夫曼树（最优二叉树）</strong>：按霍夫曼算法构造具有最小加权路径长度的二叉树。<br>9、<strong>线索化</strong>：给二叉树加线索的过程。  </p>
+<blockquote>
+<p>第二层次：  </p>
+<ul>
+<li>树、森林、二叉树相互转换  </li>
+<li>二叉树的前中后遍历的方法  </li>
+<li>二叉树加线索  </li>
+<li>霍夫曼树的构造和编码  </li>
+<li>二叉排序树的构造  </li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">二叉树的先序遍历</div><div class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</div><div class="line">BEGIN</div><div class="line">	IF T!=NULL</div><div class="line">		THEN	[PRINT&quot;T-&gt;DATA&quot;</div><div class="line">				CALL XIANXUBIANLI(T-&gt;LSON)</div><div class="line">				CALL XIANXUBIANLI(T-&gt;RSON)]</div><div class="line">END</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">二叉树的中序遍历</div><div class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</div><div class="line">BEGIN</div><div class="line">	IF T!=NULL</div><div class="line">		THEN	[CALL XIANXUBIANLI(T-&gt;LSON)</div><div class="line">				PRINT&quot;T-&gt;DATA&quot;</div><div class="line">				CALL XIANXUBIANLI(T-&gt;RSON)]</div><div class="line">				</div><div class="line">END</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">二叉树的后序遍历</div><div class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</div><div class="line">BEGIN</div><div class="line">	IF T!=NULL</div><div class="line">		THEN	[CALL XIANXUBIANLI(T-&gt;LSON)</div><div class="line">				CALL XIANXUBIANLI(T-&gt;RSON)</div><div class="line">				PRINT&quot;T-&gt;DATA&quot;]</div><div class="line">END</div></pre></td></tr></table></figure>
+<p><strong>树到二叉树的转换：</strong>  </p>
+<ul>
+<li>加线：加横线</li>
+<li>抹线：抹掉可以抹掉的所有右孩子之间的线<br><img src="b.png" alt=""></li>
+</ul>
+<p><strong>二叉树转到树：</strong>  </p>
+<ul>
+<li>加线：1.是父节点的左孩子。2.把父节点和他的右孩子和右孩子的右孩子和。。。连起来。</li>
+<li>抹线：抹去所有节点和右孩子之间的线<br><img src="c.png" alt="">    </li>
+</ul>
+<p><strong>森林转化为二叉树</strong></p>
+<ul>
+<li>把每个树转化为二叉树</li>
+<li>二叉树的连接：依据森林次序，后一棵二叉树是前一棵二叉树根节点的右子树<br><img src="d.png" alt=""></li>
+</ul>
+<p><strong>二叉树转换成森林</strong></p>
+<ul>
+<li>抹线：把节点的右子树都拿出来</li>
+<li>还原：把每个二叉树变成树<br><img src="e.png" alt=""></li>
+</ul>
+<p><strong>线索化</strong></p>
+<ul>
+<li>左孩子指向直接前驱</li>
+<li>右孩子指向直接后驱</li>
+<li>标志位0表示指向孩子，1表示指向线索</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="f.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>构造二叉树</strong></p>
+<ol>
+<li>节点是否为空，为空则插入</li>
+<li>若小于，执行递归插入左孩子节点，到1.</li>
+<li>若大于，执行递归插入右孩子节点，到1.</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="g.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>霍夫曼树（最优二叉树）</strong>  </p>
+<ul>
+<li>给定一组权值集合{w1, w2, …, wn}.</li>
+<li>将F={T1, T2, …, Tn}按根结点的值由小到大进行排序。</li>
+<li>取出T1和T2组成一棵二叉树T；再将T插入到F中，并使F依据根结点的值有序。</li>
+<li>反复执行③直到F={T}为止。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="h.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>霍夫曼树的编码</strong></p>
+<ul>
+<li>给定字符集</li>
+<li>写出每个字符出现的次数组成的集合。</li>
+<li>对此集合进行霍夫曼排序</li>
+<li>左支为0右支为1写出每个字符的编码</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="i.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>第三个层次：遍历方法，两个运用一个处理 </p>
+</blockquote>
+<p>交换左右子树</p>
+<pre><code>PROC EXCHANGE(VAR T:BINARYTREE)
+BEGIN 
+    IF T!=NULL
+            THEN    [SWOP(T-&gt;LSON,T-&gt;RSON)
+                    CALL EXCHANGE(T-&gt;LSON)
+                    CALL EXCHANGE(T-&gt;RSON)]
+END
+</code></pre><p>求二叉树的高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">PROC HIGHT(VAR T:BINARYTREE,H)</div><div class="line">BEGIN </div><div class="line">	IF T=NULL</div><div class="line">			THEN	H&lt;-0</div><div class="line">			ELSE	[CALL HIGHT(T-&gt;LSON,H1)</div><div class="line">					CALL HIGHT(T-&gt;RSON,H2)</div><div class="line">					H&lt;-MAX(H1,H2)+1]</div><div class="line">END</div><div class="line">```	 </div><div class="line">叶子结点的个数</div><div class="line"></div><div class="line">```PDL</div><div class="line">PROC COUNTLEAF(VAR T:BINARYTREE;COUNT:INTGER)</div><div class="line">BIGIN</div><div class="line">	CASE	</div><div class="line">			T=NULL:	COUNT&lt;-0</div><div class="line">			T-&gt;LSON=NULL AND T-&gt;RSON=NULL:  COUNT&lt;-1</div><div class="line">			ELSE	[CALL COUNTLEAF(T-&gt;LSON,C1)</div><div class="line">					CALL COUNTLEAF(T-&gt;RSON,C2)</div><div class="line">					COUNT&lt;-C1+C2]</div><div class="line">	END CASE</div><div class="line">END</div></pre></td></tr></table></figure>
 <h2 id="第八章：图结构（二）"><a href="#第八章：图结构（二）" class="headerlink" title="第八章：图结构（二）"></a>第八章：图结构（二）</h2><p>1、<strong>图</strong>：由n(n≥1)个结点v1，v2，……，vn构成的数据G称为图。若结点集V=｛v1、v2……vn｝上定义的称为后继的关系E是非自反的，可表示为G=（V，E），其中V为顶点集，E为边集。<br>2、<strong>图的遍历</strong>：给出图G和其中的任意一个定点v0，从v0出发系统的访问G中所有的定点，且每个顶点（反）被访问一次，这一过程称为图的遍历。<br>3、<strong>图的遍历规律</strong>：广度优先遍历，深度优先遍历。<br>4、<strong>最小生成树</strong>：一个有 n 个结点的连通图的生成树是原图的极小连通子图，且包含原图中的所有 n 个结点，并且有保持图连通的最少的边和权重。<br>5、<strong>AOV网</strong>：若有向图G中，顶点表示活动或任务，有向边表示活动或任务之间的优先关系，则此有向图称为顶点表示活动网络（AOV网）。<br>6、<strong>AOE网</strong>：若在带权的有有向图中的顶点表示事件，有向边表示活动，权表示活动持续的时间，则此有向图称为边表示活动的网络(AOE网)。<br>7、<strong>拓扑排序</strong>：对于有向图G=(V,E)，V中的顶点的线性序列(Vi1,Vi2,……,Vin)，称作一个拓扑序列，若此结点序列满足如下条件；在G中从顶点u到顶点v有一条路径，则在序列中u必在v之前。寻找拓扑序列的有效手段就是进行拓扑排序。<br>8、<strong>关键路径</strong>：任务计划作业图上的需要时间最长的路径（可有多条），它决定完成总任务的时间。  </p>
-<p>    图的邻接表和邻接矩阵的存储方法<br>    图的深度和广度遍历的方法<br>    prime和krisst算法  </p>
+<blockquote>
+<p>第二个层次</p>
+<ul>
+<li>图的邻接表和邻接矩阵的存储方法  </li>
+<li>图的深度和广度遍历的方法  </li>
+<li>Prim和Kruskal算法  </li>
+</ul>
+</blockquote>
+<p><strong>邻接表和邻接矩阵的表示</strong><br>有向图中邻接表的表示：<br><img src="j.png" alt=""><br>网的邻接矩阵：<br><img src="k.png" alt=""><br><strong>深度优先搜索</strong><br><img src="l.png" alt=""><br><strong>广度优先搜索</strong><br><img src="m.png" alt="">  </p>
+<p><strong>prim算法构造最小生成树</strong><br>每一步都找已连通的树中权最小的边用来构造<br><img src="n.png" alt=""></p>
+<p><strong>Kruskal算法构造最小生成树</strong><br>按照权值递增的顺序逐个考虑E中的每条边：<br><img src="o.png" alt=""></p>
 <h2 id="第九章：排序（二、三）"><a href="#第九章：排序（二、三）" class="headerlink" title="第九章：排序（二、三）"></a>第九章：排序（二、三）</h2><p>1、<strong>排序</strong>：设含有n个记录的集合为R=｛r1，r2，……，rn｝，其对应的关键字集合为k=｛k1，k2，……，kn｝，给定关系α，按照关系α针对关键字集合k对R进行运算，是的R有如下序列：<br>（rα1，rα2，……，rαn）<br>我们将这个操作过程称为排序。<br>2、<strong>排序分类</strong>：分为外部排序和内部排序。<br>内部排序包括  </p>
 <ul>
 <li>插入排序  </li>
@@ -100,8 +243,40 @@
 <li>分配排序  </li>
 </ul>
 <p>3、<strong>排序稳定性</strong>：在排序关系下，假设排序前ri在rj之前，排序之后领先关系不变，则称此排序过程方法是稳定的，否则是不稳定的。<br>4、<strong>堆</strong>：设L是长度n的表，其数据元素满足：<br>L(i)≤L(2i)且L(i)≤L(2i+1), 1≤i≤[n/2] 或反之。<br>则称L是一个堆。  </p>
-<p>    直接插入<br>    快速排序<br>    二路归并<br>    基数<br>    堆的构造  </p>
-<p>    二分插入排序  </p>
+<blockquote>
+<p>第二个层次  </p>
+<ul>
+<li>直接插入  </li>
+<li>快速排序  </li>
+<li>二路归并  </li>
+<li>基数  </li>
+<li>堆的构造  </li>
+</ul>
+</blockquote>
+<p><strong>直接插入</strong><br>从一个零集合开始，将 r 按照排序关系插入到一个已经有序的文件适当位置。<br><img src="p.png" alt=""></p>
+<p><strong>快速排序</strong><br>基本方法：</p>
+<pre><code>PROC QuickSort(VAR R:ARRAY[1..n] OF datatype;l,p:integer);
+BEGIN 
+        IF l≥p THEN exit ;
+     i←l;  j←p; x←R[i];
+   REPEAT  
+       WHILE (x.key≤R[j].key)AND(i＜j) DO j←j-1;  
+       IF  i＜j  
+           THEN 【 R[i]←R[j]; i←i+1;
+                 WHILE (R[i].key＜x.key)AND(i＜j) DO i←i+1;  
+                 IF  i＜j  THEN【 R[j]←R[i];    j←j-1; 】
+                】
+   UNTIL    i=j;  
+   R[i]←x; i←i+1; j←j-1; 
+   IF  l＜j THEN CALL QuickSort(R, l , j); 
+   IF  i＜p THEN CALL QuickSort(R, i , p);
+END; 
+</code></pre><p><strong>二路插入</strong><br>两个两个合并，然后四个四个合并，然后大的合并<br><strong>堆的构造</strong><br>先插入，然后往上爬。<br><img src="q.png" alt=""><br><strong>基数排序</strong><br>看最低位，一次装进是个桶里，然后拿出来。<br>再装第二位，最后装第三位。<br><img src="r.png" alt=""></p>
+<blockquote>
+<p>第三个层次：二分插入排序</p>
+</blockquote>
+<p>与直接插入排序的区别：在插入第i个时搜索采用二分策略。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">PROC DUOSORT(VAR R:ARRAY[1..N])</div><div class="line">BIGIN</div><div class="line">	FOR I&lt;-2 TODO N DO[</div><div class="line">		X&lt;-R[I],L &lt;- 1,H &lt;- I</div><div class="line">		WHILE L&lt;=H DO[</div><div class="line">			M&lt;-(L+H)DIV2</div><div class="line">			IF	X&lt;A[M]</div><div class="line">				THEN H&lt;-(M-1)</div><div class="line">				ELSE L&lt;-(L+1)</div><div class="line">		]</div><div class="line">		FOR J&lt;-(I-1) TODO L DO R[J+1] &lt;- R[J]</div><div class="line">		R[L] &lt;- X </div><div class="line">	]</div><div class="line">END</div></pre></td></tr></table></figure>
 <h2 id="第十章：数据检索（二、三）"><a href="#第十章：数据检索（二、三）" class="headerlink" title="第十章：数据检索（二、三）"></a>第十章：数据检索（二、三）</h2><p>1、<strong>检索</strong>：在给定数据结构中查找满足某种条件的数据元素（或节点，记录）的过程。<br>2、<strong>检索分类</strong>：  </p>
 <ul>
 <li>基于关键字的检索；  </li>
@@ -113,7 +288,19 @@
 <li>若T是一颗非空二叉树，其访问任何结点的左右子树的相差高度不超过1，则T是AVL树。  </li>
 </ul>
 <p>5、<strong>碰撞</strong>：依据散列函数H计算出地址，若发现此地址已经被别的结点占用，即有两个不同的关键字映射到了同一地址空间的现象。<br>6、<strong>散列表</strong>：是一种存储方法也是一种常见的检索方法，是按关键字编址的一种技术。用散列法组织存储的表。<br>7、<strong>同义词</strong>：发生碰撞的两个关键字；<br>8、<strong>堆集现象</strong>：在散列表中插入一个新结点y时，当然它不是先前已经插入的某个节点x的同义词，但可能会出现H（y），已经被x的同义词占用的情况，这是只能将y也链接在x的同义链中，也就是说出现了y与x的同义链结成一个的情况，把连个同义词子表结合在一起的现象称为堆集现象。  </p>
-<p>    AVL的构造<br>    二分检索  </p>
+<blockquote>
+<p>第二层次：AVL的构造  </p>
+</blockquote>
+<ul>
+<li>正常插入</li>
+<li>当不满足平衡二叉树时，调整</li>
+<li>调整要求中序顺序不变</li>
+<li>RL或LR调整要把整个x都要挪上去</li>
+</ul>
+<blockquote>
+<p>第三层次：二分检索  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">PROC DUOSEARCH(VAR R:ARRAY[1...MAX]OF DATATYPE;N:INTEGER;K:KTYPE)</div><div class="line">BEGIN</div><div class="line">	L &lt;- 1,H &lt;- N</div><div class="line">	WHILE L &lt;= H DO[</div><div class="line">		MIDDLE &lt;- (L+H) DIV 2</div><div class="line">		CASE	</div><div class="line">			K == R[MIDDLE]:WRITE&quot;SUEECE&quot;,EXIT;</div><div class="line">			K &lt; R[MIDDLE]: H = MIDDLE-1</div><div class="line">			K &gt; R[MIDDLE]: L = MIDDLE+1</div><div class="line">		ENDCASE</div><div class="line">	]</div><div class="line">	WRITE&quot;UNSUCCSE&quot;</div><div class="line">END</div></pre></td></tr></table></figure>
 <h2 id="十二章，文件"><a href="#十二章，文件" class="headerlink" title="十二章，文件"></a>十二章，文件</h2><p>1、    <strong>文件</strong>：为了进行存取控制、检索和修改而组织在一起的数据记录集合。<br>2、    <strong>文件逻辑组成分类</strong>：（广义）两种：  </p>
 <ul>
 <li>字符流文件：有序的字符流序列，文件基本单位为字节或字。  </li>
