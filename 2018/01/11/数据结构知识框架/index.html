@@ -47,7 +47,8 @@
 <meta property="og:image" content="http://ranxb.cn/2018/01/11/数据结构知识框架/p.png">
 <meta property="og:image" content="http://ranxb.cn/2018/01/11/数据结构知识框架/q.png">
 <meta property="og:image" content="http://ranxb.cn/2018/01/11/数据结构知识框架/r.png">
-<meta property="og:updated_time" content="2018-01-11T13:22:55.958Z">
+<meta property="og:image" content="http://ranxb.cn/2018/01/11/数据结构知识框架/z.png">
+<meta property="og:updated_time" content="2018-01-11T15:50:41.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构知识框架">
 <meta name="twitter:description" content="数据结构知识框架第一章第一方面：基本概念1、数据结构研究方面（研究内容）主要体现三个方面：  数据的逻辑关系 储存关系 运算关系 还讨论算法的效率问题，分类问题等。   2、数据结构的逻辑结构逻辑关系：自然状态下数据元素之间的一种联系（关联方式或邻接关系，从逻辑上观察数据，与计算机无关）。逻辑结构：对数据元素之间关系的描述B=(k，r)其中，k：数据元素的有穷集合（有限元素构成），r：k上关系的有">
@@ -245,7 +246,7 @@
 <li>PDL语言（伪码语言、可运行于“抽象计算机”，虚拟机）  </li>
 <li>流程图  </li>
 </ul>
-<h2 id="第三章：线性表（只有第三个要求）"><a href="#第三章：线性表（只有第三个要求）" class="headerlink" title="第三章：线性表（只有第三个要求）"></a>第三章：线性表（只有第三个要求）</h2><p>1、<strong>线性表</strong>：一个线性表是n≥0个数据元素a1，a2，……，an的有限序列，序列中除第一个最后一个以外，每个元素都是有且仅有一个直接前驱和直接后继。<br>2、<strong>链表</strong>：通过指针联系起来的结点的整体（集合）。<br>3、<strong>静态链表</strong>：以整形变量的值作为存储连接指针值（即地址）联系起来的结点的整体。（指针本质整形值）<br>4、<strong>表头结点</strong>：增加一个附加结点，放置于链表的最前面，也称表头结点。作用和目的（简化算法）。<br>5、<strong>存储密度</strong>：结点数据本身所占的存储量和整个结点结构所占的存储量之比。<br>存储密度 = （结点数据本身所占的存储量）/（结点结构所占的存储总量）  </p>
+<h2 id="第三章：线性表（只有第三个要求）"><a href="#第三章：线性表（只有第三个要求）" class="headerlink" title="第三章：线性表（只有第三个要求）"></a>第三章：线性表（只有第三个要求）</h2><p>1、<strong>线性表</strong>：一个线性表是n≥0个数据元素a1，a2，……，an的有限序列，序列中除第一个最后一个以外，每个元素都是有且仅有一个直接前驱和直接后继。<br>2、<strong>链表</strong>：通过指针联系起来的结点的整体（集合）。<br>3、<strong>静态链表</strong>：以整形变量的值作为存储连接指针值（即地址）联系起来的结点的整体。（指针本质整形值）<br>4、<strong>表头结点</strong>：增加一个附加结点，放置于链表的最前面，也称表头结点，且该节点不用存储数据元素。作用和目的（简化算法）。<br>5、<strong>存储密度</strong>：结点数据本身所占的存储量和整个结点结构所占的存储量之比。<br>存储密度 = （结点数据本身所占的存储量）/（结点结构所占的存储总量）  </p>
 <pre><code>基于链表的插入删除 
 </code></pre><h2 id="第四章：栈和队列（只有第三层）"><a href="#第四章：栈和队列（只有第三层）" class="headerlink" title="第四章：栈和队列（只有第三层）"></a>第四章：栈和队列（只有第三层）</h2><p>1、<strong>栈</strong>：栈在计算机具体应用中，是一个特定的存储区，一端固定，一端浮动。<br>栈是一个下限为常数，上限可变化的（或者反之），也成为堆栈或堆阵。可变化一端为栈顶，不可变化一端为栈底<br>2、<strong>栈与线性表的异同</strong>：栈的插入、删除至能在一端进行，不能在任意点，栈是受限的线性表。<br>3、<strong>队列</strong>：队列是一个上限和下限只能增加和不能减少的向量（或反之），队首：取出元素的一端。队尾：加入元素的一端。<br>4、<strong>队列与线性表的异同</strong>：受限的线性表，删除和插入操作只能在特定位置。<br>5、<strong>假溢出（待定）</strong>：多栈共存时，有点栈已满，有的还没有满。存储区还没有满,但队列或栈却发生了溢出,我们把这种现象称为”假溢出”。  </p>
 <blockquote>
@@ -486,6 +487,7 @@ END;
 <li>调整要求中序顺序不变</li>
 <li>RL或LR调整要把整个x都要挪上去</li>
 </ul>
+<p>举例：<br><img src="z.png" alt=""></p>
 <blockquote>
 <p>第三层次：二分检索  </p>
 </blockquote>
@@ -509,7 +511,7 @@ END;
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-01-11T13:22:55.958Z" itemprop="dateUpdated">2018-01-11 21:22:55</time>
+    Last updated: <time datetime="2018-01-11T15:50:41.650Z" itemprop="dateUpdated">2018-01-11 23:50:41</time>
 </span><br>
 
 
