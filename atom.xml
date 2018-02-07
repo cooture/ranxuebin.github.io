@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-01-11T15:58:29.844Z</updated>
+  <updated>2018-02-07T13:16:20.832Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -16,11 +16,117 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ubuntu上启动ftp服务</title>
+    <link href="http://ranxb.cn/2018/02/07/Ubuntu%E4%B8%8A%E5%90%AF%E5%8A%A8ftp%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/</id>
+    <published>2018-02-07T13:13:49.000Z</published>
+    <updated>2018-02-07T13:16:20.832Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ubuntu上启动ftp服务"><a href="#Ubuntu上启动ftp服务" class="headerlink" title="Ubuntu上启动ftp服务"></a>Ubuntu上启动ftp服务</h1><h2 id="安装并启动VSFTPD"><a href="#安装并启动VSFTPD" class="headerlink" title="安装并启动VSFTPD"></a>安装并启动VSFTPD</h2><ul>
+<li>安装VSFTPD<br><code>sudo apt-get install vsftpd -y</code></li>
+<li>启动VSFTPD(会自动启动若未启动)<br><code>sudo systemctl start vsftpd.service</code></li>
+<li>检测端口，判断是否启动。<br><code>sudo netstat -nltp | grep</code> </li>
+</ul>
+<h2 id="配置用户访问目录"><a href="#配置用户访问目录" class="headerlink" title="配置用户访问目录"></a>配置用户访问目录</h2><ul>
+<li>新建主目录</li>
+<li>新建用户并设置密码<br><code>sudo useradd -d /home/uftp -s /bin/bash uftp</code><br><code>sudo passwd uftp</code><br><code>sudo rm /etc/pam.d/vsftpd</code>(这里删除该配置文件，因为会导致使用用户名登录FTP失败)</li>
+<li>限制用户只能通过FTP访问<br><code>sudo usermod -s /sbin/nologin uftp</code></li>
+<li><p>修改VSFTPD配置<br><code>sudo chmod a+w /etc/vsftpd.conf</code><br>下面修改<code>/etc/vsftpd.conf</code>文件中的配置（添加到最下面）</p>
+<pre><code># 限制用户对主目录以外目录访问
+chroot_local_user=YES
+
+# 指定一个 userlist 存放允许访问 ftp 的用户列表
+userlist_deny=NO
+userlist_enable=YES
+
+# 记录允许访问 ftp 用户列表
+userlist_file=/etc/vsftpd.user_list
+
+# 不配置可能导致莫名的530问题
+seccomp_sandbox=NO
+
+# 允许文件上传
+write_enable=YES
+
+# 使用utf8编码
+utf8_filesystem=YES
+</code></pre><p>新建文件<code>/etc/vsftpd.user_list</code>用于存放允许访问FTP的用户<br><code>sudo touch /etc/vsftpd.user_list</code><br><code>sudo chmod a+w /etc/vsftpd.user_list</code><br>并修改，加入刚刚创建的用户</p>
+</li>
+<li><p>设置访问限权<br>设置主目录访问权限（只读）：<code>sudo chmod a-w /home/uftp</code><br>设置公共目录，设置可读写：<code>sudo mkdir /home/uftp/public &amp;&amp; sudo chmod 777 -R /home/uftp/public</code><br>重启VSFTPD服务：<code>sudo systemctl restart vsftpd.service</code></p>
+</li>
+</ul>
+<h2 id="完"><a href="#完" class="headerlink" title="完"></a>完</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Ubuntu上启动ftp服务&quot;&gt;&lt;a href=&quot;#Ubuntu上启动ftp服务&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu上启动ftp服务&quot;&gt;&lt;/a&gt;Ubuntu上启动ftp服务&lt;/h1&gt;&lt;h2 id=&quot;安装并启动VSFTPD&quot;&gt;&lt;a h
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+    
+      <category term="FTP" scheme="http://ranxb.cn/tags/FTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux的用户及用户组</title>
+    <link href="http://ranxb.cn/2018/02/07/Linux%E7%9A%84%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84/"/>
+    <id>http://ranxb.cn/2018/02/07/Linux的用户及用户组/</id>
+    <published>2018-02-07T13:12:41.000Z</published>
+    <updated>2018-02-07T13:18:16.931Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux的用户及用户组"><a href="#Linux的用户及用户组" class="headerlink" title="Linux的用户及用户组"></a>Linux的用户及用户组</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><ul>
+<li><code>/etc/group</code>  组信息配置文件</li>
+<li><code>/etc/passwd</code> 用户信息配置文件</li>
+<li><code>/etc/shadow</code> 用户密码配置文件</li>
+<li><code>/etc/gshadow</code> 组密码配置文件</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="a.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>   
+<p><img src="b.jpg" alt=""></p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="组操作"><a href="#组操作" class="headerlink" title="组操作"></a>组操作</h3><p><code>groupadd NEWGROUP</code>添加一个组<br><code>groupadd -g 888 NEWGROUP</code>添加一个组并指定UID<br><code>grouddel NEWGROUP</code>删除一个组。<br><code>groupmod -n NEWGROUP OLDGROUP</code>更改组名<br><code>groupmod -g 888 NEWGROUP</code>更改组UID</p>
+<h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><p><code>useradd -g GROUP USER</code>添加一个指定用户组的用户<br><code>useradd -d /home/xxx USER</code>添加一个指定目录的的用户<br><code>userdel USER</code>删除一个用户<br><code>userdel -r USER</code>同时删除用户主目录<br><code>usermod -l NEWNAME USER</code>更改用户名<br><code>usermod -c BEIZHU USER</code>加备注<br><code>usermod -d /home/yyy UESR</code>改用户主目录<br><code>usermod -g GROUP USER</code>改组</p>
+<blockquote>
+<p>在<code>/etc/</code>下创建<code>nologin</code>文件其他用户均不能登录</p>
+</blockquote>
+<h2 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h2><h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><blockquote>
+<p>主要组和附属组</p>
+</blockquote>
+<p><code>gpasswd -a USER GROUP,GROUP2</code>添加附属组<br><code>newgrp GROUP</code>切换用户组,此时可能需要组密码<br><code>gpasswd -d USER GROUP</code>删除附属组<br><code>useradd -g 主要组 -G 附属组，附属组 USER</code>新建时指定用户组<br><code>gpasswd GROUP</code>修改组密码</p>
+<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p><code>passwd -l USER</code>锁定账户<br><code>passwd -u USER</code>解锁账户<br><code>passwd -d USER</code>清除密码</p>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><p><code>su USER</code> 切换账户</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Linux的用户及用户组&quot;&gt;&lt;a href=&quot;#Linux的用户及用户组&quot; class=&quot;headerlink&quot; title=&quot;Linux的用户及用户组&quot;&gt;&lt;/a&gt;Linux的用户及用户组&lt;/h1&gt;&lt;h2 id=&quot;配置文件&quot;&gt;&lt;a href=&quot;#配置文件&quot; cla
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+    
+      <category term="用户" scheme="http://ranxb.cn/tags/%E7%94%A8%E6%88%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据结构知识框架</title>
     <link href="http://ranxb.cn/2018/01/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/"/>
     <id>http://ranxb.cn/2018/01/11/数据结构知识框架/</id>
     <published>2018-01-11T01:16:54.000Z</published>
-    <updated>2018-01-11T15:58:29.844Z</updated>
+    <updated>2018-01-11T16:03:53.277Z</updated>
     
     <content type="html"><![CDATA[<h1 id="数据结构知识框架"><a href="#数据结构知识框架" class="headerlink" title="数据结构知识框架"></a>数据结构知识框架</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>第一方面：基本概念<br>1、数据结构研究方面（研究内容）<br>主要体现三个方面：</p>
 <ul>
@@ -82,6 +188,7 @@ BEGIN
                     THEN FRONT = M
                     ELSE FRONT &lt;- FRONT+1
                 X &lt;- CQ[FRONT]
+END
 </code></pre><h2 id="第五章：串（只有第一层面）"><a href="#第五章：串（只有第一层面）" class="headerlink" title="第五章：串（只有第一层面）"></a>第五章：串（只有第一层面）</h2><p>1、<strong>串</strong>：一个由零个或多个字符组成的有穷序列称为串，简记A=a1a2……an。<br>2、<strong>串的模式匹配</strong>：假设有两个串P和S：<br>P=p1p2……pm    S=s1s2……sn 其中（0＜m＜n）通常m&lt;&lt;n<br>在S中找出一个与P相同的子串，即串的定位。<br>通常把S称为目标，把P称为模式，把从目标S中查找模式P的过程称为串的模式匹配。  </p>
 <h2 id="第六章：数组和广义表（二）"><a href="#第六章：数组和广义表（二）" class="headerlink" title="第六章：数组和广义表（二）"></a>第六章：数组和广义表（二）</h2><p>1、<strong>数组</strong>：一位数组是个向量，他的每个元素是该结构中不可分割的最小单位；n(n&gt;1)维数组是个向量，他的每个元素是n-1维数组，且具有相同的下限和上限。<br>2、<strong>稀疏数组</strong>：在一个数组中和某一元素比较而言，不相同的元素很少时，我们称此数组为稀疏数组。<br>3、<strong>稀疏矩阵</strong>：是稀疏数组的典例。与稀疏矩阵的差别：元素分布是否有规律。<br>4、<strong>广义表</strong>：广义表是零个或多个原子（他是所要描述的某种数据类型的对象，是一个确定的概念）或子表所构成的有限序列，简称表。</p>
 <blockquote>
@@ -1983,100 +2090,6 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
       <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>成都的流水账</title>
-    <link href="http://ranxb.cn/2017/11/03/%E6%88%90%E9%83%BD%E7%9A%84%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
-    <id>http://ranxb.cn/2017/11/03/成都的流水账/</id>
-    <published>2017-11-03T09:57:01.000Z</published>
-    <updated>2017-11-03T10:03:42.908Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="成都的流水账"><a href="#成都的流水账" class="headerlink" title="成都的流水账"></a>成都的流水账</h1><blockquote>
-<p>我文笔也不好，今天在图书馆心情复杂也不知道干点啥，我就记一记流水账吧。</p>
-</blockquote>
-<p>那我就开始了～<br>等等～脑婆叫我去吃饭！</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="UNADJUSTEDNONRAW_thumb_4.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;成都的流水账&quot;&gt;&lt;a href=&quot;#成都的流水账&quot; class=&quot;headerlink&quot; title=&quot;成都的流水账&quot;&gt;&lt;/a&gt;成都的流水账&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;我文笔也不好，今天在图书馆心情复杂也不知道干点啥，我就记一记流水账吧。&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>数电笔记：第一章数字逻辑基础</title>
-    <link href="http://ranxb.cn/2017/10/29/%E6%95%B0%E7%94%B5%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/"/>
-    <id>http://ranxb.cn/2017/10/29/数电笔记：第一章数字逻辑基础/</id>
-    <published>2017-10-29T15:05:21.000Z</published>
-    <updated>2017-12-28T12:12:28.786Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="数电笔记2017-10-29"><a href="#数电笔记2017-10-29" class="headerlink" title="数电笔记2017-10-29"></a>数电笔记2017-10-29</h1><h2 id="第一章-数字逻辑基础"><a href="#第一章-数字逻辑基础" class="headerlink" title="第一章    数字逻辑基础"></a>第一章    数字逻辑基础</h2><blockquote>
-<p>模拟信号<br>电信号</p>
-</blockquote>
-<h3 id="二进制的转换"><a href="#二进制的转换" class="headerlink" title="二进制的转换"></a>二进制的转换</h3><pre><code>按权展开
-</code></pre><h4 id="整数转换"><a href="#整数转换" class="headerlink" title="整数转换"></a>整数转换</h4><p><strong><em>除2取余</em></strong></p>
-<h4 id="纯小数转换"><a href="#纯小数转换" class="headerlink" title="纯小数转换"></a>纯小数转换</h4><p><strong><em>乘2取整</em></strong></p>
-<h3 id="十进制转R进制数的转换"><a href="#十进制转R进制数的转换" class="headerlink" title="十进制转R进制数的转换"></a>十进制转R进制数的转换</h3><h4 id="整数转换-1"><a href="#整数转换-1" class="headerlink" title="整数转换"></a>整数转换</h4><p><strong><em>除R取余</em></strong></p>
-<h4 id="纯小数转换-1"><a href="#纯小数转换-1" class="headerlink" title="纯小数转换"></a>纯小数转换</h4><p><strong><em>乘R取整</em></strong></p>
-<h3 id="二、八、十六进制数之间的转换"><a href="#二、八、十六进制数之间的转换" class="headerlink" title="二、八、十六进制数之间的转换"></a>二、八、十六进制数之间的转换</h3><p><strong><em>三位二进制为一个八进制</em></strong><br><strong><em>四位二进制为一个十六进制</em></strong>  </p>
-<blockquote>
-<p>   例如：二进制转八进制从小数点向左或向右分别按三位一组转换为八进制，最后不满三位的用零补齐  </p>
-</blockquote>
-<h3 id="带符号数的代码表示"><a href="#带符号数的代码表示" class="headerlink" title="带符号数的代码表示"></a>带符号数的代码表示</h3><p>一个带符号的数由两部分组成：一部分表示数的符号；另一部分表示数的数值。<br>在计算机中习惯用0表示正数、1用来表示负数。  </p>
-<blockquote>
-<pre><code>为了在计算机中防止电路过于复杂，使乘法变成加法运算，人们提出了3种机器数的表示形式，称为：原码、补码、反码。
-</code></pre></blockquote>
-<h4 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h4><blockquote>
-<p>   原码又称为“符号–数值表示”<br>特点：  </p>
-<ol>
-<li>当N为正数时，N的原码与N的区别仅为最高位增加一位用0表示的符号位，对本身数值并无影响。</li>
-<li>当N为负数时，N的原码与N的区别是在最高位增加一位用1表示的符号位。</li>
-<li>在原码表示中，有两种零，即为正负零。0.000和1.000</li>
-</ol>
-</blockquote>
-<h4 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h4><blockquote>
-<p>   反码又被称为“对1的补数”。<br>对于负数，反码的数值是将原码数值按位求反，即原码的某位为1，反码相应为0.<br>对于正数反码与原码相同</p>
-</blockquote>
-<h4 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h4><h3 id="计算机中的运算"><a href="#计算机中的运算" class="headerlink" title="计算机中的运算"></a>计算机中的运算</h3><h2 id="码制和字符的代码表示"><a href="#码制和字符的代码表示" class="headerlink" title="码制和字符的代码表示"></a>码制和字符的代码表示</h2><ol>
-<li>8421码</li>
-<li>余3码</li>
-<li>2421码</li>
-<li>余3循环码</li>
-</ol>
-<blockquote>
-<p>可靠性编码  </p>
-<ol>
-<li>格雷码（循环码）  </li>
-<li>奇偶校验码</li>
-</ol>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;数电笔记2017-10-29&quot;&gt;&lt;a href=&quot;#数电笔记2017-10-29&quot; class=&quot;headerlink&quot; title=&quot;数电笔记2017-10-29&quot;&gt;&lt;/a&gt;数电笔记2017-10-29&lt;/h1&gt;&lt;h2 id=&quot;第一章-数字逻辑基础&quot;&gt;&lt;a hr
-    
-    </summary>
-    
-      <category term="数字电路" scheme="http://ranxb.cn/categories/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-    
-      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

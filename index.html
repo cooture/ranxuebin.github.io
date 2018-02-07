@@ -158,6 +158,119 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Ubuntu上启动ftp服务"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-02-07 21:13:49" datetime="2018-02-07T13:13:49.000Z"  itemprop="datePublished">2018-02-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/02/07/Ubuntu上启动ftp服务/">Ubuntu上启动ftp服务</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Ubuntu上启动ftp服务安装并启动VSFTPD
+安装VSFTPDsudo apt-get install vsftpd -y
+启动VSFTPD(会自动启动若未启动)sudo systemctl start vsftpd.service
+检测端口，判断是否启动。sudo netstat -nltp | grep 
+
+配置用户访问目录
+新建主目录
+新建用户并设置密码sudo useradd ...
+    
+
+        <a href="/2018/02/07/Ubuntu上启动ftp服务/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FTP/">FTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Linux的用户及用户组"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-02-07 21:12:41" datetime="2018-02-07T13:12:41.000Z"  itemprop="datePublished">2018-02-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/02/07/Linux的用户及用户组/">Linux的用户及用户组</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Linux的用户及用户组配置文件
+/etc/group  组信息配置文件
+/etc/passwd 用户信息配置文件
+/etc/shadow 用户密码配置文件
+/etc/gshadow 组密码配置文件
+
+
+                
+                    
+                    
+                
+                
+  ...
+    
+
+        <a href="/2018/02/07/Linux的用户及用户组/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/用户/">用户</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-数据结构知识框架"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -593,125 +706,6 @@ CS内...
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编语言/">汇编语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-汇编语言第十章：CALL和RET指令"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-01-04 23:33:06" datetime="2018-01-04T15:33:06.000Z"  itemprop="datePublished">2018-01-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/04/汇编语言第十章：CALL和RET指令/">汇编语言第十章：CALL和RET指令</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        汇编语言第十章：CALL和RET指令
-都是修改ip的，重点不多，会用就行，随便写写。
-
-ret和retfret进行近转移，只修改IPretf进行远转移，修改IP和CS  
-ret指令的操作出栈操作  
-
-(IP) = ((ss)*16+sp)  
-(sp) = (sp)+2相当于pop IP
-
-retf指令的操作先出ip，再出cs  
-
-(IP) = ((ss)*16+sp)  
-(sp) ...
-    
-
-        <a href="/2018/01/04/汇编语言第十章：CALL和RET指令/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编语言/">汇编语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-数字电路第五章：集成双稳态触发器"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-01-04 19:31:33" datetime="2018-01-04T11:31:33.000Z"  itemprop="datePublished">2018-01-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/04/数字电路第五章：集成双稳态触发器/">数字电路第五章：集成双稳态触发器</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        集成双稳态触发器
-主要内容有  
-
-触发器的特点及分类  
-基本的RS触发器  
-事中控制的RS触发器，D触发器，JK触发器，T触发器的电路结构、逻辑功能及其描述方法。  
-触发器的性能参数。  
-
-
-触发器的基本特点及分类输入量和输出量的设置
-                
-                    
-                    
-               ...
-    
-
-        <a href="/2018/01/04/数字电路第五章：集成双稳态触发器/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数字电路/">数字电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
 
     </div>
     

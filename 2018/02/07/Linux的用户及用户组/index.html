@@ -12,27 +12,30 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/">
+    <link rel="canonical" href="http://ranxb.cn/2018/02/07/Linux的用户及用户组/">
     
     
-    <title>Linux的常用命令（持续更新） | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <title>Linux的用户及用户组 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Linux,入门">
-    <meta name="description" content="Linux的常用命令行基本入门操作cd        --更换当前目录或文件夹 rm        --删除文件（删除目录加  -r 控制符） mkdir        --创建文件夹 rmdir        --删除文件夹（只能是空的） pwd        --显示当前目录 cp        --复制文件 ls        --显示当前目录下的文件 mvdir        --移动文件">
-<meta name="keywords" content="Linux,入门">
+    <meta name="keywords" content="Linux,用户">
+    <meta name="description" content="Linux的用户及用户组配置文件 /etc/group  组信息配置文件 /etc/passwd 用户信息配置文件 /etc/shadow 用户密码配置文件 /etc/gshadow 组密码配置文件">
+<meta name="keywords" content="Linux,用户">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux的常用命令（持续更新）">
-<meta property="og:url" content="http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/index.html">
+<meta property="og:title" content="Linux的用户及用户组">
+<meta property="og:url" content="http://ranxb.cn/2018/02/07/Linux的用户及用户组/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="Linux的常用命令行基本入门操作cd        --更换当前目录或文件夹 rm        --删除文件（删除目录加  -r 控制符） mkdir        --创建文件夹 rmdir        --删除文件夹（只能是空的） pwd        --显示当前目录 cp        --复制文件 ls        --显示当前目录下的文件 mvdir        --移动文件">
-<meta property="og:updated_time" content="2017-09-08T03:30:38.000Z">
+<meta property="og:description" content="Linux的用户及用户组配置文件 /etc/group  组信息配置文件 /etc/passwd 用户信息配置文件 /etc/shadow 用户密码配置文件 /etc/gshadow 组密码配置文件">
+<meta property="og:image" content="http://ranxb.cn/2018/02/07/Linux的用户及用户组/a.jpg">
+<meta property="og:image" content="http://ranxb.cn/2018/02/07/Linux的用户及用户组/b.jpg">
+<meta property="og:updated_time" content="2018-02-07T13:18:16.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux的常用命令（持续更新）">
-<meta name="twitter:description" content="Linux的常用命令行基本入门操作cd        --更换当前目录或文件夹 rm        --删除文件（删除目录加  -r 控制符） mkdir        --创建文件夹 rmdir        --删除文件夹（只能是空的） pwd        --显示当前目录 cp        --复制文件 ls        --显示当前目录下的文件 mvdir        --移动文件">
+<meta name="twitter:title" content="Linux的用户及用户组">
+<meta name="twitter:description" content="Linux的用户及用户组配置文件 /etc/group  组信息配置文件 /etc/passwd 用户信息配置文件 /etc/shadow 用户密码配置文件 /etc/gshadow 组密码配置文件">
+<meta name="twitter:image" content="http://ranxb.cn/2018/02/07/Linux的用户及用户组/a.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -120,7 +123,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Linux的常用命令（持续更新）</div>
+        <div class="flex-col header-title ellipsis">Linux的用户及用户组</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,11 +145,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Linux的常用命令（持续更新）</h1>
+        <h1 class="title">Linux的用户及用户组</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-09-08T03:16:06.000Z" itemprop="datePublished" class="page-time">
-  2017-09-08
+                <time datetime="2018-02-07T13:12:41.000Z" itemprop="datePublished" class="page-time">
+  2018-02-07
 </time>
 
 
@@ -167,17 +170,17 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux的常用命令行"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux的常用命令行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本入门操作"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本入门操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络操作"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">网络操作</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux的用户及用户组"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux的用户及用户组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本操作"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组操作"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">组操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户操作"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">用户操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进阶操作"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">进阶操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">用户</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他命令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">其他命令</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
-<article id="post-Linux的常用命令（持续更新）"
+<article id="post-Linux的用户及用户组"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Linux的常用命令（持续更新）</h1>
+        <h1 class="post-card-title">Linux的用户及用户组</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-09-08 11:16:06" datetime="2017-09-08T03:16:06.000Z"  itemprop="datePublished">2017-09-08</time>
+            <time class="post-time" title="2018-02-07 21:12:41" datetime="2018-02-07T13:12:41.000Z"  itemprop="datePublished">2018-02-07</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
@@ -192,22 +195,39 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Linux的常用命令行"><a href="#Linux的常用命令行" class="headerlink" title="Linux的常用命令行"></a>Linux的常用命令行</h1><h2 id="基本入门操作"><a href="#基本入门操作" class="headerlink" title="基本入门操作"></a>基本入门操作</h2><pre><code>cd        --更换当前目录或文件夹
-rm        --删除文件（删除目录加  -r 控制符）
-mkdir        --创建文件夹
-rmdir        --删除文件夹（只能是空的）
-pwd        --显示当前目录
-cp        --复制文件
-ls        --显示当前目录下的文件
-mvdir        --移动文件夹（可用作重命名操作）
-</code></pre><h2 id="网络操作"><a href="#网络操作" class="headerlink" title="网络操作"></a>网络操作</h2>
+            <h1 id="Linux的用户及用户组"><a href="#Linux的用户及用户组" class="headerlink" title="Linux的用户及用户组"></a>Linux的用户及用户组</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><ul>
+<li><code>/etc/group</code>  组信息配置文件</li>
+<li><code>/etc/passwd</code> 用户信息配置文件</li>
+<li><code>/etc/shadow</code> 用户密码配置文件</li>
+<li><code>/etc/gshadow</code> 组密码配置文件</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="a.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>   
+<p><img src="b.jpg" alt=""></p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="组操作"><a href="#组操作" class="headerlink" title="组操作"></a>组操作</h3><p><code>groupadd NEWGROUP</code>添加一个组<br><code>groupadd -g 888 NEWGROUP</code>添加一个组并指定UID<br><code>grouddel NEWGROUP</code>删除一个组。<br><code>groupmod -n NEWGROUP OLDGROUP</code>更改组名<br><code>groupmod -g 888 NEWGROUP</code>更改组UID</p>
+<h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><p><code>useradd -g GROUP USER</code>添加一个指定用户组的用户<br><code>useradd -d /home/xxx USER</code>添加一个指定目录的的用户<br><code>userdel USER</code>删除一个用户<br><code>userdel -r USER</code>同时删除用户主目录<br><code>usermod -l NEWNAME USER</code>更改用户名<br><code>usermod -c BEIZHU USER</code>加备注<br><code>usermod -d /home/yyy UESR</code>改用户主目录<br><code>usermod -g GROUP USER</code>改组</p>
+<blockquote>
+<p>在<code>/etc/</code>下创建<code>nologin</code>文件其他用户均不能登录</p>
+</blockquote>
+<h2 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h2><h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><blockquote>
+<p>主要组和附属组</p>
+</blockquote>
+<p><code>gpasswd -a USER GROUP,GROUP2</code>添加附属组<br><code>newgrp GROUP</code>切换用户组,此时可能需要组密码<br><code>gpasswd -d USER GROUP</code>删除附属组<br><code>useradd -g 主要组 -G 附属组，附属组 USER</code>新建时指定用户组<br><code>gpasswd GROUP</code>修改组密码</p>
+<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p><code>passwd -l USER</code>锁定账户<br><code>passwd -u USER</code>解锁账户<br><code>passwd -d USER</code>清除密码</p>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><p><code>su USER</code> 切换账户</p>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-09-08T03:30:38.000Z" itemprop="dateUpdated">2017-09-08 11:30:38</time>
+    Last updated: <time datetime="2018-02-07T13:18:16.931Z" itemprop="dateUpdated">2018-02-07 21:18:16</time>
 </span><br>
 
 
@@ -232,7 +252,7 @@ mvdir        --移动文件夹（可用作重命名操作）
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/用户/">用户</a></li></ul>
 
 
             
@@ -242,7 +262,7 @@ mvdir        --移动文件夹（可用作重命名操作）
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/&title=《Linux的常用命令（持续更新）》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/&title=《Linux的用户及用户组》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -252,22 +272,22 @@ mvdir        --移动文件夹（可用作重命名操作）
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/&title=《Linux的常用命令（持续更新）》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/&title=《Linux的用户及用户组》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/02/07/Linux的用户及用户组/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux的常用命令（持续更新）》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux的用户及用户组》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -290,18 +310,18 @@ mvdir        --移动文件夹（可用作重命名操作）
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/09/28/在Android中Menu的使用/" id="post-prev" class="post-nav-link">
+      <a href="/2018/02/07/Ubuntu上启动ftp服务/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">在Android中Menu的使用</h4>
+        <h4 class="title">Ubuntu上启动ftp服务</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/09/05/近期的一些更新计划/" id="post-next" class="post-nav-link">
+      <a href="/2018/01/11/数据结构知识框架/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">近期的一些更新计划</h4>
+        <h4 class="title">数据结构知识框架</h4>
       </a>
     </div>
   
@@ -395,7 +415,7 @@ mvdir        --移动文件夹（可用作重命名操作）
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/&title=《Linux的常用命令（持续更新）》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/&title=《Linux的用户及用户组》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -405,22 +425,22 @@ mvdir        --移动文件夹（可用作重命名操作）
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/&title=《Linux的常用命令（持续更新）》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/&title=《Linux的用户及用户组》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/02/07/Linux的用户及用户组/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux的常用命令（持续更新）》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux的用户及用户组》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/02/07/Linux的用户及用户组/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -431,7 +451,7 @@ mvdir        --移动文件夹（可用作重命名操作）
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxklEQVR42u3aQW4jMQwEwPz/015gT3tJppuUHC9QcwrswFKNgaHc5NdXfL3+Xj+//vrnSj7hFVzJJx+48PDw8EZbbxfIt5us+N27ya18WBEPDw/vGi9/6CfUlv3dpyV/P1jw8PDwfpV379SalAc8PDy8/5eXLJzEB/m7eSnCw8PDeycvPzTPwtZXfOWH+MNZCx4eHl7Maxtgn/D3xf4eHh4e3qKrnrey9iMFs8GCh93i4eHhXeAlR+T8qZsHsrPX8yow3CgeHh5ezPs5Ks0Bs0GBpMBsBg7w8PDwzvLy43KyTLvp2YO+OKDj4eHhvYXXNrryEYHZoEDblnsoDHh4eHhr3ix4bfFt8Wgj4GEHDw8PD2/BO9BkWmy3/Zy8YYaHh4d3jzcbwNoEte1WNjcFDw8P7yxvE0bMmv1tQysfxjoc4+Lh4eEFv+7z4YD84Z5HFbMiVFQ/PDw8vAu8PKLND82bKHZzKMfDw8O7zZu19uvm/frQPBsvwMPDwzvLy8OIWdlIwoJN/PHwBeDh4eG9hbdpgOUn9+TGzaKQh8KAh4eHt+blm86LR/7Q34QU9SAXHh4e3iHeqcX2IUU+EVaUMTw8PLwLvDxmPRUuzNpm+cDBw//g4eHhHeLNBqHy+GATBx8oLXh4eHgXeO2P/GQr7QF9NmKVj2Hh4eHhneK1j+Z8QKqNJ/IQuWih4eHh4b2RlxeG/KGfx6+zcav6twIeHh7e+vPzkam2AZZvZTMEFoUReHh4eGveq7w2h+z8+J6UpeIbw8PDwzvK2z98k4ihHQVoo40rw1h4eHh4i/Iwa2u1sUUbOhSHcjw8PLxrvNnyyTL5bUrKRjFohYeHh/cBvM2S+QDW5t1vu3x4eHh4H8BLooe2kLThSBRw4OHh4V3jzcKI/PXZrckP2cMBAjw8PLwRr22A5Yfa2ZJ5gTkwNICHh4fX8f4AtY8DJw25mEYAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3awU7DMBAEUP7/p4vECakQZtYFEfvlVEVt45fDyuPdt7f4enxcnz9/vvP8nef7z79K7rz4wsDAuC3jcXnlS2mXe/2a8v/HwMA4h9EW2eRX1/ev2fVTMDAwMC63a3khXiFhYGBgtIzZVjIvwRgYGBizELtyrLYSaF+cxTEwMG7ImDUG/ubzr/c3MDAw/j3jUV5tBF0/+o9WhYGBsTVjdtTVbuOSwDyrrvXOFAMD44aM5DF54Mwj7vV7bYMuBgbGCYzkj9pN3mxoox1Ew8DAOIGRRNBkEflGsG15Fi0BDAyMTRmz+NqOROQvIin6Lztow8DAuAljvT+Yj4jlo2DtSjAwME5g5Mo8WLYlNYqpl3EaAwPjBMbK4/M42o6dFWUaAwNjU8YsQM6O6maLjr6JgYFxAGPlaD6JuLNhjuLfMDAwtmbkETFvbebhdqWRULcEMDAwtmA8RtfKb/N4XJR1DAyMTRlJiF2Pmm29T4IxBgbGmYz8yCzZSuYvqI2vGBgY5zCSDd9sICMptbNhiy9WiIGBcQxj1qRsS2R+uJ+81noni4GBcUNGGzVfy24jbvSyMDAwtmOstwHaBydFs92qYmBg7M1YH7yYFdY2POcjIBgYGLsyZkU2j7UrxRQDAwMj2aK17cl8KbNDum+/j4GBgREsvSW128QfMBgYGBjl0VtejvOE/cNzMTAwDmDMQuxs2CtvKiSNUgwMjBMYs+GtWRBtD9qS4ouBgbE14x2qgjMIkLl2QAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
