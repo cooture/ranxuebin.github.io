@@ -158,6 +158,64 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-无显示器条件下查询树莓派IP的方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-02-14 12:18:09" datetime="2018-02-14T04:18:09.000Z"  itemprop="datePublished">2018-02-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/树莓派/">树莓派</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/02/14/无显示器条件下查询树莓派IP的方法/">无显示器条件下查询树莓派IP的方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        无显示器条件下查询树莓派IP的方法
+方法都根据树莓派的网卡物理地址为b8:27:eb:开头    。因此有以下自动化方法
+
+Mac下打开网络实用工具直接查询Netstat下的路由表找到树莓派的物理地址对应的就是树莓派的IP地址。
+Shell脚本
+整个代码逻辑为依次pingIP地址，之后通过arp映射找到对应的物理地址，取到对应的IP。
+
+代码如下
+clear
+
+
+echo &quot;程序运...
+    
+
+        <a href="/2018/02/14/无显示器条件下查询树莓派IP的方法/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unix/">Unix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Ubuntu上启动ftp服务"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -647,58 +705,6 @@ CS内...
     
 
         <a href="/2018/01/05/汇编语言第十二。。章：内外中断和int指令/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编语言/">汇编语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-汇编语言第十一章：标志寄存器"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-01-05 00:26:41" datetime="2018-01-04T16:26:41.000Z"  itemprop="datePublished">2018-01-05</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/05/汇编语言第十一章：标志寄存器/">汇编语言第十一章：标志寄存器</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        汇编语言第十一章：标志寄存器
-标志寄存器就是CPU处理数据的时候做标记的这一章学的有ZF，SF，PF，CF，OF标志寄存器，还有adc，sbb，movsb，movsw，cld，std，rep等操作
-
-第六位：ZFzero flag零标志位处理完之后是否为零，0的话ZF则为一
-第二位：PFParity flag奇偶校验位换成二进制之后，1的个数是偶数？PF = 1 ：PF = 0  
-第七位：...
-    
-
-        <a href="/2018/01/05/汇编语言第十一章：标志寄存器/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>

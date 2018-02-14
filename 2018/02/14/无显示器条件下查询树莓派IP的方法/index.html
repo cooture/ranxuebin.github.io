@@ -12,27 +12,27 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/">
+    <link rel="canonical" href="http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/">
     
     
-    <title>Ubuntu上启动ftp服务 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <title>无显示器条件下查询树莓派IP的方法 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Linux,FTP">
-    <meta name="description" content="Ubuntu上启动ftp服务安装并启动VSFTPD 安装VSFTPDsudo apt-get install vsftpd -y 启动VSFTPD(会自动启动若未启动)sudo systemctl start vsftpd.service 检测端口，判断是否启动。sudo netstat -nltp | grep   配置用户访问目录 新建主目录 新建用户并设置密码sudo useradd -d">
-<meta name="keywords" content="Linux,FTP">
+    <meta name="keywords" content="树莓派,Unix">
+    <meta name="description" content="无显示器条件下查询树莓派IP的方法 方法都根据树莓派的网卡物理地址为b8:27:eb:开头    。因此有以下自动化方法  Mac下打开网络实用工具直接查询Netstat下的路由表找到树莓派的物理地址对应的就是树莓派的IP地址。 Shell脚本 整个代码逻辑为依次pingIP地址，之后通过arp映射找到对应的物理地址，取到对应的IP。  代码如下 clear   echo &amp;quot;程序运行中.">
+<meta name="keywords" content="树莓派,Unix">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu上启动ftp服务">
-<meta property="og:url" content="http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/index.html">
+<meta property="og:title" content="无显示器条件下查询树莓派IP的方法">
+<meta property="og:url" content="http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="Ubuntu上启动ftp服务安装并启动VSFTPD 安装VSFTPDsudo apt-get install vsftpd -y 启动VSFTPD(会自动启动若未启动)sudo systemctl start vsftpd.service 检测端口，判断是否启动。sudo netstat -nltp | grep   配置用户访问目录 新建主目录 新建用户并设置密码sudo useradd -d">
-<meta property="og:updated_time" content="2018-02-07T13:16:20.832Z">
+<meta property="og:description" content="无显示器条件下查询树莓派IP的方法 方法都根据树莓派的网卡物理地址为b8:27:eb:开头    。因此有以下自动化方法  Mac下打开网络实用工具直接查询Netstat下的路由表找到树莓派的物理地址对应的就是树莓派的IP地址。 Shell脚本 整个代码逻辑为依次pingIP地址，之后通过arp映射找到对应的物理地址，取到对应的IP。  代码如下 clear   echo &amp;quot;程序运行中.">
+<meta property="og:updated_time" content="2018-02-14T04:19:48.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu上启动ftp服务">
-<meta name="twitter:description" content="Ubuntu上启动ftp服务安装并启动VSFTPD 安装VSFTPDsudo apt-get install vsftpd -y 启动VSFTPD(会自动启动若未启动)sudo systemctl start vsftpd.service 检测端口，判断是否启动。sudo netstat -nltp | grep   配置用户访问目录 新建主目录 新建用户并设置密码sudo useradd -d">
+<meta name="twitter:title" content="无显示器条件下查询树莓派IP的方法">
+<meta name="twitter:description" content="无显示器条件下查询树莓派IP的方法 方法都根据树莓派的网卡物理地址为b8:27:eb:开头    。因此有以下自动化方法  Mac下打开网络实用工具直接查询Netstat下的路由表找到树莓派的物理地址对应的就是树莓派的IP地址。 Shell脚本 整个代码逻辑为依次pingIP地址，之后通过arp映射找到对应的物理地址，取到对应的IP。  代码如下 clear   echo &amp;quot;程序运行中.">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -120,7 +120,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Ubuntu上启动ftp服务</div>
+        <div class="flex-col header-title ellipsis">无显示器条件下查询树莓派IP的方法</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,15 +142,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Ubuntu上启动ftp服务</h1>
+        <h1 class="title">无显示器条件下查询树莓派IP的方法</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-02-07T13:13:49.000Z" itemprop="datePublished" class="page-time">
-  2018-02-07
+                <time datetime="2018-02-14T04:18:09.000Z" itemprop="datePublished" class="page-time">
+  2018-02-14
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/树莓派/">树莓派</a></li></ul>
 
             
         </h5>
@@ -167,20 +167,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ubuntu上启动ftp服务"><span class="post-toc-number">1.</span> <span class="post-toc-text">Ubuntu上启动ftp服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装并启动VSFTPD"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装并启动VSFTPD</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置用户访问目录"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">配置用户访问目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">完</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无显示器条件下查询树莓派IP的方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">无显示器条件下查询树莓派IP的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mac下打开网络实用工具"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Mac下打开网络实用工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Shell脚本"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Shell脚本</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
-<article id="post-Ubuntu上启动ftp服务"
+<article id="post-无显示器条件下查询树莓派IP的方法"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Ubuntu上启动ftp服务</h1>
+        <h1 class="post-card-title">无显示器条件下查询树莓派IP的方法</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-02-07 21:13:49" datetime="2018-02-07T13:13:49.000Z"  itemprop="datePublished">2018-02-07</time>
+            <time class="post-time" title="2018-02-14 12:18:09" datetime="2018-02-14T04:18:09.000Z"  itemprop="datePublished">2018-02-14</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/树莓派/">树莓派</a></li></ul>
 
 
 
@@ -192,47 +192,63 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Ubuntu上启动ftp服务"><a href="#Ubuntu上启动ftp服务" class="headerlink" title="Ubuntu上启动ftp服务"></a>Ubuntu上启动ftp服务</h1><h2 id="安装并启动VSFTPD"><a href="#安装并启动VSFTPD" class="headerlink" title="安装并启动VSFTPD"></a>安装并启动VSFTPD</h2><ul>
-<li>安装VSFTPD<br><code>sudo apt-get install vsftpd -y</code></li>
-<li>启动VSFTPD(会自动启动若未启动)<br><code>sudo systemctl start vsftpd.service</code></li>
-<li>检测端口，判断是否启动。<br><code>sudo netstat -nltp | grep</code> </li>
-</ul>
-<h2 id="配置用户访问目录"><a href="#配置用户访问目录" class="headerlink" title="配置用户访问目录"></a>配置用户访问目录</h2><ul>
-<li>新建主目录</li>
-<li>新建用户并设置密码<br><code>sudo useradd -d /home/uftp -s /bin/bash uftp</code><br><code>sudo passwd uftp</code><br><code>sudo rm /etc/pam.d/vsftpd</code>(这里删除该配置文件，因为会导致使用用户名登录FTP失败)</li>
-<li>限制用户只能通过FTP访问<br><code>sudo usermod -s /sbin/nologin uftp</code></li>
-<li><p>修改VSFTPD配置<br><code>sudo chmod a+w /etc/vsftpd.conf</code><br>下面修改<code>/etc/vsftpd.conf</code>文件中的配置（添加到最下面）</p>
-<pre><code># 限制用户对主目录以外目录访问
-chroot_local_user=YES
+            <h1 id="无显示器条件下查询树莓派IP的方法"><a href="#无显示器条件下查询树莓派IP的方法" class="headerlink" title="无显示器条件下查询树莓派IP的方法"></a>无显示器条件下查询树莓派IP的方法</h1><blockquote>
+<p>方法都根据树莓派的网卡物理地址为<code>b8:27:eb:</code>开头    。因此有以下自动化方法</p>
+</blockquote>
+<h2 id="Mac下打开网络实用工具"><a href="#Mac下打开网络实用工具" class="headerlink" title="Mac下打开网络实用工具"></a>Mac下打开网络实用工具</h2><p>直接查询Netstat下的路由表找到树莓派的物理地址对应的就是树莓派的IP地址。</p>
+<h2 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h2><blockquote>
+<p>整个代码逻辑为依次pingIP地址，之后通过arp映射找到对应的物理地址，取到对应的IP。</p>
+</blockquote>
+<p>代码如下</p>
+<pre><code>clear
 
-# 指定一个 userlist 存放允许访问 ftp 的用户列表
-userlist_deny=NO
-userlist_enable=YES
 
-# 记录允许访问 ftp 用户列表
-userlist_file=/etc/vsftpd.user_list
-
-# 不配置可能导致莫名的530问题
-seccomp_sandbox=NO
-
-# 允许文件上传
-write_enable=YES
-
-# 使用utf8编码
-utf8_filesystem=YES
-</code></pre><p>新建文件<code>/etc/vsftpd.user_list</code>用于存放允许访问FTP的用户<br><code>sudo touch /etc/vsftpd.user_list</code><br><code>sudo chmod a+w /etc/vsftpd.user_list</code><br>并修改，加入刚刚创建的用户</p>
-</li>
-<li><p>设置访问限权<br>设置主目录访问权限（只读）：<code>sudo chmod a-w /home/uftp</code><br>设置公共目录，设置可读写：<code>sudo mkdir /home/uftp/public &amp;&amp; sudo chmod 777 -R /home/uftp/public</code><br>重启VSFTPD服务：<code>sudo systemctl restart vsftpd.service</code></p>
-</li>
-</ul>
-<h2 id="完"><a href="#完" class="headerlink" title="完"></a>完</h2>
+echo &quot;程序运行中...&quot;
+ipLine=&quot;`ifconfig | grep &quot;inet 192.168&quot; `&quot;
+preIp=${ipLine:5:11}
+echo &quot;程序默认将在$preIp 2 - $preIp 255范围内进行扫描&quot;
+echo &quot;但这将花费较多时间，请问是否进行手动设置？（y/n)&quot;
+read choice
+if test $choice = &quot;y&quot;
+    then
+        echo -n &quot;请输入起始位置(2-255):&quot;
+        read i
+        echo -n &quot;请输入结束位置($i-255):&quot;
+        read j
+        echo &quot;下面将对 $i 到 $j 范围进行扫描&quot;
+    else
+        i=2
+        j=255
+        echo &quot;下面将直接对2-255整个范围进行扫描&quot;
+fi
+while test $i -ne $j
+do
+    echo &quot;正在检测ip的连接情况，请耐心等待&quot;
+    ip=$preIp$i
+    echo &quot;正在ping端口$ip ...&quot;
+    &quot;`ping -t 1 -q $ip `&quot;
+    let i=i+1
+    clear
+done
+clear
+echo &quot;所有ip检测完毕，正在计算结果...&quot;
+result=&quot;`arp -a | grep &quot;b8:27:eb:&quot; ` &quot;
+resultIp=${result:3:14}
+resultMac=${result:19:17}
+clear
+echo &quot;已经得到结果：&quot;
+echo &quot;您的树莓派Mac地址为:$resultMac&quot;
+echo &quot;    当前连接的IP为:$resultIp&quot;
+echo
+echo &quot;程序结束&quot;
+</code></pre>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2018-02-07T13:16:20.832Z" itemprop="dateUpdated">2018-02-07 21:16:20</time>
+    Last updated: <time datetime="2018-02-14T04:19:48.296Z" itemprop="dateUpdated">2018-02-14 12:19:48</time>
 </span><br>
 
 
@@ -257,7 +273,7 @@ utf8_filesystem=YES
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FTP/">FTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unix/">Unix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
 
 
             
@@ -267,7 +283,7 @@ utf8_filesystem=YES
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/&title=《Ubuntu上启动ftp服务》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/&title=《无显示器条件下查询树莓派IP的方法》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -277,22 +293,22 @@ utf8_filesystem=YES
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/&title=《Ubuntu上启动ftp服务》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/&title=《无显示器条件下查询树莓派IP的方法》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu上启动ftp服务》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《无显示器条件下查询树莓派IP的方法》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -312,21 +328,14 @@ utf8_filesystem=YES
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/02/14/无显示器条件下查询树莓派IP的方法/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">无显示器条件下查询树莓派IP的方法</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/02/07/Linux的用户及用户组/" id="post-next" class="post-nav-link">
+      <a href="/2018/02/07/Ubuntu上启动ftp服务/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Linux的用户及用户组</h4>
+        <h4 class="title">Ubuntu上启动ftp服务</h4>
       </a>
     </div>
   
@@ -420,7 +429,7 @@ utf8_filesystem=YES
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/&title=《Ubuntu上启动ftp服务》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/&title=《无显示器条件下查询树莓派IP的方法》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -430,22 +439,22 @@ utf8_filesystem=YES
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/&title=《Ubuntu上启动ftp服务》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/&title=《无显示器条件下查询树莓派IP的方法》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu上启动ftp服务》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/&via=http://ranxb.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《无显示器条件下查询树莓派IP的方法》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/&via=http://ranxb.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -456,7 +465,7 @@ utf8_filesystem=YES
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3ay07kMBAF0P7/nw7bGaGEe10BKc7xqtWA45NF4Xp8PvE6/lln33z//bNvrj+f7XnDwsDAeCzjuFzXjLND50dMdr4+GwYGxnsYySGuY93ZgydBPA/oGBgYGHnonFwrMTAwMO4NuJMLZf6CMDAwMNoDXV/+JoH7T3NxDAyMBzLyqvvff/6V/gYGBsajGEe5JtfHe0/y384YGBhbM/IAlxfIJgW40XkwMDA2ZeR/ME9K1w4dNSEwMDC2ZuTl+LWi/++V6j5tFMfAwNiO0Sai+Q5tib/4KQYGxgsYa0GzvRTmIbhtUWBgYOzKyBuKkwZAy1tsYWJgYLyA0V7I1i6Ukxd3uhsGBsYrGWsFr3Ygtb2Y/jAzgoGBsSmjXclG7RhZ0aScXB8xMDAezkjKZ0kSO3kd9WhFmytjYGBsxGiHR9tmZJ42168PAwNja0ZeXc8HudYGLybNBgwMjF0ZedBsg+ldF81kZwwMjL0Z8/Zh3qRsk9ikPfBp9RgYGA9ntOnoJE1dC9B1Lo6BgbEdow2+bYmtLZwd8cLAwHgPo916MjCxNv1R/N/AwMDYiHGUK39MUmJbS3HrnioGBsbDGfcOcq2lr5OmaQ3DwMB4LCMJsmvFsrUxsvwM9RwHBgbGwxlrga9tf86vfT/cczEwMDDKMN0mtPkTMTAwMNaSyckVMB9BizqxGBgYmzLWwmKe1ravoC38YWBg7M24YV4jKYfFbc42QGNgYGzN+ALKm7JQdqoIQgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQU4DMQwF0N7/0kVix4L0247RCL1ZIUozfkGKI9uvV/y8v5/ffvM+Pslqyafnb40ePDw8vFbo5+CScM9bcH5j/vflDcXDw8Nb450P4iSI6slc3Zp8I/Dw8PCew0uO8lubdd4CPDw8vP/ES477JPTzu/Dw8PCewEsuvr2Lck6qli0u11rw8PDwaj2pQgPsCT8v9vfw8PDwBl315NidtM2ql+NynHh4eHgLvLzocOvIzq/deTH3QyR4eHh4a7y7ZYXzRlTTT7KJv36Kh4eHd5W30fjvJZXqpTx6Lx4eHt4CLz9we8H1Aspbcc3/IR4eHt4lXt6ATxbNt2Ne2I0SAx4eHt4lXn74Vgew5qNUPd6rGhYeHh5ei5e8OEkDebm2V2jIG28/JiPw8PDwFnj5BTq/1PaSR55IykMDeHh4eJd4owtrXIrNt/JWaaM8RoCHh4cX8/LWV/Wg7yWASRoYDQ3g4eHhFXm9JSaDUL2Bg+RbhaEBPDw8vBavWlaopoFqcyt58sjx8PDw9njJEvk4VBXfGx0opDQ8PDy8BV71+tuDTYYJeuUSPDw8vA1etbSav2Byu79WwsDDw8Nb4yVFhGpTf95mm6QHPDw8vL/n9V6QfytPCfnffCjg4uHh4a3xklB66WQyklVdHw8PD2+PlxzW1ZJEEmJ+jc4Lx3h4eHh/w8tb+73rdX4Fz4uzhYYZHh4e3gKvd+BOUsiFGYfeFuPh4eFd4s1Howp39iLyQiEDDw8Pb4E3yST5yGl+6E/GFEapBQ8PD6/IqyaDaqG2t7v5Ch9iw8PDw1vjTY7pPGHkG3GhvoKHh4f3YF5vTCpvevVWxsPDw3sCb9KR7zXSJmURPDw8vG1erxhxa1SrVyBOShh4eHh4G7zJcZwsWk0qvXbaaGALDw8PL+V9ASU1c6hYnMbjAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

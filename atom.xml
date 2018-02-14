@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-02-07T13:16:20.832Z</updated>
+  <updated>2018-02-14T04:19:48.296Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>无显示器条件下查询树莓派IP的方法</title>
+    <link href="http://ranxb.cn/2018/02/14/%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%9D%A1%E4%BB%B6%E4%B8%8B%E6%9F%A5%E8%AF%A2%E6%A0%91%E8%8E%93%E6%B4%BEIP%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/</id>
+    <published>2018-02-14T04:18:09.000Z</published>
+    <updated>2018-02-14T04:19:48.296Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="无显示器条件下查询树莓派IP的方法"><a href="#无显示器条件下查询树莓派IP的方法" class="headerlink" title="无显示器条件下查询树莓派IP的方法"></a>无显示器条件下查询树莓派IP的方法</h1><blockquote>
+<p>方法都根据树莓派的网卡物理地址为<code>b8:27:eb:</code>开头    。因此有以下自动化方法</p>
+</blockquote>
+<h2 id="Mac下打开网络实用工具"><a href="#Mac下打开网络实用工具" class="headerlink" title="Mac下打开网络实用工具"></a>Mac下打开网络实用工具</h2><p>直接查询Netstat下的路由表找到树莓派的物理地址对应的就是树莓派的IP地址。</p>
+<h2 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h2><blockquote>
+<p>整个代码逻辑为依次pingIP地址，之后通过arp映射找到对应的物理地址，取到对应的IP。</p>
+</blockquote>
+<p>代码如下</p>
+<pre><code>clear
+
+
+echo &quot;程序运行中...&quot;
+ipLine=&quot;`ifconfig | grep &quot;inet 192.168&quot; `&quot;
+preIp=${ipLine:5:11}
+echo &quot;程序默认将在$preIp 2 - $preIp 255范围内进行扫描&quot;
+echo &quot;但这将花费较多时间，请问是否进行手动设置？（y/n)&quot;
+read choice
+if test $choice = &quot;y&quot;
+    then
+        echo -n &quot;请输入起始位置(2-255):&quot;
+        read i
+        echo -n &quot;请输入结束位置($i-255):&quot;
+        read j
+        echo &quot;下面将对 $i 到 $j 范围进行扫描&quot;
+    else
+        i=2
+        j=255
+        echo &quot;下面将直接对2-255整个范围进行扫描&quot;
+fi
+while test $i -ne $j
+do
+    echo &quot;正在检测ip的连接情况，请耐心等待&quot;
+    ip=$preIp$i
+    echo &quot;正在ping端口$ip ...&quot;
+    &quot;`ping -t 1 -q $ip `&quot;
+    let i=i+1
+    clear
+done
+clear
+echo &quot;所有ip检测完毕，正在计算结果...&quot;
+result=&quot;`arp -a | grep &quot;b8:27:eb:&quot; ` &quot;
+resultIp=${result:3:14}
+resultMac=${result:19:17}
+clear
+echo &quot;已经得到结果：&quot;
+echo &quot;您的树莓派Mac地址为:$resultMac&quot;
+echo &quot;    当前连接的IP为:$resultIp&quot;
+echo
+echo &quot;程序结束&quot;
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;无显示器条件下查询树莓派IP的方法&quot;&gt;&lt;a href=&quot;#无显示器条件下查询树莓派IP的方法&quot; class=&quot;headerlink&quot; title=&quot;无显示器条件下查询树莓派IP的方法&quot;&gt;&lt;/a&gt;无显示器条件下查询树莓派IP的方法&lt;/h1&gt;&lt;blockquote&gt;
+
+    
+    </summary>
+    
+      <category term="树莓派" scheme="http://ranxb.cn/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+      <category term="树莓派" scheme="http://ranxb.cn/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="Unix" scheme="http://ranxb.cn/tags/Unix/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu上启动ftp服务</title>
@@ -2034,53 +2108,6 @@ mov ax,es:[0]
     <summary type="html">
     
       &lt;h1 id=&quot;汇编第五章-BX-和loop指令&quot;&gt;&lt;a href=&quot;#汇编第五章-BX-和loop指令&quot; class=&quot;headerlink&quot; title=&quot;汇编第五章 [BX]和loop指令&quot;&gt;&lt;/a&gt;汇编第五章 [BX]和loop指令&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;[bx]
-    
-    </summary>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汇编语言中寄存器ESP和EBP的理解</title>
-    <link href="http://ranxb.cn/2017/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%AF%84%E5%AD%98%E5%99%A8ESP%E5%92%8CEBP%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/</id>
-    <published>2017-11-04T04:31:45.000Z</published>
-    <updated>2017-12-28T19:25:54.068Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="汇编语言中寄存器ESP和EBP的理解"><a href="#汇编语言中寄存器ESP和EBP的理解" class="headerlink" title="汇编语言中寄存器ESP和EBP的理解"></a>汇编语言中寄存器ESP和EBP的理解</h1><blockquote>
-<p>   学校在做信息活动月，有个活动是对xp系统中的一个应用程序进行反汇编，了解他的运行机制，但是在中间有一部分对寄存器的概念有点生疏，所以在网上看到一个好的材料，所以码一下</p>
-</blockquote>
-<p>一直对寄存器ESP和EBP的概念总是有些混淆，查看定义ESP是栈顶指针，EBP是存取堆栈指针。还是不能很透彻理解。之后借于一段汇编代码，总算是对两者有个比较清晰的理解。<br>下面是按调用约定__stdcall 调用函数test(int p1,int p2)的汇编代码</p>
-<pre><code>;假设执行函数前堆栈指针ESP为NN
-push   p2    ;参数2入栈, ESP -= 4h , ESP = NN - 4h
-push   p1    ;参数1入栈, ESP -= 4h , ESP = NN - 8h
-call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch  
-;//进入函数内
-</code></pre><p>看完汇编后,再看EBP和ESP的定义,哦,豁然开朗,<br>原来ESP就是一直指向栈顶的指针,而EBP只是存取某时刻的栈顶指针,以方便对栈的操作,如获取函数参数、局部变量等。</p>
-<pre><code>{
-        push   ebp                        ;保护先前EBP指针， EBP入栈， ESP-=4h, ESP = NN - 10h
-        mov    ebp, esp                   ;设置EBP指针指向栈顶 NN-10h
-        mov    eax, dword ptr  [ebp+0ch]  ;ebp+0ch为NN-4h,即参数2的位置
-        mov    ebx, dword ptr  [ebp+08h]  ;ebp+08h为NN-8h,即参数1的位置
-        sub    esp, 8                     ;局部变量所占空间ESP-=8, ESP = NN-18h
-        ...
-        add    esp, 8                     ;释放局部变量, ESP+=8, ESP = NN-10h
-        pop    ebp                        ;出栈,恢复EBP, ESP+=4, ESP = NN-0Ch
-        ret    8                          ;ret返回,弹出返回地址,ESP+=4, ESP=NN-08h,
-                                            后面加操作数8为平衡堆栈,ESP+=8,ESP=NN, 恢复进入函数前的堆栈.
-}
-</code></pre><p>转自：<a href="http://blog.csdn.net/zsjum/article/details/6117043" target="_blank" rel="external">通过一段汇编，加深对寄存器ESP和EBP的理解</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;汇编语言中寄存器ESP和EBP的理解&quot;&gt;&lt;a href=&quot;#汇编语言中寄存器ESP和EBP的理解&quot; class=&quot;headerlink&quot; title=&quot;汇编语言中寄存器ESP和EBP的理解&quot;&gt;&lt;/a&gt;汇编语言中寄存器ESP和EBP的理解&lt;/h1&gt;&lt;blockquo
     
     </summary>
     
