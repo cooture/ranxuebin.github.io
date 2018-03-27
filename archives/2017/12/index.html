@@ -94,6 +94,13 @@
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="/lab"  >
+                <i class="icon icon-lg icon-lab"></i>
+                实验室
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="https://github.com/ranxuebin" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
@@ -124,16 +131,12 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
         
     </div>
 </header>
@@ -385,7 +388,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -403,55 +406,9 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/archives/2017/12/&title=Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/archives/2017/12/&title=Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/archives/2017/12/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Ran Xuebin's Blog&url=http://ranxb.cn/archives/2017/12/&via=http://ranxb.cn" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/archives/2017/12/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3ayw6CMBAFUP//pzVx5Qa4My2lJqcrgwqnLCadx+sVr/d3/X7+vZJcP7/n5IWLizvMfZ+uo1vnvznfdm7AxcVdz82DVxLUki2db/XwOi4u7mbcfDPVwIeLi/u/3Gpo6wU4XFzcfbhJ8nMenpLtVUMhLi7uU9xewXTu59vru7i4uJO6EtXiabWtUn46Li7uEm7++KQ8mm+gdyTCxcVdz60mPMkdxsc7olwNFxd3Kjc/yvRKGIXwlARWXFzchdyRJkrvSNQs0eLi4m7DzZOfvBHSDIW4uLjLucmBptfvyMcvoiwNFxd3CbfaBM0PPb3xi+hN4OLi3szNE5XeffJyyUWBBhcXdyG3Goaq/+oVVXFxcZ/lVpsf+bfVtOqirYuLi7uEO9TYGE6KmgcsXFzcm7n5UaZXJO0FxEMDLi7uQm718JEnM0n5NX8RuLi4K7n5Gh+9qrZjC1MbuLi4k7jVgFIOPa1ySd7uxcXFvY+bl0WGWqQDLZlC9MXFxZ3KnTVUMSsgXrRScHFxt+FWodXWS3QWw8XF3Z7bK3bkRVVcXNxnufn4RT6KMdJcmVAWwcXFHeBW04/qI+eOceDi4t7M/QDsc5WMFHAktAAAAABJRU5ErkJggg==" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 </script>
