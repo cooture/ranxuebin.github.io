@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2018-05-07T07:55:00.771Z</updated>
+  <updated>2018-06-05T03:32:46.207Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac OS下SD卡烧录镜像</title>
+    <link href="http://ranxb.cn/2018/06/05/Mac-OS%E4%B8%8BSD%E5%8D%A1%E7%83%A7%E5%BD%95%E9%95%9C%E5%83%8F/"/>
+    <id>http://ranxb.cn/2018/06/05/Mac-OS下SD卡烧录镜像/</id>
+    <published>2018-06-05T03:21:57.000Z</published>
+    <updated>2018-06-05T03:32:46.207Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Mac-OS下SD卡烧录镜像"><a href="#Mac-OS下SD卡烧录镜像" class="headerlink" title="Mac OS下SD卡烧录镜像"></a>Mac OS下SD卡烧录镜像</h1><blockquote>
+<p>经常换镜像，做个笔记。</p>
+</blockquote>
+<h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><p>打开磁盘管理，选择SD卡，全部抹除，格式为FAT，不在多说。</p>
+<h2 id="卸载分区"><a href="#卸载分区" class="headerlink" title="卸载分区"></a>卸载分区</h2><ul>
+<li>打开命令行<br><code>diskutil list</code> 查看设备列表</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Rankin-Mac:~ Rankin$ diskutil list</div><div class="line">/dev/disk0 (internal):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      GUID_partition_scheme                         500.3 GB   disk0</div><div class="line">   1:                        EFI EFI                     314.6 MB   disk0s1</div><div class="line">   2:                 Apple_APFS Container disk1         500.0 GB   disk0s2</div><div class="line"></div><div class="line">/dev/disk1 (synthesized):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      APFS Container Scheme -                      +500.0 GB   disk1</div><div class="line">                                 Physical Store disk0s2</div><div class="line">   1:                APFS Volume Macintosh HD            215.0 GB   disk1s1</div><div class="line">   2:                APFS Volume Preboot                 24.2 MB    disk1s2</div><div class="line">   3:                APFS Volume Recovery                517.8 MB   disk1s3</div><div class="line">   4:                APFS Volume VM                      3.2 GB     disk1s4</div><div class="line"></div><div class="line">/dev/disk2 (external, physical):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:     FDisk_partition_scheme                        *7.9 GB     disk2</div><div class="line">   1:                 DOS_FAT_32 UNTITLED                7.9 GB     disk2s1</div><div class="line"></div><div class="line">/dev/disk3 (disk image):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      GUID_partition_scheme                        +314.8 GB   disk3</div><div class="line">   1:                        EFI EFI                     209.7 MB   disk3s1</div><div class="line">   2:                  Apple_HFS 时间机器备份            314.5 GB   disk3s2</div></pre></td></tr></table></figure>
+<p>这样的就卸载disk2的所有分区，例如disk2s1，有多的都要卸载。</p>
+<ul>
+<li>命令：<code>diskutil unmount /dev/disk2s1</code></li>
+</ul>
+<h2 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h2><p>前提是准备好你的镜像iso文件。</p>
+<ul>
+<li>命令：<code>sudo dd bs=4m if=ubuntu-16.04.4-lxqt-aarch64-raspberrypi3b-raspberrypi3b-plus-20180428-chainsx.img of=/dev/rdisk2</code></li>
+<li>注意，目标磁盘为原始磁盘rdisk*，绝对不要把数字写错。</li>
+</ul>
+<p>完成后会提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">750+0 records in  </div><div class="line">750+0 records out</div><div class="line">3145728000 bytes transferred in 279.701624 secs (11246728 bytes/sec)</div></pre></td></tr></table></figure>
+<h2 id="卸载磁盘"><a href="#卸载磁盘" class="headerlink" title="卸载磁盘"></a>卸载磁盘</h2><ul>
+<li>命令：<code>diskutil unmountDisk /dev/disk2</code></li>
+<li>完成</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Mac-OS下SD卡烧录镜像&quot;&gt;&lt;a href=&quot;#Mac-OS下SD卡烧录镜像&quot; class=&quot;headerlink&quot; title=&quot;Mac OS下SD卡烧录镜像&quot;&gt;&lt;/a&gt;Mac OS下SD卡烧录镜像&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;经常换镜像，做个笔
+    
+    </summary>
+    
+      <category term="烧录" scheme="http://ranxb.cn/categories/%E7%83%A7%E5%BD%95/"/>
+    
+    
+      <category term="烧录" scheme="http://ranxb.cn/tags/%E7%83%A7%E5%BD%95/"/>
+    
+      <category term="SD卡" scheme="http://ranxb.cn/tags/SD%E5%8D%A1/"/>
+    
+      <category term="Mac" scheme="http://ranxb.cn/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>台湾科技大学自动查询审核结果的脚本</title>
@@ -1994,88 +2044,6 @@ mov ax,[bx].200
       <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="线性代数" scheme="http://ranxb.cn/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汇编第六章：包含多个短的程序</title>
-    <link href="http://ranxb.cn/2017/12/28/%E6%B1%87%E7%BC%96%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%8C%85%E5%90%AB%E5%A4%9A%E4%B8%AA%E7%9F%AD%E7%9A%84%E7%A8%8B%E5%BA%8F/"/>
-    <id>http://ranxb.cn/2017/12/28/汇编第六章：包含多个短的程序/</id>
-    <published>2017-12-28T12:07:59.000Z</published>
-    <updated>2017-12-28T18:21:14.005Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="汇编第六章：包含多个短的程序"><a href="#汇编第六章：包含多个短的程序" class="headerlink" title="汇编第六章：包含多个短的程序"></a>汇编第六章：包含多个短的程序</h1><blockquote>
-<p>dw  == define word  </p>
-</blockquote>
-<p>一个dw：<strong>16位两字节</strong>  </p>
-<h2 id="start…end-start"><a href="#start…end-start" class="headerlink" title="start…end start"></a>start…end start</h2><p>如果程序入口不是我们想要执行的指令可以使用start指令指明程序入口所在  </p>
-<pre><code>assume cs:code
-code segment
-        .
-        .
-        .
-        dw 0123h,1456h;数据
-        .
-        .
-        .
-start:
-        .
-        .
-        .
-        mov ax,0;代码
-        .
-        .
-        .
-        mov ax,4c00H
-        int 21H
-code ends
-end start
-</code></pre><p><strong>一个段的容量不能大于64kb</strong><br>因此可以考虑使用多个段来存放数据、代码、和栈。<br><strong>stack</strong> == 栈  </p>
-<blockquote>
-<p>8086不允许将一个数值直接送入段寄存器，例如“mov ds,data”。data也会被编译器处理为表示一个段地址的数值  </p>
-</blockquote>
-<p>data、satck、code也仅仅是命名而已，就跟标号一样，需要用assume将他们和cpu联系起来<br>因此程序有以下模板  </p>
-<pre><code>assume cs:code,ss:stack,ds:data
-
-data segment
-    dw ..........
-data ends
-
-stack segment
-    dw 0,0,0,0,0,0.....
-stack ends
-
-code segment
-
-    start:
-        mov ax,data                ;数据段空间
-        mov ds,ax
-        mov bx,0
-
-        mov ax,stack            ;栈空间
-        mov ss,ax
-        mov sp,0
-        .
-        .
-        .
-code ends
-
-start end 
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;汇编第六章：包含多个短的程序&quot;&gt;&lt;a href=&quot;#汇编第六章：包含多个短的程序&quot; class=&quot;headerlink&quot; title=&quot;汇编第六章：包含多个短的程序&quot;&gt;&lt;/a&gt;汇编第六章：包含多个短的程序&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;dw  == de
-    
-    </summary>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
