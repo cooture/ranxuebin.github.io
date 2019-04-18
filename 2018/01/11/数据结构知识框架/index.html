@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,6 +29,7 @@
 <meta property="og:url" content="http://ranxb.cn/2018/01/11/数据结构知识框架/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="数据结构知识框架第一章第一方面：基本概念1、数据结构研究方面（研究内容）主要体现三个方面：  数据的逻辑关系 储存关系 运算关系 还讨论算法的效率问题，分类问题等。   2、数据结构的逻辑结构逻辑关系：自然状态下数据元素之间的一种联系（关联方式或邻接关系，从逻辑上观察数据，与计算机无关）。逻辑结构：对数据元素之间关系的描述B=(k，r)其中，k：数据元素的有穷集合（有限元素构成），r：k上关系的有">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://ranxb.cn/2018/01/11/数据结构知识框架/a.png">
 <meta property="og:image" content="http://ranxb.cn/2018/01/11/数据结构知识框架/b.png">
 <meta property="og:image" content="http://ranxb.cn/2018/01/11/数据结构知识框架/c.png">
@@ -69,7 +70,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -89,49 +90,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 仓库
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/lab"  >
+              <a href="/lab">
                 <i class="icon icon-lg icon-lab"></i>
                 实验室
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ranxuebin" target="_blank" >
+              <a href="https://github.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="http://weibo.com/ranxuebin" target="_blank" >
+              <a href="http://weibo.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 微博
               </a>
@@ -195,13 +196,12 @@
         </nav>
     </aside>
     
-<article id="post-数据结构知识框架"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-数据结构知识框架" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">数据结构知识框架</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-01-11 09:16:54" datetime="2018-01-11T01:16:54.000Z"  itemprop="datePublished">2018-01-11</time>
+            <time class="post-time" title="2018-01-11 09:16:54" datetime="2018-01-11T01:16:54.000Z" itemprop="datePublished">2018-01-11</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
@@ -209,7 +209,7 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -285,7 +285,7 @@ END
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="a.png" alt="" title="">
+                    <img src="a.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>  
@@ -326,28 +326,28 @@ END
 <li>二叉排序树的构造  </li>
 </ul>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">二叉树的先序遍历</div><div class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</div><div class="line">BEGIN</div><div class="line">	IF T!=NULL</div><div class="line">		THEN	[PRINT&quot;T-&gt;DATA&quot;</div><div class="line">				CALL XIANXUBIANLI(T-&gt;LSON)</div><div class="line">				CALL XIANXUBIANLI(T-&gt;RSON)]</div><div class="line">END</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">二叉树的中序遍历</div><div class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</div><div class="line">BEGIN</div><div class="line">	IF T!=NULL</div><div class="line">		THEN	[CALL XIANXUBIANLI(T-&gt;LSON)</div><div class="line">				PRINT&quot;T-&gt;DATA&quot;</div><div class="line">				CALL XIANXUBIANLI(T-&gt;RSON)]</div><div class="line">				</div><div class="line">END</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">二叉树的后序遍历</div><div class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</div><div class="line">BEGIN</div><div class="line">	IF T!=NULL</div><div class="line">		THEN	[CALL XIANXUBIANLI(T-&gt;LSON)</div><div class="line">				CALL XIANXUBIANLI(T-&gt;RSON)</div><div class="line">				PRINT&quot;T-&gt;DATA&quot;]</div><div class="line">END</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">二叉树的先序遍历</span><br><span class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</span><br><span class="line">BEGIN</span><br><span class="line">	IF T!=NULL</span><br><span class="line">		THEN	[PRINT&quot;T-&gt;DATA&quot;</span><br><span class="line">				CALL XIANXUBIANLI(T-&gt;LSON)</span><br><span class="line">				CALL XIANXUBIANLI(T-&gt;RSON)]</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">二叉树的中序遍历</span><br><span class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</span><br><span class="line">BEGIN</span><br><span class="line">	IF T!=NULL</span><br><span class="line">		THEN	[CALL XIANXUBIANLI(T-&gt;LSON)</span><br><span class="line">				PRINT&quot;T-&gt;DATA&quot;</span><br><span class="line">				CALL XIANXUBIANLI(T-&gt;RSON)]</span><br><span class="line">				</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">二叉树的后序遍历</span><br><span class="line">PROC XIANXUBIANLI (VAR T:BINARY TREE)</span><br><span class="line">BEGIN</span><br><span class="line">	IF T!=NULL</span><br><span class="line">		THEN	[CALL XIANXUBIANLI(T-&gt;LSON)</span><br><span class="line">				CALL XIANXUBIANLI(T-&gt;RSON)</span><br><span class="line">				PRINT&quot;T-&gt;DATA&quot;]</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 <p><strong>树到二叉树的转换：</strong>  </p>
 <ul>
 <li>加线：加横线</li>
-<li>抹线：抹掉可以抹掉的所有右孩子之间的线<br><img src="b.png" alt=""></li>
+<li>抹线：抹掉可以抹掉的所有右孩子之间的线<br><img src="b.png" alt></li>
 </ul>
 <p><strong>二叉树转到树：</strong>  </p>
 <ul>
 <li>加线：1.是父节点的左孩子。2.把父节点和他的右孩子和右孩子的右孩子和。。。连起来。</li>
-<li>抹线：抹去所有节点和右孩子之间的线<br><img src="c.png" alt="">    </li>
+<li>抹线：抹去所有节点和右孩子之间的线<br><img src="c.png" alt>    </li>
 </ul>
 <p><strong>森林转化为二叉树</strong></p>
 <ul>
 <li>把每个树转化为二叉树</li>
-<li>二叉树的连接：依据森林次序，后一棵二叉树是前一棵二叉树根节点的右子树<br><img src="d.png" alt=""></li>
+<li>二叉树的连接：依据森林次序，后一棵二叉树是前一棵二叉树根节点的右子树<br><img src="d.png" alt></li>
 </ul>
 <p><strong>二叉树转换成森林</strong></p>
 <ul>
 <li>抹线：把节点的右子树都拿出来</li>
-<li>还原：把每个二叉树变成树<br><img src="e.png" alt=""></li>
+<li>还原：把每个二叉树变成树<br><img src="e.png" alt></li>
 </ul>
 <p><strong>线索化</strong></p>
 <ul>
@@ -358,7 +358,7 @@ END
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="f.png" alt="" title="">
+                    <img src="f.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -371,7 +371,7 @@ END
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="g.png" alt="" title="">
+                    <img src="g.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -385,7 +385,7 @@ END
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="h.png" alt="" title="">
+                    <img src="h.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -399,7 +399,7 @@ END
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="i.png" alt="" title="">
+                    <img src="i.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -415,7 +415,7 @@ BEGIN
                     CALL EXCHANGE(T-&gt;RSON)]
 END
 </code></pre><p>求二叉树的高度</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">PROC HIGHT(VAR T:BINARYTREE,H)</div><div class="line">BEGIN </div><div class="line">	IF T=NULL</div><div class="line">			THEN	H&lt;-0</div><div class="line">			ELSE	[CALL HIGHT(T-&gt;LSON,H1)</div><div class="line">					CALL HIGHT(T-&gt;RSON,H2)</div><div class="line">					H&lt;-MAX(H1,H2)+1]</div><div class="line">END</div><div class="line">```	 </div><div class="line">叶子结点的个数</div><div class="line"></div><div class="line">```PDL</div><div class="line">PROC COUNTLEAF(VAR T:BINARYTREE;COUNT:INTGER)</div><div class="line">BIGIN</div><div class="line">	CASE	</div><div class="line">			T=NULL:	COUNT&lt;-0</div><div class="line">			T-&gt;LSON=NULL AND T-&gt;RSON=NULL:  COUNT&lt;-1</div><div class="line">			ELSE	[CALL COUNTLEAF(T-&gt;LSON,C1)</div><div class="line">					CALL COUNTLEAF(T-&gt;RSON,C2)</div><div class="line">					COUNT&lt;-C1+C2]</div><div class="line">	END CASE</div><div class="line">END</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">PROC HIGHT(VAR T:BINARYTREE,H)</span><br><span class="line">BEGIN </span><br><span class="line">	IF T=NULL</span><br><span class="line">			THEN	H&lt;-0</span><br><span class="line">			ELSE	[CALL HIGHT(T-&gt;LSON,H1)</span><br><span class="line">					CALL HIGHT(T-&gt;RSON,H2)</span><br><span class="line">					H&lt;-MAX(H1,H2)+1]</span><br><span class="line">END</span><br><span class="line">```	 </span><br><span class="line">叶子结点的个数</span><br><span class="line"></span><br><span class="line">```PDL</span><br><span class="line">PROC COUNTLEAF(VAR T:BINARYTREE;COUNT:INTGER)</span><br><span class="line">BIGIN</span><br><span class="line">	CASE	</span><br><span class="line">			T=NULL:	COUNT&lt;-0</span><br><span class="line">			T-&gt;LSON=NULL AND T-&gt;RSON=NULL:  COUNT&lt;-1</span><br><span class="line">			ELSE	[CALL COUNTLEAF(T-&gt;LSON,C1)</span><br><span class="line">					CALL COUNTLEAF(T-&gt;RSON,C2)</span><br><span class="line">					COUNT&lt;-C1+C2]</span><br><span class="line">	END CASE</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 <h2 id="第八章：图结构（二）"><a href="#第八章：图结构（二）" class="headerlink" title="第八章：图结构（二）"></a>第八章：图结构（二）</h2><p>1、<strong>图</strong>：由n(n≥1)个结点v1，v2，……，vn构成的数据G称为图。若结点集V=｛v1、v2……vn｝上定义的称为后继的关系E是非自反的，可表示为G=（V，E），其中V为顶点集，E为边集。<br>2、<strong>图的遍历</strong>：给出图G和其中的任意一个定点v0，从v0出发系统的访问G中所有的定点，且每个顶点（反）被访问一次，这一过程称为图的遍历。<br>3、<strong>图的遍历规律</strong>：广度优先遍历，深度优先遍历。<br>4、<strong>最小生成树</strong>：一个有 n 个结点的连通图的生成树是原图的极小连通子图，且包含原图中的所有 n 个结点，并且有保持图连通的最少的边和权重。<br>5、<strong>AOV网</strong>：若有向图G中，顶点表示活动或任务，有向边表示活动或任务之间的优先关系，则此有向图称为顶点表示活动网络（AOV网）。<br>6、<strong>AOE网</strong>：若在带权的有有向图中的顶点表示事件，有向边表示活动，权表示活动持续的时间，则此有向图称为边表示活动的网络(AOE网)。<br>7、<strong>拓扑排序</strong>：对于有向图G=(V,E)，V中的顶点的线性序列(Vi1,Vi2,……,Vin)，称作一个拓扑序列，若此结点序列满足如下条件；在G中从顶点u到顶点v有一条路径，则在序列中u必在v之前。寻找拓扑序列的有效手段就是进行拓扑排序。<br>8、<strong>关键路径</strong>：任务计划作业图上的需要时间最长的路径（可有多条），它决定完成总任务的时间。  </p>
 <blockquote>
 <p>第二个层次</p>
@@ -425,9 +425,9 @@ END
 <li>Prim和Kruskal算法  </li>
 </ul>
 </blockquote>
-<p><strong>邻接表和邻接矩阵的表示</strong><br>有向图中邻接表的表示：<br><img src="j.png" alt=""><br>网的邻接矩阵：<br><img src="k.png" alt=""><br><strong>深度优先搜索</strong><br><img src="l.png" alt=""><br><strong>广度优先搜索</strong><br><img src="m.png" alt="">  </p>
-<p><strong>prim算法构造最小生成树</strong><br>每一步都找已连通的树中权最小的边用来构造<br><img src="n.png" alt=""></p>
-<p><strong>Kruskal算法构造最小生成树</strong><br>按照权值递增的顺序逐个考虑E中的每条边：<br><img src="o.png" alt=""></p>
+<p><strong>邻接表和邻接矩阵的表示</strong><br>有向图中邻接表的表示：<br><img src="j.png" alt><br>网的邻接矩阵：<br><img src="k.png" alt><br><strong>深度优先搜索</strong><br><img src="l.png" alt><br><strong>广度优先搜索</strong><br><img src="m.png" alt>  </p>
+<p><strong>prim算法构造最小生成树</strong><br>每一步都找已连通的树中权最小的边用来构造<br><img src="n.png" alt></p>
+<p><strong>Kruskal算法构造最小生成树</strong><br>按照权值递增的顺序逐个考虑E中的每条边：<br><img src="o.png" alt></p>
 <h2 id="第九章：排序（二、三）"><a href="#第九章：排序（二、三）" class="headerlink" title="第九章：排序（二、三）"></a>第九章：排序（二、三）</h2><p>1、<strong>排序</strong>：设含有n个记录的集合为R=｛r1，r2，……，rn｝，其对应的关键字集合为k=｛k1，k2，……，kn｝，给定关系α，按照关系α针对关键字集合k对R进行运算，是的R有如下序列：<br>（rα1，rα2，……，rαn）<br>我们将这个操作过程称为排序。<br>2、<strong>排序分类</strong>：分为外部排序和内部排序。<br>内部排序包括  </p>
 <ul>
 <li>插入排序  </li>
@@ -448,7 +448,7 @@ END
 <li>堆的构造  </li>
 </ul>
 </blockquote>
-<p><strong>直接插入</strong><br>从一个零集合开始，将 r 按照排序关系插入到一个已经有序的文件适当位置。<br><img src="p.png" alt=""></p>
+<p><strong>直接插入</strong><br>从一个零集合开始，将 r 按照排序关系插入到一个已经有序的文件适当位置。<br><img src="p.png" alt></p>
 <p><strong>快速排序</strong><br>基本方法：</p>
 <pre><code>PROC QuickSort(VAR R:ARRAY[1..n] OF datatype;l,p:integer);
 BEGIN 
@@ -466,12 +466,12 @@ BEGIN
    IF  l＜j THEN CALL QuickSort(R, l , j); 
    IF  i＜p THEN CALL QuickSort(R, i , p);
 END; 
-</code></pre><p><strong>二路插入</strong><br>两个两个合并，然后四个四个合并，然后大的合并<br><strong>堆的构造</strong><br>1.先插入，然后往上爬。<br><img src="q.png" alt=""><br>2.先排列，然后从第一半个节点开始往上爬。<br><img src="y.png" alt=""><br><strong>基数排序</strong><br>看最低位，一次装进是个桶里，然后拿出来。<br>再装第二位，最后装第三位。<br><img src="r.png" alt=""></p>
+</code></pre><p><strong>二路插入</strong><br>两个两个合并，然后四个四个合并，然后大的合并<br><strong>堆的构造</strong><br>1.先插入，然后往上爬。<br><img src="q.png" alt><br>2.先排列，然后从第一半个节点开始往上爬。<br><img src="y.png" alt><br><strong>基数排序</strong><br>看最低位，一次装进是个桶里，然后拿出来。<br>再装第二位，最后装第三位。<br><img src="r.png" alt></p>
 <blockquote>
 <p>第三个层次：二分插入排序</p>
 </blockquote>
 <p>与直接插入排序的区别：在插入第i个时搜索采用二分策略。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">PROC DUOSORT(VAR R:ARRAY[1..N])</div><div class="line">BIGIN</div><div class="line">	FOR I&lt;-2 TODO N DO[</div><div class="line">		X&lt;-R[I],L &lt;- 1,H &lt;- I</div><div class="line">		WHILE L&lt;=H DO[</div><div class="line">			M&lt;-(L+H)DIV2</div><div class="line">			IF	X&lt;A[M]</div><div class="line">				THEN H&lt;-(M-1)</div><div class="line">				ELSE L&lt;-(L+1)</div><div class="line">		]</div><div class="line">		FOR J&lt;-(I-1) TODO L DO R[J+1] &lt;- R[J]</div><div class="line">		R[L] &lt;- X </div><div class="line">	]</div><div class="line">END</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PROC DUOSORT(VAR R:ARRAY[1..N])</span><br><span class="line">BIGIN</span><br><span class="line">	FOR I&lt;-2 TODO N DO[</span><br><span class="line">		X&lt;-R[I],L &lt;- 1,H &lt;- I</span><br><span class="line">		WHILE L&lt;=H DO[</span><br><span class="line">			M&lt;-(L+H)DIV2</span><br><span class="line">			IF	X&lt;A[M]</span><br><span class="line">				THEN H&lt;-(M-1)</span><br><span class="line">				ELSE L&lt;-(L+1)</span><br><span class="line">		]</span><br><span class="line">		FOR J&lt;-(I-1) TODO L DO R[J+1] &lt;- R[J]</span><br><span class="line">		R[L] &lt;- X </span><br><span class="line">	]</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 <h2 id="第十章：数据检索（二、三）"><a href="#第十章：数据检索（二、三）" class="headerlink" title="第十章：数据检索（二、三）"></a>第十章：数据检索（二、三）</h2><p>1、<strong>检索</strong>：在给定数据结构中查找满足某种条件的数据元素（或节点，记录）的过程。<br>2、<strong>检索分类</strong>：  </p>
 <ul>
 <li>基于关键字的检索；  </li>
@@ -492,11 +492,11 @@ END;
 <li>调整要求中序顺序不变</li>
 <li>RL或LR调整要把整个x都要挪上去</li>
 </ul>
-<p>举例：<br><img src="z.png" alt=""></p>
+<p>举例：<br><img src="z.png" alt></p>
 <blockquote>
 <p>第三层次：二分检索  </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">PROC DUOSEARCH(VAR R:ARRAY[1...MAX]OF DATATYPE;N:INTEGER;K:KTYPE)</div><div class="line">BEGIN</div><div class="line">	L &lt;- 1,H &lt;- N</div><div class="line">	WHILE L &lt;= H DO[</div><div class="line">		MIDDLE &lt;- (L+H) DIV 2</div><div class="line">		CASE	</div><div class="line">			K == R[MIDDLE]:WRITE&quot;SUEECE&quot;,EXIT;</div><div class="line">			K &lt; R[MIDDLE]: H = MIDDLE-1</div><div class="line">			K &gt; R[MIDDLE]: L = MIDDLE+1</div><div class="line">		ENDCASE</div><div class="line">	]</div><div class="line">	WRITE&quot;UNSUCCSE&quot;</div><div class="line">END</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PROC DUOSEARCH(VAR R:ARRAY[1...MAX]OF DATATYPE;N:INTEGER;K:KTYPE)</span><br><span class="line">BEGIN</span><br><span class="line">	L &lt;- 1,H &lt;- N</span><br><span class="line">	WHILE L &lt;= H DO[</span><br><span class="line">		MIDDLE &lt;- (L+H) DIV 2</span><br><span class="line">		CASE	</span><br><span class="line">			K == R[MIDDLE]:WRITE&quot;SUEECE&quot;,EXIT;</span><br><span class="line">			K &lt; R[MIDDLE]: H = MIDDLE-1</span><br><span class="line">			K &gt; R[MIDDLE]: L = MIDDLE+1</span><br><span class="line">		ENDCASE</span><br><span class="line">	]</span><br><span class="line">	WRITE&quot;UNSUCCSE&quot;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 <h2 id="十二章，文件"><a href="#十二章，文件" class="headerlink" title="十二章，文件"></a>十二章，文件</h2><p>1、    <strong>文件</strong>：为了进行存取控制、检索和修改而组织在一起的数据记录集合。<br>2、    <strong>文件逻辑组成分类</strong>：（广义）两种：  </p>
 <ul>
 <li>字符流文件：有序的字符流序列，文件基本单位为字节或字。  </li>
@@ -604,8 +604,7 @@ END;
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -624,10 +623,10 @@ END;
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

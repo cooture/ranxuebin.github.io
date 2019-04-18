@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,6 +29,7 @@
 <meta property="og:url" content="http://ranxb.cn/2017/11/04/汇编语言中寄存器ESP和EBP的理解/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="汇编语言中寄存器ESP和EBP的理解    学校在做信息活动月，有个活动是对xp系统中的一个应用程序进行反汇编，了解他的运行机制，但是在中间有一部分对寄存器的概念有点生疏，所以在网上看到一个好的材料，所以码一下  一直对寄存器ESP和EBP的概念总是有些混淆，查看定义ESP是栈顶指针，EBP是存取堆栈指针。还是不能很透彻理解。之后借于一段汇编代码，总算是对两者有个比较清晰的理解。下面是按调用约定_">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-12-28T19:25:54.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编语言中寄存器ESP和EBP的理解">
@@ -48,7 +49,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -68,49 +69,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 仓库
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/lab"  >
+              <a href="/lab">
                 <i class="icon icon-lg icon-lab"></i>
                 实验室
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ranxuebin" target="_blank" >
+              <a href="https://github.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="http://weibo.com/ranxuebin" target="_blank" >
+              <a href="http://weibo.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 微博
               </a>
@@ -174,13 +175,12 @@
         </nav>
     </aside>
     
-<article id="post-汇编语言中寄存器ESP和EBP的理解"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-汇编语言中寄存器ESP和EBP的理解" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">汇编语言中寄存器ESP和EBP的理解</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-11-04 12:31:45" datetime="2017-11-04T04:31:45.000Z"  itemprop="datePublished">2017-11-04</time>
+            <time class="post-time" title="2017-11-04 12:31:45" datetime="2017-11-04T04:31:45.000Z" itemprop="datePublished">2017-11-04</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
@@ -188,7 +188,7 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -217,7 +217,7 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
         ret    8                          ;ret返回,弹出返回地址,ESP+=4, ESP=NN-08h,
                                             后面加操作数8为平衡堆栈,ESP+=8,ESP=NN, 恢复进入函数前的堆栈.
 }
-</code></pre><p>转自：<a href="http://blog.csdn.net/zsjum/article/details/6117043" target="_blank" rel="external">通过一段汇编，加深对寄存器ESP和EBP的理解</a></p>
+</code></pre><p>转自：<a href="http://blog.csdn.net/zsjum/article/details/6117043" target="_blank" rel="noopener">通过一段汇编，加深对寄存器ESP和EBP的理解</a></p>
 
         </div>
 
@@ -313,8 +313,7 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -333,10 +332,10 @@ call test    ;压入返回地址 ESP -= 4h, ESP = NN - 0Ch
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

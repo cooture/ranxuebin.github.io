@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,6 +29,7 @@
 <meta property="og:url" content="http://ranxb.cn/2018/06/05/Mac-OS下SD卡烧录镜像/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="Mac OS下SD卡烧录镜像 经常换镜像，做个笔记。  格式化打开磁盘管理，选择SD卡，全部抹除，格式为FAT，不在多说。 卸载分区 打开命令行diskutil list 查看设备列表  1234567891011121314151617181920212223242526Rankin-Mac:~ Rankin$ diskutil list/dev/disk0 (internal):   #:">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-06-05T03:32:46.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac OS下SD卡烧录镜像">
@@ -48,7 +49,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -68,49 +69,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 仓库
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/lab"  >
+              <a href="/lab">
                 <i class="icon icon-lg icon-lab"></i>
                 实验室
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ranxuebin" target="_blank" >
+              <a href="https://github.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="http://weibo.com/ranxuebin" target="_blank" >
+              <a href="http://weibo.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 微博
               </a>
@@ -174,13 +175,12 @@
         </nav>
     </aside>
     
-<article id="post-Mac-OS下SD卡烧录镜像"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-Mac-OS下SD卡烧录镜像" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Mac OS下SD卡烧录镜像</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-06-05 11:21:57" datetime="2018-06-05T03:21:57.000Z"  itemprop="datePublished">2018-06-05</time>
+            <time class="post-time" title="2018-06-05 11:21:57" datetime="2018-06-05T03:21:57.000Z" itemprop="datePublished">2018-06-05</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/烧录/">烧录</a></li></ul>
@@ -188,7 +188,7 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -202,7 +202,7 @@
 <h2 id="卸载分区"><a href="#卸载分区" class="headerlink" title="卸载分区"></a>卸载分区</h2><ul>
 <li>打开命令行<br><code>diskutil list</code> 查看设备列表</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Rankin-Mac:~ Rankin$ diskutil list</div><div class="line">/dev/disk0 (internal):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      GUID_partition_scheme                         500.3 GB   disk0</div><div class="line">   1:                        EFI EFI                     314.6 MB   disk0s1</div><div class="line">   2:                 Apple_APFS Container disk1         500.0 GB   disk0s2</div><div class="line"></div><div class="line">/dev/disk1 (synthesized):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      APFS Container Scheme -                      +500.0 GB   disk1</div><div class="line">                                 Physical Store disk0s2</div><div class="line">   1:                APFS Volume Macintosh HD            215.0 GB   disk1s1</div><div class="line">   2:                APFS Volume Preboot                 24.2 MB    disk1s2</div><div class="line">   3:                APFS Volume Recovery                517.8 MB   disk1s3</div><div class="line">   4:                APFS Volume VM                      3.2 GB     disk1s4</div><div class="line"></div><div class="line">/dev/disk2 (external, physical):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:     FDisk_partition_scheme                        *7.9 GB     disk2</div><div class="line">   1:                 DOS_FAT_32 UNTITLED                7.9 GB     disk2s1</div><div class="line"></div><div class="line">/dev/disk3 (disk image):</div><div class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      GUID_partition_scheme                        +314.8 GB   disk3</div><div class="line">   1:                        EFI EFI                     209.7 MB   disk3s1</div><div class="line">   2:                  Apple_HFS 时间机器备份            314.5 GB   disk3s2</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Rankin-Mac:~ Rankin$ diskutil list</span><br><span class="line">/dev/disk0 (internal):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                         500.3 GB   disk0</span><br><span class="line">   1:                        EFI EFI                     314.6 MB   disk0s1</span><br><span class="line">   2:                 Apple_APFS Container disk1         500.0 GB   disk0s2</span><br><span class="line"></span><br><span class="line">/dev/disk1 (synthesized):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      APFS Container Scheme -                      +500.0 GB   disk1</span><br><span class="line">                                 Physical Store disk0s2</span><br><span class="line">   1:                APFS Volume Macintosh HD            215.0 GB   disk1s1</span><br><span class="line">   2:                APFS Volume Preboot                 24.2 MB    disk1s2</span><br><span class="line">   3:                APFS Volume Recovery                517.8 MB   disk1s3</span><br><span class="line">   4:                APFS Volume VM                      3.2 GB     disk1s4</span><br><span class="line"></span><br><span class="line">/dev/disk2 (external, physical):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:     FDisk_partition_scheme                        *7.9 GB     disk2</span><br><span class="line">   1:                 DOS_FAT_32 UNTITLED                7.9 GB     disk2s1</span><br><span class="line"></span><br><span class="line">/dev/disk3 (disk image):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                        +314.8 GB   disk3</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk3s1</span><br><span class="line">   2:                  Apple_HFS 时间机器备份            314.5 GB   disk3s2</span><br></pre></td></tr></table></figure>
 <p>这样的就卸载disk2的所有分区，例如disk2s1，有多的都要卸载。</p>
 <ul>
 <li>命令：<code>diskutil unmount /dev/disk2s1</code></li>
@@ -213,7 +213,7 @@
 <li>注意，目标磁盘为原始磁盘rdisk*，绝对不要把数字写错。</li>
 </ul>
 <p>完成后会提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">750+0 records in  </div><div class="line">750+0 records out</div><div class="line">3145728000 bytes transferred in 279.701624 secs (11246728 bytes/sec)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">750+0 records in  </span><br><span class="line">750+0 records out</span><br><span class="line">3145728000 bytes transferred in 279.701624 secs (11246728 bytes/sec)</span><br></pre></td></tr></table></figure>
 <h2 id="卸载磁盘"><a href="#卸载磁盘" class="headerlink" title="卸载磁盘"></a>卸载磁盘</h2><ul>
 <li>命令：<code>diskutil unmountDisk /dev/disk2</code></li>
 <li>完成</li>
@@ -313,8 +313,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -333,10 +332,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

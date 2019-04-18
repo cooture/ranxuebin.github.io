@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -21,13 +21,14 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content>
     <meta name="description" content="冉学斌的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ran Xuebin&#39;s Blog">
 <meta property="og:url" content="http://ranxb.cn/page/3/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="冉学斌的博客">
+<meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ran Xuebin&#39;s Blog">
 <meta name="twitter:description" content="冉学斌的博客">
@@ -46,7 +47,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
+    <aside id="menu">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -66,49 +67,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 仓库
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/lab"  >
+              <a href="/lab">
                 <i class="icon icon-lg icon-lab"></i>
                 实验室
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ranxuebin" target="_blank" >
+              <a href="https://github.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="http://weibo.com/ranxuebin" target="_blank" >
+              <a href="http://weibo.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 微博
               </a>
@@ -161,11 +162,122 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-汇编第七章：更灵活的定位内存地址的方式"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-汇编第九章：转移指令的原理" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-12-29 02:46:40" datetime="2017-12-28T18:46:40.000Z"  itemprop="datePublished">2017-12-29</time>
+        <time class="post-time" title="2017-12-30 17:41:24" datetime="2017-12-30T09:41:24.000Z" itemprop="datePublished">2017-12-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/12/30/汇编第九章：转移指令的原理/">汇编第九章：转移指令的原理</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        汇编第九章：转移指令的原理
+概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。表现为可以修改IP或者同时修改CS和IP的指令。
+
+以下讨论8086转移行为的分类第一类：只修改IP的转移行为叫做段内转移  
+
+根据转一指令对IP的修改范围不同，段内转移可分为。  
+
+
+短转移：IP的修改范围为-128 ～ 127.
+近转移：IP的修改范围为-32768 ～ 32767.
+
+第二类：...
+    
+
+        <a href="/2017/12/30/汇编第九章：转移指令的原理/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编语言/">汇编语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-汇编第八章：数据处理的两个基本问题" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-12-29 03:23:25" datetime="2017-12-28T19:23:25.000Z" itemprop="datePublished">2017-12-29</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/12/29/汇编第八章：数据处理的两个基本问题/">汇编第八章：数据处理的两个基本问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        汇编第八章：数据处理的两个基本问题
+章前言说的是对前面所有的内容是有总结性的，这里主要探讨两个问题：  
+
+处理的数据在什么地方？  
+处理的数据有多长？
+
+
+定义两个符号reg和sregreg代表寄存器，包括：ax,bx,cx,dx,ah,al,bh,bl,ch,cl,dh,dl,sp,bp,si,disreg代表段寄存器，包括：ds,ss,cs,es
+bx、si、di、bp的使用规则
+三...
+    
+
+        <a href="/2017/12/29/汇编第八章：数据处理的两个基本问题/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编语言/">汇编语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-汇编第七章：更灵活的定位内存地址的方式" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-12-29 02:46:40" datetime="2017-12-28T18:46:40.000Z" itemprop="datePublished">2017-12-29</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
@@ -217,11 +329,10 @@ or al,00111011B
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-现代第二章"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-现代第二章" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-12-28 20:08:13" datetime="2017-12-28T12:08:13.000Z"  itemprop="datePublished">2017-12-28</time>
+        <time class="post-time" title="2017-12-28 20:08:13" datetime="2017-12-28T12:08:13.000Z" itemprop="datePublished">2017-12-28</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/线性代数/">线性代数</a></li></ul>
@@ -274,11 +385,10 @@ or al,00111011B
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-汇编第六章：包含多个短的程序"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-汇编第六章：包含多个短的程序" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-12-28 20:07:59" datetime="2017-12-28T12:07:59.000Z"  itemprop="datePublished">2017-12-28</time>
+        <time class="post-time" title="2017-12-28 20:07:59" datetime="2017-12-28T12:07:59.000Z" itemprop="datePublished">2017-12-28</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
@@ -332,11 +442,10 @@ code segment
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-汇编第五章-BX-和loop指令"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-汇编第五章-BX-和loop指令" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-12-28 20:07:35" datetime="2017-12-28T12:07:35.000Z"  itemprop="datePublished">2017-12-28</time>
+        <time class="post-time" title="2017-12-28 20:07:35" datetime="2017-12-28T12:07:35.000Z" itemprop="datePublished">2017-12-28</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
@@ -390,11 +499,10 @@ BE   21...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-汇编语言中寄存器ESP和EBP的理解"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-汇编语言中寄存器ESP和EBP的理解" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-04 12:31:45" datetime="2017-11-04T04:31:45.000Z"  itemprop="datePublished">2017-11-04</time>
+        <time class="post-time" title="2017-11-04 12:31:45" datetime="2017-11-04T04:31:45.000Z" itemprop="datePublished">2017-11-04</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/汇编语言/">汇编语言</a></li></ul>
@@ -440,11 +548,10 @@ BE   21...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-成都的流水账"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-成都的流水账" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-11-03 17:57:01" datetime="2017-11-03T09:57:01.000Z"  itemprop="datePublished">2017-11-03</time>
+        <time class="post-time" title="2017-11-03 17:57:01" datetime="2017-11-03T09:57:01.000Z" itemprop="datePublished">2017-11-03</time>
 
         
 
@@ -489,11 +596,10 @@ BE   21...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-数电笔记：第一章数字逻辑基础"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-数电笔记：第一章数字逻辑基础" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-29 23:05:21" datetime="2017-10-29T15:05:21.000Z"  itemprop="datePublished">2017-10-29</time>
+        <time class="post-time" title="2017-10-29 23:05:21" datetime="2017-10-29T15:05:21.000Z" itemprop="datePublished">2017-10-29</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数字电路/">数字电路</a></li></ul>
@@ -548,11 +654,10 @@ BE   21...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Fragment的应用"
-  class="article-card article-type-post" itemprop="blogPost">
+            <article id="post-Fragment的应用" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-10-26 00:33:22" datetime="2017-10-25T16:33:22.000Z"  itemprop="datePublished">2017-10-26</time>
+        <time class="post-time" title="2017-10-26 00:33:22" datetime="2017-10-25T16:33:22.000Z" itemprop="datePublished">2017-10-26</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
@@ -602,129 +707,6 @@ xml文件中添加一个fragment，其中添加    androi...
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-我勒个去成都！！！————写在前面"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-09-29 00:37:22" datetime="2017-09-28T16:37:22.000Z"  itemprop="datePublished">2017-09-29</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/成都游记/">成都游记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/09/29/我勒个去成都！！！————写在前面/">我勒个去成都！！！————写在前面</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        我勒个去成都！！！————写在前面提前的准备
-一共两个背包一个小提箱；箱子里主要放衣服杂物不常用的东西；背包里面电脑相机卫生纸日常用的还有。。零食？   
-
-
-身份证
-学生证
-手机
-充电宝
-流量
-银行卡
-各种充电器
-电脑可以选择性的带一个🐒
-相机（不带脚架）
-各种衣服
-伞！！！！！！！
-
-衣物
-看天气预报大多是阴天和雨天？？难道是因为比较潮？？  
-
-30号到成都当晚阴天18度，然后1号到...
-    
-
-        <a href="/2017/09/29/我勒个去成都！！！————写在前面/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/成都/">成都</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游记/">游记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-在Android中Menu的使用"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-09-28 00:58:26" datetime="2017-09-27T16:58:26.000Z"  itemprop="datePublished">2017-09-28</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/09/28/在Android中Menu的使用/">在Android中Menu的使用</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        在Android中Menu的使用Menu的分类
-选项菜单(Options Menu);当用户触发 menu 项时弹出的菜单
-上下文菜单(Context Menu):用户长按那个控件时弹出的类似对话框
-弹出菜单，当用户点击某个 View 视图是弹出的菜单
-
-前提准备
-java创建了menu对象
-使用XML方法定义Menu要在XML文件中正确填写并添加ID
-
-使用XML定义Menu
-XML文件的...
-    
-
-        <a href="/2017/09/28/在Android中Menu的使用/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -741,10 +723,10 @@ XML文件的...
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

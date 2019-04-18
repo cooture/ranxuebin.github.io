@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     
 
     
@@ -29,6 +29,7 @@
 <meta property="og:url" content="http://ranxb.cn/2018/02/07/Linux的用户及用户组/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="Linux的用户及用户组配置文件 /etc/group  组信息配置文件 /etc/passwd 用户信息配置文件 /etc/shadow 用户密码配置文件 /etc/gshadow 组密码配置文件">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://ranxb.cn/2018/02/07/Linux的用户及用户组/a.jpg">
 <meta property="og:image" content="http://ranxb.cn/2018/02/07/Linux的用户及用户组/b.jpg">
 <meta property="og:updated_time" content="2018-02-07T13:18:16.931Z">
@@ -51,7 +52,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -71,49 +72,49 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 仓库
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 标签
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/lab"  >
+              <a href="/lab">
                 <i class="icon icon-lg icon-lab"></i>
                 实验室
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ranxuebin" target="_blank" >
+              <a href="https://github.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="http://weibo.com/ranxuebin" target="_blank" >
+              <a href="http://weibo.com/ranxuebin" target="_blank">
                 <i class="icon icon-lg icon-weibo"></i>
                 微博
               </a>
@@ -177,13 +178,12 @@
         </nav>
     </aside>
     
-<article id="post-Linux的用户及用户组"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-Linux的用户及用户组" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Linux的用户及用户组</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-02-07 21:12:41" datetime="2018-02-07T13:12:41.000Z"  itemprop="datePublished">2018-02-07</time>
+            <time class="post-time" title="2018-02-07 21:12:41" datetime="2018-02-07T13:12:41.000Z" itemprop="datePublished">2018-02-07</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
@@ -191,7 +191,7 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -207,11 +207,11 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="a.jpg" alt="" title="">
+                    <img src="a.jpg" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>   
-<p><img src="b.jpg" alt=""></p>
+<p><img src="b.jpg" alt></p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="组操作"><a href="#组操作" class="headerlink" title="组操作"></a>组操作</h3><p><code>groupadd NEWGROUP</code>添加一个组<br><code>groupadd -g 888 NEWGROUP</code>添加一个组并指定UID<br><code>grouddel NEWGROUP</code>删除一个组。<br><code>groupmod -n NEWGROUP OLDGROUP</code>更改组名<br><code>groupmod -g 888 NEWGROUP</code>更改组UID</p>
 <h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><p><code>useradd -g GROUP USER</code>添加一个指定用户组的用户<br><code>useradd -d /home/xxx USER</code>添加一个指定目录的的用户<br><code>userdel USER</code>删除一个用户<br><code>userdel -r USER</code>同时删除用户主目录<br><code>usermod -l NEWNAME USER</code>更改用户名<br><code>usermod -c BEIZHU USER</code>加备注<br><code>usermod -d /home/yyy UESR</code>改用户主目录<br><code>usermod -g GROUP USER</code>改组</p>
 <blockquote>
@@ -318,8 +318,7 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -338,10 +337,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span id="busuanzi_container_site_uv" style="display:none">
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
+    <span id="busuanzi_container_site_pv" style="display:none">
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
