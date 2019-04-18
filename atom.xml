@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2019-04-18T16:59:21.068Z</updated>
+  <updated>2019-04-18T17:35:03.327Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://ranxb.cn/2019/04/19/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%BE%E4%B8%8D%E5%88%B0%E4%BA%86/"/>
     <id>http://ranxb.cn/2019/04/19/为什么找不到了/</id>
     <published>2019-04-18T16:59:21.000Z</published>
-    <updated>2019-04-18T16:59:21.068Z</updated>
+    <updated>2019-04-18T17:35:03.327Z</updated>
     
-    <content type="html"><![CDATA[<p>为什么没有了</p>]]></content>
+    <content type="html"><![CDATA[<p>为什么没有了<br>现在找到了</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;为什么没有了&lt;/p&gt;
+        &lt;p&gt;为什么没有了&lt;br&gt;现在找到了&lt;/p&gt;
 
       
     
@@ -43,7 +43,7 @@
     <link href="http://ranxb.cn/2019/04/19/test/"/>
     <id>http://ranxb.cn/2019/04/19/test/</id>
     <published>2019-04-18T16:49:04.000Z</published>
-    <updated>2019-04-18T17:26:39.677Z</updated>
+    <updated>2019-04-18T17:34:13.520Z</updated>
     
     <content type="html"><![CDATA[<h1 id="这是路径测试的文章"><a href="#这是路径测试的文章" class="headerlink" title="这是路径测试的文章"></a>这是路径测试的文章</h1>]]></content>
     
@@ -68,15 +68,15 @@
     <link href="http://ranxb.cn/2019/04/19/%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%9A%84%E6%96%87%E7%AB%A0/"/>
     <id>http://ranxb.cn/2019/04/19/这是一个测试图形化的文章/</id>
     <published>2019-04-18T16:14:27.000Z</published>
-    <updated>2019-04-18T16:53:33.511Z</updated>
+    <updated>2019-04-18T17:31:13.424Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一个测试图形化文章的管理工具<br>我是修改后的文章</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="这是一个测试图形化文章的管理工具"><a href="#这是一个测试图形化文章的管理工具" class="headerlink" title="这是一个测试图形化文章的管理工具"></a>这是一个测试图形化文章的管理工具</h1><p>我是修改后的文章</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这是一个测试图形化文章的管理工具&lt;br&gt;我是修改后的文章&lt;/p&gt;
+        &lt;h1 id=&quot;这是一个测试图形化文章的管理工具&quot;&gt;&lt;a href=&quot;#这是一个测试图形化文章的管理工具&quot; class=&quot;headerlink&quot; title=&quot;这是一个测试图形化文章的管理工具&quot;&gt;&lt;/a&gt;这是一个测试图形化文章的管理工具&lt;/h1&gt;&lt;p&gt;我是修改后的文章&lt;/p&gt;
 
       
     
