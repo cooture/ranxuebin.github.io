@@ -12,28 +12,27 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/">
+    <link rel="canonical" href="http://ranxb.cn/2019/04/20/hexoautodeploy/">
     
     
-    <title>Linux的常用命令（持续更新） | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <title>hexo自动发布部署同步脚本 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="入门,Linux">
-    <meta name="description" content="Linux的常用命令行基本入门操作cd        --更换当前目录或文件夹 rm        --删除文件（删除目录加  -r 控制符） mkdir        --创建文件夹 rmdir        --删除文件夹（只能是空的） pwd        --显示当前目录 cp        --复制文件 ls        --显示当前目录下的文件 mvdir        --移动文件">
-<meta name="keywords" content="入门,Linux">
+    <meta name="keywords" content>
+    <meta name="description" content="hexo自动发布脚本 自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本  1234567891011121314151617181920212223242526272829303132333435import osimport threadingimport paramikodef execute_cmds(ip, name, pwd, cmd):    try:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux的常用命令（持续更新）">
-<meta property="og:url" content="http://ranxb.cn/2017/09/08/Linux的常用命令（持续更新）/index.html">
+<meta property="og:title" content="hexo自动发布部署同步脚本">
+<meta property="og:url" content="http://ranxb.cn/2019/04/20/hexoautodeploy/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="Linux的常用命令行基本入门操作cd        --更换当前目录或文件夹 rm        --删除文件（删除目录加  -r 控制符） mkdir        --创建文件夹 rmdir        --删除文件夹（只能是空的） pwd        --显示当前目录 cp        --复制文件 ls        --显示当前目录下的文件 mvdir        --移动文件">
+<meta property="og:description" content="hexo自动发布脚本 自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本  1234567891011121314151617181920212223242526272829303132333435import osimport threadingimport paramikodef execute_cmds(ip, name, pwd, cmd):    try:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-09-08T03:30:38.000Z">
+<meta property="og:updated_time" content="2019-04-19T18:21:01.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux的常用命令（持续更新）">
-<meta name="twitter:description" content="Linux的常用命令行基本入门操作cd        --更换当前目录或文件夹 rm        --删除文件（删除目录加  -r 控制符） mkdir        --创建文件夹 rmdir        --删除文件夹（只能是空的） pwd        --显示当前目录 cp        --复制文件 ls        --显示当前目录下的文件 mvdir        --移动文件">
+<meta name="twitter:title" content="hexo自动发布部署同步脚本">
+<meta name="twitter:description" content="hexo自动发布脚本 自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本  1234567891011121314151617181920212223242526272829303132333435import osimport threadingimport paramikodef execute_cmds(ip, name, pwd, cmd):    try:">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -128,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Linux的常用命令（持续更新）</div>
+        <div class="flex-col header-title ellipsis">hexo自动发布部署同步脚本</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -146,15 +145,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Linux的常用命令（持续更新）</h1>
+        <h1 class="title">hexo自动发布部署同步脚本</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-09-08T03:16:06.000Z" itemprop="datePublished" class="page-time">
-  2017-09-08
+                <time datetime="2019-04-19T18:21:01.000Z" itemprop="datePublished" class="page-time">
+  2019-04-20
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hexo/">hexo</a></li></ul>
 
             
         </h5>
@@ -171,19 +170,19 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux的常用命令行"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux的常用命令行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本入门操作"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本入门操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络操作"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">网络操作</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#hexo自动发布脚本"><span class="post-toc-number">1.</span> <span class="post-toc-text">hexo自动发布脚本</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-Linux的常用命令（持续更新）" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-hexoautodeploy" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Linux的常用命令（持续更新）</h1>
+        <h1 class="post-card-title">hexo自动发布部署同步脚本</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-09-08 11:16:06" datetime="2017-09-08T03:16:06.000Z" itemprop="datePublished">2017-09-08</time>
+            <time class="post-time" title="2019-04-20 02:21:01" datetime="2019-04-19T18:21:01.000Z" itemprop="datePublished">2019-04-20</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hexo/">hexo</a></li></ul>
 
 
 
@@ -195,22 +194,17 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Linux的常用命令行"><a href="#Linux的常用命令行" class="headerlink" title="Linux的常用命令行"></a>Linux的常用命令行</h1><h2 id="基本入门操作"><a href="#基本入门操作" class="headerlink" title="基本入门操作"></a>基本入门操作</h2><pre><code>cd        --更换当前目录或文件夹
-rm        --删除文件（删除目录加  -r 控制符）
-mkdir        --创建文件夹
-rmdir        --删除文件夹（只能是空的）
-pwd        --显示当前目录
-cp        --复制文件
-ls        --显示当前目录下的文件
-mvdir        --移动文件夹（可用作重命名操作）
-</code></pre><h2 id="网络操作"><a href="#网络操作" class="headerlink" title="网络操作"></a>网络操作</h2>
+            <h1 id="hexo自动发布脚本"><a href="#hexo自动发布脚本" class="headerlink" title="hexo自动发布脚本"></a>hexo自动发布脚本</h1><blockquote>
+<p>自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">execute_cmds</span><span class="params">(ip, name, pwd, cmd)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ssh = paramiko.SSHClient()</span><br><span class="line">        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">        ssh.connect(ip, <span class="number">22</span>, name, pwd, timeout=<span class="number">5</span>)</span><br><span class="line">        print(<span class="string">'连接成功'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> cmd:</span><br><span class="line">            print(m)</span><br><span class="line">            stdin, stdout, stderr = ssh.exec_command(m)</span><br><span class="line">            out = stdout.readlines()</span><br><span class="line">            <span class="keyword">for</span> o <span class="keyword">in</span> out:</span><br><span class="line">                print(o)</span><br><span class="line">        print(<span class="string">'运行成功'</span>)</span><br><span class="line">        ssh.close()</span><br><span class="line">        print(<span class="string">'关闭连接'</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> error:</span><br><span class="line">        print(error)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ip = <span class="string">"ip"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    name = <span class="string">"name"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    pwd = <span class="string">"pwd"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    cmd_local = <span class="string">"cd ~/Documents/blog;hexo g -d"</span></span><br><span class="line">    cmd_host = [<span class="string">"cd /data/ranxuebin/;git pull;"</span>]</span><br><span class="line">    os.system(cmd_local)</span><br><span class="line">    a = threading.Thread(target=execute_cmds, args=(ip, name, pwd, cmd_host))</span><br><span class="line">    a.start()</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-09-08T03:30:38.000Z" itemprop="dateUpdated">2017-09-08 11:30:38</time>
+    Last updated: <time datetime="2019-04-19T18:21:01.972Z" itemprop="dateUpdated">2019-04-20 02:21:01</time>
 </span><br>
 
 
@@ -235,8 +229,6 @@ mvdir        --移动文件夹（可用作重命名操作）
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
-
 
             
 
@@ -245,21 +237,14 @@ mvdir        --移动文件夹（可用作重命名操作）
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2017/09/28/在Android中Menu的使用/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">在Android中Menu的使用</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/09/05/近期的一些更新计划/" id="post-next" class="post-nav-link">
+      <a href="/2019/04/19/hexoclienttest/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">近期的一些更新计划</h4>
+        <h4 class="title">HexoClient可视化</h4>
       </a>
     </div>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2019-04-19T07:20:48.430Z</updated>
+  <updated>2019-04-19T18:21:01.972Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo自动发布部署同步脚本</title>
+    <link href="http://ranxb.cn/2019/04/20/hexoautodeploy/"/>
+    <id>http://ranxb.cn/2019/04/20/hexoautodeploy/</id>
+    <published>2019-04-19T18:21:01.000Z</published>
+    <updated>2019-04-19T18:21:01.972Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hexo自动发布脚本"><a href="#hexo自动发布脚本" class="headerlink" title="hexo自动发布脚本"></a>hexo自动发布脚本</h1><blockquote><p>自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">execute_cmds</span><span class="params">(ip, name, pwd, cmd)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ssh = paramiko.SSHClient()</span><br><span class="line">        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">        ssh.connect(ip, <span class="number">22</span>, name, pwd, timeout=<span class="number">5</span>)</span><br><span class="line">        print(<span class="string">'连接成功'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> cmd:</span><br><span class="line">            print(m)</span><br><span class="line">            stdin, stdout, stderr = ssh.exec_command(m)</span><br><span class="line">            out = stdout.readlines()</span><br><span class="line">            <span class="keyword">for</span> o <span class="keyword">in</span> out:</span><br><span class="line">                print(o)</span><br><span class="line">        print(<span class="string">'运行成功'</span>)</span><br><span class="line">        ssh.close()</span><br><span class="line">        print(<span class="string">'关闭连接'</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> error:</span><br><span class="line">        print(error)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ip = <span class="string">"ip"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    name = <span class="string">"name"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    pwd = <span class="string">"pwd"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    cmd_local = <span class="string">"cd ~/Documents/blog;hexo g -d"</span></span><br><span class="line">    cmd_host = [<span class="string">"cd /data/ranxuebin/;git pull;"</span>]</span><br><span class="line">    os.system(cmd_local)</span><br><span class="line">    a = threading.Thread(target=execute_cmds, args=(ip, name, pwd, cmd_host))</span><br><span class="line">    a.start()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;hexo自动发布脚本&quot;&gt;&lt;a href=&quot;#hexo自动发布脚本&quot; class=&quot;headerlink&quot; title=&quot;hexo自动发布脚本&quot;&gt;&lt;/a&gt;hexo自动发布脚本&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;自动编译上传GitHub服务器，同时让自己的服务其
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>HexoClient可视化</title>
@@ -528,34 +552,6 @@
       
         &lt;h1 id=&quot;汇编第九章：转移指令的原理&quot;&gt;&lt;a href=&quot;#汇编第九章：转移指令的原理&quot; class=&quot;headerlink&quot; title=&quot;汇编第九章：转移指令的原理&quot;&gt;&lt;/a&gt;汇编第九章：转移指令的原理&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;概括地讲，转移指令就是可以
-      
-    
-    </summary>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汇编第八章：数据处理的两个基本问题</title>
-    <link href="http://ranxb.cn/2017/12/29/%E6%B1%87%E7%BC%96%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/"/>
-    <id>http://ranxb.cn/2017/12/29/汇编第八章：数据处理的两个基本问题/</id>
-    <published>2017-12-28T19:23:25.000Z</published>
-    <updated>2017-12-30T09:40:34.461Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="汇编第八章：数据处理的两个基本问题"><a href="#汇编第八章：数据处理的两个基本问题" class="headerlink" title="汇编第八章：数据处理的两个基本问题"></a>汇编第八章：数据处理的两个基本问题</h1><blockquote><p>章前言说的是对前面所有的内容是有总结性的，这里主要探讨两个问题：  </p><ol><li>处理的数据在什么地方？  </li><li>处理的数据有多长？</li></ol></blockquote><p>定义两个符号<strong>reg</strong>和<strong>sreg</strong><br><strong>reg</strong>代表寄存器，包括：ax,bx,cx,dx,ah,al,bh,bl,ch,cl,dh,dl,sp,bp,si,di<br><strong>sreg</strong>代表段寄存器，包括：ds,ss,cs,es</p><h2 id="bx、si、di、bp的使用规则"><a href="#bx、si、di、bp的使用规则" class="headerlink" title="bx、si、di、bp的使用规则"></a>bx、si、di、bp的使用规则</h2><blockquote><p>三个规则，一会总结，字比较多，等会打。</p></blockquote><ol><li><p>只有这四个寄存器可以用在[…]中进行寻址  </p><pre><code>mov ax,[bx]mov ax,[bx+si]</code></pre><p>以下的是错误的</p><pre><code>mov ax,[cx]mov ax,[ax]</code></pre></li><li><p>这四个可以单独出现，但是组合的情况只有四种可以使用：bx和si、bx和di、bp和si、bp和di。  </p><pre><code>mov ax,[bx+si]mov ax,[bx+di]mov ax,[bp+si]mov ax,[bp+di+idata]</code></pre><p>以下的是错误的</p><pre><code>mov ax.[bx+dp]mov ax,[si+di]</code></pre></li><li><p>只要使用[…]中bp寄存器时，若没有显式的给出段寄存器，则默认为段地址在ss中</p><pre><code>mov ax,[bp]             ;(ax) = ((ss)*16+(bp))</code></pre></li></ol><h2 id="机器指令处理的数据在什么地方"><a href="#机器指令处理的数据在什么地方" class="headerlink" title="机器指令处理的数据在什么地方"></a>机器指令处理的数据在什么地方</h2><p>机器指令都是经过处理过的数据：1、读取。2、存入。3、运行  </p><p>所有处理的数据可以在三个地方：CPU内部、内存、端口（后面说先不用管）<br>例如：</p><pre><code>mov bx,[0]                ;内存mov bx,ax                ;CPU内部ax寄存器mov bx,1                ;CPU内部指令缓冲器</code></pre><h2 id="汇编语言中数据位置的表达"><a href="#汇编语言中数据位置的表达" class="headerlink" title="汇编语言中数据位置的表达"></a>汇编语言中数据位置的表达</h2><p>汇编语言用3个概念来表达数据的位置：  </p><ol><li><p>立即数[idata]<br>例如：</p><p> mov ax,1<br> add bx,2000H<br> or bx,00010000B<br> mov al,’a’</p></li></ol><p>以上   </p><ol start="2"><li><p>寄存器<br>例如</p><p> mov ax,bx<br> push ds<br>以上  </p></li><li><p>段地址和偏移地址<br>例如</p><p> mov ax,[bx]            ;段地址默认在ds中</p></li></ol><h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p><strong>五种寻址方式：</strong>  </p><ol><li>[idata] <strong>直接寻址</strong>  </li><li>[bx] <strong>寄存器间接寻址</strong>  </li><li>[bx+idata] <strong>寄存器相对寻址</strong>  </li><li>[bx+si] <strong>基址变址寻址</strong>  </li><li>[bx+si+idata] <strong>相对基址变址寻址</strong></li></ol><p>总结：<strong>有两个寄存器就是基址变址，只要有idata就是相对（只有idata是直接寻址，只有一个寄存器是寄存器间接寻址）</strong></p><h2 id="指令要处理的数据有多长"><a href="#指令要处理的数据有多长" class="headerlink" title="指令要处理的数据有多长"></a>指令要处理的数据有多长</h2><ol><li>通过寄存器名可以致命处理的数据长度</li><li><p>在没有寄存器的情况下，用操作符“X ptr”指明要操作的长度，X可以是byte或者是word。<br>例如</p><pre><code>mov word prt ds:[0],1inc word prt [bx]mov byte ptr ds:[0],1add byte ptr [bx],2</code></pre><h2 id="寻址的综合应用"><a href="#寻址的综合应用" class="headerlink" title="寻址的综合应用"></a>寻址的综合应用</h2><blockquote><p>主要就是类c语言的数组的操作，看看书看就行了。</p></blockquote></li></ol><h2 id="div"><a href="#div" class="headerlink" title="div"></a><strong>div</strong></h2><blockquote><p>两种div方式！(被除数是除号之前的。)</p></blockquote><ol><li>16位寄存器除以8位寄存器：16位做被除数放在AX里面。商在AL里，余数在AH里</li><li>32位寄存器除以16位寄存器：高16位放在DX，低16位放在AX里，共32位做被除数。商在AX里，余数在DX里。  </li></ol><p><strong>商都放在低位寄存器中，余数放在高位，除数放在一个内存单元或者reg中</strong><br>例如：</p><pre><code>16位/8位：    div byte ptr ds:[0]            ;(al) = (ax)/((ds)*16+0)    ;(ah) = (ax)mod((ds)*16+0)32位/8位：    div word ptr ds:[0]            ;(ax) = [(dx)*10000H + (ax)] / ((ds)*16+0)    ;(dx) = [(dx)*10000H + (ax)] mod ((ds)*16+0)</code></pre><p>实际应用，例如100001/100,100001 = 186A1H</p><pre><code>mov dx,1Hmov ax,86A1Hmov bx,100div bx;商在AX里，余数在DX里</code></pre><h2 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h2><blockquote><p>dd（define double）,用于定义双精度字节，一个双精度占2个字，4个字节。</p></blockquote><pre><code>data segment    db 1    dw 1    dd 1data ends</code></pre><p>上面这段：  </p><pre><code>1. 第一个数据是01H，在data:[0]处  2. 第二个数据是0001H，在data:[1] - data:[2]处  3. 第三个数据是00000001H，在data:[3] - data:[6]处  </code></pre><h2 id="dup"><a href="#dup" class="headerlink" title="dup"></a>dup</h2><p>和dd一样都是一个操作符，它是和db、dw、dd等数据定义伪指令配合使用的，用来进行数据的重复，比如：</p><pre><code>db 3 dup (0)</code></pre><p>定义了3个字节，他们的值都是0，相当于</p><pre><code>db 0,0,0</code></pre><p>又例如：</p><pre><code>db 3 dup (0,1,2)</code></pre><p>定义了9个字节，分别是0,1,2,0,1,2,0,1,2,相当于</p><pre><code>db 0,1,2,0,1,2,0,1,2</code></pre><p><strong>使用规范如下</strong></p><pre><code>db 重复次数 dup (内容)        ;(重复的字节型数据)dw 重复次数 dup (内容)        ;(重复的字型数据)dd 重复次数 dup (内容)        ;(重复的双精度字型数据)</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;汇编第八章：数据处理的两个基本问题&quot;&gt;&lt;a href=&quot;#汇编第八章：数据处理的两个基本问题&quot; class=&quot;headerlink&quot; title=&quot;汇编第八章：数据处理的两个基本问题&quot;&gt;&lt;/a&gt;汇编第八章：数据处理的两个基本问题&lt;/h1&gt;&lt;blockquote&gt;
-
       
     
     </summary>
