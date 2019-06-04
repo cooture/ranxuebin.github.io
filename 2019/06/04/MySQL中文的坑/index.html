@@ -12,27 +12,27 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://ranxb.cn/2019/04/20/hexoautodeploy/">
+    <link rel="canonical" href="http://ranxb.cn/2019/06/04/MySQL中文的坑/">
     
     
-    <title>hexo自动发布部署同步脚本 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <title>MySQL中文的坑 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta name="description" content="hexo自动发布脚本 自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本  1234567891011121314151617181920212223242526272829303132333435import osimport threadingimport paramikodef execute_cmds(ip, name, pwd, cmd):    try:">
+    <meta name="description" content="小程序准备上线了，为了保证稳定性和数据库的安全准备从sqlite迁移到mysql，结果我就日了狗了。。。。。  现象：mysql中文字段报错：比如：Incorrect string value: ‘\xF0\x9F\x98\x83 &amp;lt;…’ for column ‘summary’ at row 1问题：明显是编码错误，环境是Macos+python3+Django。和明显不是我的编码问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo自动发布部署同步脚本">
-<meta property="og:url" content="http://ranxb.cn/2019/04/20/hexoautodeploy/index.html">
+<meta property="og:title" content="MySQL中文的坑">
+<meta property="og:url" content="http://ranxb.cn/2019/06/04/MySQL中文的坑/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="hexo自动发布脚本 自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本  1234567891011121314151617181920212223242526272829303132333435import osimport threadingimport paramikodef execute_cmds(ip, name, pwd, cmd):    try:">
+<meta property="og:description" content="小程序准备上线了，为了保证稳定性和数据库的安全准备从sqlite迁移到mysql，结果我就日了狗了。。。。。  现象：mysql中文字段报错：比如：Incorrect string value: ‘\xF0\x9F\x98\x83 &amp;lt;…’ for column ‘summary’ at row 1问题：明显是编码错误，环境是Macos+python3+Django。和明显不是我的编码问题。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-19T18:21:01.972Z">
+<meta property="og:updated_time" content="2019-06-04T07:28:46.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo自动发布部署同步脚本">
-<meta name="twitter:description" content="hexo自动发布脚本 自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本  1234567891011121314151617181920212223242526272829303132333435import osimport threadingimport paramikodef execute_cmds(ip, name, pwd, cmd):    try:">
+<meta name="twitter:title" content="MySQL中文的坑">
+<meta name="twitter:description" content="小程序准备上线了，为了保证稳定性和数据库的安全准备从sqlite迁移到mysql，结果我就日了狗了。。。。。  现象：mysql中文字段报错：比如：Incorrect string value: ‘\xF0\x9F\x98\x83 &amp;lt;…’ for column ‘summary’ at row 1问题：明显是编码错误，环境是Macos+python3+Django。和明显不是我的编码问题。">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -127,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">hexo自动发布部署同步脚本</div>
+        <div class="flex-col header-title ellipsis">MySQL中文的坑</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -145,15 +145,13 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">hexo自动发布部署同步脚本</h1>
+        <h1 class="title">MySQL中文的坑</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-04-19T18:21:01.000Z" itemprop="datePublished" class="page-time">
-  2019-04-20
+                <time datetime="2019-06-04T07:28:46.000Z" itemprop="datePublished" class="page-time">
+  2019-06-04
 </time>
 
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hexo/">hexo</a></li></ul>
 
             
         </h5>
@@ -167,23 +165,14 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#hexo自动发布脚本"><span class="post-toc-number">1.</span> <span class="post-toc-text">hexo自动发布脚本</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-hexoautodeploy" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-MySQL中文的坑" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">hexo自动发布部署同步脚本</h1>
+        <h1 class="post-card-title">MySQL中文的坑</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-04-20 02:21:01" datetime="2019-04-19T18:21:01.000Z" itemprop="datePublished">2019-04-20</time>
+            <time class="post-time" title="2019-06-04 15:28:46" datetime="2019-06-04T07:28:46.000Z" itemprop="datePublished">2019-06-04</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hexo/">hexo</a></li></ul>
-
 
 
             
@@ -194,17 +183,45 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="hexo自动发布脚本"><a href="#hexo自动发布脚本" class="headerlink" title="hexo自动发布脚本"></a>hexo自动发布脚本</h1><blockquote>
-<p>自动编译上传GitHub服务器，同时让自己的服务其同步的python脚本</p>
+            <blockquote>
+<p>小程序准备上线了，为了保证稳定性和数据库的安全准备从sqlite迁移到mysql，结果我就日了狗了。。。。。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">execute_cmds</span><span class="params">(ip, name, pwd, cmd)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ssh = paramiko.SSHClient()</span><br><span class="line">        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">        ssh.connect(ip, <span class="number">22</span>, name, pwd, timeout=<span class="number">5</span>)</span><br><span class="line">        print(<span class="string">'连接成功'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> cmd:</span><br><span class="line">            print(m)</span><br><span class="line">            stdin, stdout, stderr = ssh.exec_command(m)</span><br><span class="line">            out = stdout.readlines()</span><br><span class="line">            <span class="keyword">for</span> o <span class="keyword">in</span> out:</span><br><span class="line">                print(o)</span><br><span class="line">        print(<span class="string">'运行成功'</span>)</span><br><span class="line">        ssh.close()</span><br><span class="line">        print(<span class="string">'关闭连接'</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> error:</span><br><span class="line">        print(error)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ip = <span class="string">"ip"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    name = <span class="string">"name"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    pwd = <span class="string">"pwd"</span> <span class="comment"># <span class="doctag">TODO:</span></span></span><br><span class="line">    cmd_local = <span class="string">"cd ~/Documents/blog;hexo g -d"</span></span><br><span class="line">    cmd_host = [<span class="string">"cd /data/ranxuebin/;git pull;"</span>]</span><br><span class="line">    os.system(cmd_local)</span><br><span class="line">    a = threading.Thread(target=execute_cmds, args=(ip, name, pwd, cmd_host))</span><br><span class="line">    a.start()</span><br></pre></td></tr></table></figure>
+<p>现象：mysql中文字段报错：比如：<code>Incorrect string value: ‘\xF0\x9F\x98\x83 &lt;…’ for column ‘summary’ at row 1</code><br>问题：明显是编码错误，环境是Macos+python3+Django。和明显不是我的编码问题。于是直接进行数据库操作<code>insert into app_lzuuserinfo (anameu) values (&quot;冉&quot;);</code>还是报错，说明是数据库的编码问题<br>解决：</p>
+<p>这tm我就要好好说道说道了。第一步百度，答案清一色的是该数据库编码格式为utf8，但是我的数据库就是utf8的。无语，陷入死胡同，于是总觉得是没有生效的问题反复使用和修改<code>set character_set_character=utf8;</code><br>和mysqld.cnf。最后毫无用处。</p>
+<p>第二步，roseahan去Google了一下。。。。于是看到了这篇文章：</p>
+<blockquote>
+<p><a href="https://medium.com/@adamhooper/in-mysql-never-use-utf8-use-utf8mb4-11761243e434" target="_blank" rel="noopener">https://medium.com/@adamhooper/in-mysql-never-use-utf8-use-utf8mb4-11761243e434</a></p>
+</blockquote>
+<p>mdzz….<br>大概意思如下：mysql的utf8不是我们的UTF-8，他的utf8是3个byte的编码格式，我们的UTF-8是四个字节的编码格式，所以改了utf8也不可能生效，所以我不知道为什么大家清一色的去改utf8…而且文章提出是mysql一直以来的bug没有解决，官方给出的解决方案是使用<code>utf8mb4</code>编码，这里的才是我们使用的UTF-8编码格式，同时emoji也是使用的这种格式。同时这个bug解决不了，官方也一直没有“声张”，所以。。。。。nb。下面给出解决方案，可以的话还是去我刚才的网站看吧。</p>
+<p>method：  </p>
+<blockquote>
+<p><a href="https://mathiasbynens.be/notes/mysql-utf8mb4#utf8-to-utf8mb4" target="_blank" rel="noopener">https://mathiasbynens.be/notes/mysql-utf8mb4#utf8-to-utf8mb4</a><br>require：mysql &gt; 5.5.3</p>
+<ol>
+<li>对于已存在的表：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># For each database:</span><br><span class="line">ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;</span><br><span class="line"># For each table:</span><br><span class="line">ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</span><br><span class="line"># For each column:</span><br><span class="line">ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</span><br><span class="line"># (Don’t blindly copy-paste this! The exact statement depends on the column type, maximum length, and other properties. The above line is just an example for a `VARCHAR` column.)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>Check the maximum length of columns and index keys自行检查最大长度</li>
+<li>Modify connection, client, and server character sets<br>老规矩修改cnf<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">default-character-set = utf8mb4</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set = utf8mb4</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">character-set-client-handshake = FALSE</span><br><span class="line">character-set-server = utf8mb4</span><br><span class="line">collation-server = utf8mb4_unicode_ci</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>都是utf8mb4，</p>
+<ol start="4">
+<li>重启。</li>
+<li>再去检查一下数据库的编码，就没问题了。</li>
+</ol>
+<blockquote>
+<p>吐槽：baidu is a shit！the same as 闭眼睛转发的人</p>
+</blockquote>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-04-19T18:21:01.972Z" itemprop="dateUpdated">2019-04-20 02:21:01</time>
+    Last updated: <time datetime="2019-06-04T07:28:46.605Z" itemprop="dateUpdated">2019-06-04 15:28:46</time>
 </span><br>
 
 
@@ -237,21 +254,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/06/04/MySQL中文的坑/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">MySQL中文的坑</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/04/19/hexoclienttest/" id="post-next" class="post-nav-link">
+      <a href="/2019/04/20/hexoautodeploy/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">HexoClient可视化</h4>
+        <h4 class="title">hexo自动发布部署同步脚本</h4>
       </a>
     </div>
   
