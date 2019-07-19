@@ -162,6 +162,52 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-howtorunscriptonlinux" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-07-19 21:27:14" datetime="2019-07-19T13:27:14.000Z" itemprop="datePublished">2019-07-19</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/脚本/">脚本</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/19/howtorunscriptonlinux/">linux后台运行脚本的指令</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+写给RoseauHan的
+
+How举个栗子
+sudo nohup python3 -u AppleDeliverMail.py &gt; log &amp; echo $! &gt; pidfile.txt
+Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令
+
+    
+
+        <a href="/2019/07/19/howtorunscriptonlinux/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-毛概下重点整理" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -592,59 +638,6 @@ echo &quot;程序运...
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unix/">Unix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Ubuntu上启动ftp服务" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-02-07 21:13:49" datetime="2018-02-07T13:13:49.000Z" itemprop="datePublished">2018-02-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/02/07/Ubuntu上启动ftp服务/">Ubuntu上启动ftp服务</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Ubuntu上启动ftp服务安装并启动VSFTPD
-安装VSFTPDsudo apt-get install vsftpd -y
-启动VSFTPD(会自动启动若未启动)sudo systemctl start vsftpd.service
-检测端口，判断是否启动。sudo netstat -nltp | grep 
-
-配置用户访问目录
-新建主目录
-新建用户并设置密码sudo useradd ...
-    
-
-        <a href="/2018/02/07/Ubuntu上启动ftp服务/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FTP/">FTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
     </div>
     

@@ -12,26 +12,27 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="http://ranxb.cn/tags/新手/">
+    <link rel="canonical" href="http://ranxb.cn/2019/07/19/howtorunscriptonlinux/">
     
     
-    <title>Tags: 新手 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <title>linux后台运行脚本的指令 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta name="description" content="冉学斌的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ran Xuebin&#39;s Blog">
-<meta property="og:url" content="http://ranxb.cn/tags/新手/index.html">
+    <meta name="description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pidfile.txt Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux后台运行脚本的指令">
+<meta property="og:url" content="http://ranxb.cn/2019/07/19/howtorunscriptonlinux/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="冉学斌的博客">
+<meta property="og:description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pidfile.txt Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-19T13:27:14.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ran Xuebin&#39;s Blog">
-<meta name="twitter:description" content="冉学斌的博客">
+<meta name="twitter:title" content="linux后台运行脚本的指令">
+<meta name="twitter:description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pidfile.txt Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -47,7 +48,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu">
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -80,7 +81,7 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/tags">
                 <i class="icon icon-lg icon-tags"></i>
                 标签
@@ -126,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Tags: 新手</div>
+        <div class="flex-col header-title ellipsis">linux后台运行脚本的指令</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -141,175 +142,164 @@
         
     </div>
 </header>
-<header class="content-header tags-header">
+<header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Tags: 新手</h1>
+        <h1 class="title">linux后台运行脚本的指令</h1>
         <h5 class="subtitle">
+            
+                <time datetime="2019-07-19T13:27:14.000Z" itemprop="datePublished" class="page-time">
+  2019-07-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/脚本/">脚本</a></li></ul>
+
             
         </h5>
     </div>
 
     
-<div class="tabs-bar container">
-    <nav class="tags-list">
-        <a href="/tags" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">All</a>
-        
-
-            <a href="/tags/Android/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">Android</a>
-
-        
-
-            <a href="/tags/Fragment/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">Fragment</a>
-
-        
-
-            <a href="/tags/入门/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">入门</a>
-
-        
-
-            <a href="/tags/Linux/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">Linux</a>
-
-        
-
-            <a href="/tags/烧录/" style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">烧录</a>
-
-        
-
-            <a href="/tags/SD卡/" style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">SD卡</a>
-
-        
-
-            <a href="/tags/Mac/" style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">Mac</a>
-
-        
-
-            <a href="/tags/用户/" style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">用户</a>
-
-        
-
-            <a href="/tags/hexo/" style="-webkit-order:11;order:11" class="tags-list-item waves-effect waves-button waves-light">hexo</a>
-
-        
-
-            <a href="/tags/FTP/" style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">FTP</a>
-
-        
-
-            <a href="/tags/脚本/" style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">脚本</a>
-
-        
-
-            <a href="/tags/台科/" style="-webkit-order:14;order:14" class="tags-list-item waves-effect waves-button waves-light">台科</a>
-
-        
-
-            <a href="/tags/游记/" style="-webkit-order:15;order:15" class="tags-list-item waves-effect waves-button waves-light">游记</a>
-
-        
-
-            <a href="/tags/随笔/" style="-webkit-order:16;order:16" class="tags-list-item waves-effect waves-button waves-light">随笔</a>
-
-        
-
-            <a href="/tags/成都/" style="-webkit-order:17;order:17" class="tags-list-item waves-effect waves-button waves-light">成都</a>
-
-        
-
-            <a href="/tags/数字电路/" style="-webkit-order:18;order:18" class="tags-list-item waves-effect waves-button waves-light">数字电路</a>
-
-        
-
-            <a href="/tags/笔记/" style="-webkit-order:19;order:19" class="tags-list-item waves-effect waves-button waves-light">笔记</a>
-
-        
-
-            <a href="/tags/汇编语言/" style="-webkit-order:20;order:20" class="tags-list-item waves-effect waves-button waves-light">汇编语言</a>
-
-        
-
-            <a href="/tags/树莓派/" style="-webkit-order:21;order:21" class="tags-list-item waves-effect waves-button waves-light">树莓派</a>
-
-        
-
-            <a href="/tags/Unix/" style="-webkit-order:22;order:22" class="tags-list-item waves-effect waves-button waves-light">Unix</a>
-
-        
-
-            <a href="/tags/线性代数/" style="-webkit-order:23;order:23" class="tags-list-item waves-effect waves-button waves-light">线性代数</a>
-
-        
-
-            <a href="/tags/办证进度/" style="-webkit-order:24;order:24" class="tags-list-item waves-effect waves-button waves-light">办证进度</a>
-
-        
-
-            <a href="/tags/甘肃政务服务网/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">甘肃政务服务网</a>
-
-        
-
-            <a href="/tags/新手/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">新手</a>
-
-        
-
-            <a href="/tags/数据结构/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">数据结构</a>
-
-        
-    </nav>
-    <!-- PC show more-->
-    <div class="tags-list-more">
-        <a href="javascript:;" onclick="BLOG.tabBar(this)" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
-    </div>
-</div>
-
 
 
 </header>
 
-<div class="container body-wrap fade">
+
+<div class="container body-wrap">
     
-            <div class="waterfall">
-          
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#How"><span class="post-toc-number">1.</span> <span class="post-toc-text">How</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why"><span class="post-toc-number">2.</span> <span class="post-toc-text">Why</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-howtorunscriptonlinux" class="post-article article-type-post fade" itemprop="blogPost">
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2017-09-03 22:42:24" datetime="2017-09-03T14:42:24.000Z" itemprop="datePublished">2017-09-03</time>
+    <div class="post-card">
+        <h1 class="post-card-title">linux后台运行脚本的指令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-19 21:27:14" datetime="2019-07-19T13:27:14.000Z" itemprop="datePublished">2019-07-19</time>
 
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/hexo/">hexo</a></li></ul>
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/脚本/">脚本</a></li></ul>
 
 
 
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>写给RoseauHan的</p>
+</blockquote>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><p>举个栗子</p>
+<p><code>sudo nohup python3 -u AppleDeliverMail.py &gt; log &amp; echo $! &gt; pidfile.txt</code></p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>nohup一般是需要挂后台长时间执行的脚本用的。<br>bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-07-19T13:27:14.833Z" itemprop="dateUpdated">2019-07-19 21:27:14</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
     </div>
-    
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
 
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
 
   
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/09/03/第一篇文章/">第一篇文章</a>
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/22/毛概下重点整理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">毛概下重点整理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
     </h3>
-  
-
-
-
-    
-    <div class="post-footer">
+    <div class="reward-content">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新手/">新手</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
         
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
             </div>
+        </label>
         
-    
+    </div>
 </div>
 
+
+
+</div>
 
         <footer class="footer">
     <div class="top">
@@ -350,7 +340,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 
 
 </script>
