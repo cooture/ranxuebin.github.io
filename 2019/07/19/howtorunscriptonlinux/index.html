@@ -22,17 +22,17 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pidfile.txt Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令">
+    <meta name="description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pid Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令 Stop命令后面会保存pid到文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux后台运行脚本的指令">
 <meta property="og:url" content="http://ranxb.cn/2019/07/19/howtorunscriptonlinux/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pidfile.txt Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令">
+<meta property="og:description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pid Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令 Stop命令后面会保存pid到文件">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-19T13:27:14.833Z">
+<meta property="og:updated_time" content="2019-07-19T13:34:05.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux后台运行脚本的指令">
-<meta name="twitter:description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pidfile.txt Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令">
+<meta name="twitter:description" content="写给RoseauHan的  How举个栗子 sudo nohup python3 -u AppleDeliverMail.py &amp;gt; log &amp;amp; echo $! &amp;gt; pid Whynohup一般是需要挂后台长时间执行的脚本用的。bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令 Stop命令后面会保存pid到文件">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -133,7 +133,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -170,7 +170,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#How"><span class="post-toc-number">1.</span> <span class="post-toc-text">How</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why"><span class="post-toc-number">2.</span> <span class="post-toc-text">Why</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#How"><span class="post-toc-number">1.</span> <span class="post-toc-text">How</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why"><span class="post-toc-number">2.</span> <span class="post-toc-text">Why</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Stop"><span class="post-toc-number">3.</span> <span class="post-toc-text">Stop</span></a></li></ol>
         </nav>
     </aside>
     
@@ -198,8 +198,9 @@
 <p>写给RoseauHan的</p>
 </blockquote>
 <h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><p>举个栗子</p>
-<p><code>sudo nohup python3 -u AppleDeliverMail.py &gt; log &amp; echo $! &gt; pidfile.txt</code></p>
+<p><code>sudo nohup python3 -u AppleDeliverMail.py &gt; log &amp; echo $! &gt; pid</code></p>
 <h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>nohup一般是需要挂后台长时间执行的脚本用的。<br>bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令</p>
+<h2 id="Stop"><a href="#Stop" class="headerlink" title="Stop"></a>Stop</h2><p>命令后面会保存pid到文件中，所以不用担心pid找不到（找不到就ps呗，但是我还是喜欢记下来），终止的时候kill掉就好了</p>
 
         </div>
 
@@ -207,7 +208,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-07-19T13:27:14.833Z" itemprop="dateUpdated">2019-07-19 21:27:14</time>
+    最后更新时间：<time datetime="2019-07-19T13:34:05.884Z" itemprop="dateUpdated">2019-07-19 21:34:05</time>
 </span><br>
 
 
@@ -318,7 +319,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">

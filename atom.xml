@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2019-07-19T13:27:14.833Z</updated>
+  <updated>2019-07-19T13:34:05.884Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://ranxb.cn/2019/07/19/howtorunscriptonlinux/"/>
     <id>http://ranxb.cn/2019/07/19/howtorunscriptonlinux/</id>
     <published>2019-07-19T13:27:14.000Z</published>
-    <updated>2019-07-19T13:27:14.833Z</updated>
+    <updated>2019-07-19T13:34:05.884Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>写给RoseauHan的</p></blockquote><h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><p>举个栗子</p><p><code>sudo nohup python3 -u AppleDeliverMail.py &gt; log &amp; echo $! &gt; pidfile.txt</code></p><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>nohup一般是需要挂后台长时间执行的脚本用的。<br>bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>写给RoseauHan的</p></blockquote><h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><p>举个栗子</p><p><code>sudo nohup python3 -u AppleDeliverMail.py &gt; log &amp; echo $! &gt; pid</code></p><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>nohup一般是需要挂后台长时间执行的脚本用的。<br>bg和fg指令只用于切换终端的前后台进程，如果终端断开连接，脚本也会被退出，所以长时间的脚本一般情况用nohup指令</p><h2 id="Stop"><a href="#Stop" class="headerlink" title="Stop"></a>Stop</h2><p>命令后面会保存pid到文件中，所以不用担心pid找不到（找不到就ps呗，但是我还是喜欢记下来），终止的时候kill掉就好了</p>]]></content>
     
     <summary type="html">
     
