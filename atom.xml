@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2019-07-19T13:34:05.884Z</updated>
+  <updated>2019-09-30T12:06:42.824Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>zsh_is_too_slow</title>
+    <link href="http://ranxb.cn/2019/09/30/zsh-is-too-slow/"/>
+    <id>http://ranxb.cn/2019/09/30/zsh-is-too-slow/</id>
+    <published>2019-09-30T11:54:28.000Z</published>
+    <updated>2019-09-30T12:06:42.824Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="zsh慢成💩"><a href="#zsh慢成💩" class="headerlink" title="zsh慢成💩"></a>zsh慢成💩</h1><blockquote><p>简单介绍一下，Catalina升级成zsh之后，便安装了传说中最简单配置zsh的“插件”——oh-my-zsh</p><p>但是安装好之后，速度慢的像坨翔</p><p>启动五秒</p><p>随便cd一下要三秒</p><p>随便ls一下等两秒</p><p>啊</p><p>要死了</p></blockquote><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>百度谷歌一番发现普遍都有这个问题，可能原因有很多，简单的原因这里不多说，建议先谷歌一下</p><p>问题集中在zsh的插件众多，每次执行时都会执行各种插件的东西，尤其是以git为最大的罪魁祸首。</p><p>所以，解决问题的第一步是先跟踪，定位问题。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh -xv</span><br></pre></td></tr></table></figure><p>一般情况下可以发现慢的主要原因是卡在了git有关的命令上，关闭git插件后，没有任何影响，你会发现，git相关的命令是集成在主题上的，你可能可以通过使用下面的命令解决一定的问题，但是对于我来说可能不太有用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global oh-my-zsh.hide-status 1</span><br></pre></td></tr></table></figure><p>索性查看相关主题的配置源码，我用的主题是<code>fishy</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> 1 <span class="comment"># ZSH Theme emulating the Fish shell's default prompt.</span></span><br><span class="line"> 2 </span><br><span class="line"> 3 <span class="function"><span class="title">_fishy_collapsed_wd</span></span>() &#123;</span><br><span class="line"> 4   <span class="built_in">echo</span> $(<span class="built_in">pwd</span> | perl -pe <span class="string">'</span></span><br><span class="line"><span class="string"> 5    BEGIN &#123;</span></span><br><span class="line"><span class="string"> 6       binmode STDIN,  ":encoding(UTF-8)";</span></span><br><span class="line"><span class="string"> 7       binmode STDOUT, ":encoding(UTF-8)";</span></span><br><span class="line"><span class="string"> 8    &#125;; s|^$ENV&#123;HOME&#125;|~|g; s|/([^/.])[^/]*(?=/)|/$1|g; s|/\.([^/])[^/]*(?=/)|/.$1|g</span></span><br><span class="line"><span class="string"> 9 '</span>)</span><br><span class="line">10 &#125;</span><br><span class="line">11 </span><br><span class="line">12 <span class="built_in">local</span> user_color=<span class="string">'green'</span>; [ <span class="variable">$UID</span> -eq 0 ] &amp;&amp; user_color=<span class="string">'red'</span></span><br><span class="line">13 PROMPT=<span class="string">'%n@%m %&#123;$fg[$user_color]%&#125;$(_fishy_collapsed_wd)%&#123;$reset_color%&#125;%(!.#.&gt;) '</span></span><br><span class="line">14 PROMPT2=<span class="string">'%&#123;$fg[red]%&#125;\ %&#123;$reset_color%&#125;'</span></span><br><span class="line">15 </span><br><span class="line">16 <span class="built_in">local</span> return_status=<span class="string">"%&#123;<span class="variable">$fg_bold</span>[red]%&#125;%(?..%?)%&#123;<span class="variable">$reset_color</span>%&#125;"</span></span><br><span class="line">17 <span class="comment">#RPROMPT="$&#123;RPROMPT&#125;"'$&#123;return_status&#125;$(git_prompt_info)$(git_prompt_status)%&#123;$reset_color%&#125;'</span></span><br><span class="line">18 </span><br><span class="line">19 ZSH_THEME_GIT_PROMPT_PREFIX=<span class="string">" "</span></span><br><span class="line">20 ZSH_THEME_GIT_PROMPT_SUFFIX=<span class="string">""</span></span><br><span class="line">21 ZSH_THEME_GIT_PROMPT_DIRTY=<span class="string">""</span></span><br><span class="line">22 ZSH_THEME_GIT_PROMPT_CLEAN=<span class="string">""</span></span><br><span class="line">23 </span><br><span class="line">24 ZSH_THEME_GIT_PROMPT_ADDED=<span class="string">"%&#123;<span class="variable">$fg_bold</span>[green]%&#125;+"</span></span><br><span class="line">25 ZSH_THEME_GIT_PROMPT_MODIFIED=<span class="string">"%&#123;<span class="variable">$fg_bold</span>[blue]%&#125;!"</span></span><br><span class="line">26 ZSH_THEME_GIT_PROMPT_DELETED=<span class="string">"%&#123;<span class="variable">$fg_bold</span>[red]%&#125;-"</span></span><br><span class="line">27 ZSH_THEME_GIT_PROMPT_RENAMED=<span class="string">"%&#123;<span class="variable">$fg_bold</span>[magenta]%&#125;&gt;"</span></span><br><span class="line">28 ZSH_THEME_GIT_PROMPT_UNMERGED=<span class="string">"%&#123;<span class="variable">$fg_bold</span>[yellow]%&#125;#"</span></span><br><span class="line">29 ZSH_THEME_GIT_PROMPT_UNTRACKED=<span class="string">"%&#123;<span class="variable">$fg_bold</span>[cyan]%&#125;?"</span></span><br></pre></td></tr></table></figure><p>发现git相关的命令集成在<code>RPROMPT=&quot;${RPROMPT}&quot;&#39;${return_status}$(git_prompt_info)$(git_prompt_status)%{$reset_color%}&#39;</code>索性全部注释掉</p><h2 id="爽"><a href="#爽" class="headerlink" title="爽"></a>爽</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;zsh慢成💩&quot;&gt;&lt;a href=&quot;#zsh慢成💩&quot; class=&quot;headerlink&quot; title=&quot;zsh慢成💩&quot;&gt;&lt;/a&gt;zsh慢成💩&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;简单介绍一下，Catalina升级成zsh之后，便安装了传说中最简单配置z
+      
+    
+    </summary>
+    
+      <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
+    
+    
+      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+    
+      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim笔记</title>
+    <link href="http://ranxb.cn/2019/09/30/vim/"/>
+    <id>http://ranxb.cn/2019/09/30/vim/</id>
+    <published>2019-09-30T11:00:51.000Z</published>
+    <updated>2019-09-30T12:50:27.614Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Vim-笔记"><a href="#Vim-笔记" class="headerlink" title="Vim 笔记"></a>Vim 笔记</h1><h2 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h2><ul><li>i——insert（字母前）</li><li>a——append（字母后）</li><li>o——below（下一行）</li><li>A——append after line（行后）</li><li>I——insert before line（行前）</li><li>O——above line（上一行）</li></ul><ul><li>ctrl+u——删除行</li><li>ctrl+w——删除字</li><li>ctrl+a——移动到最前</li><li>ctrl+e——移动到最后</li><li>gi——移动到上一次编辑的地方 </li></ul><h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><ul><li><code>:vs</code>——左右分屏</li><li><code>:sp</code>——上下分屏</li><li><code>:q</code>——退出屏幕</li></ul><ul><li>v——选中模式</li><li>V——行选中</li><li>ctrl+v——块选中</li><li>y——复制</li><li>p——粘贴</li><li>u——撤销</li><li>d——删除</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Vim-笔记&quot;&gt;&lt;a href=&quot;#Vim-笔记&quot; class=&quot;headerlink&quot; title=&quot;Vim 笔记&quot;&gt;&lt;/a&gt;Vim 笔记&lt;/h1&gt;&lt;h2 id=&quot;编辑&quot;&gt;&lt;a href=&quot;#编辑&quot; class=&quot;headerlink&quot; title=&quot;编辑&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="vim" scheme="http://ranxb.cn/categories/vim/"/>
+    
+    
+      <category term="vim" scheme="http://ranxb.cn/tags/vim/"/>
+    
+      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>linux后台运行脚本的指令</title>
@@ -200,7 +255,7 @@
     <published>2018-06-05T03:21:57.000Z</published>
     <updated>2018-06-05T03:32:46.207Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Mac-OS下SD卡烧录镜像"><a href="#Mac-OS下SD卡烧录镜像" class="headerlink" title="Mac OS下SD卡烧录镜像"></a>Mac OS下SD卡烧录镜像</h1><blockquote><p>经常换镜像，做个笔记。</p></blockquote><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><p>打开磁盘管理，选择SD卡，全部抹除，格式为FAT，不在多说。</p><h2 id="卸载分区"><a href="#卸载分区" class="headerlink" title="卸载分区"></a>卸载分区</h2><ul><li>打开命令行<br><code>diskutil list</code> 查看设备列表</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Rankin-Mac:~ Rankin$ diskutil list</span><br><span class="line">/dev/disk0 (internal):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                         500.3 GB   disk0</span><br><span class="line">   1:                        EFI EFI                     314.6 MB   disk0s1</span><br><span class="line">   2:                 Apple_APFS Container disk1         500.0 GB   disk0s2</span><br><span class="line"></span><br><span class="line">/dev/disk1 (synthesized):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      APFS Container Scheme -                      +500.0 GB   disk1</span><br><span class="line">                                 Physical Store disk0s2</span><br><span class="line">   1:                APFS Volume Macintosh HD            215.0 GB   disk1s1</span><br><span class="line">   2:                APFS Volume Preboot                 24.2 MB    disk1s2</span><br><span class="line">   3:                APFS Volume Recovery                517.8 MB   disk1s3</span><br><span class="line">   4:                APFS Volume VM                      3.2 GB     disk1s4</span><br><span class="line"></span><br><span class="line">/dev/disk2 (external, physical):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:     FDisk_partition_scheme                        *7.9 GB     disk2</span><br><span class="line">   1:                 DOS_FAT_32 UNTITLED                7.9 GB     disk2s1</span><br><span class="line"></span><br><span class="line">/dev/disk3 (disk image):</span><br><span class="line"><span class="meta">   #</span>:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                        +314.8 GB   disk3</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk3s1</span><br><span class="line">   2:                  Apple_HFS 时间机器备份            314.5 GB   disk3s2</span><br></pre></td></tr></table></figure><p>这样的就卸载disk2的所有分区，例如disk2s1，有多的都要卸载。</p><ul><li>命令：<code>diskutil unmount /dev/disk2s1</code></li></ul><h2 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h2><p>前提是准备好你的镜像iso文件。</p><ul><li>命令：<code>sudo dd bs=4m if=ubuntu-16.04.4-lxqt-aarch64-raspberrypi3b-raspberrypi3b-plus-20180428-chainsx.img of=/dev/rdisk2</code></li><li>注意，目标磁盘为原始磁盘rdisk*，绝对不要把数字写错。</li></ul><p>完成后会提示</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">750+0 records in  </span><br><span class="line">750+0 records out</span><br><span class="line">3145728000 bytes transferred in 279.701624 secs (11246728 bytes/sec)</span><br></pre></td></tr></table></figure><h2 id="卸载磁盘"><a href="#卸载磁盘" class="headerlink" title="卸载磁盘"></a>卸载磁盘</h2><ul><li>命令：<code>diskutil unmountDisk /dev/disk2</code></li><li>完成</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Mac-OS下SD卡烧录镜像"><a href="#Mac-OS下SD卡烧录镜像" class="headerlink" title="Mac OS下SD卡烧录镜像"></a>Mac OS下SD卡烧录镜像</h1><blockquote><p>经常换镜像，做个笔记。</p></blockquote><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><p>打开磁盘管理，选择SD卡，全部抹除，格式为FAT，不在多说。</p><h2 id="卸载分区"><a href="#卸载分区" class="headerlink" title="卸载分区"></a>卸载分区</h2><ul><li>打开命令行<br><code>diskutil list</code> 查看设备列表</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Rankin-Mac:~ Rankin$ diskutil list</span><br><span class="line">/dev/disk0 (internal):</span><br><span class="line"><span class="meta">   #</span><span class="bash">:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      GUID_partition_scheme                         500.3 GB   disk0</span><br><span class="line">   1:                        EFI EFI                     314.6 MB   disk0s1</span><br><span class="line">   2:                 Apple_APFS Container disk1         500.0 GB   disk0s2</span><br><span class="line"></span><br><span class="line">/dev/disk1 (synthesized):</span><br><span class="line"><span class="meta">   #</span><span class="bash">:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      APFS Container Scheme -                      +500.0 GB   disk1</span><br><span class="line">                                 Physical Store disk0s2</span><br><span class="line">   1:                APFS Volume Macintosh HD            215.0 GB   disk1s1</span><br><span class="line">   2:                APFS Volume Preboot                 24.2 MB    disk1s2</span><br><span class="line">   3:                APFS Volume Recovery                517.8 MB   disk1s3</span><br><span class="line">   4:                APFS Volume VM                      3.2 GB     disk1s4</span><br><span class="line"></span><br><span class="line">/dev/disk2 (external, physical):</span><br><span class="line"><span class="meta">   #</span><span class="bash">:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:     FDisk_partition_scheme                        *7.9 GB     disk2</span><br><span class="line">   1:                 DOS_FAT_32 UNTITLED                7.9 GB     disk2s1</span><br><span class="line"></span><br><span class="line">/dev/disk3 (disk image):</span><br><span class="line"><span class="meta">   #</span><span class="bash">:                       TYPE NAME                    SIZE       IDENTIFIER</span></span><br><span class="line">   0:      GUID_partition_scheme                        +314.8 GB   disk3</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk3s1</span><br><span class="line">   2:                  Apple_HFS 时间机器备份            314.5 GB   disk3s2</span><br></pre></td></tr></table></figure><p>这样的就卸载disk2的所有分区，例如disk2s1，有多的都要卸载。</p><ul><li>命令：<code>diskutil unmount /dev/disk2s1</code></li></ul><h2 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h2><p>前提是准备好你的镜像iso文件。</p><ul><li>命令：<code>sudo dd bs=4m if=ubuntu-16.04.4-lxqt-aarch64-raspberrypi3b-raspberrypi3b-plus-20180428-chainsx.img of=/dev/rdisk2</code></li><li>注意，目标磁盘为原始磁盘rdisk*，绝对不要把数字写错。</li></ul><p>完成后会提示</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">750+0 records in  </span><br><span class="line">750+0 records out</span><br><span class="line">3145728000 bytes transferred in 279.701624 secs (11246728 bytes/sec)</span><br></pre></td></tr></table></figure><h2 id="卸载磁盘"><a href="#卸载磁盘" class="headerlink" title="卸载磁盘"></a>卸载磁盘</h2><ul><li>命令：<code>diskutil unmountDisk /dev/disk2</code></li><li>完成</li></ul>]]></content>
     
     <summary type="html">
     
@@ -494,61 +549,6 @@
       <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
     
       <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汇编语言第十二。。章：内外中断和int指令</title>
-    <link href="http://ranxb.cn/2018/01/05/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%8C%E3%80%82%E3%80%82%E7%AB%A0%EF%BC%9A%E5%86%85%E5%A4%96%E4%B8%AD%E6%96%AD%E5%92%8Cint%E6%8C%87%E4%BB%A4/"/>
-    <id>http://ranxb.cn/2018/01/05/汇编语言第十二。。章：内外中断和int指令/</id>
-    <published>2018-01-04T16:33:03.000Z</published>
-    <updated>2018-01-05T16:54:54.210Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="汇编语言第十二。。章：内外中断和int指令"><a href="#汇编语言第十二。。章：内外中断和int指令" class="headerlink" title="汇编语言第十二。。章：内外中断和int指令"></a>汇编语言第十二。。章：内外中断和int指令</h1><blockquote><p>不再过多说中断是什么了，就是可以随时控制CPU停止当前的指令干其他的事的意思，下面内中断程序的步骤：  </p><ol><li>将程序写入0:200开始的空间内，同时把字符什么的也要定义进去。  </li><li>设置中断向量表，前面是ip，后面是cs。注意高低位。  </li></ol></blockquote><h2 id="单步中断的操作"><a href="#单步中断的操作" class="headerlink" title="单步中断的操作"></a>单步中断的操作</h2><ol><li>取得中断类型码</li><li>标志寄存器入栈</li><li>标志寄存器TF和IF置零，防止在中断程序中在中断。  </li><li>CS内容入栈</li><li>IP入栈</li><li>根据中断类型码从中断向量表中设置中断程序的CS和IP。</li></ol><h2 id="中断处理程序的编写方法"><a href="#中断处理程序的编写方法" class="headerlink" title="中断处理程序的编写方法"></a>中断处理程序的编写方法</h2><ol><li>保存用到的寄存器</li><li>处理中断</li><li>恢复寄存器</li><li>iret</li></ol><p>iret用来返回程序：操作为：  </p><pre><code>pop ippop cspopf</code></pre><p>目的是回到执行中断处理程序之前的执行点继续执行程序。</p><h2 id="编写0号中断程序"><a href="#编写0号中断程序" class="headerlink" title="编写0号中断程序"></a>编写0号中断程序</h2><pre><code>assume cs:code ss:satck ds:datacode segmentstart:    mov ax,cs            mov ds,ax            mov si,offset do0    ;ds:si指向do0中断程序部分            mov ax,0            mov es,ax            mov di,200h            mov cx offset do0end - do0            cld            rep movsb            mov ax,0            ;安装中断程序            mov es,ax            mov word ptr es:[0],200h            mov word ptr es:[0+2],0            mov ax,4c00h            int 21hdo0:        jmp short do0start            db &quot;overflow!&quot;do0start:            mov ax,cs            mov ds,ax            mov si,202h            ;ds:si指向字符串            mov ax,0b800h            mov es,ax            mov di,12*160+36*2    ;es:di指向显存空间            mov cx,9        s:    mov al,[si]            mov es:[di],al            inc si            add di,2            loop s            mov ax,4c00h            int 21h</code></pre><h2 id="中断的特殊情况"><a href="#中断的特殊情况" class="headerlink" title="中断的特殊情况"></a>中断的特殊情况</h2><p>设置栈的操作不会响应中断，因为中断会进行栈操作，需要设置正确的栈顶，所以设置sp的指令应当紧接着设置ss的指令</p><h2 id="int指令"><a href="#int指令" class="headerlink" title="int指令"></a>int指令</h2><p>格式：int n，n为中断类型码<br>int指令的最终功能和call类似，都是调用一段程序。<br>中断处理程序简称为中断例程  </p><h2 id="编写供应用程序调用的中断例程"><a href="#编写供应用程序调用的中断例程" class="headerlink" title="编写供应用程序调用的中断例程"></a>编写供应用程序调用的中断例程</h2><p>明天再写详细的</p><h2 id="BIOS和DOS多提供的中断例程的安装过程"><a href="#BIOS和DOS多提供的中断例程的安装过程" class="headerlink" title="BIOS和DOS多提供的中断例程的安装过程"></a>BIOS和DOS多提供的中断例程的安装过程</h2><ol><li>CPU加电，初始化(CS) = 0FFFFH，(IP) = 0，从FFFF：0开始执行程序。此处有一条跳转指令，跳转后开始执行BIOS中的硬件系统检测和初始化程序  </li><li>初始化程序建立BIOS所支持的中断向量表，只需登记中断向量表，中断程序在ROM中，一直在内存中存在  </li><li>硬件检测和初始化完成之后，调用int 19h，进入操作系统引导程序。</li><li>DOS启动，将所提供的中断例程装入内存，并建立中断向量表。</li></ol><h2 id="BIOS和DOS的中断例程的应用"><a href="#BIOS和DOS的中断例程的应用" class="headerlink" title="BIOS和DOS的中断例程的应用"></a>BIOS和DOS的中断例程的应用</h2><p>就是应用了，比如BIOS中的彩色显示int 10h和DOS中的输出字符串int 21h。明天再写</p><h2 id="汇编语言：完～"><a href="#汇编语言：完～" class="headerlink" title="汇编语言：完～"></a>汇编语言：完～</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;汇编语言第十二。。章：内外中断和int指令&quot;&gt;&lt;a href=&quot;#汇编语言第十二。。章：内外中断和int指令&quot; class=&quot;headerlink&quot; title=&quot;汇编语言第十二。。章：内外中断和int指令&quot;&gt;&lt;/a&gt;汇编语言第十二。。章：内外中断和int指令&lt;/
-      
-    
-    </summary>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汇编语言第十一章：标志寄存器</title>
-    <link href="http://ranxb.cn/2018/01/05/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%EF%BC%9A%E6%A0%87%E5%BF%97%E5%AF%84%E5%AD%98%E5%99%A8/"/>
-    <id>http://ranxb.cn/2018/01/05/汇编语言第十一章：标志寄存器/</id>
-    <published>2018-01-04T16:26:41.000Z</published>
-    <updated>2018-01-04T16:28:56.877Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="汇编语言第十一章：标志寄存器"><a href="#汇编语言第十一章：标志寄存器" class="headerlink" title="汇编语言第十一章：标志寄存器"></a>汇编语言第十一章：标志寄存器</h1><blockquote><p>标志寄存器就是CPU处理数据的时候做标记的<br>这一章学的有ZF，SF，PF，CF，OF标志寄存器，还有adc，sbb，movsb，movsw，cld，std，rep等操作</p></blockquote><h2 id="第六位：ZF"><a href="#第六位：ZF" class="headerlink" title="第六位：ZF"></a>第六位：ZF</h2><p>zero flag<br>零标志位<br>处理完之后是否为零，0的话ZF则为一</p><h2 id="第二位：PF"><a href="#第二位：PF" class="headerlink" title="第二位：PF"></a>第二位：PF</h2><p>Parity flag<br>奇偶校验位<br>换成二进制之后，1的个数是偶数？PF = 1 ：PF = 0  </p><h2 id="第七位：SF"><a href="#第七位：SF" class="headerlink" title="第七位：SF"></a>第七位：SF</h2><p>sign flag<br>符号标志位<br>结果是否为负，只看第一位符号位</p><h2 id="第零位：CF"><a href="#第零位：CF" class="headerlink" title="第零位：CF"></a>第零位：CF</h2><p>carry flag<br>进位标识符<br>是否有进位或者借位<br><strong>inc和loop不影响CF位</strong></p><h2 id="第十一位：OF"><a href="#第十一位：OF" class="headerlink" title="第十一位：OF"></a>第十一位：OF</h2><p>overflow flag<br>溢出标志位</p><h2 id="adc指令"><a href="#adc指令" class="headerlink" title="adc指令"></a>adc指令</h2><p>带进位的加法指令add carry<br>adc a,b<br>相当于a = a + b + cf<br>作用：</p><pre><code>add ax,bx相当于add al,bladc ah,bh</code></pre><h2 id="sbb指令"><a href="#sbb指令" class="headerlink" title="sbb指令"></a>sbb指令</h2><p>带借位的减法指令sub borrow<br>sbb a,b<br>相当于a = a - b - CF</p><h2 id="CMP指令"><a href="#CMP指令" class="headerlink" title="CMP指令"></a>CMP指令</h2><p>相当于减法，但不保存结果，只会影响标志寄存器CF和ZF  </p><h3 id="检测比较结果的条件转移指令"><a href="#检测比较结果的条件转移指令" class="headerlink" title="检测比较结果的条件转移指令"></a>检测比较结果的条件转移指令</h3><p>和CMP配合使用</p><ol><li>je    equal</li><li>jne    not equal</li><li>jb    below</li><li>jnb    not below</li><li>ja    above</li><li>jna    not above</li></ol><h2 id="第十位：DF标志和串的传送"><a href="#第十位：DF标志和串的传送" class="headerlink" title="第十位：DF标志和串的传送"></a>第十位：DF标志和串的传送</h2><p>DF direcition(down?) flag<br>格式：movsb  （mov string byte？）<br>功能：复制一段数据？差不多，主要就是执行以下操作  </p><ol><li>((es)*16+di) = ((ds)*16+si)  </li><li>若df = 0:   si++; di++  </li><li>若df = 1:   si–; di–</li></ol><p>上面的是传一个内存单元，也可以传一个字<br>格式：movsw  （mov string word？）  </p><ol><li>mov word ptr es:[di],ds:[si](并不支持这样的指令，只是描述)  </li><li>若df = 0:   si+=2; di+=2  </li><li>若df = 1:   si-=2; di-=2</li></ol><p>可以配合rep使用，rep就是重复cx次当前指令，例如</p><pre><code>rep mov sb相当于s:    movsb    loop s</code></pre><p>这样就可以实现cx个字符的传送  </p><h3 id="设置DF的指令"><a href="#设置DF的指令" class="headerlink" title="设置DF的指令"></a>设置DF的指令</h3><ol><li>cld：将DF设置为零（clear df）</li><li>std：将DF设置为一 (set df)</li></ol><h2 id="pushf和popf"><a href="#pushf和popf" class="headerlink" title="pushf和popf"></a>pushf和popf</h2><p>标志寄存器的出入栈</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;汇编语言第十一章：标志寄存器&quot;&gt;&lt;a href=&quot;#汇编语言第十一章：标志寄存器&quot; class=&quot;headerlink&quot; title=&quot;汇编语言第十一章：标志寄存器&quot;&gt;&lt;/a&gt;汇编语言第十一章：标志寄存器&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;标志寄存器就是CP
-      
-    
-    </summary>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="汇编语言" scheme="http://ranxb.cn/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
