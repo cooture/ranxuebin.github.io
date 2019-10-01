@@ -22,18 +22,18 @@
     
     
     <meta name="keywords" content="vim,linux">
-    <meta name="description" content="Vim 笔记编辑 i——insert（字母前） a——append（字母后） o——below（下一行） A——append after line（行后） I——insert before line（行前） O——above line（上一行）   ctrl+u——删除行 ctrl+w——删除字 ctrl+a——移动到最前 ctrl+e——移动到最后 gi——移动到上一次编辑的地方   视图 :v">
+    <meta name="description" content="Vim 笔记编辑 i——insert（字母前） a——append（字母后） o——below（下一行） A——append after line（行后） I——insert before line（行前） O——above line（上一行）   ctrl+u——删除行 ctrl+w——删除字 ctrl+a——移动到最前 ctrl+e——移动到最后 gi——移动到上一次编辑的地方    dw——">
 <meta name="keywords" content="vim,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim笔记">
 <meta property="og:url" content="http://ranxb.cn/2019/09/30/vim/index.html">
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
-<meta property="og:description" content="Vim 笔记编辑 i——insert（字母前） a——append（字母后） o——below（下一行） A——append after line（行后） I——insert before line（行前） O——above line（上一行）   ctrl+u——删除行 ctrl+w——删除字 ctrl+a——移动到最前 ctrl+e——移动到最后 gi——移动到上一次编辑的地方   视图 :v">
+<meta property="og:description" content="Vim 笔记编辑 i——insert（字母前） a——append（字母后） o——below（下一行） A——append after line（行后） I——insert before line（行前） O——above line（上一行）   ctrl+u——删除行 ctrl+w——删除字 ctrl+a——移动到最前 ctrl+e——移动到最后 gi——移动到上一次编辑的地方    dw——">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-30T12:50:27.614Z">
+<meta property="og:updated_time" content="2019-10-01T12:40:40.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim笔记">
-<meta name="twitter:description" content="Vim 笔记编辑 i——insert（字母前） a——append（字母后） o——below（下一行） A——append after line（行后） I——insert before line（行前） O——above line（上一行）   ctrl+u——删除行 ctrl+w——删除字 ctrl+a——移动到最前 ctrl+e——移动到最后 gi——移动到上一次编辑的地方   视图 :v">
+<meta name="twitter:description" content="Vim 笔记编辑 i——insert（字母前） a——append（字母后） o——below（下一行） A——append after line（行后） I——insert before line（行前） O——above line（上一行）   ctrl+u——删除行 ctrl+w——删除字 ctrl+a——移动到最前 ctrl+e——移动到最后 gi——移动到上一次编辑的地方    dw——">
     
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
@@ -171,7 +171,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vim-笔记"><span class="post-toc-number">1.</span> <span class="post-toc-text">Vim 笔记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">编辑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#视图"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">视图</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vim-笔记"><span class="post-toc-number">1.</span> <span class="post-toc-text">Vim 笔记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">编辑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#视图"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">视图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#移动"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">移动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">配置</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -210,6 +210,29 @@
 <li>ctrl+e——移动到最后</li>
 <li>gi——移动到上一次编辑的地方 </li>
 </ul>
+<ul>
+<li>dw——删除一个字符</li>
+<li>dd——删除一行</li>
+<li>dt{char}——删除到某个字符</li>
+<li>d0/$——删除到行首行尾</li>
+<li>x——删除字符</li>
+</ul>
+<p>快速修改</p>
+<ul>
+<li>r（replace）——替换</li>
+<li>c（change）——ct“——删除到”之前的内容并进入编辑模式</li>
+<li>s（substitute）——删除并进入编辑模式</li>
+</ul>
+<p>替换</p>
+<ul>
+<li><code>:% s/self/this/g</code>——%全部，s替换，self替换为this，g全局</li>
+<li><code>:1,6 s/self/this/c</code>——1，6行，s替换，sels替换为this，c需要确认</li>
+</ul>
+<p>查询</p>
+<ul>
+<li>/？——前向或反向</li>
+<li>nN——下一个或者上一个</li>
+</ul>
 <h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><ul>
 <li><code>:vs</code>——左右分屏</li>
 <li><code>:sp</code>——上下分屏</li>
@@ -224,14 +247,33 @@
 <li>u——撤销</li>
 <li>d——删除</li>
 </ul>
-
+<h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><ul>
+<li>hjkl——上下左右</li>
+<li>w/W 移到下一个单词开头，大写以空格为分割</li>
+<li>e/E移到下一个单词的结尾</li>
+<li>b/B上一个开头</li>
+</ul>
+<p>行间移动</p>
+<ul>
+<li>f{char}——行内搜索并跳转到下一个字母上，F表示向前搜索</li>
+</ul>
+<ul>
+<li>行首行尾——0，$</li>
+</ul>
+<ul>
+<li>gg/G——文件开头/结尾</li>
+<li>H/M/L——屏幕开头/中间/结尾</li>
+<li>ctrl+u/f——向上/下翻页</li>
+<li>z z——放在中间</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-09-30T12:50:27.614Z" itemprop="dateUpdated">2019-09-30 20:50:27</time>
+    Last updated: <time datetime="2019-10-01T12:40:40.361Z" itemprop="dateUpdated">2019-10-01 20:40:40</time>
 </span><br>
 
 
