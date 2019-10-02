@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2019/10/02/swfit-Simple-Guide/">
+    
+    
+    <title>swfit_Simple_Guide | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="swift,Guide">
+    <meta name="description" content="新建一个PlayGround，直接看实例代码  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
+<meta name="keywords" content="swift,Guide">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swfit_Simple_Guide">
+<meta property="og:url" content="http://ranxb.cn/2019/10/02/swfit-Simple-Guide/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="新建一个PlayGround，直接看实例代码  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-02T09:09:53.930Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swfit_Simple_Guide">
+<meta name="twitter:description" content="新建一个PlayGround，直接看实例代码  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lab.ranxb.com">
+                <i class="icon icon-lg icon-lab"></i>
+                实验室
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">swfit_Simple_Guide</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">swfit_Simple_Guide</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-02T07:53:51.000Z" itemprop="datePublished" class="page-time">
+  2019-10-02
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-swfit-Simple-Guide" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">swfit_Simple_Guide</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-02 15:53:51" datetime="2019-10-02T07:53:51.000Z" itemprop="datePublished">2019-10-02</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>新建一个PlayGround，直接看实例代码</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> AppKit<span class="comment">//暂时没啥用的东西</span></span><br><span class="line"><span class="keyword">var</span> strTest = <span class="string">"Hello, playground"</span></span><br><span class="line"><span class="keyword">var</span> maybeNilTest:<span class="type">Int?</span> = <span class="literal">nil</span></span><br><span class="line"><span class="keyword">var</span> intTest:<span class="type">Int</span> = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> setTypeTest:(<span class="type">Int?</span>, <span class="type">String</span>) = (<span class="number">1</span>,<span class="string">"hahaa"</span>)</span><br><span class="line"><span class="keyword">var</span> setValue = (<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="keyword">var</span> deepCopySetTest = setValue</span><br><span class="line"></span><br><span class="line"><span class="comment">//??表达式判断可为nil的值</span></span><br><span class="line"><span class="built_in">print</span>(maybeNilTest ?? <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(strTest)</span><br><span class="line"><span class="comment">//字符串拼接</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"intTest： \(intTest)"</span>)</span><br><span class="line"><span class="comment">//元组索引</span></span><br><span class="line"><span class="built_in">print</span>(setTypeTest.<span class="number">0</span>!)</span><br><span class="line"><span class="comment">//type函数</span></span><br><span class="line"><span class="built_in">print</span>(type(of: setTypeTest))</span><br><span class="line"></span><br><span class="line"><span class="comment">//元组赋值，非引用，deepCopy</span></span><br><span class="line">deepCopySetTest.<span class="number">0</span> = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(setValue)</span><br><span class="line"><span class="built_in">print</span>(deepCopySetTest)</span><br><span class="line"></span><br><span class="line"><span class="comment">//元组key</span></span><br><span class="line"><span class="keyword">var</span> setc:(name1:<span class="type">Int</span>, name2:<span class="type">String</span>) = (<span class="number">1</span>,<span class="string">"haha"</span>)</span><br><span class="line"><span class="comment">// terminator 参数separator 参数</span></span><br><span class="line"><span class="built_in">print</span>(setc, setc.name1, separator:<span class="string">"  separator  "</span>, terminator:<span class="string">"  terminator  \n"</span>)</span><br><span class="line"><span class="comment">//三元运算符</span></span><br><span class="line"><span class="keyword">var</span> d = (maybeNilTest == <span class="literal">nil</span>) ? <span class="number">1</span> :maybeNilTest!</span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line"><span class="comment">//if sentence</span></span><br><span class="line"><span class="keyword">var</span> ifTestValue = <span class="number">10</span></span><br><span class="line"><span class="keyword">if</span> ifTestValue &gt; <span class="number">10</span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"ifTestValue is bigger than 10"</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> ifTestValue == <span class="number">10</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"this is else if branch"</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"this is else branch"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可选项绑定</span></span><br><span class="line"><span class="comment">//maybeNilTest = 1</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> optionBindTest = maybeNilTest&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"optionBindTest value is :"</span>,optionBindTest)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"maybeNilTest is nil"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//隐式展开</span></span><br><span class="line"><span class="comment">//允许让变量在某些情况下可以赋值为空，但是保证输入输出和调用时w有值</span></span><br><span class="line"><span class="keyword">var</span> yinshizhankai:<span class="type">Int!</span> = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> yinshizhankaiB : <span class="type">Int</span> = yinshizhankai</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"yinshizhankai is 10: "</span>, yinshizhankai!)</span><br><span class="line">yinshizhankai = <span class="literal">nil</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"yinshizhankai is nil: "</span>, yinshizhankai ?? <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"yinshizhankaiB: "</span>, yinshizhankaiB)</span><br><span class="line"></span><br><span class="line"><span class="comment">//swich</span></span><br><span class="line"><span class="keyword">var</span> swichTest = <span class="number">10</span></span><br><span class="line"><span class="keyword">switch</span> swichTest &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>...<span class="number">10</span>:<span class="comment">//区间，后面继续h说，这个是闭区间，开区间可以是..&lt;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"swichTest == 10"</span>)</span><br><span class="line">    <span class="keyword">fallthrough</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">20</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"switchTest == 20 with fallthrough"</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"default"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//switch 元组匹配</span></span><br><span class="line"><span class="keyword">var</span> switchTestB = (<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="keyword">switch</span> switchTestB &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="keyword">var</span>(<span class="number">1</span>, num) <span class="keyword">where</span> num &gt; <span class="number">1</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"this is (1, 2) num is \(num) and num &gt; 1"</span>)</span><br><span class="line">    num = <span class="number">3</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"this is default"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"this is (1, 2) num is \(switchTestB)"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 区间</span></span><br><span class="line"><span class="keyword">var</span> rangeA = <span class="number">1.5</span>...<span class="number">5</span></span><br><span class="line"><span class="keyword">var</span> rangeB = <span class="number">1</span>..&lt;<span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> rangeA&#123;</span><br><span class="line">    <span class="keyword">if</span> item == <span class="number">2</span>&#123;<span class="keyword">continue</span>&#125; <span class="comment">// break一样</span></span><br><span class="line">    <span class="built_in">print</span>(item, terminator:<span class="string">"  "</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> <span class="built_in">stride</span>(from: <span class="number">1</span>, to: <span class="number">6</span>, by: <span class="number">2</span>).reversed()&#123;</span><br><span class="line">    <span class="built_in">print</span>(item, terminator:<span class="string">"  "</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-10-02T09:09:53.930Z" itemprop="dateUpdated">2019-10-02 17:09:53</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guide/">Guide</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/09/30/zsh-is-too-slow/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">zsh_is_too_slow</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">陇ICP备18001414号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
