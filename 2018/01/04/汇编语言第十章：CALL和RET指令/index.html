@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     
     
+    
     <link rel="canonical" href="http://ranxb.cn/2018/01/04/汇编语言第十章：CALL和RET指令/">
     
     
@@ -169,12 +170,13 @@
 <div class="container body-wrap">
     
     <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编语言第十章：CALL和RET指令"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编语言第十章：CALL和RET指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ret和retf"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">ret和retf</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ret指令的操作"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">ret指令的操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#retf指令的操作"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">retf指令的操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CALL指令"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">CALL指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#根据位移进行转移的CALL指令"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">根据位移进行转移的CALL指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#根据目的地址转移的CALL指令"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">根据目的地址转移的CALL指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#地址在寄存器中的CALL指令"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">地址在寄存器中的CALL指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移地址在内存中的CALL指令"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">转移地址在内存中的CALL指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CALL-WORD-PRT-地址"><span class="post-toc-number">1.2.4.1.</span> <span class="post-toc-text">CALL WORD PRT 地址</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CALL-DWOERD-PRT-地址"><span class="post-toc-number">1.2.4.2.</span> <span class="post-toc-text">CALL DWOERD PRT 地址</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RET和CALL的配合使用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RET和CALL的配合使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MUL指令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">MUL指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8位的"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">8位的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#16位的"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">16位的</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
-    
+
+
 <article id="post-汇编语言第十章：CALL和RET指令" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -257,6 +259,7 @@ mul bx
         </div>
 
         <blockquote class="post-copyright">
+    
     <div class="content">
         
 <span class="post-time">
@@ -268,6 +271,7 @@ mul bx
         如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
         
     </div>
+    
     <footer>
         <a href="http://ranxb.cn">
             <img src="/img/avatar.jpg" alt="冉学斌">
@@ -318,6 +322,12 @@ mul bx
 
 
     
+
+
+
+
+
+
 
 
 
@@ -434,7 +444,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

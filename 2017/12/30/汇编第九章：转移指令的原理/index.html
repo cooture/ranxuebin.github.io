@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     
     
+    
     <link rel="canonical" href="http://ranxb.cn/2017/12/30/汇编第九章：转移指令的原理/">
     
     
@@ -169,12 +170,13 @@
 <div class="container body-wrap">
     
     <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇编第九章：转移指令的原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">汇编第九章：转移指令的原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#offset"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">offset</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jmp"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">jmp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#依据位移进行转移的jmp指令"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">依据位移进行转移的jmp指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移的目的地址在指令中的jmp指令"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">转移的目的地址在指令中的jmp指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移地址在寄存器中的jmp指令"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">转移地址在寄存器中的jmp指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转移地址在内存中的jmp指令"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">转移地址在内存中的jmp指令</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jcxz指令"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">jcxz指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#loop指令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">loop指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#根据位移进行转移的意义"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">根据位移进行转移的意义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译器对转移位移超界的检测"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">编译器对转移位移超界的检测</span></a></li></ol></li></ol>
         </nav>
     </aside>
-    
+
+
 <article id="post-汇编第九章：转移指令的原理" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -280,6 +282,7 @@ loop
         </div>
 
         <blockquote class="post-copyright">
+    
     <div class="content">
         
 <span class="post-time">
@@ -291,6 +294,7 @@ loop
         如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
         
     </div>
+    
     <footer>
         <a href="http://ranxb.cn">
             <img src="/img/avatar.jpg" alt="冉学斌">
@@ -341,6 +345,12 @@ loop
 
 
     
+
+
+
+
+
+
 
 
 
@@ -457,7 +467,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

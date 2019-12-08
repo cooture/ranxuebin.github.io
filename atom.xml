@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2019-10-02T09:09:53.930Z</updated>
+  <updated>2019-12-08T12:36:31.298Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Numpy</title>
+    <link href="http://ranxb.cn/2019/12/08/Numpy/"/>
+    <id>http://ranxb.cn/2019/12/08/Numpy/</id>
+    <published>2019-12-08T12:32:53.000Z</published>
+    <updated>2019-12-08T12:36:31.298Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="NumPy’s-Simple-Guide"><a href="#NumPy’s-Simple-Guide" class="headerlink" title="NumPy’s Simple Guide"></a>NumPy’s Simple Guide</h1><h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure><h2 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new an array</span></span><br><span class="line">array = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">                 [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure><p>output:</p><pre><code>[[1 2 3] [2 3 4]]</code></pre><h3 id="attribute"><a href="#attribute" class="headerlink" title="attribute"></a>attribute</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># print array's shape\size\dimension</span></span><br><span class="line">print(<span class="string">"array's shape:\t\t&#123;&#125;"</span>.format(array.shape))</span><br><span class="line">print(<span class="string">"array's size:\t\t&#123;&#125;"</span>.format(array.size))</span><br><span class="line">print(<span class="string">"array's dimension:\t&#123;&#125;"</span>.format(array.ndim))</span><br></pre></td></tr></table></figure><p>Output:</p><pre><code>array&apos;s shape:        (2, 3)array&apos;s size:        6array&apos;s dimension:    2</code></pre><h3 id="data’s-type"><a href="#data’s-type" class="headerlink" title="data’s type"></a>data’s type</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># data's type</span></span><br><span class="line">print(array.dtype)</span><br><span class="line">array_int64 = np.array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], dtype = np.float32)</span><br><span class="line">print(array_int64.dtype)</span><br></pre></td></tr></table></figure><p>output:</p><pre><code>int64float32</code></pre><h3 id="init-zeros-random-array"><a href="#init-zeros-random-array" class="headerlink" title="init zeros/random array"></a>init zeros/random array</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new a zeros array</span></span><br><span class="line">array_zeros = np.zeros((<span class="number">3</span>,<span class="number">3</span>))</span><br><span class="line">print(array_zeros)</span><br></pre></td></tr></table></figure><p>output:</p><pre><code>[[0. 0. 0.] [0. 0. 0.] [0. 0. 0.]]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new a random array</span></span><br><span class="line">array_random_1 = np.random.rand(<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line">print(array_random_1)</span><br><span class="line">array_random_2 = np.random.randint(<span class="number">1</span>,<span class="number">10</span>,(<span class="number">3</span>,<span class="number">3</span>))</span><br><span class="line">print(array_random_2)</span><br></pre></td></tr></table></figure><p>output:</p><pre><code>[[0.92729723 0.09598583 0.66051484] [0.39062266 0.02234608 0.45097481] [0.51593931 0.56147379 0.9935763 ]][[3 8 3] [7 6 5] [8 8 3]]</code></pre><h3 id="new-a-range-data"><a href="#new-a-range-data" class="headerlink" title="new a range data"></a>new a range data</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># new a range data</span></span><br><span class="line">arange_data = np.arange(<span class="number">10</span>,<span class="number">20</span>,<span class="number">5</span>)</span><br><span class="line">print(arange_data)</span><br></pre></td></tr></table></figure><p>output:</p><pre><code>[10 15]</code></pre><h3 id="change-array’s-shape"><a href="#change-array’s-shape" class="headerlink" title="change array’s shape"></a>change array’s shape</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># change arrar's shape</span></span><br><span class="line">print(array)</span><br><span class="line">print(<span class="string">"-----changed------"</span>)</span><br><span class="line">array = array.reshape((<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure><pre><code>[[1 2 3] [2 3 4]]-----changed------[[1 2] [3 2] [3 4]]</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;NumPy’s-Simple-Guide&quot;&gt;&lt;a href=&quot;#NumPy’s-Simple-Guide&quot; class=&quot;headerlink&quot; title=&quot;NumPy’s Simple Guide&quot;&gt;&lt;/a&gt;NumPy’s Simple Guide&lt;/h1&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="numpy" scheme="http://ranxb.cn/categories/numpy/"/>
+    
+    
+      <category term="numpy" scheme="http://ranxb.cn/tags/numpy/"/>
+    
+      <category term="python" scheme="http://ranxb.cn/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>swfit_Simple_Guide</title>
@@ -66,9 +93,9 @@
       <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
     
     
-      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
-    
       <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+    
+      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
     
   </entry>
   
@@ -93,9 +120,9 @@
       <category term="vim" scheme="http://ranxb.cn/categories/vim/"/>
     
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
-    
       <category term="vim" scheme="http://ranxb.cn/tags/vim/"/>
+    
+      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
     
   </entry>
   
@@ -513,33 +540,6 @@
         &lt;h1 id=&quot;数字电路：基础知识&quot;&gt;&lt;a href=&quot;#数字电路：基础知识&quot; class=&quot;headerlink&quot; title=&quot;数字电路：基础知识&quot;&gt;&lt;/a&gt;数字电路：基础知识&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;你可以理解为第五章之前的内容&lt;/p&gt;
 &lt;/blockquo
-      
-    
-    </summary>
-    
-      <category term="数字电路" scheme="http://ranxb.cn/categories/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-    
-      <category term="数字电路" scheme="http://ranxb.cn/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
-    
-      <category term="笔记" scheme="http://ranxb.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字电路第六章：同步时序逻辑电路——下</title>
-    <link href="http://ranxb.cn/2018/01/06/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%90%8C%E6%AD%A5%E6%97%B6%E5%BA%8F%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E2%80%94%E2%80%94%E4%B8%8B/"/>
-    <id>http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——下/</id>
-    <published>2018-01-06T08:29:26.000Z</published>
-    <updated>2018-01-06T13:47:29.410Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="数字电路第六章：同步时序逻辑电路——下"><a href="#数字电路第六章：同步时序逻辑电路——下" class="headerlink" title="数字电路第六章：同步时序逻辑电路——下"></a>数字电路第六章：同步时序逻辑电路——下</h1><h2 id="状态编码"><a href="#状态编码" class="headerlink" title="状态编码"></a>状态编码</h2><blockquote><p>在求得最简状态码之后，需要对状态表中用字母或数字表示的状态用一组二进制代码来代替，称之为状态编码（也叫状态赋值或状态分配）</p></blockquote><h3 id="状态编码的任务"><a href="#状态编码的任务" class="headerlink" title="状态编码的任务"></a>状态编码的任务</h3><ol><li>确定状态编码的长度，即二进制代码的位数或者是触发器的个数。  </li><li>确定二进制编码的分配方案。  </li></ol><h3 id="状态编码的长度确定"><a href="#状态编码的长度确定" class="headerlink" title="状态编码的长度确定"></a>状态编码的长度确定</h3><p>每个触发器可以代表一位二进制数，n个触发器可以代表n位二进制数，组成2<sup>n</sup>个二进制代码。</p><p>所需状态数M和触发器个数n之间应满足以下关系:  2<sup>n-1</sup> &lt; M ≤ 2<sup>n</sup>  </p><h3 id="确定二进制编码分配方案"><a href="#确定二进制编码分配方案" class="headerlink" title="确定二进制编码分配方案"></a>确定二进制编码分配方案</h3><p>因为编码和状态配合的方式很多，徐阿哟选择最佳的编码方式。<br>若当N=4, n=2时，就有24种状态分配方案。随着状 态数目的增加，状态分配方案的总数将急剧增加。<strong>状态编码解决的主要问题是确定一组使次态函数(或驱动方程)和输出函数尽可能简单、可靠的 状态编码,称之为最佳编码。</strong></p><h3 id="分配的基本原则"><a href="#分配的基本原则" class="headerlink" title="分配的基本原则"></a>分配的基本原则</h3><ul><li>在状态表中同一输入下的相同次态所对应的现态，尽可能分配相邻编码。通常称为“<strong>次态相同，现态编码相邻</strong>”。</li><li>在状态表中，同一现态，相邻输入下的不同次态，应尽可能分配相邻编码。通常称为“<strong>同一现态，次态编码相邻</strong>”。</li><li>在状态表中某些输出完全相同的现态。那么尽可能给现态分配相邻的编码，通常称“<strong>输出相同，现态编码相邻</strong>”。</li><li>在状态表中，<strong>出现次数最多的状态通常给予逻辑0的编码</strong>。  </li></ul><p><strong>注意</strong>：一般情况下，应优先考虑原则(1)，因为原则 (1)最重要！例：<br><img src="a.png" alt><br>结果如下：<br><img src="b.png" alt>  </p><h2 id="同步时序逻辑电路设计举例"><a href="#同步时序逻辑电路设计举例" class="headerlink" title="同步时序逻辑电路设计举例"></a>同步时序逻辑电路设计举例</h2><h3 id="例题一"><a href="#例题一" class="headerlink" title="例题一"></a>例题一</h3><p>例题：试设计一个序列数据检测器，该电路用来检测输入的串行二进制序列，当输入连续出现110时，检测器输出为1，其他情况下输出为0。</p><ol><li>进行逻辑抽象画出状态转换图和状态转换表<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="c.png" alt title>                </div>                <div class="image-caption"></div>            </figure>  <figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="d.png" alt title>                </div>                <div class="image-caption"></div>            </figure>  </li><li>进行状态化简，因为全部确定，建立最简等效类<br><img src="e.png" alt></li><li>状态编码，状态可用两个二进制编码表示，S0出现的最多设为00，S1=01，S2=11<br><img src="f.png" alt></li><li>根据状态表求出状态方程，驱动方程和输出方程，画出Z的卡诺图，Q2n+1和Q1n+1的卡诺图<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="g.png" alt title>                </div>                <div class="image-caption"></div>            </figure>  并根据卡诺图的化简结果写出输出方程，状态方程，并带入触发器的特征方程写出驱动方程。<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="h.png" alt title>                </div>                <div class="image-caption"></div>            </figure>  </li><li>经过对比特征方程的标准形式，写出j和k，并画出逻辑电路图。<br><img src="i.png" alt></li><li>判断自启动，当电路处于无关状态时，是否可以通过时钟脉冲的作用下进入有效状态。</li></ol><h3 id="例题二"><a href="#例题二" class="headerlink" title="例题二"></a>例题二</h3><p>例题：试设计一个同步七进制计数器，要求按二进制加计数规律变化。</p><p>确定状态转换情况，注意看题是七进制，因此111位无效情况。<br><img src="j.png" alt><br>确定编码状态<br><img src="k.png" alt><br>因为是Moore型电路，跟输入无关，所以卡诺图这么画<br><img src="l.png" alt><br>通过卡诺图写出状态方程，经验来看Moore型电路都用D触发器<br><img src="m.png" alt><br>写出驱动方程，画出电路图<br><img src="n.png" alt><br>最后检查一下自启动<br><img src="o.png" alt>  </p><h2 id="常用集成时序逻辑电路及应用"><a href="#常用集成时序逻辑电路及应用" class="headerlink" title="常用集成时序逻辑电路及应用"></a>常用集成时序逻辑电路及应用</h2><blockquote><p>寄存器好像不考，直接计数器了。</p></blockquote><h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><p>一种对输入脉冲信号进行计数的时序逻辑部件。<br>可以分为：  </p><ul><li>二进制计数器和非二进制计数器</li><li>加计数器、减计数器和可逆计数器</li><li>同步计数器和异步计数器</li></ul><h4 id="集成计数器"><a href="#集成计数器" class="headerlink" title="集成计数器"></a>集成计数器</h4><h5 id="同步集成计数器74LS191"><a href="#同步集成计数器74LS191" class="headerlink" title="同步集成计数器74LS191"></a>同步集成计数器74LS191</h5><p><strong>74LS191</strong><br><img src="p.png" alt><br>功能及其真值表<br><img src="q.png" alt></p><h5 id="异步集成计数器74LS290"><a href="#异步集成计数器74LS290" class="headerlink" title="异步集成计数器74LS290"></a>异步集成计数器74LS290</h5><p><strong>74LS290重点！</strong><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="r.png" alt title>                </div>                <div class="image-caption"></div>            </figure><br>中规模集成电路74LS290是典型的异步BCD码十进制计数器。<br>逻辑电路如下<br><img src="s.png" alt><br><strong>功能分析</strong> </p><ul><li>若在CPa端输入时钟脉冲，则Qa输出信号是CPa的脉冲二分频  </li><li>FB,FC,FD三个触发器构成的逻辑电路是一个异步五进制计数器，其CPB为计数脉冲输入端，QD为输出端。即QD的输出信号是CPB脉冲的五分频。  </li><li>若将CPB与QA相连，同时以CPA为输入计数脉冲端。QD的输出为十进制计数器(或十分频器)。<br>因此，又将这个电路称为二、五、十进制异步计数器。<br><strong>真值表</strong><br><img src="t.png" alt><br><strong>真值表的分析</strong>  </li><li>直接复位输入端R01和R02：当R01=R02=1，且S91,S92中有“0”时，可使各触发器清为零。  </li><li>置“9”输入端S91和S92：其状态QDQCQBQA = 1001,这就是置“9”功能。  </li><li>在置“9”输入端S91,S92和复位输入端R01,R02中均有“0”电平时，74LS290可实现计数功能。  </li></ul><p><strong>任意进制计数器的构造方法</strong><br>例：用74LS290和适当的门电路构成64进制计数器，采用5421BCD码计数。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="u.png" alt title>                </div>                <div class="image-caption"></div>            </figure></p><ul><li>Cb和Qa接时，Ca输入时钟信号，输出顺序为dcba，计数方式为8421</li><li>Ca和Qd接时，Cb接时钟信号，输出顺序为adcb，计数方式为5421</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="v.png" alt title>                </div>                <div class="image-caption"></div>            </figure><h5 id="环形计数器"><a href="#环形计数器" class="headerlink" title="环形计数器"></a>环形计数器</h5><p>环形计数器是将移位寄存器的最后一级输出 反馈到第一级串行输入端SR，特点是构成的 计数器模数M和所用触发器个数n相等。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="w.png" alt title>                </div>                <div class="image-caption"></div>            </figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;数字电路第六章：同步时序逻辑电路——下&quot;&gt;&lt;a href=&quot;#数字电路第六章：同步时序逻辑电路——下&quot; class=&quot;headerlink&quot; title=&quot;数字电路第六章：同步时序逻辑电路——下&quot;&gt;&lt;/a&gt;数字电路第六章：同步时序逻辑电路——下&lt;/h1&gt;&lt;h2 i
       
     
     </summary>

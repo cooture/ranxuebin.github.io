@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     
     
+    
     <link rel="canonical" href="http://ranxb.cn/2018/01/04/数字电路第五章：集成双稳态触发器/">
     
     
@@ -185,12 +186,13 @@
 <div class="container body-wrap">
     
     <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#集成双稳态触发器"><span class="post-toc-number">1.</span> <span class="post-toc-text">集成双稳态触发器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#触发器的基本特点及分类"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">触发器的基本特点及分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入量和输出量的设置"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">输入量和输出量的设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#触发器输出与约束方程的一般表达式"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">触发器输出与约束方程的一般表达式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#触发器的分类"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">触发器的分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本RS双稳态触发器及其分析"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">基本RS双稳态触发器及其分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RS型（set-reset）的电路结构和基本原理"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">RS型（set reset）的电路结构和基本原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时钟RS触发器及其分析"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">时钟RS触发器及其分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时钟RS触发器结构与工作特性"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">时钟RS触发器结构与工作特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#空翻现象"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">空翻现象</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主从触发器"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">主从触发器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时钟D触发器及其分析"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">时钟D触发器及其分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电路结构与工作原理"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">电路结构与工作原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑功能及其描述方法"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">逻辑功能及其描述方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#功能真值表和激励表"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">功能真值表和激励表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#D触发器的空翻"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">D触发器的空翻</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时钟JK触发器及其分析"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">时钟JK触发器及其分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑功能及其描述方法-1"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">逻辑功能及其描述方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主从集成JK触发器"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">主从集成JK触发器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时钟T触发器及其分析"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">时钟T触发器及其分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征方程总结"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">特征方程总结</span></a></li></ol></li></ol>
         </nav>
     </aside>
-    
+
+
 <article id="post-数字电路第五章：集成双稳态触发器" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -316,6 +318,7 @@
         </div>
 
         <blockquote class="post-copyright">
+    
     <div class="content">
         
 <span class="post-time">
@@ -327,6 +330,7 @@
         如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
         
     </div>
+    
     <footer>
         <a href="http://ranxb.cn">
             <img src="/img/avatar.jpg" alt="冉学斌">
@@ -377,6 +381,12 @@
 
 
     
+
+
+
+
+
+
 
 
 
@@ -493,7 +503,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
