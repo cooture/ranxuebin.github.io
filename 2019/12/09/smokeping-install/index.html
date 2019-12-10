@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
 <meta property="og:description" content="SmokePing的安装与配置 sd学校辣鸡网速，实在是不敢恭维，发邮件投诉之后，网信办找到我说：“网速还可以啊！”，这一句话给我怼回来很难受，发现有些东西不去量化实在是不行的。之前想过办法说收集问卷，让集体的声音告诉学校网速真的不行，但是奈何影响力是在不够。感觉不靠谱。然后再网信办发现了官方检测网速的工具，并同时给出了相应的标准。（网页再此）于是就有了搭建Smokeping这个东西的想法，拿你们">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-09T15:31:44.913Z">
+<meta property="og:updated_time" content="2019-12-10T07:35:55.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="smokeping_install">
 <meta name="twitter:description" content="SmokePing的安装与配置 sd学校辣鸡网速，实在是不敢恭维，发邮件投诉之后，网信办找到我说：“网速还可以啊！”，这一句话给我怼回来很难受，发现有些东西不去量化实在是不行的。之前想过办法说收集问卷，让集体的声音告诉学校网速真的不行，但是奈何影响力是在不够。感觉不靠谱。然后再网信办发现了官方检测网速的工具，并同时给出了相应的标准。（网页再此）于是就有了搭建Smokeping这个东西的想法，拿你们">
@@ -135,7 +135,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -172,7 +172,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SmokePing的安装与配置"><span class="post-toc-number">1.</span> <span class="post-toc-text">SmokePing的安装与配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-SmokePing"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">What is SmokePing</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Prepare-the-environment"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Prepare the environment</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#compile-and-Install"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">compile and Install</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#config"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">config</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#妥"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">妥</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SmokePing的安装与配置"><span class="post-toc-number">1.</span> <span class="post-toc-text">SmokePing的安装与配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What-is-SmokePing"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">What is SmokePing</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Prepare-the-environment"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Prepare the environment</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#compile-and-Install"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">compile and Install</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#config"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">config</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#妥"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">妥</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些坑"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">一些坑</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#fping版本问题"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">fping版本问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#EchoPing用不了"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">EchoPing用不了</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#perl-warning"><span class="post-toc-number">1.6.3.</span> <span class="post-toc-text">perl: warning:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些资源访问不了的问题"><span class="post-toc-number">1.6.4.</span> <span class="post-toc-text">一些资源访问不了的问题</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -256,7 +256,13 @@
 <ul>
 <li><code>sudo nginx -s reload</code></li>
 </ul>
-<h2 id="妥"><a href="#妥" class="headerlink" title="妥"></a>妥</h2>
+<h2 id="妥"><a href="#妥" class="headerlink" title="妥"></a>妥</h2><h2 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h2><h3 id="fping版本问题"><a href="#fping版本问题" class="headerlink" title="fping版本问题"></a>fping版本问题</h3><p>一定要用最新的4.2，apt直接下载是3.*不是最新的，不支持protocol参数，如何确认可以看下help里面有没有<code>-4/-6</code>这个参数，我就是因为这个参数导致的用不了的。</p>
+<h3 id="EchoPing用不了"><a href="#EchoPing用不了" class="headerlink" title="EchoPing用不了"></a>EchoPing用不了</h3><p>装了echoping之后用不了，刚开始不知道原因，现实响应被拒绝，然后100%loss Pkg，后来查询到要开启echo服务才可以使用，就是开启本地7号端口，但是开了之后还是没用，索性放弃，只用fping了</p>
+<h3 id="perl-warning"><a href="#perl-warning" class="headerlink" title="perl: warning:"></a>perl: warning:</h3><p>提示<code>perl: warning: Please check that your locale settings</code></p>
+<p>在<code>~/.bashrc</code>最后加上<code>export LC_ALL=C</code></p>
+<p>然后<code>source ~/.bashrc</code></p>
+<h3 id="一些资源访问不了的问题"><a href="#一些资源访问不了的问题" class="headerlink" title="一些资源访问不了的问题"></a>一些资源访问不了的问题</h3><p>检查权限设置，一定要给nginx权限，不要在新建目录。</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -264,7 +270,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-09T15:31:44.913Z" itemprop="dateUpdated">2019-12-09 23:31:44</time>
+    最終更新：<time datetime="2019-12-10T07:35:55.332Z" itemprop="dateUpdated">2019-12-10 15:35:55</time>
 </span><br>
 
 
@@ -384,7 +390,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
