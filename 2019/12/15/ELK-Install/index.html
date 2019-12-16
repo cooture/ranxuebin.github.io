@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="http://ranxb.cn/2019/12/15/ELK-Install/">
+    
+    
+    <title>ELK-Install | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ELK,Linux">
+    <meta name="description" content="ELK 环境部署what is ELKELK（Elasticsearch+LogStash+Kibana）  Elasticsearch（全文检索引擎） LogStash（日志处理框架） Kibana（一个可视化监控面板）  接下来挨个安装 ElasticsearchJDKsudo apt install default-jdk 1234➜  ~ java --version  openjdk 1">
+<meta name="keywords" content="ELK,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ELK-Install">
+<meta property="og:url" content="http://ranxb.cn/2019/12/15/ELK-Install/index.html">
+<meta property="og:site_name" content="Ran Xuebin&#39;s Blog">
+<meta property="og:description" content="ELK 环境部署what is ELKELK（Elasticsearch+LogStash+Kibana）  Elasticsearch（全文检索引擎） LogStash（日志处理框架） Kibana（一个可视化监控面板）  接下来挨个安装 ElasticsearchJDKsudo apt install default-jdk 1234➜  ~ java --version  openjdk 1">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-15T13:26:41.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ELK-Install">
+<meta name="twitter:description" content="ELK 环境部署what is ELKELK（Elasticsearch+LogStash+Kibana）  Elasticsearch（全文检索引擎） LogStash（日志处理框架） Kibana（一个可视化监控面板）  接下来挨个安装 ElasticsearchJDKsudo apt install default-jdk 1234➜  ~ java --version  openjdk 1">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冉学斌</h5>
+          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                仓库
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lab.ranxb.com">
+                <i class="icon icon-lg icon-lab"></i>
+                实验室
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ranxuebin" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/ranxuebin" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://ranxb.com/landa">
+                <i class="icon icon-lg icon-landaVtour"></i>
+                我兰全景
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://ranxb.com/glacier">
+                <i class="icon icon-lg icon-glacierVtour"></i>
+                冰川全景
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://glacierar.ranxb.com/">
+                <i class="icon icon-lg icon-glacierModel"></i>
+                冰川模型
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ELK-Install</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ELK-Install</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-15T08:01:27.000Z" itemprop="datePublished" class="page-time">
+  2019-12-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ELK-环境部署"><span class="post-toc-number">1.</span> <span class="post-toc-text">ELK 环境部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#what-is-ELK"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">what is ELK</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Elasticsearch"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Elasticsearch</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JDK"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">JDK</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#install"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">install</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#config"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#test"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">test</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#logstash"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">logstash</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#install-1"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">install</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#config-1"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">config</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Grafana"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Grafana</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#install-2"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">install</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#nginx-Config"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">nginx  Config</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ELK-Install" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ELK-Install</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-15 16:01:27" datetime="2019-12-15T08:01:27.000Z" itemprop="datePublished">2019-12-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="ELK-环境部署"><a href="#ELK-环境部署" class="headerlink" title="ELK 环境部署"></a>ELK 环境部署</h1><h2 id="what-is-ELK"><a href="#what-is-ELK" class="headerlink" title="what is ELK"></a>what is ELK</h2><p><strong>ELK（Elasticsearch+LogStash+Kibana）</strong></p>
+<ul>
+<li>Elasticsearch（全文检索引擎）</li>
+<li>LogStash（日志处理框架）</li>
+<li>Kibana（一个可视化监控面板）</li>
+</ul>
+<p>接下来挨个安装</p>
+<h2 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h2><h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><p><code>sudo apt install default-jdk</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ java --version  </span><br><span class="line">openjdk 11.0.4 2019-07-16</span><br><span class="line">OpenJDK Runtime Environment (build 11.0.4+11-post-Ubuntu-1ubuntu218.04.3)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 11.0.4+11-post-Ubuntu-1ubuntu218.04.3, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
+<h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><p><a href="https://www.elastic.co" target="_blank" rel="noopener">官网</a>。自行下载</p>
+<ul>
+<li>解压：<code>tar -xzvf elasticsearch-7.5.0-linux-x86_64.tar.gz</code></li>
+<li>挪到自己放软件的地方我挪到了<code>/etc/elasticsearch-7.5.0</code></li>
+<li>环境变量：<code>export PATH=$PATH:/etc/elasticsearch-7.5.0/bin</code></li>
+</ul>
+<p><strong>这玩意不能用root用户登录，再此给出简易添加用户的办法</strong></p>
+<ul>
+<li><p><code>sudo adduser rankin</code></p>
+</li>
+<li><p><code>sudo vim /etc/sudoers</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rankin ALL=(ALL：ALL) ALL</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改zsh：<code>sudo usermod -s /bin/zsh rankin</code></p>
+</li>
+</ul>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><ul>
+<li><p><code>vim config/elasticsearch.yml</code></p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">path.data:</span> <span class="string">/etc/elkdata/data</span></span><br><span class="line"></span><br><span class="line"><span class="string">path.logs:</span> <span class="string">/etc/elkdata/logs</span></span><br><span class="line"></span><br><span class="line"><span class="string">bootstrap.memory_lock:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>mkdir /etc/elkdata/{data,logs}</code></p>
+</li>
+<li><p><code>sudo chown -R rankin /etc/elkdata/</code></p>
+</li>
+<li><p><code>sudo chown -R rankin /etc/elasticsearch-7.5.0</code></p>
+</li>
+</ul>
+<h3 id="test"><a href="#test" class="headerlink" title="test"></a>test</h3><ul>
+<li><p><code>./bin/elasticsearch</code></p>
+</li>
+<li><p>运行起来之后<code>curl localhost:9200</code></p>
+  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ curl localhost:9200</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span> : <span class="string">"iZ2zeg6zzsafuis05urijiZ"</span>,</span><br><span class="line">  <span class="attr">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</span><br><span class="line">  <span class="attr">"cluster_uuid"</span> : <span class="string">"2kwhhDisSQ2rbcpQFyq5nQ"</span>,</span><br><span class="line">  <span class="attr">"version"</span> : &#123;</span><br><span class="line">    <span class="attr">"number"</span> : <span class="string">"7.5.0"</span>,</span><br><span class="line">    <span class="attr">"build_flavor"</span> : <span class="string">"default"</span>,</span><br><span class="line">    <span class="attr">"build_type"</span> : <span class="string">"tar"</span>,</span><br><span class="line">    <span class="attr">"build_hash"</span> : <span class="string">"e9ccaed468e2fac2275a3761849cbee64b39519f"</span>,</span><br><span class="line">    <span class="attr">"build_date"</span> : <span class="string">"2019-11-26T01:06:52.518245Z"</span>,</span><br><span class="line">    <span class="attr">"build_snapshot"</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"lucene_version"</span> : <span class="string">"8.3.0"</span>,</span><br><span class="line">    <span class="attr">"minimum_wire_compatibility_version"</span> : <span class="string">"6.8.0"</span>,</span><br><span class="line">    <span class="attr">"minimum_index_compatibility_version"</span> : <span class="string">"6.0.0-beta1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"tagline"</span> : <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="logstash"><a href="#logstash" class="headerlink" title="logstash"></a>logstash</h2><h3 id="install-1"><a href="#install-1" class="headerlink" title="install"></a>install</h3><ul>
+<li><code>wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</code></li>
+<li><code>sudo apt-get install apt-transport-https</code></li>
+<li><code>echo &quot;deb https://artifacts.elastic.co/packages/7.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list</code></li>
+<li><code>sudo apt-get update &amp;&amp; sudo apt-get install logstash</code></li>
+</ul>
+<h3 id="config-1"><a href="#config-1" class="headerlink" title="config"></a>config</h3><h2 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a>Grafana</h2><h3 id="install-2"><a href="#install-2" class="headerlink" title="install"></a>install</h3><ul>
+<li><code>wget https://dl.grafana.com/oss/release/grafana_6.5.2_amd64.deb</code></li>
+<li><p><code>sudo dpkg -i grafana_6.5.2_amd64.deb</code></p>
+</li>
+<li><p>装上饼图然后重启：<code>grafana-cli plugins install grafana-piechart-panel</code></p>
+</li>
+<li><code>service grafana-server restart</code></li>
+</ul>
+<h3 id="nginx-Config"><a href="#nginx-Config" class="headerlink" title="nginx  Config"></a>nginx  Config</h3><p>因为grafana默认是3000端口，需要做个nginx反代，给个模版</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	listen 80;</span><br><span class="line">	listen [::]:80;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  root /usr/share/grafana/public;</span><br><span class="line">	# Add index.php to the list if you are using PHP</span><br><span class="line">	index index.html index.htm index.nginx-debian.html;</span><br><span class="line"></span><br><span class="line">	server_name log.ranxb.com;</span><br><span class="line"></span><br><span class="line">	location / &#123;</span><br><span class="line">		# First attempt to serve request as file, then</span><br><span class="line">		# as directory, then fall back to displaying a 404.</span><br><span class="line">		proxy_pass  http://127.0.0.1:3000;</span><br><span class="line">	  </span><br><span class="line">    #Proxy Settings</span><br><span class="line">    proxy_redirect     off;</span><br><span class="line">    proxy_set_header   Host             $host;</span><br><span class="line">    proxy_set_header   X-Real-IP        $remote_addr;</span><br><span class="line">    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</span><br><span class="line">    proxy_max_temp_file_size 0;</span><br><span class="line">    proxy_connect_timeout      90;</span><br><span class="line">    proxy_send_timeout         90;</span><br><span class="line">    proxy_read_timeout         90;</span><br><span class="line">    proxy_buffer_size          4k;</span><br><span class="line">    proxy_buffers              4 32k;</span><br><span class="line">    proxy_busy_buffers_size    64k;</span><br><span class="line">    proxy_temp_file_write_size 64k;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-12-15T13:26:41.461Z" itemprop="dateUpdated">2019-12-15 21:26:41</time>
+</span><br>
+
+
+        
+        如有其他问题请给我留言或发送邮件，我将尽可能及时回复。
+        
+    </div>
+    
+    <footer>
+        <a href="http://ranxb.cn">
+            <img src="/img/avatar.jpg" alt="冉学斌">
+            冉学斌
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ELK/">ELK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/12/09/smokeping-install/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">smokeping_install</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冉学斌 &copy; 2015 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">陇ICP备18001414号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
