@@ -65,9 +65,9 @@
       <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="ELK" scheme="http://ranxb.cn/tags/ELK/"/>
-    
       <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+    
+      <category term="ELK" scheme="http://ranxb.cn/tags/ELK/"/>
     
   </entry>
   
@@ -120,9 +120,9 @@
       <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
     
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
-    
       <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
+    
+      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
     
       <category term="install" scheme="http://ranxb.cn/tags/install/"/>
     
@@ -205,9 +205,9 @@
       <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
     
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
-    
       <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
+    
+      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
     
   </entry>
   
@@ -232,9 +232,9 @@
       <category term="vim" scheme="http://ranxb.cn/categories/vim/"/>
     
     
-      <category term="vim" scheme="http://ranxb.cn/tags/vim/"/>
-    
       <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+    
+      <category term="vim" scheme="http://ranxb.cn/tags/vim/"/>
     
   </entry>
   
