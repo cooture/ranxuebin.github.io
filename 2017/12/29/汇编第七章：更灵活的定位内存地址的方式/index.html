@@ -13,8 +13,6 @@
     
     
     
-    <link rel="canonical" href="http://ranxb.com/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/">
-    
     
     <title>汇编第七章：更灵活的定位内存地址的方式 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -39,7 +37,7 @@
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="http://unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -62,7 +60,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">冉学斌</h5>
-          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -163,12 +161,16 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -285,7 +287,7 @@ mov ax,[bx].200
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2018-01-09T12:05:30.076Z" itemprop="dateUpdated">2018-01-09 20:05:30</time>
+    Last updated: <time datetime="2018-01-09T12:05:30.076Z" itemprop="dateUpdated">2018-01-09 20:05:30</time>
 </span><br>
 
 
@@ -315,6 +317,51 @@ mov ax,[bx].200
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/&title=《汇编第七章：更灵活的定位内存地址的方式》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/&title=《汇编第七章：更灵活的定位内存地址的方式》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编第七章：更灵活的定位内存地址的方式》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -376,11 +423,11 @@ mov ax,[bx].200
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -412,7 +459,7 @@ mov ax,[bx].200
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -432,14 +479,60 @@ mov ax,[bx].200
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/&title=《汇编第七章：更灵活的定位内存地址的方式》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/&title=《汇编第七章：更灵活的定位内存地址的方式》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《汇编第七章：更灵活的定位内存地址的方式》 — Ran Xuebin's Blog&url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2017/12/29/汇编第七章：更灵活的定位内存地址的方式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADM0lEQVR42u3aQW7jMBAEQP//014gpwVia7uHFmByS6fAjiQWc5hMDx+P+Hr+XL8/+fvKv333/N+/n9/7uOPCxsbG3oT9vLyuH52Dk0+Sz/O3/GPrsbGxsY9jX5Pa5V4/s92OpFi2fx5sbGzs/5OdL2VGnbUl2NjY2Nizx+WFaj1USlaCjY2NjZ2ESgl+JSSaYW7P0rCxsbG/nt0Oer/55xvn29jY2NhfyX6OrryQ5AWsHSEvrR8bGxv7IHYSD83CoPyuPKhaj58e7cuwsbGxt2KvxDTtyLbd7nwIURcwbGxs7M3ZK81A237UBaasNUXwhI2NjX0Qux335od12mHwSuuyEl1hY2Nj785OStTdpS4vV7PI6cV7sbGxsQ9ity/Li1k+Hm5D/zZUiloRbGxs7G3ZsxfMmpm8dZm1Sdd/27fjAWxsbOzN2fmYNm8MZpHTLCRqV4KNjY19Nrsd087uXd/K9nhQNOLFxsbG3pbdHrvJj8LkLU2y0PXo6kUHho2NjX0QuziquDAMbgcPbZxUDJuxsbGxj2MXN8QFqT1G04542zbmMauH2NjY2JuwW8BsWflIIG9IknAqqtvY2NjY27JnMdDKILZF5k3OTIGNjY29O7sNaK5fk4dNK7/zgYE0NjY29kHs/J/4ohLGVx4wfXbkgI2NjX0Se/Yvfjt8bYvTbBSRt0DY2NjY57FXBrFJdagHsQsHd6Liio2NjX0QezZqTZaVb0f+rvyAUfQWbGxs7CPY9Q4tMNqtnMVJUYCFjY2NfRB7Fq/PYp2kYWhbi9mxIWxsbOyz2fc1GLPDQEnI1X6LjY2NfR67LQmz9mPW9rTFaTiKwMbGxj6InYxXo2MxebgTb98shGpXiI2NjX0eOw+AVg7T5PeujBCKG7CxsbE3YT/LK9m/vGlpB8OzUcSLb7GxsbEPYrdlYPaaZJuSp+VrazcXGxsbe3d2XrQ+e0xn5S1tG1NkZtjY2Njbstsh7h1D1vuGBG8LGDY2Njb2KAxqW4v1OAkbGxsbez3Qb48Bfaqkvd1obGxs7OPY9y1oxl45+hMNGLCxsbEPYq8MemeftFFUPgBYaYGwsbGxN2T/AdbQ1JizFE1tAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 </script>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -459,7 +552,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 </li>
 </template>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/js/search.js" async></script>
 
 
 
@@ -469,6 +562,23 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 

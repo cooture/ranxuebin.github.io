@@ -13,8 +13,6 @@
     
     
     
-    <link rel="canonical" href="http://ranxb.com/archives/2019/09/">
-    
     
     <title>Archives: 2019/9 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -37,7 +35,7 @@
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="http://unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -60,7 +58,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">冉学斌</h5>
-          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -161,12 +159,16 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -282,7 +284,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -302,14 +304,60 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/archives/2019/09/&title=Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/archives/2019/09/&title=Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/archives/2019/09/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Ran Xuebin's Blog&url=http://ranxb.cn/archives/2019/09/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/archives/2019/09/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3aMW7DMAwF0Nz/0i7QqUMt81Oy7ABPU2Ak0nMGgiL5+ZTX8bvGz48/K/3t4oWLizvNPYbrjFU5fvzk7FXPDLi4uPu59SB1sd3JH1HhloIdLi7uy7jpy/TouLi438VNg9d4Z1xc3PdzK5ef3vOZUIiLi/sUNy2Y3vH5xvouLi5uyD3C1du5F7z+OR0XF3cLt94CqbdUx3vOpES4uLh7uPUrTb0Y2suzSiUYXFzcjdzKFuk4RRxNK6fg4uJu4c4UPuavQGnSg4uLu4fbG7SaGcJIGyelKg4uLu5Sbq9RWn+Sjl+U/jhcXNyN3Mph49Rn1fjFigoKLi7uLLdHnymFpIFsQVDDxcUNuWkYSo9Jrze4uLjPctcek7Zb6jVdXFzcndxeClIvrNTTprhgiouLexu3h0gbJL0Ah4uL+yx3plTaG+NoDnDg4uJu5NZXvQWSXp+Cng8uLu7N3F43M4WmKc6CIIiLizvNvS94pW2Y0igGLi7uRm59FKMe7HrfufgVLi7uy7gz6c5FyaOei+Hi4n4VN22rpBckXFzc/dz6AWm5JG3WLiuL4OLiTnDT68eYUm/czg984OLi3sD9AfmklYydlLCIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -329,7 +377,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 </li>
 </template>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/js/search.js" async></script>
 
 
 
@@ -339,6 +387,23 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 

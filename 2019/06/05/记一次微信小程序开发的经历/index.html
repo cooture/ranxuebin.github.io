@@ -13,8 +13,6 @@
     
     
     
-    <link rel="canonical" href="http://ranxb.com/2019/06/05/记一次微信小程序开发的经历/">
-    
     
     <title>记一次微信小程序开发的经历 | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -38,7 +36,7 @@
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="http://unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -61,7 +59,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">冉学斌</h5>
-          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -162,12 +160,16 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -226,7 +228,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-06-05T02:38:21.734Z" itemprop="dateUpdated">2019-06-05 10:38:21</time>
+    Last updated: <time datetime="2019-06-05T02:38:21.734Z" itemprop="dateUpdated">2019-06-05 10:38:21</time>
 </span><br>
 
 
@@ -254,6 +256,51 @@
             
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/&title=《记一次微信小程序开发的经历》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/&title=《记一次微信小程序开发的经历》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次微信小程序开发的经历》 — Ran Xuebin's Blog&url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -315,11 +362,11 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -351,7 +398,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -371,14 +418,60 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/&title=《记一次微信小程序开发的经历》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/&title=《记一次微信小程序开发的经历》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次微信小程序开发的经历》 — Ran Xuebin's Blog&url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3a0Y7iMAwFUP7/p1lpX9kp99oNw0qnT6iiaU6QYuP48Yiv59/r9c7rdf3U9f3XkfOnVhceHh7eaOrX0339nLzs+qlncCWjXT+Fh4eHd46XTO46SOw39yT81CEHDw8P71d5yWa9SYLz8fHw8PD+F94+MFyn13mxAw8PD+8beMlws/uzhcsLIrfVWvDw8PBiXpvsfsPng+d7eHh4eItT9dnmuw8SSSIezRAPDw/vAK9tBchJm0OvpHBcBAw8PDy8Y7ykeJq/JgkP+XLkrWD/GAEPDw/vGG8WHlp8+5ZZ+v5I1gYPDw9vwWuPsmYb+qayuknN8fDw8O7lzf7wJ4XXYYPUaPl+nAkeHh7eR3j5EC1yX/y9Tsrx8PDwPsObTS5vXc2LEat/A+1viIeHh7fgJY+1pYFZmJkx3tzHw8PDO8BrkcOiwIGSxLDpCg8PD2/Nm010kyIn35wl5VFKjYeHh7fm7UltEWEz3bb8gYeHh3eCd2Lo/baeV6DfpNd4eHh4h3l549T+qeTODY0FeHh4eB/kzaY42+7bQm1ezsDDw8M7wWuPr/b32wQ6b194k1jj4eHh3crLJ5qkvEkx4lFe7UJE0QYPDw9vwWu34E3z1qyFa7PceHh4eKd5eaqaHHe1x2xtm0IUfvDw8PAO8KJj+Dhpbnl5iGpbvvDw8PDO8fJtPcdvwkOLqTvL8PDw8A7zNsg21Z4Veev6NB4eHt6C9yyv2SuvSwltmEkKED/2lOHh4eGtebNtt12OfJk2bVWrHwMPDw+v5OVTTI6dZg0E+aFa3c6Fh4eHd4zXFmTvaizYt3BFTQN4eHh4X8Nrc/Y8ab6edFE0wcPDw/tVXrsQyRRnBd9i6fHw8PCO8fJCwL7k2rYarFJwPDw8vAO82QFYPnReis0D0mYh8PDw8Ba8P+ZpzxQJzq/GAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 </script>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -398,7 +491,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 </li>
 </template>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/js/search.js" async></script>
 
 
 
@@ -408,6 +501,23 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 

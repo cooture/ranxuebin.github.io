@@ -13,8 +13,6 @@
     
     
     
-    <link rel="canonical" href="http://ranxb.com/categories/vim/">
-    
     
     <title>Categories: vim | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -37,7 +35,7 @@
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="http://unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -60,7 +58,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">冉学斌</h5>
-          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -161,12 +159,16 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -183,22 +185,22 @@
 <div class="tabs-bar container">
     <nav class="tags-list">
         <a href="/categories" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">全て</a>
+            ">All</a>
         
 
-            <a href="/categories/Android/" style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">Android</a>
-
-        
-
-            <a href="/categories/Linux/" style="-webkit-order:11;order:11" class="tags-list-item waves-effect waves-button waves-light">Linux</a>
+            <a href="/categories/Linux/" style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">Linux</a>
 
         
 
-            <a href="/categories/numpy/" style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">numpy</a>
+            <a href="/categories/烧录/" style="-webkit-order:11;order:11" class="tags-list-item waves-effect waves-button waves-light">烧录</a>
 
         
 
-            <a href="/categories/烧录/" style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">烧录</a>
+            <a href="/categories/Android/" style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">Android</a>
+
+        
+
+            <a href="/categories/numpy/" style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">numpy</a>
 
         
 
@@ -230,11 +232,11 @@
 
         
 
-            <a href="/categories/树莓派/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">树莓派</a>
+            <a href="/categories/笔记/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">笔记</a>
 
         
 
-            <a href="/categories/笔记/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">笔记</a>
+            <a href="/categories/树莓派/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">树莓派</a>
 
         
 
@@ -325,7 +327,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -345,14 +347,60 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/categories/vim/&title=Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/categories/vim/&title=Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/categories/vim/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Ran Xuebin's Blog&url=http://ranxb.cn/categories/vim/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/categories/vim/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3ay46DMAwFUP7/p+m2Ei29jsFiRidLXjlhYcV2ti0e+2F8u/5+9/jM8fp2x8DFxW1z99Nxzs2/cCQmy/6wJFxc3EHut4ix9kzn3R82XFzcR3L3eJx/DRcX9z9xk01Pkt7g4uI+n5skP+dljirr9lwNFxe3wb12yn5SdFl9FxcXd4m7F0e+9emXWT+8i4uLO8LNA0reaMnp1XlxcXFnuEnhMi+adI5ZRF/DxcUd4XYaG/khrWqpJdri4OLi3sxNmiVJJMkpaz8CFxd3kttvkV5bBFnM1XBxcW/griUzSXi6qimLi4v7BG5rxxTXa8tHPXBxcce5ecuk3z5ZexIXF3eGW01g1ujVkmuyhcLFxb2Pm4SYvO2ab3eqiRAuLu48N2+i5AXTVpKT13dxcXEHueebnnwx0XGKfC5cXNxBbr9BUg1khW1NteaKi4vb4O7FUWiFFhcQpUy4uLgj3Gp5ojNZf8G4uLiT3Ly9mh+lWgtz0X/FxcUd5CaI6vLWkp9yKwUXF/cB3E546iRguLi4f4WbN0jycPbj1+Di4g5yO1uWZPp+QoWLizvJXUxCGsWR5O4F9V1cXNwV7guB4QEvpKCyLgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -372,7 +420,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 </li>
 </template>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/js/search.js" async></script>
 
 
 
@@ -382,6 +430,23 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 

@@ -13,8 +13,6 @@
     
     
     
-    <link rel="canonical" href="http://ranxb.com/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/">
-    
     
     <title>数字电路第六章：同步时序逻辑电路——上（状态编码之前） | Ran Xuebin&#39;s Blog | 永远相信美好的事情即将发生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -65,7 +63,7 @@
         <link rel="alternate" type="application/atom+xml" title="Ran Xuebin&#39;s Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="http://unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -88,7 +86,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">冉学斌</h5>
-          <a href="mailto:ranxuebin@ranxb.cn" title="ranxuebin@ranxb.cn" class="mail">ranxuebin@ranxb.cn</a>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
         </hgroup>
       </div>
     </div>
@@ -189,12 +187,16 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
         </div>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -398,7 +400,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2018-01-06T08:23:13.442Z" itemprop="dateUpdated">2018-01-06 16:23:13</time>
+    Last updated: <time datetime="2018-01-06T08:23:13.442Z" itemprop="dateUpdated">2018-01-06 16:23:13</time>
 </span><br>
 
 
@@ -428,6 +430,51 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/&title=《数字电路第六章：同步时序逻辑电路——上（状态编码之前）》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/&title=《数字电路第六章：同步时序逻辑电路——上（状态编码之前）》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路第六章：同步时序逻辑电路——上（状态编码之前）》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -489,11 +536,11 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -525,7 +572,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -545,14 +592,60 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/&title=《数字电路第六章：同步时序逻辑电路——上（状态编码之前）》 — Ran Xuebin's Blog&pic=http://ranxb.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/&title=《数字电路第六章：同步时序逻辑电路——上（状态编码之前）》 — Ran Xuebin's Blog&source=冉学斌的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数字电路第六章：同步时序逻辑电路——上（状态编码之前）》 — Ran Xuebin's Blog&url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/&via=http://ranxb.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://ranxb.cn/2018/01/06/数字电路第六章：同步时序逻辑电路——上（状态编码之前）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD6klEQVR42u3aS27jQAwFwLn/pTPrQUbOeyRtZFFaGYostaoD0Pz8+RMfX/GR3+Hpmu/Xt6v6frfjAwcOHDhwLF719a1fn5+RPd0nJ3595of14MCBAweOI45Z2Ht9vv1uuwGvPw+3EwcOHDhwfJwjCZlJwEvW0AbdBA4HDhw4cPwejs1fc8R9CMeBAwcOHL+BIykOJqXDNq1qk8OkjPihWikOHDhw4Ogi3bAk9zs/v2W+AwcOHDhwlGMH+WBcElyT0NiW/Gah9/FdcODAgQPHmmOTgM0KhfugnofSdpAOBw4cOHDsOdoQuCnwJYW59s7Hgw44cODAgeNyZqwYSktSpjaIts2tfNvOmkw4cODAgSPgaLO9tsGz35+8gLj5j3hM4XDgwIEDR8kxC5Ntu6hN4fLm1iyZjN4aBw4cOHAccbTNm32jqH3t5PzBCB0OHDhw4Bhx5GW4doCgvU8SjJMNaxO/x4wWBw4cOHAccSQ3XXW0Ri/TFgfznxT/fAsHDhw4cBxx7AcO8sQsf7G8HDkrEf7nGhw4cODAccqxWfomDM9CYx62i5IlDhw4cOA44tikZHkJLy8RJkE338LiPA4cOHDgWHPshwY24XM2DLEq/812GAcOHDhwxBybQNuWCPdPSfg268eBAwcOHFccbaOoLdXNGlGb0uSwfIkDBw4cONYc72j25Inf5v7Jc/PPRYKHAwcOHDhectyOnc1KeG0gz1lrRBw4cODAseaYdVtamlni1KZnZyN6OHDgwIHjbRxfwZGzbgJqO1SXbx4OHDhw4Ljl2AeqpLG0T7T260lSQRw4cODAccWRP2BGmb9wkgrmwTtvTT3WSnHgwIEDx4KjbefMinrvLkdugjoOHDhw4LjiuGrw5C+ZF/JmTbIibcOBAwcOHKccSTCblQLzJG1PkG9qkabiwIEDB441R77cPJS2C50tui1TFgEeBw4cOHCUHPsRhLyxlKdVbYDPgX74cYADBw4cOI44koLabHwhT/ba4mDSZGq3HAcOHDhwXHG0A2qzoYe2rbUvOOaB9rELhwMHDhw4RhyzAt8sxUrOJ9swK0H+sH4cOHDgwLHmaAfLZmEvL+rlSVe+5vrAgQMHDhwLjoO0pywstiNu+TbkcI8bgwMHDhw41hz7GNSOsrWFxbwIeFW4xIEDBw4ce45ZcG0bSLNkLL9+E2hx4MCBA8c7OGatoPphcVBvg+5VSRQHDhw4cHySIw+ceSqYoCQlwjZFfHw6Dhw4cOD4IEc+drBpEeUpXJKk5c0tHDhw4MBxy9E+IKecgbZtrfbKs7YTDhw4cOBYDDRs0ryrcDgrRK4G43DgwIEDR8rxF9CE2LtfUudsAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 </script>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -572,7 +665,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 </li>
 </template>
 
-<script src="http://unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/js/search.js" async></script>
 
 
 
@@ -582,6 +675,23 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 
