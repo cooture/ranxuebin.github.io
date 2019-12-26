@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ranxb.cn/"/>
-  <updated>2019-12-16T15:50:56.244Z</updated>
+  <updated>2019-12-26T09:22:40.936Z</updated>
   <id>http://ranxb.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>indigo_problems</title>
+    <link href="http://ranxb.cn/2019/12/26/indigo-problems/"/>
+    <id>http://ranxb.cn/2019/12/26/indigo-problems/</id>
+    <published>2019-12-26T09:15:18.000Z</published>
+    <updated>2019-12-26T09:22:40.936Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="indigo主题的小问题"><a href="#indigo主题的小问题" class="headerlink" title="indigo主题的小问题"></a>indigo主题的小问题</h1><blockquote><p>前两天发现博客的样式表失效了，恰好遇到自己把服务器跑崩了，以为是自己的锅，后来发现github的托管也有问题，最后定位到是远程样式表的锅，这回把它改了，改成本地的。</p></blockquote><p><code>themes/indigo/scripts/plugins.js</code>中有一段是这样的</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = <span class="function">(<span class="params">path, cache, ext</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (cache) &#123;</span><br><span class="line">        <span class="keyword">const</span> minFile = <span class="string">`<span class="subst">$&#123;path&#125;</span><span class="subst">$&#123;ext === <span class="string">'.js'</span> ? <span class="string">'.min'</span> : <span class="string">''</span>&#125;</span><span class="subst">$&#123;ext&#125;</span>`</span></span><br><span class="line">        <span class="keyword">return</span> hexo.theme.config.cdn ? <span class="string">`//unpkg.com/<span class="subst">$&#123;name&#125;</span>@latest<span class="subst">$&#123;minFile&#125;</span>`</span> : <span class="string">`<span class="subst">$&#123;minFile&#125;</span>?v=<span class="subst">$&#123;version&#125;</span>`</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> path + ext</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我感觉有病，本地的就用本地样式表，发布的时候就用远程样式表，太🐶了。</p><p>索性改为</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = <span class="function">(<span class="params">path, cache, ext</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> path + ext</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后还有一个小问题，不知道图片可不可以自动打包到发布文档里。如果可以的话，这个文件夹得保存好了啊。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/Users/mac/Library/Application" alt="image-20191226172150585" title="Support/typora-user-images/image-20191226172150585.png">                </div>                <div class="image-caption">Support/typora-user-images/image-20191226172150585.png</div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;indigo主题的小问题&quot;&gt;&lt;a href=&quot;#indigo主题的小问题&quot; class=&quot;headerlink&quot; title=&quot;indigo主题的小问题&quot;&gt;&lt;/a&gt;indigo主题的小问题&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;前两天发现博客的样式表失效了，恰好
+      
+    
+    </summary>
+    
+      <category term="-hexo" scheme="http://ranxb.cn/categories/hexo/"/>
+    
+    
+      <category term="随笔" scheme="http://ranxb.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>amazing_sorting</title>
@@ -65,9 +91,9 @@
       <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
-    
       <category term="ELK" scheme="http://ranxb.cn/tags/ELK/"/>
+    
+      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
     
   </entry>
   
@@ -120,9 +146,9 @@
       <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
     
     
-      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
-    
       <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+    
+      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
     
       <category term="install" scheme="http://ranxb.cn/tags/install/"/>
     
@@ -205,9 +231,9 @@
       <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
     
     
-      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
-    
       <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+    
+      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
     
   </entry>
   
@@ -232,9 +258,9 @@
       <category term="vim" scheme="http://ranxb.cn/categories/vim/"/>
     
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
-    
       <category term="vim" scheme="http://ranxb.cn/tags/vim/"/>
+    
+      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
     
   </entry>
   
@@ -525,33 +551,6 @@
       <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
     
       <category term="FTP" scheme="http://ranxb.cn/tags/FTP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux的用户及用户组</title>
-    <link href="http://ranxb.cn/2018/02/07/Linux%E7%9A%84%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84/"/>
-    <id>http://ranxb.cn/2018/02/07/Linux的用户及用户组/</id>
-    <published>2018-02-07T13:12:41.000Z</published>
-    <updated>2018-02-07T13:18:16.931Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Linux的用户及用户组"><a href="#Linux的用户及用户组" class="headerlink" title="Linux的用户及用户组"></a>Linux的用户及用户组</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><ul><li><code>/etc/group</code>  组信息配置文件</li><li><code>/etc/passwd</code> 用户信息配置文件</li><li><code>/etc/shadow</code> 用户密码配置文件</li><li><code>/etc/gshadow</code> 组密码配置文件</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="a.jpg" alt title>                </div>                <div class="image-caption"></div>            </figure>   <p><img src="b.jpg" alt></p><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="组操作"><a href="#组操作" class="headerlink" title="组操作"></a>组操作</h3><p><code>groupadd NEWGROUP</code>添加一个组<br><code>groupadd -g 888 NEWGROUP</code>添加一个组并指定UID<br><code>grouddel NEWGROUP</code>删除一个组。<br><code>groupmod -n NEWGROUP OLDGROUP</code>更改组名<br><code>groupmod -g 888 NEWGROUP</code>更改组UID</p><h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><p><code>useradd -g GROUP USER</code>添加一个指定用户组的用户<br><code>useradd -d /home/xxx USER</code>添加一个指定目录的的用户<br><code>userdel USER</code>删除一个用户<br><code>userdel -r USER</code>同时删除用户主目录<br><code>usermod -l NEWNAME USER</code>更改用户名<br><code>usermod -c BEIZHU USER</code>加备注<br><code>usermod -d /home/yyy UESR</code>改用户主目录<br><code>usermod -g GROUP USER</code>改组</p><blockquote><p>在<code>/etc/</code>下创建<code>nologin</code>文件其他用户均不能登录</p></blockquote><h2 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h2><h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><blockquote><p>主要组和附属组</p></blockquote><p><code>gpasswd -a USER GROUP,GROUP2</code>添加附属组<br><code>newgrp GROUP</code>切换用户组,此时可能需要组密码<br><code>gpasswd -d USER GROUP</code>删除附属组<br><code>useradd -g 主要组 -G 附属组，附属组 USER</code>新建时指定用户组<br><code>gpasswd GROUP</code>修改组密码</p><h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p><code>passwd -l USER</code>锁定账户<br><code>passwd -u USER</code>解锁账户<br><code>passwd -d USER</code>清除密码</p><h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><p><code>su USER</code> 切换账户</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Linux的用户及用户组&quot;&gt;&lt;a href=&quot;#Linux的用户及用户组&quot; class=&quot;headerlink&quot; title=&quot;Linux的用户及用户组&quot;&gt;&lt;/a&gt;Linux的用户及用户组&lt;/h1&gt;&lt;h2 id=&quot;配置文件&quot;&gt;&lt;a href=&quot;#配置文件&quot; cla
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
-    
-      <category term="用户" scheme="http://ranxb.cn/tags/%E7%94%A8%E6%88%B7/"/>
     
   </entry>
   
