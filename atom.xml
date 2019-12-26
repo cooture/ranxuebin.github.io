@@ -5,9 +5,9 @@
   <subtitle>永远相信美好的事情即将发生</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://ranxb.cn/"/>
-  <updated>2019-12-26T09:22:40.936Z</updated>
-  <id>http://ranxb.cn/</id>
+  <link href="https://ranxb.cn/"/>
+  <updated>2019-12-26T09:28:12.739Z</updated>
+  <id>https://ranxb.cn/</id>
   
   <author>
     <name>冉学斌</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>indigo_problems</title>
-    <link href="http://ranxb.cn/2019/12/26/indigo-problems/"/>
-    <id>http://ranxb.cn/2019/12/26/indigo-problems/</id>
+    <link href="https://ranxb.cn/2019/12/26/indigo-problems/"/>
+    <id>https://ranxb.cn/2019/12/26/indigo-problems/</id>
     <published>2019-12-26T09:15:18.000Z</published>
-    <updated>2019-12-26T09:22:40.936Z</updated>
+    <updated>2019-12-26T09:28:12.739Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="indigo主题的小问题"><a href="#indigo主题的小问题" class="headerlink" title="indigo主题的小问题"></a>indigo主题的小问题</h1><blockquote><p>前两天发现博客的样式表失效了，恰好遇到自己把服务器跑崩了，以为是自己的锅，后来发现github的托管也有问题，最后定位到是远程样式表的锅，这回把它改了，改成本地的。</p></blockquote><p><code>themes/indigo/scripts/plugins.js</code>中有一段是这样的</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = <span class="function">(<span class="params">path, cache, ext</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (cache) &#123;</span><br><span class="line">        <span class="keyword">const</span> minFile = <span class="string">`<span class="subst">$&#123;path&#125;</span><span class="subst">$&#123;ext === <span class="string">'.js'</span> ? <span class="string">'.min'</span> : <span class="string">''</span>&#125;</span><span class="subst">$&#123;ext&#125;</span>`</span></span><br><span class="line">        <span class="keyword">return</span> hexo.theme.config.cdn ? <span class="string">`//unpkg.com/<span class="subst">$&#123;name&#125;</span>@latest<span class="subst">$&#123;minFile&#125;</span>`</span> : <span class="string">`<span class="subst">$&#123;minFile&#125;</span>?v=<span class="subst">$&#123;version&#125;</span>`</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> path + ext</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我感觉有病，本地的就用本地样式表，发布的时候就用远程样式表，太🐶了。</p><p>索性改为</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = <span class="function">(<span class="params">path, cache, ext</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> path + ext</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后还有一个小问题，不知道图片可不可以自动打包到发布文档里。如果可以的话，这个文件夹得保存好了啊。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/Users/mac/Library/Application" alt="image-20191226172150585" title="Support/typora-user-images/image-20191226172150585.png">                </div>                <div class="image-caption">Support/typora-user-images/image-20191226172150585.png</div>            </figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="indigo主题的小问题"><a href="#indigo主题的小问题" class="headerlink" title="indigo主题的小问题"></a>indigo主题的小问题</h1><blockquote><p>前两天发现博客的样式表失效了，恰好遇到自己把服务器跑崩了，以为是自己的锅，后来发现github的托管也有问题，最后定位到是远程样式表的锅，这回把它改了，改成本地的。</p></blockquote><p><code>themes/indigo/scripts/plugins.js</code>中有一段是这样的</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = <span class="function">(<span class="params">path, cache, ext</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (cache) &#123;</span><br><span class="line">        <span class="keyword">const</span> minFile = <span class="string">`<span class="subst">$&#123;path&#125;</span><span class="subst">$&#123;ext === <span class="string">'.js'</span> ? <span class="string">'.min'</span> : <span class="string">''</span>&#125;</span><span class="subst">$&#123;ext&#125;</span>`</span></span><br><span class="line">        <span class="keyword">return</span> hexo.theme.config.cdn ? <span class="string">`//unpkg.com/<span class="subst">$&#123;name&#125;</span>@latest<span class="subst">$&#123;minFile&#125;</span>`</span> : <span class="string">`<span class="subst">$&#123;minFile&#125;</span>?v=<span class="subst">$&#123;version&#125;</span>`</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> path + ext</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我感觉有病，本地的就用本地样式表，发布的时候就用远程样式表，太🐶了。</p><p>索性改为</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = <span class="function">(<span class="params">path, cache, ext</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> path + ext</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后还有一个小问题，不知道图片可不可以自动打包到发布文档里。如果可以的话，这个文件夹得保存好了啊。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/Users/mac/Library/Application" alt="image-20191226172150585" title="Support/typora-user-images/image-20191226172150585.png">                </div>                <div class="image-caption">Support/typora-user-images/image-20191226172150585.png</div>            </figure><ul><li>看来不行，我需要让他可以自动获取图片的地址然后自己挪过去。这个坑慢慢填吧。</li></ul>]]></content>
     
     <summary type="html">
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="-hexo" scheme="http://ranxb.cn/categories/hexo/"/>
+      <category term="-hexo" scheme="https://ranxb.cn/categories/hexo/"/>
     
     
-      <category term="随笔" scheme="http://ranxb.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://ranxb.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>amazing_sorting</title>
-    <link href="http://ranxb.cn/2019/12/16/amazing-sorting/"/>
-    <id>http://ranxb.cn/2019/12/16/amazing-sorting/</id>
+    <link href="https://ranxb.cn/2019/12/16/amazing-sorting/"/>
+    <id>https://ranxb.cn/2019/12/16/amazing-sorting/</id>
     <published>2019-12-16T12:54:40.000Z</published>
     <updated>2019-12-16T15:50:56.244Z</updated>
     
@@ -61,19 +61,19 @@
     
     </summary>
     
-      <category term="sort" scheme="http://ranxb.cn/categories/sort/"/>
+      <category term="sort" scheme="https://ranxb.cn/categories/sort/"/>
     
     
-      <category term="python" scheme="http://ranxb.cn/tags/python/"/>
+      <category term="python" scheme="https://ranxb.cn/tags/python/"/>
     
-      <category term="sort" scheme="http://ranxb.cn/tags/sort/"/>
+      <category term="sort" scheme="https://ranxb.cn/tags/sort/"/>
     
   </entry>
   
   <entry>
     <title>ELK-Install</title>
-    <link href="http://ranxb.cn/2019/12/15/ELK-Install/"/>
-    <id>http://ranxb.cn/2019/12/15/ELK-Install/</id>
+    <link href="https://ranxb.cn/2019/12/15/ELK-Install/"/>
+    <id>https://ranxb.cn/2019/12/15/ELK-Install/</id>
     <published>2019-12-15T08:01:27.000Z</published>
     <updated>2019-12-16T15:12:23.963Z</updated>
     
@@ -88,19 +88,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
+      <category term="Linux" scheme="https://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="ELK" scheme="http://ranxb.cn/tags/ELK/"/>
+      <category term="ELK" scheme="https://ranxb.cn/tags/ELK/"/>
     
-      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+      <category term="Linux" scheme="https://ranxb.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>smokeping_install</title>
-    <link href="http://ranxb.cn/2019/12/09/smokeping-install/"/>
-    <id>http://ranxb.cn/2019/12/09/smokeping-install/</id>
+    <link href="https://ranxb.cn/2019/12/09/smokeping-install/"/>
+    <id>https://ranxb.cn/2019/12/09/smokeping-install/</id>
     <published>2019-12-09T10:34:54.000Z</published>
     <updated>2019-12-10T07:35:55.332Z</updated>
     
@@ -116,19 +116,19 @@
     
     </summary>
     
-      <category term="linux" scheme="http://ranxb.cn/categories/linux/"/>
+      <category term="linux" scheme="https://ranxb.cn/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+      <category term="linux" scheme="https://ranxb.cn/tags/linux/"/>
     
-      <category term="smokeping" scheme="http://ranxb.cn/tags/smokeping/"/>
+      <category term="smokeping" scheme="https://ranxb.cn/tags/smokeping/"/>
     
   </entry>
   
   <entry>
     <title>zsh&amp;oh-my-zsh</title>
-    <link href="http://ranxb.cn/2019/12/08/zsh-oh-my-zsh/"/>
-    <id>http://ranxb.cn/2019/12/08/zsh-oh-my-zsh/</id>
+    <link href="https://ranxb.cn/2019/12/08/zsh-oh-my-zsh/"/>
+    <id>https://ranxb.cn/2019/12/08/zsh-oh-my-zsh/</id>
     <published>2019-12-08T12:41:16.000Z</published>
     <updated>2019-12-08T13:38:29.427Z</updated>
     
@@ -143,21 +143,21 @@
     
     </summary>
     
-      <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
+      <category term="zsh" scheme="https://ranxb.cn/categories/zsh/"/>
     
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+      <category term="zsh" scheme="https://ranxb.cn/tags/zsh/"/>
     
-      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
+      <category term="linux" scheme="https://ranxb.cn/tags/linux/"/>
     
-      <category term="install" scheme="http://ranxb.cn/tags/install/"/>
+      <category term="install" scheme="https://ranxb.cn/tags/install/"/>
     
   </entry>
   
   <entry>
     <title>Numpy</title>
-    <link href="http://ranxb.cn/2019/12/08/Numpy/"/>
-    <id>http://ranxb.cn/2019/12/08/Numpy/</id>
+    <link href="https://ranxb.cn/2019/12/08/Numpy/"/>
+    <id>https://ranxb.cn/2019/12/08/Numpy/</id>
     <published>2019-12-08T12:32:53.000Z</published>
     <updated>2019-12-08T12:36:31.298Z</updated>
     
@@ -172,19 +172,19 @@
     
     </summary>
     
-      <category term="numpy" scheme="http://ranxb.cn/categories/numpy/"/>
+      <category term="numpy" scheme="https://ranxb.cn/categories/numpy/"/>
     
     
-      <category term="numpy" scheme="http://ranxb.cn/tags/numpy/"/>
+      <category term="numpy" scheme="https://ranxb.cn/tags/numpy/"/>
     
-      <category term="python" scheme="http://ranxb.cn/tags/python/"/>
+      <category term="python" scheme="https://ranxb.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>swfit_Simple_Guide</title>
-    <link href="http://ranxb.cn/2019/10/02/swfit-Simple-Guide/"/>
-    <id>http://ranxb.cn/2019/10/02/swfit-Simple-Guide/</id>
+    <link href="https://ranxb.cn/2019/10/02/swfit-Simple-Guide/"/>
+    <id>https://ranxb.cn/2019/10/02/swfit-Simple-Guide/</id>
     <published>2019-10-02T07:53:51.000Z</published>
     <updated>2019-10-02T09:09:53.930Z</updated>
     
@@ -203,16 +203,16 @@
     </summary>
     
     
-      <category term="swift" scheme="http://ranxb.cn/tags/swift/"/>
+      <category term="swift" scheme="https://ranxb.cn/tags/swift/"/>
     
-      <category term="Guide" scheme="http://ranxb.cn/tags/Guide/"/>
+      <category term="Guide" scheme="https://ranxb.cn/tags/Guide/"/>
     
   </entry>
   
   <entry>
     <title>zsh_is_too_slow</title>
-    <link href="http://ranxb.cn/2019/09/30/zsh-is-too-slow/"/>
-    <id>http://ranxb.cn/2019/09/30/zsh-is-too-slow/</id>
+    <link href="https://ranxb.cn/2019/09/30/zsh-is-too-slow/"/>
+    <id>https://ranxb.cn/2019/09/30/zsh-is-too-slow/</id>
     <published>2019-09-30T11:54:28.000Z</published>
     <updated>2019-09-30T12:06:42.824Z</updated>
     
@@ -228,19 +228,19 @@
     
     </summary>
     
-      <category term="zsh" scheme="http://ranxb.cn/categories/zsh/"/>
+      <category term="zsh" scheme="https://ranxb.cn/categories/zsh/"/>
     
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+      <category term="zsh" scheme="https://ranxb.cn/tags/zsh/"/>
     
-      <category term="zsh" scheme="http://ranxb.cn/tags/zsh/"/>
+      <category term="linux" scheme="https://ranxb.cn/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>vim笔记</title>
-    <link href="http://ranxb.cn/2019/09/30/vim/"/>
-    <id>http://ranxb.cn/2019/09/30/vim/</id>
+    <link href="https://ranxb.cn/2019/09/30/vim/"/>
+    <id>https://ranxb.cn/2019/09/30/vim/</id>
     <published>2019-09-30T11:00:51.000Z</published>
     <updated>2019-10-01T14:04:04.423Z</updated>
     
@@ -255,19 +255,19 @@
     
     </summary>
     
-      <category term="vim" scheme="http://ranxb.cn/categories/vim/"/>
+      <category term="vim" scheme="https://ranxb.cn/categories/vim/"/>
     
     
-      <category term="vim" scheme="http://ranxb.cn/tags/vim/"/>
+      <category term="linux" scheme="https://ranxb.cn/tags/linux/"/>
     
-      <category term="linux" scheme="http://ranxb.cn/tags/linux/"/>
+      <category term="vim" scheme="https://ranxb.cn/tags/vim/"/>
     
   </entry>
   
   <entry>
     <title>linux后台运行脚本的指令</title>
-    <link href="http://ranxb.cn/2019/07/19/howtorunscriptonlinux/"/>
-    <id>http://ranxb.cn/2019/07/19/howtorunscriptonlinux/</id>
+    <link href="https://ranxb.cn/2019/07/19/howtorunscriptonlinux/"/>
+    <id>https://ranxb.cn/2019/07/19/howtorunscriptonlinux/</id>
     <published>2019-07-19T13:27:14.000Z</published>
     <updated>2019-07-19T13:34:05.884Z</updated>
     
@@ -286,15 +286,15 @@
     
     </summary>
     
-      <category term="脚本" scheme="http://ranxb.cn/categories/%E8%84%9A%E6%9C%AC/"/>
+      <category term="脚本" scheme="https://ranxb.cn/categories/%E8%84%9A%E6%9C%AC/"/>
     
     
   </entry>
   
   <entry>
     <title>毛概下重点整理</title>
-    <link href="http://ranxb.cn/2019/06/22/%E6%AF%9B%E6%A6%82%E4%B8%8B%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86/"/>
-    <id>http://ranxb.cn/2019/06/22/毛概下重点整理/</id>
+    <link href="https://ranxb.cn/2019/06/22/%E6%AF%9B%E6%A6%82%E4%B8%8B%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86/"/>
+    <id>https://ranxb.cn/2019/06/22/毛概下重点整理/</id>
     <published>2019-06-21T16:16:11.000Z</published>
     <updated>2019-06-21T17:00:31.489Z</updated>
     
@@ -310,15 +310,15 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://ranxb.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://ranxb.cn/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>记一次微信小程序开发的经历</title>
-    <link href="http://ranxb.cn/2019/06/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/"/>
-    <id>http://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/</id>
+    <link href="https://ranxb.cn/2019/06/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/"/>
+    <id>https://ranxb.cn/2019/06/05/记一次微信小程序开发的经历/</id>
     <published>2019-06-05T02:38:21.000Z</published>
     <updated>2019-06-05T02:38:21.734Z</updated>
     
@@ -334,15 +334,15 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://ranxb.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://ranxb.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
     <title>MySQL中文的坑</title>
-    <link href="http://ranxb.cn/2019/06/04/MySQL%E4%B8%AD%E6%96%87%E7%9A%84%E5%9D%91/"/>
-    <id>http://ranxb.cn/2019/06/04/MySQL中文的坑/</id>
+    <link href="https://ranxb.cn/2019/06/04/MySQL%E4%B8%AD%E6%96%87%E7%9A%84%E5%9D%91/"/>
+    <id>https://ranxb.cn/2019/06/04/MySQL中文的坑/</id>
     <published>2019-06-04T07:28:46.000Z</published>
     <updated>2019-06-04T07:28:46.605Z</updated>
     
@@ -365,8 +365,8 @@
   
   <entry>
     <title>hexo自动发布部署同步脚本</title>
-    <link href="http://ranxb.cn/2019/04/20/hexoautodeploy/"/>
-    <id>http://ranxb.cn/2019/04/20/hexoautodeploy/</id>
+    <link href="https://ranxb.cn/2019/04/20/hexoautodeploy/"/>
+    <id>https://ranxb.cn/2019/04/20/hexoautodeploy/</id>
     <published>2019-04-19T18:21:01.000Z</published>
     <updated>2019-04-19T18:21:01.972Z</updated>
     
@@ -382,15 +382,15 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
+      <category term="hexo" scheme="https://ranxb.cn/categories/hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>HexoClient可视化</title>
-    <link href="http://ranxb.cn/2019/04/19/hexoclienttest/"/>
-    <id>http://ranxb.cn/2019/04/19/hexoclienttest/</id>
+    <link href="https://ranxb.cn/2019/04/19/hexoclienttest/"/>
+    <id>https://ranxb.cn/2019/04/19/hexoclienttest/</id>
     <published>2019-04-19T07:20:41.000Z</published>
     <updated>2019-04-19T07:20:48.430Z</updated>
     
@@ -406,15 +406,15 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://ranxb.cn/categories/hexo/"/>
+      <category term="hexo" scheme="https://ranxb.cn/categories/hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>甘肃政务服务网证件办理自动查询</title>
-    <link href="http://ranxb.cn/2018/07/06/%E7%94%98%E8%82%83%E6%94%BF%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%BD%91%E8%AF%81%E4%BB%B6%E5%8A%9E%E7%90%86%E8%87%AA%E5%8A%A8%E6%9F%A5%E8%AF%A2/"/>
-    <id>http://ranxb.cn/2018/07/06/甘肃政务服务网证件办理自动查询/</id>
+    <link href="https://ranxb.cn/2018/07/06/%E7%94%98%E8%82%83%E6%94%BF%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%BD%91%E8%AF%81%E4%BB%B6%E5%8A%9E%E7%90%86%E8%87%AA%E5%8A%A8%E6%9F%A5%E8%AF%A2/"/>
+    <id>https://ranxb.cn/2018/07/06/甘肃政务服务网证件办理自动查询/</id>
     <published>2018-07-06T11:07:45.000Z</published>
     <updated>2018-07-06T11:23:41.506Z</updated>
     
@@ -430,21 +430,21 @@
     
     </summary>
     
-      <category term="脚本" scheme="http://ranxb.cn/categories/%E8%84%9A%E6%9C%AC/"/>
+      <category term="脚本" scheme="https://ranxb.cn/categories/%E8%84%9A%E6%9C%AC/"/>
     
     
-      <category term="脚本" scheme="http://ranxb.cn/tags/%E8%84%9A%E6%9C%AC/"/>
+      <category term="脚本" scheme="https://ranxb.cn/tags/%E8%84%9A%E6%9C%AC/"/>
     
-      <category term="办证进度" scheme="http://ranxb.cn/tags/%E5%8A%9E%E8%AF%81%E8%BF%9B%E5%BA%A6/"/>
+      <category term="办证进度" scheme="https://ranxb.cn/tags/%E5%8A%9E%E8%AF%81%E8%BF%9B%E5%BA%A6/"/>
     
-      <category term="甘肃政务服务网" scheme="http://ranxb.cn/tags/%E7%94%98%E8%82%83%E6%94%BF%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%BD%91/"/>
+      <category term="甘肃政务服务网" scheme="https://ranxb.cn/tags/%E7%94%98%E8%82%83%E6%94%BF%E5%8A%A1%E6%9C%8D%E5%8A%A1%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>Mac OS下SD卡烧录镜像</title>
-    <link href="http://ranxb.cn/2018/06/05/Mac-OS%E4%B8%8BSD%E5%8D%A1%E7%83%A7%E5%BD%95%E9%95%9C%E5%83%8F/"/>
-    <id>http://ranxb.cn/2018/06/05/Mac-OS下SD卡烧录镜像/</id>
+    <link href="https://ranxb.cn/2018/06/05/Mac-OS%E4%B8%8BSD%E5%8D%A1%E7%83%A7%E5%BD%95%E9%95%9C%E5%83%8F/"/>
+    <id>https://ranxb.cn/2018/06/05/Mac-OS下SD卡烧录镜像/</id>
     <published>2018-06-05T03:21:57.000Z</published>
     <updated>2018-06-05T03:32:46.207Z</updated>
     
@@ -460,21 +460,21 @@
     
     </summary>
     
-      <category term="烧录" scheme="http://ranxb.cn/categories/%E7%83%A7%E5%BD%95/"/>
+      <category term="烧录" scheme="https://ranxb.cn/categories/%E7%83%A7%E5%BD%95/"/>
     
     
-      <category term="烧录" scheme="http://ranxb.cn/tags/%E7%83%A7%E5%BD%95/"/>
+      <category term="烧录" scheme="https://ranxb.cn/tags/%E7%83%A7%E5%BD%95/"/>
     
-      <category term="SD卡" scheme="http://ranxb.cn/tags/SD%E5%8D%A1/"/>
+      <category term="SD卡" scheme="https://ranxb.cn/tags/SD%E5%8D%A1/"/>
     
-      <category term="Mac" scheme="http://ranxb.cn/tags/Mac/"/>
+      <category term="Mac" scheme="https://ranxb.cn/tags/Mac/"/>
     
   </entry>
   
   <entry>
     <title>台湾科技大学自动查询审核结果的脚本</title>
-    <link href="http://ranxb.cn/2018/05/07/%E5%8F%B0%E6%B9%BE%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6%E8%87%AA%E5%8A%A8%E6%9F%A5%E8%AF%A2%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C%E7%9A%84%E8%84%9A%E6%9C%AC/"/>
-    <id>http://ranxb.cn/2018/05/07/台湾科技大学自动查询审核结果的脚本/</id>
+    <link href="https://ranxb.cn/2018/05/07/%E5%8F%B0%E6%B9%BE%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6%E8%87%AA%E5%8A%A8%E6%9F%A5%E8%AF%A2%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C%E7%9A%84%E8%84%9A%E6%9C%AC/"/>
+    <id>https://ranxb.cn/2018/05/07/台湾科技大学自动查询审核结果的脚本/</id>
     <published>2018-05-07T07:49:45.000Z</published>
     <updated>2018-05-07T07:55:00.771Z</updated>
     
@@ -490,19 +490,19 @@
     
     </summary>
     
-      <category term="脚本" scheme="http://ranxb.cn/categories/%E8%84%9A%E6%9C%AC/"/>
+      <category term="脚本" scheme="https://ranxb.cn/categories/%E8%84%9A%E6%9C%AC/"/>
     
     
-      <category term="脚本" scheme="http://ranxb.cn/tags/%E8%84%9A%E6%9C%AC/"/>
+      <category term="脚本" scheme="https://ranxb.cn/tags/%E8%84%9A%E6%9C%AC/"/>
     
-      <category term="台科" scheme="http://ranxb.cn/tags/%E5%8F%B0%E7%A7%91/"/>
+      <category term="台科" scheme="https://ranxb.cn/tags/%E5%8F%B0%E7%A7%91/"/>
     
   </entry>
   
   <entry>
     <title>无显示器条件下查询树莓派IP的方法</title>
-    <link href="http://ranxb.cn/2018/02/14/%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%9D%A1%E4%BB%B6%E4%B8%8B%E6%9F%A5%E8%AF%A2%E6%A0%91%E8%8E%93%E6%B4%BEIP%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/</id>
+    <link href="https://ranxb.cn/2018/02/14/%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E6%9D%A1%E4%BB%B6%E4%B8%8B%E6%9F%A5%E8%AF%A2%E6%A0%91%E8%8E%93%E6%B4%BEIP%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://ranxb.cn/2018/02/14/无显示器条件下查询树莓派IP的方法/</id>
     <published>2018-02-14T04:18:09.000Z</published>
     <updated>2018-02-14T04:19:48.296Z</updated>
     
@@ -518,19 +518,19 @@
     
     </summary>
     
-      <category term="树莓派" scheme="http://ranxb.cn/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+      <category term="树莓派" scheme="https://ranxb.cn/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
     
-      <category term="树莓派" scheme="http://ranxb.cn/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+      <category term="树莓派" scheme="https://ranxb.cn/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
-      <category term="Unix" scheme="http://ranxb.cn/tags/Unix/"/>
+      <category term="Unix" scheme="https://ranxb.cn/tags/Unix/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu上启动ftp服务</title>
-    <link href="http://ranxb.cn/2018/02/07/Ubuntu%E4%B8%8A%E5%90%AF%E5%8A%A8ftp%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/</id>
+    <link href="https://ranxb.cn/2018/02/07/Ubuntu%E4%B8%8A%E5%90%AF%E5%8A%A8ftp%E6%9C%8D%E5%8A%A1/"/>
+    <id>https://ranxb.cn/2018/02/07/Ubuntu上启动ftp服务/</id>
     <published>2018-02-07T13:13:49.000Z</published>
     <updated>2018-02-07T13:16:20.832Z</updated>
     
@@ -545,12 +545,12 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://ranxb.cn/categories/Linux/"/>
+      <category term="Linux" scheme="https://ranxb.cn/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://ranxb.cn/tags/Linux/"/>
+      <category term="Linux" scheme="https://ranxb.cn/tags/Linux/"/>
     
-      <category term="FTP" scheme="http://ranxb.cn/tags/FTP/"/>
+      <category term="FTP" scheme="https://ranxb.cn/tags/FTP/"/>
     
   </entry>
   
